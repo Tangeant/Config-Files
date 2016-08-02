@@ -1,4 +1,2 @@
-# hello-world
-Tutorial files
-
-I am learning github. It is exciting.
+# Config Dot Files
+My dot files for Manjaro
