@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cottage -c border_px 4 
+sxhkd -c ~/.config/sxhkd/sxhkdrc
