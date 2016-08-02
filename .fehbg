@@ -1,0 +1,2 @@
+#!/bin/sh
+feh  --image-bg black --bg-max '/home/chris/Pictures/space_woman-1920x1080.jpg' 

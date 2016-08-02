@@ -1,0 +1,5 @@
+Vim*useSchemes:		all
+Vim*sgiMode:		true
+Vim*useEnhancedFSB:	true
+:highlight Menu guibg=grey90
+:higlight Tooltip guibg=grey90
