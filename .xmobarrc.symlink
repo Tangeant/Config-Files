@@ -20,7 +20,38 @@ Config {
 	, pickBroadest	=	False
 	, persistent =		True
 
-	, commands =
-
-	[ Run Com "conky" ["-c ~/.conky/xmobarconky", "-q", "-i", "l"] "conky" 600]
+	, commands = [ Run uptime ["-S","true",
+															"-L","2","-H","7",
+															"--normal","white",
+															"--high","green",
+															"--low","lightblue"] 36000
+										. Run Weather "CYFC" ["-t","<station>: <tempC>C",
+																					"Pressure: <pressure>kPa",
+																					"Wind: <windKmh>kph",
+																					"Visibility: <visibility>km",
+                                          "-L","18","-H","25",
+                                          "--normal","green",
+                                          "--high","red",
+                                          "--low","lightblue"] 36000
+                    , Run Network "enp3s0" ["-L","0","-H","500",
+                                          "--normal","green","--high","red"] 10
+                    , Run multicpu ["-t","<autotal>%",
+																		"-L","3","-H","50",
+                               "--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <free>/<total> <usedratio>%"
+																	"-L","25","-H","75"
+																	"--normal","white",
+																	"--high","red",
+																	"--low","green"] 10
+                    , Run Swap [] 10
+                    , Run DiskU [("/", "<used>/<size>"), ("sdc5","<usedbar>"),
+																	("/home", "<used>/<size>", ("sdc6","<usedbar>")]
+																	["-L", "20", "-H", "60", "-m", "1", "-p", "3"] 20
+										, Run ThermalZone 0 ["-t","<id>:<temp>C"]30
+										, Run CpuFreq ["-t", "Freq:<cpu0>|<cpu1>GHz", "-L", "0", "-H", "3",
+																	"-l", "lightblue","-n","white","-h","red"] 50
+										, Run CoreTemp ["-t", "Temp:<core0>|<core1>C",
+																		"-L", "40", "-H", "60",
+																		"-l", "lightblue", "-n", "gray90", "-h", "red"] 50
+										]
 }
