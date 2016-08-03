@@ -63,7 +63,7 @@ region		= screen[1]:1920x1080+1920+0
 autorun		= ws[1]:roxterm -e tmux
 autorun		= ws[1]:~/.fehbg
 autorun		= ws[2]:vivaldi-stable
-#autorun		= ws[1]:xmobar -A=100
+autorun		= ws[1]:xmobar ~/.xmobarrc
 autorun		= ws[1]:update-checker 7200
 autorun		= ws[1]:compton -b
 autorun		= ws[1]:xfce4-power-manager
@@ -94,7 +94,7 @@ keyboard_mapping = ~/.spectrwm_us.conf
 
 # Validated default programs:
 # program[lock]		= xlock
- program[term]		= roxterm --separate -e tmux 
+ program[term]		= roxterm --separate -e tmux
  program[menu]		= dmenu_recent -fn $bar_font -nb $bar_color -nf $bar_font_color -sb $bar_border -sf $bar_color
 
 # To disable validation of the above, free the respective binding(s):
