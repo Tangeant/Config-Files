@@ -216,7 +216,7 @@ rofi.bw: 2
 rofi.padding: 2
 rofi.yoffset: 0
 rofi.xoffset: -2
-rofi.fixed-num-lines: true 
+rofi.fixed-num-lines: true
 rofi.hmode: false
 rofi.terminal: terminal
 rofi.ssh-set-title: true
@@ -230,7 +230,12 @@ rofi.bg:   #000000
 rofi.hlfg: #000000
 rofi.hlbg: #99CC99
 rofi.bc:   #99CC99
-rofi.disable-history: false 
-rofi.levenshtein-sort: true 
+rofi.disable-history: false
+rofi.levenshtein-sort: true
 rofi.switchers: window,run
 Xcursor.theme: breeze
+
+!dzen2 Settings
+dzen2.font:       -*-terminus-medium-*-*-*-*-*-*-*-*-*-*-*-*
+dzen2.foreground: #22EE11
+dzen2.background: black
