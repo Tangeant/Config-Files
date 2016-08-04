@@ -6,11 +6,13 @@ Config {
 	, position =	Bottom
 	, border =	TopB
 	, borderColor = "Grey"
+	, alpha = 200
 
 	--layout
 	, sepChar =	"%"
 	, alignSep =	"}{"
-	, template = "%conky%"
+	, template = "%uptime% | %multicpu% * %cpufreq% | %memory% * $swap% | %enp3s0% | }\
+								\{%disku% | %thermalzone% * %coretemp% | %cyfc%"
 
 	-- general behaviour
 	, lowerOnStart =	False
