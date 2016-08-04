@@ -1,0 +1,1 @@
+/home/chris/.config/fisherman/maia/fish_greeting.fish

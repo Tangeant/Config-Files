@@ -18,8 +18,8 @@ color_focus		= blue
 color_focus_maximized	= blue
 color_unfocus		= black
 color_unfocus_maximized	= black
-region_padding	= 4
-tile_gap		= 4
+region_padding		= 28
+tile_gap		= 6
 
 # Region containment
 # Distance window must be dragged/resized beyond the region edge before it is
@@ -63,20 +63,18 @@ region		= screen[1]:1920x1080+1920+0
 autorun		= ws[1]:roxterm -e tmux
 autorun		= ws[1]:~/.fehbg
 autorun		= ws[2]:vivaldi-stable
-autorun		= ws[1]:xmobar -d
+autorun		= ws[1]:~/.bin/xmobar_trayer_launch.sh
 autorun		= ws[1]:update-checker 7200
 autorun		= ws[1]:compton -b
 autorun		= ws[1]:xfce4-power-manager
 autorun   	= ws[5]:smuxi-server
 autorun		= ws[5]:smuxi-frontend-gnome
-autorun   	= ws[1]:trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 6 --transparent true --alpha 0 --tint 0x000000 --height 16
 #autorun		= ws[1]:stalonetray
-
-# autorun		= ws[2]:xombrero http://www.openbsd.org
+#autorun		= ws[2]:xombrero http://www.openbsd.org
 
 # Customize workspace layout at start
 # layout		= ws[1]:4:0:0:0:vertical
-layout		  = ws[2]:5:0:0:0:vertical
+layout		  	= ws[2]:6:0:0:0:vertical
 layout			= ws[3]:0:0:0:0:fullscreen
 # layout		= ws[4]:4:0:0:0:vertical_flip
 # layout		= ws[5]:0:0:0:0:horizontal_flip
