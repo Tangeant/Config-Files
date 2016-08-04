@@ -76,7 +76,7 @@ autorun   	= ws[1]:trayer --edge top --align right --SetDockType true --SetParti
 
 # Customize workspace layout at start
 # layout		= ws[1]:4:0:0:0:vertical
-layout		  = ws[2]:6:0:0:0:vertical
+layout		  = ws[2]:5:0:0:0:vertical
 layout			= ws[3]:0:0:0:0:fullscreen
 # layout		= ws[4]:4:0:0:0:vertical_flip
 # layout		= ws[5]:0:0:0:0:horizontal_flip
