@@ -18,8 +18,8 @@ color_focus		= blue
 color_focus_maximized	= blue
 color_unfocus		= black
 color_unfocus_maximized	= black
-region_padding		= 28
-tile_gap		= 6
+region_padding		= 20
+tile_gap		= 4
 
 # Region containment
 # Distance window must be dragged/resized beyond the region edge before it is
@@ -36,7 +36,7 @@ bar_border[1]		= rgb:44/44/44
 bar_color[1]		= black
 bar_font_color[1]	= rgb:a0/a0/a0
 bar_font		= -*-terminus-medium-*-*-*-*-14-*-*-*-*-*-*-*
-bar_action		= baraction.sh
+bar_action		= ~/.baraction.sh
 bar_justify		= left
 bar_format		= +<[+I] +S +F +M +< +D +< %a %d %R %b %y +< +P +W +U +< +< +A
 # bar_at_bottom		= 1
@@ -63,19 +63,20 @@ region		= screen[1]:1920x1080+1920+0
 autorun		= ws[1]:roxterm -e tmux
 autorun		= ws[1]:~/.fehbg
 autorun		= ws[2]:vivaldi-stable
-autorun		= ws[1]:~/.bin/xmobar_trayer_launch.sh
+autorun		= ws[1]:xmobar
 autorun		= ws[1]:update-checker 7200
 autorun		= ws[1]:compton -b
 autorun		= ws[1]:xfce4-power-manager
-autorun   	= ws[5]:smuxi-server
+autorun   = ws[5]:smuxi-server
 autorun		= ws[5]:smuxi-frontend-gnome
-autorun		= ws[1]:dropbox
+autorun   = ws[1]:trayer --edge top --align right --SetDockType false --SetPartialStrut true --expand true --width 6 --transparent true --alpha 0 --tint 0x000000 --height 16
 #autorun		= ws[1]:stalonetray
-#autorun		= ws[2]:xombrero http://www.openbsd.org
+
+# autorun		= ws[2]:xombrero http://www.openbsd.org
 
 # Customize workspace layout at start
 # layout		= ws[1]:4:0:0:0:vertical
-layout		  	= ws[2]:6:0:0:0:vertical
+layout		  = ws[2]:6:0:0:0:vertical
 layout			= ws[3]:0:0:0:0:fullscreen
 # layout		= ws[4]:4:0:0:0:vertical_flip
 # layout		= ws[5]:0:0:0:0:horizontal_flip
@@ -152,6 +153,6 @@ quirk[crx_mpognobbkildjkofajifpdfhcoklimli:vivaldi-stable] = FULLSCREEN + TRANSS
 quirk[Gimp:gimp]				= FLOAT + ANYWHERE
 quirk[stalonetray:stalonetray]	= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
 quirk[conky:conky]	= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
-quirk[trayer:panel]	= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
+quirk[trayer]		= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
 quirk[Roxterm:roxterm] = IGNOREPID
 quirk[xmobar:xmobar] = FLOAT + ANYWHERE + NOFOCUSCYCLE + MINIMALBORDER + NOFOCUSONMAP
