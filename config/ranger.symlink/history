@@ -1,4 +1,11 @@
 shell 
 nano
-delete
 shellqq
+show hidden
+show_hidden
+show_hidden = true
+set show_hidden = true
+set true show_hidden
+set show_hidden true
+delete
+
