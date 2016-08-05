@@ -9,3 +9,5 @@ set true show_hidden
 set show_hidden true
 delete
 
+search sddm
+open_with 
