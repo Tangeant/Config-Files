@@ -29,7 +29,7 @@ Config {
               	, Run Memory ["-t","Mem: <used>/<total> - <usedratio>%", "-L","25","-H","75", "--normal","white", "--high","red","--low","green"] 10
               	, Run Swap [] 10
               	, Run DiskU [("/", "<used>/<size>"), ("/home", "<used>/<size>")]
-														["-L", "20", "-H", "60", "-m", "1", "-p", "3"] 20
+														["-L", "20", "-H", "60", "-l", "green", "-n", "white", "-h", "red", "-m", "1", "-p", "3"] 20
   							, Run ThermalZone 1 ["-t","<id>: <temp>°C"] 30
 								, Run CpuFreq ["-t", "Freq: <cpu0> | <cpu1> MHz", "-L", "0", "-H", "3", "-l", "lightblue","-n","white","-h","red"] 50
 									, Run Com "/home/chris/.bin/cputemp.sh" [] "cpuTemp" 10

@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --image-bg black --bg-max '/home/chris/Pictures/Manjaro Paint.jpg' 
+feh  --image-bg black --bg-max '/home/chris/Pictures/img18.jpg' 

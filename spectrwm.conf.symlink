@@ -134,6 +134,10 @@ program[atom] = atom
 bind[atom] = MOD+Shift+a
 program[surgr] = roxterm --separate -e sudo ranger
 bind[surgr] = MOD+r
+program[htop] = roxterm --separate -e htop
+bind[htop] = Control+Shift+t
+program[togglecomp] = sh toggle-comp.sh
+bind[togglecomp] = MOD+Shift+c
 
 # QUIRKS
 # Default quirks, remove with: quirk[class:name] = NONE

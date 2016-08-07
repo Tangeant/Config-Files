@@ -8,6 +8,11 @@ set show_hidden = true
 set true show_hidden
 set show_hidden true
 delete
-
 search sddm
 open_with 
+flat 3
+flat 1
+search oh
+search anti
+rename antigen.zsh.symlink
+

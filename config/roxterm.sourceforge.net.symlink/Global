@@ -5,3 +5,4 @@ encoding=UTF-8
 hide_menubar=1
 warn_close=1
 colour_scheme=Solarized-dark
+profile=Zsh

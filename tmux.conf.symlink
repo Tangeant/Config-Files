@@ -89,6 +89,6 @@ setw -g aggressive-resize on
     # status bar
     set -g status-right-length 60
     set -g status-right "#[fg=blue]#S #I:#P #[fg=yellow]:: %d/%m/%Y #[fg=green]:: %H:%M"
-#set -g default-command "/usr/bin/zsh"
-set -g default-shell "/usr/bin/fish"
+set -g default-command "/usr/bin/zsh"
+#set -g default-shell "/usr/bin/fish"
 set -g default-terminal screen-256color
