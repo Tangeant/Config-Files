@@ -136,7 +136,7 @@ program[surgr] = roxterm --separate -e sudo ranger
 bind[surgr] = MOD+r
 program[htop] = roxterm --separate -e htop
 bind[htop] = Control+Shift+t
-program[togglecomp] = toggle-comp.sh
+program[togglecomp] = sh toggle-comp.sh
 bind[togglecomp] = MOD+Shift+c
 
 # QUIRKS
@@ -168,3 +168,4 @@ quirk[trayer]		= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
 quirk[Roxterm:roxterm] = IGNOREPID
 quirk[xmobar:xmobar] = FLOAT + ANYWHERE + NOFOCUSCYCLE + MINIMALBORDER + NOFOCUSONMAP
 quirk[oblogout] = FLOAT + ANYWHERE + TRANSSZ
+quirk[tilda:Tilda] = FLOAT + ANYWHERE + IGNOREPID

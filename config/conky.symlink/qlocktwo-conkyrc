@@ -3,7 +3,7 @@ own_window yes
 own_window_type normal
 own_window_class Conky
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-alignment top_right
+alignment bottom_right
 gap_x 0
 #575
 gap_y 0
@@ -18,14 +18,14 @@ own_window_argb_visual yes
 own_window_argb_value 0
 draw_shades yes
 default_shade_color 000000
-default_color ffffff
-color1 2d2d2d
+default_color 9e9e9e
+color1 607d8b
 #2d2d2d
 #4A2B45
 #382536
 #3F2E2F
 #000000
-own_window_transparent no
+own_window_transparent yes
 own_window_colour 000000
 minimum_size 0 0
 TEXT

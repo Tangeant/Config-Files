@@ -1,0 +1,93 @@
+use_xft yes
+xftfont MyriadPro:size=9
+xftalpha 0.8
+text_buffer_size 2048
+draw_graph_borders no
+update_interval 1
+background yes
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_class Conky
+own_window_argb_visual yes
+double_buffer yes
+minimum_size 360 620
+draw_shades no
+draw_outline no
+draw_borders no
+stippled_borders 0
+border_inner_margin 5
+border_width 1
+default_color 008744
+own_window_colour black
+color1 d62d20
+color2 008744
+color3 9e9e9e
+color4 607d8b
+color5 ffa700
+alignment top_right
+gap_x 10
+gap_y 10
+no_buffers yes
+uppercase no
+cpu_avg_samples 1
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer none
+
+TEXT
+${font Poky:pixelsize=16}M${font}${goto 50}${font MyriadPro:pixelsize=14}hdd :${font}
+${goto 50}cpu: ${offset 40}${cpubar 4,55 cpu}  | ${goto 291}${color4}${cpu cpu}%${color}
+${goto 50}ram: ${offset 39}${membar 4,55 cpu}  | ${goto 291}${color4}$memperc%${color}
+${font Poky:pixelsize=16}A${font MyriadPro:pixelsize=12}${goto 50}root: ${offset 37}${fs_bar 4,55 /}  | ${color4}${fs_used /} / ${fs_size /}${goto 291}${fs_used_perc /} %${color}
+${goto 50}home: ${offset 29}${fs_bar 4,55 /home}  | ${color4}${fs_used /home} / ${fs_size /home}${goto 291}${fs_used_perc /home} %${color}
+${goto 50}Shared: ${offset 23}${fs_bar 4,55 '/run/media/chris/Shared Files'}  | ${color4}${fs_used /run/media/chris/'Shared Files'} / ${fs_size /run/media/chris/'Shared Files'}${goto 291}${fs_used_perc /run/media/chris/'Shared Files'} %${color}
+${goto 50}${color3}$stippled_hr${color}
+${font Poky:pixelsize=16}N${font MyriadPro:pixelsize=14}${goto 175}| kernel: ${color4}${font MyriadPro:bold:size=9}${kernel}${color}${font}
+${goto 175}| uptime: ${color4}${font MyriadPro:bold:size=9}${uptime}${color}${font}
+${goto 175}| nvidia: ${color4}${font MyriadPro:bold:size=9}${hwmon temp 1}°C${color}${font}
+${goto 175}| gmail : ${color4}${font MyriadPro:bold:size=9}${execi 300 python ~/.conky/gmail.py}${color}${font}
+${goto 50}${color3}$stippled_hr${color}
+${goto 10}${font Poky:pixelsize=16}J${font}${goto 50}${font MyriadPro:size=12}enp3s0 :${goto 117}${font}
+${goto 50}download:${color4}${goto 117}${downspeed enp3s0}${color}${goto 175}| total download:${color4}${goto 291}${totaldown enp3s0} ${color}
+${goto 50}upload:${color4}${goto 117}${upspeed enp3s0}${color}${goto 175}| total upload:${color4}${goto 291}${totalup enp3s0} ${color}
+${goto 175}| local IP:  ${goto 271}${color4}${addr enp3s0}${color}
+${font Poky:pixelsize=18}A${font MyriadPro:size=9}${goto 175}| public IP:  ${goto 271}${color4}${execi 1800 wget -q -O - http://ip.tupeux.com | tail }${color}
+$alignr${downspeedgraph enp3s0 25,317 a1a1a1 688BAB}
+${font Poky:pixelsize=16}R
+${goto 50}${color3}$stippled_hr${color}
+${font Poky:pixelsize=16}O${goto 225}${font MyriadPro:pixelsize=14}${color4} Weather${font}
+${goto 235}${font MyriadPro:pixelsize=14}${color4} ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ CYFC temperature temperature 30} °C${font}${color4}
+
+${goto 75}${font MyriadPro:pixelsize=16}${voffset -40}${color4}${time %H:%M:%S}${color}
+${goto 75}${font MyriadPro:pixelsize=14}${color4}${time %A}${color}
+
+                                                        #Torrent 1#
+${if_match "${exec ~/.conky/transmission exists}" == "true"}
+${font Poky:pixelsize=18}N${font}${goto 50}${font MyriadPro:pixelsize=14}torrent :${font}
+${goto 50}${color4}${exec ~/.conky/transmission name}${alignr}${exec ~/.conky/transmission progress}%
+${goto 50}${exec ~/.conky/transmission status}${alignr}${exec ~/.conky/transmission eta}
+${goto 50}${if_match "${exec ~/.conky/transmission status}" == "downloading"}${endif}down${alignr}${exec ~/.conky/transmission down}
+${goto 50}up${alignr}${exec ~/.conky/transmission up}${endif}${color}
+#                                                       #Torrent 2#
+${if_match "${exec ~/.conky/transmission exists 2}" == "true"}${goto 50}${color3}${exec ~/.conky/transmission name 2}${alignr}${exec ~/.conky/transmission progress 2}%
+${goto 50}${exec ~/.conky/transmission status 2}${alignr}${exec ~/.conky/transmission eta 2}
+${goto 50}${if_match "${exec ~/.conky/transmission status 2}" == "downloading"}${endif}down${alignr}${exec ~/.conky/transmission down 2}
+${goto 50}up${alignr}${exec ~/.conky/transmission up 2}${endif}${color}
+#                                                       #Torrent 3#
+${goto 50}${if_match "${exec ~/.conky/transmission exists 3}" == "true"}${goto 50}${exec ~/.conky/transmission name 3}${alignr}${exec ~/.conky/transmission progress 3}%
+${goto 50}${exec ~/.conky/transmission status 3}${alignr}${exec ~/.conky/transmission eta 3}
+${goto 50}${if_match "${exec ~/.conky/transmission status 3}" == "downloading"}${endif}down${alignr}${exec ~/.conky/transmission down 3}
+${goto 50}up${alignr}${exec ~/.conky/transmission up 3}${endif}
+#                                                       #Torrent 4#
+${goto 50}${if_match "${exec ~/.conky/transmission exists 4}" == "true"}${exec ~/.conky/transmission name 4}${alignr}${exec ~/.conky/transmission progress 4}%
+${goto 50}${exec ~/.conky/transmission status 4}${alignr}${exec ~/.conky/transmission eta 4}
+${goto 50}${if_match "${exec ~/.conky/transmission status 4}" == "downloading"}${endif}down${alignr}${exec ~/.conky/transmission down 4}
+${goto 50}up${alignr}${exec ~/.conky/transmission up 4}${endif}
+#                                                       #Torrent 5#
+${goto 50}${if_match "${exec ~/.conky/transmission exists 5}" == "true"}${exec ~/.conky/transmission name 5}${alignr}${exec ~/.conky/transmission progress 5}%
+${goto 50}${exec ~/.conky/transmission status 5}${alignr}${exec ~/.conky/transmission eta 5}
+${goto 50}${if_match "${exec ~/.conky/transmission status 5}" == "downloading"}${endif}down${alignr}${exec ~/.conky/transmission down 5}
+${goto 50}up${alignr}${exec ~/.conky/transmission up 5}${endif}
