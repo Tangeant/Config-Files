@@ -18,5 +18,5 @@ update_records=0
 maximise=0
 full_screen=0
 autowrap=1
-use_custom_command=0
-command=zsh
+use_custom_command=1
+command=/bin/zsh

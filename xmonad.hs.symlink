@@ -1,16 +1,72 @@
 import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders
+import XMonad.Layout.PerWorkspace
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Util.Run
+import System.IO
 
 baseConfig = desktopConfig
 
-main = xmonad baseConfig
+-- Define amount and names of workspaces
+myWorkspaces = ["1:main","2:www","3:Video","4:Music","5:IRC","6:Coding","7","8", "9", "10"]
+myManageHook = composeAll
+      [ className =? "vivaldi-stable" --> doShift "2:www"
+      , className =? "smuxi" --> doShift "5:IRC"
+      , className =? "vlc" --> doShift "3:Video"
+      , className =? "atom" --> doShift "6:Coding"
+      ]
+
+myManageHook = composeAll
+            [ className =? "Gimp" --> doFloat
+            , className =? "vlc" --> doFloat
+            ]
+
+defaultlayouts = tiled ||| Mirror tiled ||| Full
+ where
+      -- default tiling algorithm partitions the screen into two panes
+      tiled = spacing = 5 $ Tall nmaster delta ratio
+
+      -- The default number of windows in the master pane
+      nmaster = 1
+
+      -- Default proportion of screen occupied by master pane
+      ratio = 2/3
+
+      -- Percent of screen to increment by when resizing panes
+      delta = 5/100
+
+      -- Define layout for specific workspaces
+       nobordersLayout = noBorders $ Full
+
+       -- Put all layouts together
+       myLayout = onWorkspace "3:Video" nobordersLayout $ defaultLayouts
+
+main = do
+xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/xmobarrc"
   xmonad $ defaultConfig
     { terminal    = myTerminal
     , modMask     = myModMask
     , borderWidth = myBorderWidth
+    , normalBorderColor = mynormalBorderColor
+    , focusedBorderColor = myfocusedBorderColor
+    , layoutHook = myLayout
+    , workspaces = myWorkspaces
+    , manageHook = myManageHook <+> manageHook defaultConfig
+    , manageHook = manageDocks <+> manageHook defaultConfig
+    ,layoutHook = avoidStruts $ layoutHook defaultConfig
+    ,logHook = dynamicLogWithPP xmobarPP
+           { ppOutput = hPutStrLn xmproc
+           , ppTitle = xmobarColor "white" "" . shorten 50
+           --, ppLayout = const "" -- to disable the layout info on xmobar
+           }
     }
 
 myTerminal    = "roxterm"
 myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 3
+mynormalBorderColor
+myfocusedBorderColor
