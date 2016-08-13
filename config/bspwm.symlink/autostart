@@ -7,17 +7,18 @@
 xsetroot -cursor_name left_ptr &
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0" &
 xrdb merge .Xresources &
-#xfsettingsd &
-## Wallpaper. Nitrogen just draws wallpaper, 
+xfsettingsd &
+## Wallpaper. Nitrogen just draws wallpaper,
 ## while xfdesktop can also give applications menu and icons on desktop.
-## It uses a lot more resources however. It you enable it you may want to 
+## It uses a lot more resources however. It you enable it you may want to
 ## adjust ~/scripts/MouseLaunch to use xfdesktops app menu.
 #nitrogen --restore &
 sh ~/.fehbg &
 rootmenu &
-#telegram-desktop &
+xmobar &
+conky -c /home/chris/.config/conky/conky_dzen | dzen2 -x '1920' -y '0' -w '1080' -h '16' -ta 'r' -bg '#19161f' -fg '#eddcd3' -fn '-myriad-pro-*-normal-*-14-*-*-*-*-*-*-*' &
 #xfdesktop -D &
-## compositing. Required for shadows, transparency and stuff. 
+## compositing. Required for shadows, transparency and stuff.
 ## Reduces flicker. Disabling saves resources.
 compton -b &
 ## hides mouse when you are not using it. When mouse is hidden, rootmenu considers mouse on desktop, so actions can be triggered.
@@ -31,19 +32,21 @@ xset s noexpose &
 xset c on &
 xset -dpms &
 #xbacklight -set 15 &
-## Panel. The default is lemonbar script. Xfce4-panel can be more 
+## Panel. The default is lemonbar script. Xfce4-panel can be more
 ## easily configurable if you prefer that. Not installed by default
-#run_once xfce4-panel -d
-lemonpanel &
+#run_once xfce4-panel -d &
+#lemonpanel &
 ## The sleep part is delay before panel is spawned. You can remove it if you have reasonable fast hard drive.
-#limepanel &
+limepanel &
 #mylime &
-## Light system tray to use with lemonbar. Disable if you dont need it. 
+## Light system tray to use with lemonbar. Disable if you dont need it.
 ## Edit ~/.stalonetrayrc if it is in wrong place.
-sleep 2s && stalonetray --dockapp-mode simple &
+#sleep 2s && stalonetray --dockapp-mode simple &
+#sleep 5s && conky -d ~/.config/conky/qlocktwo-conkyrc &
+#conky -d ~/.config/conky/conkyrc-gnome &
 ### Run screenlock when suspending
 i3lock-wait-for-suspend &
 ## multimonitor support. Save monitor configurations with "autorandr.sh --save <profile>"
-srandrd atorandr.sh --change chris
+srandrd autorandr.sh --change chris
 ## Notify about package updates
 update-checker 7200 &

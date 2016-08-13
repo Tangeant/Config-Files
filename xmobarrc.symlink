@@ -3,7 +3,7 @@ Config {
 	font = 		"xft:Terminus Medium:size=14:antialias=true"
 	, bgColor =	"Black"
 	, fgColor =	"#646464"
-	, position =	Static { xpos = 0, ypos = 1060, width = 1910, height = 24}
+	, position =	Static { xpos = 0, ypos = 1020, width = 1920, height = 24}
 	, border =	TopB
 	, borderColor = "Grey"
 	, alpha = 200
@@ -12,7 +12,7 @@ Config {
 	, sepChar =	"%"
 	, alignSep =	"}{"
 	, template = "  %uptime% | %multicpu% * %cpufreq% %cpuTemp%°C | %memory% * %swap% | %enp3s0% | }\
-								\{ / - Home %disku% | %thermal1% | CYFC || %kbd%    "
+								\{ / - Home %disku% | %thermal1% || %kbd%    "
 
 	-- general behaviour
 	, lowerOnStart =	False
@@ -30,7 +30,7 @@ Config {
               	, Run Swap [] 10
               	, Run DiskU [("/", "<used>/<size>"), ("/home", "<used>/<size>")]
 														["-L", "20", "-H", "60", "-l", "green", "-n", "white", "-h", "red", "-m", "1", "-p", "3"] 20
-  							, Run ThermalZone 1 ["-t","<id>: <temp>°C"] 30
+  							, Run ThermalZone 1 ["-t","Temp: <temp>°C"] 30
 								, Run CpuFreq ["-t", "Freq: <cpu0> | <cpu1> MHz", "-L", "0", "-H", "3", "-l", "lightblue","-n","white","-h","red"] 50
 									, Run Com "/home/chris/.bin/cputemp.sh" [] "cpuTemp" 10
 -- keyboard layout indicator

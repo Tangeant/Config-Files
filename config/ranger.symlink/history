@@ -7,7 +7,6 @@ show_hidden = true
 set show_hidden = true
 set true show_hidden
 set show_hidden true
-delete
 search sddm
 open_with 
 flat 3
@@ -16,3 +15,10 @@ search oh
 search anti
 rename antigen.zsh.symlink
 
+search bs
+rename start-conky-gnome.desktop
+search xse
+search sx
+rename rofi-run
+rename rofi-window
+delete
