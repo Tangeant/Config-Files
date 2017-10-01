@@ -1,0 +1,13 @@
+background yes
+out_to_console yes
+out_to_x no
+update_interval 1
+
+TEXT
+^fg(\#666666)${mpd_status} ^fg(\#906b61)> ^fg(\#952739)${mpd_artist}   \
+^fg(\#999999)${hwmon temp 1}°  \
+^fg(\#666666)${loadavg 1}  \
+^fg(\#888888)${cpu cpu1}%   ^fg(\#aaaaaa)${freq_g 1}GHz   \
+^fg(\#666666)${mem}  \
+^fg(\#bbbbbb) ^fg(\#d94c3d)${upspeedf enp3s0}k  ^fg(\#a4bc51)${downspeedf enp3s0}k  \
+^fg(\#ffffff)${time %b %d %H:%M} 

@@ -1,0 +1,80 @@
+# Modified by Umair - http://www.NoobsLab.com #
+# Made by webdarek - http://gnome-look.org/content/show.php/conky+nadia?content=155698 #
+use_xft yes
+xftfont MyriadPro:size=9
+xftalpha 0.8
+text_buffer_size 2048
+draw_graph_borders no
+update_interval 1
+background yes
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_class Conky
+own_window_argb_visual yes
+double_buffer yes
+minimum_size 360 620
+draw_shades no
+draw_outline no
+draw_borders no
+stippled_borders 0
+border_inner_margin 5
+border_width 1
+default_color 000000
+own_window_colour black
+color1 262729
+color2 000000
+color3 gray20
+alignment top_right
+gap_x 10
+gap_y 10
+no_buffers yes
+uppercase no
+cpu_avg_samples 1
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer none
+
+TEXT
+${font Poky:pixelsize=18}a${font}${goto 50}${font MyriadPro:pixelsize=14}hdd :${font} 
+${goto 50}cpu: ${offset 40}${cpubar 4,55 cpu}  | ${goto 291}    ${cpu cpu}%
+${goto 50}ram: ${offset 39}${membar 4,55 cpu}  | ${goto 291}    $memperc%
+${goto 50}root: ${offset 35}${fs_bar 4,55 /}   | ${fs_used /} / ${fs_size /}${goto 291}    ${fs_used_perc /} %
+${goto 50}${color gray50}$stippled_hr${color}
+${goto 175}  | Kernel: ${color2}${font MyriadPro:bold:size=9}${kernel}${color}${font} 
+${goto 175}  | Uptime: ${color2}${font MyriadPro:bold:size=9}${uptime}${color}${font} 
+${goto 175}  | Battery: ${color2}${font MyriadPro:bold:size=9}${battery_percent BAT0}%${color}${font}
+${goto 175}  | Hdd: ${color2}${font MyriadPro:bold:size=9}${hddtemp /dev/sda}°C${color}${font}  Nvidia: ${color2}${font MyriadPro:bold:size=9}${hwmon temp 1}°C${color}${font}
+
+${if_existing /proc/net/route wlan0}
+${font Poky:pixelsize=18}Y${font}${goto 50}${font MyriadPro:pixelsize=14}wifi :${goto 117}' ${wireless_essid wlan0} '${font}
+${goto 50}essid quality:${goto 170}| ${wireless_bitrate wlan0}${goto 291}${wireless_link_qual_perc wlan0}%
+${goto 50}Download:${color 000000}${goto 117}${downspeed wlan0}${color}${goto 170}| Total Download:${color 000000}${goto 291}${totaldown wlan0} ${color}
+${goto 50}Upload:${color 000000}${goto 117}${upspeed wlan0}${color}${goto 170}| Total Upload:${color 000000}${goto 291}${totalup wlan0} ${color}
+${goto 170}| Local IP:  ${goto 291}${color 000000}${addr wlan0}${color}
+${goto 170}| Public IP:  ${goto 291}${color 000000}${execi 1800 wget -q -O - http://ip.tupeux.com | tail }${color}
+${goto 170}| Mac adress: ${color 000000}${wireless_ap wlan0}
+$alignr${downspeedgraph wlan0 25,317}
+${endif}
+${if_existing /proc/net/route eth0}
+${font Poky:pixelsize=18}s${font}${goto 50}${font MyriadPro:pixelsize=14}Network :${goto 117}${font}
+${goto 50}Download:${color 000000}${goto 117}${downspeed eth0}${color}${goto 170}| Total Download:${color 000000}${goto 291}${totaldown eth0} ${color}
+${goto 50}Upload:${color 000000}${goto 117}${upspeed eth0}${color}${goto 170}| Total Upload:${color 000000}${goto 291}${totalup eth0} ${color}
+${goto 170}| Local IP:  ${goto 291}${color 000000}${addr eth0}${color}
+${goto 170}| Public IP:  ${goto 291}${color 000000}${execi 1800 wget -q -O - http://ip.tupeux.com | tail }${color}
+$alignr${downspeedgraph eth0 25,317}
+${endif}
+${if_existing /proc/net/route ppp0}
+${font Poky:pixelsize=18}w${font}${goto 50}${font MyriadPro:pixelsize=14}mobile :${goto 117}${font}
+${goto 50}Download:${color2}${goto 117}${downspeed ppp0}${color}${goto 170}| total Download:${color2}${goto 291}${totaldown ppp0} ${color}
+${goto 50}Upload:${color2}${goto 117}${upspeed ppp0}${color}${goto 170}| Total Upload:${color2}${goto 291}${totalup ppp0} ${color}
+${goto 170}| Local IP:  ${goto 291}${color black}${addr ppp0}${color}
+${goto 170}| Public IP:  ${goto 291}${color black}${execi 1800 wget -q -O - http://ip.tupeux.com | tail }${color}
+$alignr${downspeedgraph ppp0 25,317}
+${goto 50}${font MyriadPro:size=9}${color2}Yesterday:${color}${color1} ${goto 110}${font MyriadPro:size=9}${execi 300 vnstat | grep "yesterday" | awk '{print $2 $3}'}${font MyriadPro:size=9}${goto 170}${execi 300 vnstat | grep "yesterday" | awk '{print $5 $6}'}${font MyriadPro:size=9}${goto 291}${execi 300 vnstat | grep "yesterday" | awk '{print $8 $9}'}${color}
+${goto 50}${color2}${font MyriadPro:size=9}Today:${color}${color1} ${goto 110}${font MyriadPro:size=9}${execi 300 vnstat | grep "today" | awk '{print $2 $3}'}${font MyriadPro:size=9}${goto 170}${execi 300 vnstat | grep "today" | awk '{print $5 $6}'}${font MyriadPro:size=9}${goto 291}${execi 300 vnstat | grep "today" | awk '{print $8 $9}'}
+${goto 50}${color2}${font MyriadPro:size=9}Week: ${color}${color1} ${goto 110}${font MyriadPro:size=9}${execi 300 vnstat -w | grep "current week" | awk '{print $3 $4}'}${font MyriadPro:size=9}${goto 170}${execi 300 vnstat -w | grep "current week" | awk '{print $6 $7}'}${font MyriadPro:size=9}${goto 291}${execi 300 vnstat -w | grep "current week" | awk '{print $9 $10}'}
+${goto 50}${color2}${font MyriadPro:size=9}Month: ${color}${color1} ${goto 110}${font MyriadPro:size=9}${execi 300 vnstat -m | grep "`date +"%b '%y"`" | awk '{print $3 $4}'}${goto 170}${font MyriadPro:size=9}${execi 300 vnstat -m | grep "`date +"%b '%y"`" | awk '{print $6 $7}'}${goto 291}${font MyriadPro:size=9}${execi 300 vnstat -m | grep "`date +"%b '%y"`" | awk '{print $9 $10}'}${font}${endif}
+

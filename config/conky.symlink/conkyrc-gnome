@@ -1,5 +1,5 @@
 use_xft yes
-xftfont MyriadPro:size=9
+xftfont MyriadPro:bold:size=9
 xftalpha 0.8
 text_buffer_size 2048
 draw_graph_borders no
@@ -38,31 +38,31 @@ override_utf8_locale yes
 use_spacer none
 
 TEXT
-${font Poky:pixelsize=16}M${font}${goto 50}${font MyriadPro:pixelsize=14}hdd :${font}
+${font Poky:bold:pixelsize=16}M${font}${goto 50}${font MyriadPro:bold:pixelsize=12}hdd :${font}
 ${goto 50}cpu: ${offset 40}${cpubar 4,55 cpu}  | ${goto 291}${color4}${cpu cpu}%${color}
 ${goto 50}ram: ${offset 39}${membar 4,55 cpu}  | ${goto 291}${color4}$memperc%${color}
-${font Poky:pixelsize=16}A${font MyriadPro:pixelsize=12}${goto 50}root: ${offset 37}${fs_bar 4,55 /}  | ${color4}${fs_used /} / ${fs_size /}${goto 291}${fs_used_perc /} %${color}
+${font Poky:bold:pixelsize=16}A${font MyriadPro:bold:pixelsize=12}${goto 50}root: ${offset 37}${fs_bar 4,55 /}  | ${color4}${fs_used /} / ${fs_size /}${goto 291}${fs_used_perc /} %${color}
 ${goto 50}home: ${offset 29}${fs_bar 4,55 /home}  | ${color4}${fs_used /home} / ${fs_size /home}${goto 291}${fs_used_perc /home} %${color}
 ${goto 50}Shared: ${offset 23}${fs_bar 4,55 '/run/media/chris/Shared Files'}  | ${color4}${fs_used /run/media/chris/'Shared Files'} / ${fs_size /run/media/chris/'Shared Files'}${goto 291}${fs_used_perc /run/media/chris/'Shared Files'} %${color}
 ${goto 50}${color3}$stippled_hr${color}
-${font Poky:pixelsize=16}N${font MyriadPro:pixelsize=14}${goto 175}| kernel: ${color4}${font MyriadPro:bold:size=9}${kernel}${color}${font}
+${font Poky:bold:pixelsize=16}N${font MyriadPro:bold:pixelsize=12}${goto 175}| kernel: ${color4}${font MyriadPro:bold:size=9}${kernel}${color}${font}
 ${goto 175}| uptime: ${color4}${font MyriadPro:bold:size=9}${uptime}${color}${font}
 ${goto 175}| nvidia: ${color4}${font MyriadPro:bold:size=9}${hwmon temp 1}°C${color}${font}
 ${goto 175}| gmail : ${color4}${font MyriadPro:bold:size=9}${execi 300 python ~/.conky/gmail.py}${color}${font}
 ${goto 50}${color3}$stippled_hr${color}
-${goto 10}${font Poky:pixelsize=16}J${font}${goto 50}${font MyriadPro:size=12}enp3s0 :${goto 117}${font}
+${goto 10}${font Poky:bold:pixelsize=16}J${font}${goto 50}${font MyriadPro:bold:size=12}enp3s0 :${goto 117}${font}
 ${goto 50}download:${color4}${goto 117}${downspeed enp3s0}${color}${goto 175}| total download:${color4}${goto 291}${totaldown enp3s0} ${color}
 ${goto 50}upload:${color4}${goto 117}${upspeed enp3s0}${color}${goto 175}| total upload:${color4}${goto 291}${totalup enp3s0} ${color}
 ${goto 175}| local IP:  ${goto 271}${color4}${addr enp3s0}${color}
-${font Poky:pixelsize=18}A${font MyriadPro:size=9}${goto 175}| public IP:  ${goto 271}${color4}${execi 1800 wget -q -O - http://ip.tupeux.com | tail }${color}
+${font Poky:bold:pixelsize=18}A${font MyriadPro:bold:size=9}${goto 175}| public IP:  ${goto 271}${color4}${execi 1800 wget -q -O - http://ip.tupeux.com | tail }${color}
 $alignr${downspeedgraph enp3s0 25,317 a1a1a1 688BAB}
-${font Poky:pixelsize=16}R
+${font Poky:bold:pixelsize=16}R
 ${goto 50}${color3}$stippled_hr${color}
-${font Poky:pixelsize=16}O${goto 225}${font MyriadPro:pixelsize=14}${color4} Weather${font}
-${goto 235}${font MyriadPro:pixelsize=14}${color4} ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ CYFC temperature temperature 30} °C${font}${color4}
+${font Poky:bold:pixelsize=16}O${goto 225}${font MyriadPro:bold:pixelsize=14}${color4} Weather${font}
+${goto 235}${font MyriadPro:bold:pixelsize=14}${color4} ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ CYFC temperature temperature 30} °C${font}${color4}
 
-${goto 75}${font MyriadPro:pixelsize=16}${voffset -40}${color4}${time %H:%M:%S}${color}
-${goto 75}${font MyriadPro:pixelsize=14}${color4}${time %A}${color}
+${goto 75}${font MyriadPro:bold:pixelsize=16}${voffset -40}${color4}${time %H:%M:%S}${color}
+${goto 75}${font MyriadPro:bold:pixelsize=14}${color4}${time %A}${color}
 
                                                         #Torrent 1#
 ${if_match "${exec ~/.conky/transmission exists}" == "true"}

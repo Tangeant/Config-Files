@@ -90,8 +90,8 @@ urxvt*cursorBlink:      true
 
 ! Fonts
 ! URxvt.font: xft:Monospace:size=12
-urxvt*font:        -xos4-terminus-medium-*-*-*-18-*-*-*-*-*-*-*
-urxvt*boldFont:    -xos4-terminus-bold-*-*-*-18-*-*-*-*-*-*-*
+urxvt*font:        -xos4-myriad-pro-*-*-*-18-*-*-*-*-*-*-*
+urxvt*boldFont:    -xos4-myriad-pro-bold-*-*-*-18-*-*-*-*-*-*-*
 URxvt.letterSpace: -1
 
 ! Classic copy/paste by Shift-Ctrl-c|v
@@ -137,25 +137,69 @@ UXTerm*rightScrollBar: true
 !URxvt Molokai
 ! URxvt*background  : Molokai_black
 ! URxvt*foreground  : Molokai_white
-URxvt.foreground: #99CC99
-URxvt.background: #000000
-URxvt*cursorColor : #99CC99
-URxvt*color0      : Molokai_black
-URxvt*color1      : Molokai_red
-URxvt*color2      : Molokai_green
-URxvt*color3      : Molokai_brown
-URxvt*color4      : Molokai_blue
-URxvt*color5      : Molokai_purple
-URxvt*color6      : Molokai_cyan
-URxvt*color7      : Molokai_light_grey
-URxvt*color8      : Molokai_dark_grey
-URxvt*color9      : Molokai_light_red
-URxvt*color10     : Molokai_light_green
-URxvt*color11     : Molokai_yellow
-URxvt*color12     : Molokai_light_blue
-URxvt*color13     : Molokai_light_purple
-URxvt*color14     : Molokai_light_cyan
-URxvt*color15     : Molokai_white
+!URxvt.foreground: #99CC99
+!URxvt.background: #000000
+!URxvt*cursorColor : #99CC99
+!URxvt*color0      : Molokai_black
+!URxvt*color1      : Molokai_red
+!URxvt*color2      : Molokai_green
+!URxvt*color3      : Molokai_brown
+!URxvt*color4      : Molokai_blue
+!URxvt*color5      : Molokai_purple
+!URxvt*color6      : Molokai_cyan
+!URxvt*color7      : Molokai_light_grey
+!URxvt*color8      : Molokai_dark_grey
+!URxvt*color9      : Molokai_light_red
+!URxvt*color10     : Molokai_light_green
+!URxvt*color11     : Molokai_yellow
+!URxvt*color12     : Molokai_light_blue
+!URxvt*color13     : Molokai_light_purple
+!URxvt*color14     : Molokai_light_cyan
+!URxvt*color15     : Molokai_white
+
+!
+! invisibone by baskerville
+!
+! vim: set ft=xdefaults:
+
+URxvt.background: #232323
+URxvt.foreground: #A0A0A0
+
+URxvt.colorBD:    #CFCFCF
+URxvt.colorUL:    #A0A0A0
+URxvt.colorIT:    #686868
+
+!BLK
+URxvt.color0:     #303030
+URxvt.color8:     #686868
+
+!RED
+URxvt.color9:     #FFA7DA
+URxvt.color1:     #D370A3
+
+!GRN
+URxvt.color10:    #A3D572
+URxvt.color2:     #6D9E3F
+
+!BLU
+URxvt.color12:    #98CBFE
+URxvt.color4:     #6095C5
+
+!YEL
+URxvt.color11:    #EFBD8B
+URxvt.color3:     #B58858
+
+!CYN
+URxvt.color14:    #75DAA9
+URxvt.color6:     #3BA275
+
+!MAG
+URxvt.color13:    #E5B0FF
+URxvt.color5:     #AC7BDE
+
+!WHT
+URxvt.color7:     #CFCFCF
+URxvt.color15:    #FFFFFF
 
 !URxvt Solarized theme, light
 !URxvt*background             : Solarized_light_base03
@@ -211,7 +255,7 @@ rofi.opacity: 85
 rofi.width: 500
 rofi.lines: 15
 rofi.columns: 1
-rofi.font: Terminus bold 10
+rofi.font: Myriad Pro 10
 rofi.bw: 2
 rofi.padding: 2
 rofi.yoffset: 0
@@ -225,17 +269,27 @@ rofi.rkey: mod1+F2
 rofi.skey: mod1+F3
 rofi.location: 0
 
-rofi.fg:   #99CC99
-rofi.bg:   #000000
-rofi.hlfg: #000000
-rofi.hlbg: #99CC99
-rofi.bc:   #99CC99
+!rofi.fg:   #99CC99
+!rofi.bg:   #000000
+!rofi.hlfg: #000000
+!rofi.hlbg: #99CC99
+!rofi.bc:   #99CC99
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #393939, #393939, #268bd2
+rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+
 rofi.disable-history: false
 rofi.levenshtein-sort: true
 rofi.switchers: window,run
 Xcursor.theme: breeze
 
 !dzen2 Settings
-dzen2.font:       -*-terminus-medium-*-*-*-*-*-*-*-*-*-*-*-*
-dzen2.foreground: #22EE11
-dzen2.background: black
+!dzen2.font:       -*-terminus-medium-*-*-*-*-*-*-*-*-*-*-*-*
+!dzen2.foreground: #22EE11
+!dzen2.background: black
