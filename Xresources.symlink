@@ -90,9 +90,11 @@ urxvt*cursorBlink:      true
 
 ! Fonts
 ! URxvt.font: xft:Monospace:size=12
-urxvt*font:        -xos4-myriad-pro-*-*-*-18-*-*-*-*-*-*-*
-urxvt*boldFont:    -xos4-myriad-pro-bold-*-*-*-18-*-*-*-*-*-*-*
-URxvt.letterSpace: -1
+urxvt*font:        xft:Inconsolata:size=14
+urxvt*letterSpace: -1
+urxvt*boldFont:    xft:Inconsolata:bold:size=14
+!URxvt*font: xft:envypn:size=8,-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
+!URxvt*boldFont: xft:envypn:size=8,-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
 
 ! Classic copy/paste by Shift-Ctrl-c|v
 URxvt.iso14755: False

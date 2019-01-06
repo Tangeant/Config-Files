@@ -1,14 +1,13 @@
 #
-# /home/chris/.nvidia-settings-rc
+# /home/christ/.nvidia-settings-rc
 #
 # Configuration file for nvidia-settings - the NVIDIA X Server Settings utility
-# Generated on Tue Aug  2 04:30:51 2016
+# Generated on Fri Nov 16 15:45:05 2018
 #
 
 # ConfigProperties:
 
 RcFileLocale = C
-ToolTips = Yes
 DisplayStatusBar = Yes
 SliderTextEntries = Yes
 IncludeDisplayNameInConfigFile = No
@@ -21,17 +20,16 @@ Timer = PowerMizer_Monitor_(GPU_0),Yes,1000
 # Attributes:
 
 0/SyncToVBlank=1
-0/LogAniso=2
+0/LogAniso=0
 0/FSAA=0
-0/TextureSharpen=0
 0/TextureClamping=1
-0/FXAA=1
+0/FXAA=0
 0/AllowFlipping=1
 0/FSAAAppControlled=1
-0/LogAnisoAppControlled=0
+0/LogAnisoAppControlled=1
 0/OpenGLImageSettings=1
 0/FSAAAppEnhanced=0
-0/XVideoSyncToDisplayID=DVI-I-1
+0/ShowGraphicsVisualIndicator=0
 [DPY:DVI-I-0]/Dithering=0
 [DPY:DVI-I-0]/DitheringMode=0
 [DPY:DVI-I-0]/DitheringDepth=0

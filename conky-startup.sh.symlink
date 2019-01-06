@@ -1,6 +1,0 @@
-sleep 20s
-killall conky
-cd "/home/chris/.config/conky"
-conky -c "qlocktwo-conkyrc" &
-conky -c "conkyrc-gnome" &
-xmobar /home/chris/.xmobarrc-gnome
