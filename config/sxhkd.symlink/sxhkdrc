@@ -141,6 +141,10 @@ super + shift + r
 super+shift+p
     rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons
     
+#Rofi Finder
+super+shift+F12
+	~/.bin/rofi-scripts/rofi-finder.sh
+    
 #Pacli
 super + shift + p
 	$TERMINAL -e pacli
@@ -187,8 +191,8 @@ ctrl + alt + c
      catfish
 
 #Evolution
-ctrl + alt + e
-     evolution
+#ctrl + alt + e
+#     evolution
 
 #Firefox
 ctrl + alt + f
@@ -203,7 +207,7 @@ ctrl + alt + i
      nitrogen
 
 #Screen-Locker
-ctrl + alt + k
+ctrl + alt + l
      i3lock
 
 #Xfce4-settings-manager
@@ -218,9 +222,9 @@ ctrl + alt + o
 ctrl + alt + s
      spotify
 
-#Urxvt
+#Termite
 ctrl + alt + t
-     tabbed -r 2 st -w '' -e tmux
+     termite -e tmux
 
 #Rofi theme selector
 ctrl + alt + r

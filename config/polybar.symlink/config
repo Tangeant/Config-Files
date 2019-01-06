@@ -42,6 +42,7 @@ format-offset =
 ; Nord theme ============
 background = #2F343F
 foreground = #f3f4f5
+occupied = #ffffff
 alert = #d08770
 volume-min = #a3be8c
 volume-med = #ebcb8b
@@ -407,8 +408,8 @@ font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = ewmh
-modules-center = kernel
-modules-right =  pavolume memory2 cpu2 date
+modules-center = xwindow kernel 
+modules-right =  weather pavolume uptime memory2 cpu2 date
 
 tray-detached = false
 tray-offset-x = 0
@@ -877,6 +878,7 @@ label-active-padding = 4
 
 label-occupied = %name%
 label-occupied-background = ${colors.background}
+label-occupied-underline = ${colors.occupied}
 label-occupied-padding = 2
 
 label-urgent = %name%

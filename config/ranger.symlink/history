@@ -27,3 +27,5 @@ edit ./TTYTheme
 
 rename TTYTheme.sh
 open_with 
+search skel
+search poly

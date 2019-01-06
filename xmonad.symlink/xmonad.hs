@@ -115,13 +115,13 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
 
 -- pointer follows focus logHook
 myLogHook = dynamicLogWithPP defaultPP { ppSort = fmap (.scratchpadFilterOutWorkspace) getSortByTag
-    --ppHidden  =   noScratchPad
-   -- , ppHiddenNoWindows = noScratchPad
+    , ppHidden  =   noScratchPad
+    , ppHiddenNoWindows = noScratchPad
     } 
     >> updatePointer (0.5,0.5) (0,0)
-       -- where
+       where
         -- define the noScratchPad function if workspace is NSP then print nothing, else print it as-is
-         --   noScratchPad ws = if ws == "NSP" then "" else ws
+         noScratchPad ws = if ws == "NSP" then "" else ws
 
 ----------------------------------------------------------------------------------------------------------------
 -- Define Layout
@@ -170,10 +170,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 --  , ((modMask, xK_Escape), spawn $ "xkill" )
   , ((modMask, xK_c), spawn $ "xkill" )
 --  , ((modMask, xK_Return), spawn $ "urxvt" )
-  , ((modMask, xK_Return), spawn $ "termite -e tmux" )
+  , ((modMask, xK_Return), spawn $ "termite" )
   , ((modMask, xK_s), scratchPad)
   , ((modMask, xK_F1), spawn $ "vivaldi-stable" )
-  , ((modMask, xK_F2), spawn $ "geany" )
+  , ((modMask, xK_F2), spawn $ "nvim" )
   , ((modMask, xK_F3), spawn $ "inkscape" )
   , ((modMask, xK_F4), spawn $ "gimp" )
   , ((modMask, xK_F5), spawn $ "meld" )
@@ -191,6 +191,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. shiftMask, xK_r ), spawn $ "termite -e 'sudo ranger'")
   , ((modMask .|. shiftMask , xK_d ), spawn $ "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")
   , ((modMask .|. shiftMask , xK_p ), spawn $ "rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons")
+  , ((modMask .|. shiftMask , xK_F12), spawn $ "$HOME/.bin/rofi-scripts/rofi-finder.sh")
   , ((modMask .|. shiftMask , xK_Escape ), spawn $ "xmonad --recompile && xmonad --restart")
   , ((modMask .|. shiftMask , xK_q ), kill)
   , ((modMask .|. shiftMask , xK_x ), io (exitWith ExitSuccess))
@@ -211,10 +212,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((controlMask .|. mod1Mask , xK_p ), spawn $ "pamac-manager")
   , ((controlMask .|. mod1Mask , xK_r ), spawn $ "rofi-theme-selector")
   , ((controlMask .|. mod1Mask , xK_s ), spawn $ "spotify")
-  , ((controlMask .|. mod1Mask , xK_t ), spawn $ "tabbed -r 2 st -w '' -e tmux")
+  , ((controlMask .|. mod1Mask , xK_t ), spawn $ "termite -e tmux")
   , ((controlMask .|. mod1Mask , xK_u ), spawn $ "pavucontrol")
   , ((controlMask .|. mod1Mask , xK_v ), spawn $ "vivaldi-stable")
-  , ((controlMask .|. mod1Mask , xK_w ), spawn $ "evolution")
+  , ((controlMask .|. mod1Mask , xK_w ), spawn $ "thunderbird")
   , ((controlMask .|. mod1Mask , xK_Return ), spawn $ "termite")
 
   -- ALT + ... KEYS
@@ -284,9 +285,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_space), sendMessage NextLayout)
 
   --Focus empty workspaces, except scratchPad
-  , ((controlMask, xK_Tab), moveTo Next EmptyWS)
+  , ((mod1Mask .|. shiftMask, xK_Tab), moveTo Next EmptyWS)
 
-  --Focus non-empty workspaces, except scratchPad
+  --Focus next workspace, except scratchPad
   , ((modMask, xK_Tab), moveTo Next (WSIs notNSP))
 
   --Toggle previously displayed workspace
@@ -358,7 +359,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --Belgian Azerty users use this line
   -- | (i, k) <- zip (XMonad.workspaces conf) [xK_ampersand, xK_eacute, xK_quotedbl, xK_apostrophe, xK_parenleft, xK_section, xK_egrave, xK_exclam, xK_ccedilla, xK_agrave]
 
-      , (f, m) <- [(W.toggleOrView, 0), (W.shift, shiftMask)]
+      , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
   ]  ++
   -- mod-{comma,period,slash}, Switch to physical/Xinerama screens 1, 2, or 3
   -- mod-shift-{comma,period,slash}, Move client to screen 1, 2, or 3
@@ -369,7 +370,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- where clause for skipping scratchPad workspace
   ]
   where
-      notNSP = (return $ ("NSP" /=) . W.tag, NonEmptyWS) :: X (WindowSpace -> Bool)
+      notNSP = (return $ ("NSP" /=) . W.tag) :: X (WindowSpace -> Bool)
 
 ---------------------------------------------------------------------------------------------------
 --MAIN

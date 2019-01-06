@@ -33,7 +33,7 @@ bspc config pointer_follows_focus true
 bspc config focus_follows_pointer true
 
 bspc monitor DP-2 -d 1 2 3 4 5
-bspc monitor DVI-I-1 -d 6 7 8 9 0
+bspc monitor HDMI-0 -d 6 7 8 9 0
 
 #Floating applications
 bspc rule -a Arandr state=floating
@@ -49,7 +49,7 @@ bspc rule -a Oblogout state=floating
 bspc rule -a rofi state=floating sticky=on
 #bspc rule -a Skype state=floating
 #bspc rule -a Stacer state=floating
-#bspc rule -a Xfce4-appfinder state=floating sticky=on
+bspc rule -a Xfce4-appfinder state=floating sticky=on
 
 bspc rule -a screenkey --unmanage
 bspc rule -a gcolor2 state=floating center=true
