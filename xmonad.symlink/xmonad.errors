@@ -1,0 +1,7 @@
+
+xmonad.hs:361:21: error:
+    Not in scope: ‘W.toggleOrView’
+    Module ‘XMonad.StackSet’ does not export ‘toggleOrView’.
+    |
+361 |       , (f, m) <- [(W.toggleOrView, 0), (W.shift, shiftMask)]
+    |                     ^^^^^^^^^^^^^^

@@ -16,7 +16,8 @@ xfsettingsd &
 sh ~/.fehbg &
 rootmenu &
 xmobar &
-conky -c /home/chris/.config/conky/conky_dzen | dzen2 -x '1920' -y '0' -w '1080' -h '16' -ta 'r' -bg '#19161f' -fg '#eddcd3' -fn '-myriad-pro-*-normal-*-14-*-*-*-*-*-*-*' &
+conky -c /home/chris/.config/conky/conky_dzen | dzen2 -x '1920' -y '0' -w '1920' -h '16' -ta 'r' -bg '#19161f' -fg '#eddcd3' -fn '-artwiz-nu-medium-*-normal-*-14-*-*-*-*-*-*-*' &
+urxvtd $
 #xfdesktop -D &
 ## compositing. Required for shadows, transparency and stuff.
 ## Reduces flicker. Disabling saves resources.

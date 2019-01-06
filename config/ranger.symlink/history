@@ -8,17 +8,22 @@ set show_hidden = true
 set true show_hidden
 set show_hidden true
 search sddm
-open_with 
 flat 3
 flat 1
 search oh
 search anti
 rename antigen.zsh.symlink
-
 search bs
 rename start-conky-gnome.desktop
 search xse
 search sx
 rename rofi-run
 rename rofi-window
+search spec
 delete
+rename autostart.backup
+vim
+edit ./TTYTheme
+
+rename TTYTheme.sh
+open_with 

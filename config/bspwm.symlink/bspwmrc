@@ -1,48 +1,55 @@
 #! /bin/sh
-gap=25
-PANEL_HEIGHT=25
-export gap
-export PANEL_HEIGHT
 
-#This creates negative padding equal to window gap so that gaps are shown only between windows and not on desktop edges.
-bspc config window_gap $gap
-bspc config top_padding 25 #$(($PANEL_HEIGHT-$gap))
-bspc config left_padding -$gap
-bspc config right_padding -$gap
-bspc config bottom_padding -$gap
+#LAUNCHERS
+$HOME/.config/bspwm/autostart.sh
+#bspc config external_rules_command ~/.config/bspwm/external_rules_command
 
-#Various settings
-bspc config gapless_monocle     true #Default setup uses negative padding, and gapless monocle looks really weird like that
+bspc config border_width        2
+bspc config window_gap         16
+
+bspc config normal_border_color "#2b3032"
+bspc config focused_border_color "#2b3032"
+bspc config active_border_color "#2b3032"
+bspc config presel_border_color "#DFDFDF"
+bspc config focused_locked_border_color "#2b3032"
+bspc config active_locked_border_color "#2b3032"
+bspc config normal_locked_border_color "#2b3032"
+bspc config focused_sticky_border_color "#2b3032"
+bspc config active_sticky_border_color "#2b3032"
+bspc config normal_sticky_border_color "#2b3032"
+bspc config focused_private_border_color "#2b3032"
+bspc config active_private_border_color "#2b3032"
+bspc config normal_private_border_color "#2b3032"
+bspc config urgent_border_color "#2b3032"
+
+bspc config split_ratio         0.62
 bspc config borderless_monocle  true
-bspc config single_monocle true
-bspc config paddingless_monocle true
-#bspc config ignore_ewmh_focus      true
-#bspc config initial_polarity second_child
+bspc config gapless_monocle     true
+bspc config focus_by_distance   true
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
-## Honor size hints: do not make windows smaller than they wish to be
-#bspc config honor_size_hints true
 
-##Color settings
-bspc config focused_border_color "#1ABB9B"
-bspc config normal_border_color "#2D2D2D"
-#"#000000"
-bspc config presel_feedback_color "#1ABB9B"
-#"#8F3724"
-bspc config border_width 2
-
-bspc config pointer_follows_focus true #Some keybindings automatically enable and disable this setting
+bspc config pointer_follows_focus true
 bspc config focus_follows_pointer true
 
-#Settings for manual splitting
-bspc config split_ratio         0.52
+bspc monitor DP-2 -d 1 2 3 4 5
+bspc monitor DVI-I-1 -d 6 7 8 9 0
 
-
-###This creates and names desktops for multiple monitors.
-#workspaces_multimonitor &
-
-bspc monitor DVI-I-1 -d i ii iii iv v
-bspc monitor HDMI-0 -d vi vii viii ix x
+#Floating applications
+bspc rule -a Arandr state=floating
+bspc rule -a feh state=floating
+#bspc rule -a mpv state=floating sticky=on
+#bspc rule -a Font-manager state=floating
+bspc rule -a Galculator state=floating
+#bspc rule -a Gpick state=floating sticky=on
+#bspc rule -a Nitrogen state=floating
+bspc rule -a Oblogout state=floating
+#bspc rule -a Pavucontrol state=floating sticky=on
+#bspc rule -a Peek state=floating
+bspc rule -a rofi state=floating sticky=on
+#bspc rule -a Skype state=floating
+#bspc rule -a Stacer state=floating
+#bspc rule -a Xfce4-appfinder state=floating sticky=on
 
 bspc rule -a screenkey --unmanage
 bspc rule -a gcolor2 state=floating center=true
@@ -65,46 +72,25 @@ bspc rule -a Docky layer=above border=off manage=on
 bspc rule -a Plank layer=above border=off manage=on
 bspc rule -a wbar layer=above
 bspc rule -a dockbarx layer=above
-bspc rule -a google-chrome-unstable private=on
 bspc rule -a google-chrome-stable private=on
 bspc rule -a chromium private=on
 bspc rule -a vivaldi-stable private=on
 bspc rule -a firefox private=on
-bspc rule -a midori private=on
 bspc rule -a gnome-pie border=off manage=off
 bspc rule -a wpa_gui state=pseudo_tiled
-#bspc rule -a firefox desktop=I
-#bspc rule -a calibre desktop=II
-#bspc rule -a geany desktop=II
-#bspc rule -a deluge desktop=III
 bspc rule -a 9menu border=off manage=off
 bspc rule -a tint2 border=off manage=off
-bspc rule -a trayer border=off manage=off
-bspc rule -a xmobar border=off manage=off
-bspc rule -a dzen2 border=off manage=off
-#bspc desktop I --layout monocle
-#bspc desktop II --layout monocle
+bspc rule -a trayer border=off manage=off layer=above
+bspc rule -a xmobar border=off manage=off layer=above
+bspc rule -a dzen2 border=off manage=off layer=above
 
-
-##  Autogap adjusts windowgap automatically according to the number of
-##  windows on the desktop. Using it disables negative window gap.
-#autogap &
-
-##  This script balances all windows when new one is spawned
-#euclid_balancer &
-
-##Edge-switcher switches to next workspace when moves moves to the
-##edge of the monitor (behavior similar to enlightenment)
-#edge-switcher &
+bspc config top_padding 26
+bspc config bottom_padding 26
+bspc config left_padding 3
+bspc config right_padding 3
 
 ###External rules
 ##Pseudo automatic mode: always splits focused window when opening new window
 bspc config external_rules_command /usr/bin/pseudo_automatic_mode
 ##Adjust new window: splits biggest windows to keep windows about the same size
 #bspc config external_rules_command /usr/bin/adjust-new-window
-
-##Autostart apps
-#Keybindings daemon
-#sxhkd &
-#Source autostartfile. Uncomment this if you use bspwm-git
-#. $HOME/.config/bspwm/autostart

@@ -1,0 +1,9 @@
+[$Version]
+update_info=fonts_kate.upd:Plasma_Fonts_Kate
+
+[Breeze Dark]
+Font=Hack,12,-1,5,50,0,0,0,0,0,Regular
+dummy=prevent-empty-group
+
+[Normal]
+dummy=prevent-empty-group
