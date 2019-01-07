@@ -200,7 +200,7 @@ ctrl + alt + f
 
 #Surf
 ctrl + alt + g
-     tabbed surf -e
+     tabbed -c surf -e
 
 #Nitrogen
 ctrl + alt + i
@@ -301,6 +301,9 @@ alt + F2
 alt + F3
     xfce4-appfinder
 
+#Search with Surfraw
+alt + shift + s
+	$HOME/.bin/surfraw-search.sh
 
 #########################
 #VARIETY KEYS WITH PYWAL#

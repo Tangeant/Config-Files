@@ -204,7 +204,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((controlMask .|. mod1Mask , xK_e ), spawn $ "kate")
   , ((controlMask .|. mod1Mask , xK_f ), spawn $ "firefox")
 --   , ((controlMask .|. mod1Mask , xK_g ), spawn $ "chromium -no-default-browser-check")
-  , ((controlMask .|. mod1Mask , xK_g ), spawn $ "tabbed surf -e") 
+  , ((controlMask .|. mod1Mask , xK_g ), spawn $ "tabbed -c surf -e") 
   , ((controlMask .|. mod1Mask , xK_i ), spawn $ "nitrogen")
   , ((controlMask .|. mod1Mask , xK_l ), spawn $ "i3lock")
   , ((controlMask .|. mod1Mask , xK_m ), spawn $ "xfce4-settings-manager")
@@ -231,6 +231,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((mod1Mask, xK_Right), spawn $ "variety -n" )
   , ((mod1Mask, xK_F2), spawn $ "gmrun" )
   , ((mod1Mask, xK_F3), spawn $ "xfce4-appfinder" )
+  , ((mod1Mask .|. shiftMask, xK_s), spawn $ "$HOME/.bin/surfraw_search.sh")
 
   --VARIETY KEYS WITH PYWAL
 
