@@ -73,32 +73,32 @@ myManageHook = composeAll . concat $
     , [title =? t --> doFloat | t <- myTFloats]
     , [resource =? r --> doFloat | r <- myRFloats]
     , [resource =? i --> doIgnore | i <- myIgnores]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61612" | x <- my1Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61612" | x <- my1Shifts]
     -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61899" | x <- my2Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61947" | x <- my3Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61635" | x <- my4Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61502" | x <- my5Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61501" | x <- my6Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61705" | x <- my7Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61564" | x <- my8Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\62150" | x <- my9Shifts]
-    -- , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61872" | x <- my10Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61947" | x <- my3Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61635" | x <- my4Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61502" | x <- my5Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61501" | x <- my6Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61705" | x <- my7Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61564" | x <- my8Shifts]
+    , [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\62150" | x <- my9Shifts]
+    --, [(className =? x <||> title =? x <||> resource =? x) --> doShiftAndGo "\61872" | x <- my10Shifts]
   ]
     where
-    -- doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
+    doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
     myCFloats = ["Arandr", "Galculator", "Oblogout", "feh", "mpv"]
     myTFloats = ["Downloads", "Save As..."]
     myRFloats = []
     myIgnores = ["desktop_window"]
     my1Shifts = ["Chromium", "Vivaldi-stable", "Firefox", "Qutebrowser"]
-    my2Shifts = ["termite", "urxvt"]
+    --my2Shifts = ["termite", "urxvt"]
     my3Shifts = ["Inkscape"]
     my4Shifts = ["kate", "geany"]
     my5Shifts = ["Gimp", "feh"]
-    my6Shifts = ["vlc", "mpv"]
-    -- my7Shifts = ["Virtualbox"]
+    my6Shifts = ["vlc", "mpv", "SMPlayer"]
+    my7Shifts = ["Virtualbox"]
     my8Shifts = ["Thunar"]
-    my9Shifts = ["thunderbird"]
+    my9Shifts = ["Thunderbird"]
     -- my10Shifts = ["discord"]
     
 -- Scratchpad definition
@@ -108,13 +108,13 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
 
     where
         
-        h = 0.1     -- terminal height, 10%
-        w = 0.8       -- terminal width, 100%
-        t = 1 - h   -- distance from top edge, 90%
-        l = 1 - w   -- distance from left edge, 0%
+        h = 0.75             -- terminal height, 76%
+        w = 0.6             -- terminal width, 60%
+        t = (1 - h) / 2     -- distance from top edge, 20%
+        l = (1 - w) / 2     -- distance from left edge, 20%
 
 -- pointer follows focus logHook
-myLogHook = dynamicLogWithPP defaultPP { ppSort = fmap (.scratchpadFilterOutWorkspace) getSortByTag
+myLogHook = dynamicLogWithPP defaultPP { ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
     , ppHidden  =   noScratchPad
     , ppHiddenNoWindows = noScratchPad
     } 
@@ -154,69 +154,73 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   ----------------------------------------------------------------------
   -- SUPER + FUNCTION KEYS
 
-  [ ((modMask, xK_e), spawn $ "geany" )
+  [((modMask, xK_b), spawn $ "termite -e bmenu" )
+  , ((modMask, xK_c), spawn $ "xkill" )
+  ,((modMask, xK_e), spawn $ "geany" )
   , ((modMask, xK_f), sendMessage $ Toggle NBFULL)
   , ((modMask, xK_h), spawn $ "urxvt 'htop task manager' -e htop" )
   , ((modMask, xK_m), spawn $ "pragha" )
   , ((modMask, xK_p), spawn $ "termite -e pacli" )
-  , ((modMask, xK_b), spawn $ "termite -e bmenu" )
-  , ((modMask, xK_t), spawn $ "urxvt" )
-  , ((modMask, xK_r), spawn $ "termite -e ranger" )
-  , ((modMask, xK_w), spawn $ "pavucontrol" )
-  , ((modMask, xK_v), spawn $ "vivaldi-stable" )
   , ((modMask, xK_q), spawn $ "qutebrowser" )
+  , ((modMask, xK_r), spawn $ "termite -e ranger" )
+  , ((modMask, xK_s), scratchPad)
+  , ((modMask, xK_t), spawn $ "urxvt" )
+  , ((modMask, xK_v), spawn $ "vivaldi-stable" )
+  , ((modMask, xK_w), spawn $ "pavucontrol" )
+  , ((modMask, xK_x), kill)
   , ((modMask, xK_y), spawn $ "polybar-msg cmd toggle" )
-  , ((modMask, xK_x), spawn $ "oblogout" )
 --  , ((modMask, xK_Escape), spawn $ "xkill" )
-  , ((modMask, xK_c), spawn $ "xkill" )
 --  , ((modMask, xK_Return), spawn $ "urxvt" )
   , ((modMask, xK_Return), spawn $ "termite" )
-  , ((modMask, xK_s), scratchPad)
   , ((modMask, xK_F1), spawn $ "vivaldi-stable" )
   , ((modMask, xK_F2), spawn $ "nvim" )
   , ((modMask, xK_F3), spawn $ "inkscape" )
   , ((modMask, xK_F4), spawn $ "gimp" )
   , ((modMask, xK_F5), spawn $ "meld" )
-  , ((modMask, xK_F6), spawn $ "vlc --video-on-top" )
+  , ((modMask, xK_F6), spawn $ "SMPlayer" )
   , ((modMask, xK_F7), spawn $ "virtualbox" )
   , ((modMask, xK_F8), spawn $ "thunar" )
   , ((modMask, xK_F9), spawn $ "thunderbird" )
-  , ((modMask, xK_F10), spawn $ "spotify" )
+  , ((modMask, xK_F10), spawn $ "mpv" )
   , ((modMask, xK_F11), spawn $ "rofi -show run -fullscreen" )
   , ((modMask, xK_F12), spawn $ "rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons" )
 
   -- SUPER + SHIFT KEYS
 
-  , ((modMask .|. shiftMask , xK_Return ), spawn $ "tabbed -r 2 st -w '' -e tmux")
-  , ((modMask .|. shiftMask, xK_r ), spawn $ "termite -e 'sudo ranger'")
   , ((modMask .|. shiftMask , xK_d ), spawn $ "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")
-  , ((modMask .|. shiftMask , xK_p ), spawn $ "rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons")
-  , ((modMask .|. shiftMask , xK_F12), spawn $ "$HOME/.bin/rofi-scripts/rofi-finder.sh")
-  , ((modMask .|. shiftMask , xK_Escape ), spawn $ "xmonad --recompile && xmonad --restart")
   , ((modMask .|. shiftMask , xK_q ), kill)
+  , ((modMask .|. shiftMask , xK_r ), spawn $ "termite -e 'sudo ranger'")
+  , ((modMask .|. shiftMask , xK_p ), spawn $ "rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons")
   , ((modMask .|. shiftMask , xK_x ), io (exitWith ExitSuccess))
+  , ((modMask .|. shiftMask , xK_Escape ), spawn $ "xmonad --recompile && xmonad --restart")
+  , ((modMask .|. shiftMask , xK_Return ), spawn $ "tabbed -r 2 st -w '' -e tmux")
+  , ((modMask .|. shiftMask , xK_F1), spawn $ "geany ~/.xmonad/xmonad.hs")
+  , ((modMask .|. shiftMask , xK_F12), spawn $ "$HOME/.bin/rofi-scripts/rofi-finder.sh")
 
   -- CONTROL + ALT KEYS
 
   , ((controlMask .|. mod1Mask , xK_a ), spawn $ "xfce4-appfinder")
-  , ((controlMask .|. mod1Mask , xK_b ), spawn $ "thunar")
-  , ((controlMask .|. mod1Mask , xK_c ), spawn $ "catfish")
+  , ((controlMask .|. mod1Mask , xK_b ), spawn $ "firefox")
+  , ((controlMask .|. mod1Mask , xK_c ), spawn $ "$HOME/.xmonad/scripts/compton-toggle.sh")
   , ((controlMask .|. mod1Mask , xK_e ), spawn $ "kate")
-  , ((controlMask .|. mod1Mask , xK_f ), spawn $ "firefox")
---   , ((controlMask .|. mod1Mask , xK_g ), spawn $ "chromium -no-default-browser-check")
-  , ((controlMask .|. mod1Mask , xK_g ), spawn $ "tabbed -c surf -e") 
+  , ((controlMask .|. mod1Mask , xK_f ), spawn $ "thunar")
+  --   , ((controlMask .|. mod1Mask , xK_g ), spawn $ "chromium -no-default-browser-check")
+  , ((controlMask .|. mod1Mask , xK_g ), scratchpadSpawnActionCustom $ "tabbed -cn scratchpad surf -e") 
   , ((controlMask .|. mod1Mask , xK_i ), spawn $ "nitrogen")
   , ((controlMask .|. mod1Mask , xK_l ), spawn $ "i3lock")
+  
   , ((controlMask .|. mod1Mask , xK_m ), spawn $ "xfce4-settings-manager")
-  , ((controlMask .|. mod1Mask , xK_o ), spawn $ "$HOME/.xmonad/scripts/compton-toggle.sh")
+  
   , ((controlMask .|. mod1Mask , xK_p ), spawn $ "pamac-manager")
   , ((controlMask .|. mod1Mask , xK_r ), spawn $ "rofi-theme-selector")
-  , ((controlMask .|. mod1Mask , xK_s ), spawn $ "spotify")
+  --, ((controlMask .|. mod1Mask , xK_s ), spawn $ "spotify")
+  , ((controlMask .|. mod1Mask , xK_s ), spawn $ "catfish")
   , ((controlMask .|. mod1Mask , xK_t ), spawn $ "termite -e tmux")
   , ((controlMask .|. mod1Mask , xK_u ), spawn $ "pavucontrol")
   , ((controlMask .|. mod1Mask , xK_v ), spawn $ "vivaldi-stable")
   , ((controlMask .|. mod1Mask , xK_w ), spawn $ "thunderbird")
   , ((controlMask .|. mod1Mask , xK_Return ), spawn $ "termite")
+  , ((controlMask .|. mod1Mask , xK_Delete), spawn $ "oblogout")
 
   -- ALT + ... KEYS
 
@@ -231,7 +235,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((mod1Mask, xK_Right), spawn $ "variety -n" )
   , ((mod1Mask, xK_F2), spawn $ "gmrun" )
   , ((mod1Mask, xK_F3), spawn $ "xfce4-appfinder" )
-  , ((mod1Mask .|. shiftMask, xK_s), spawn $ "$HOME/.bin/surfraw_search.sh")
+  , ((mod1Mask .|. shiftMask, xK_s), spawn $ "$HOME/.bin/rofi-scripts/surfraw_search.sh")
+  , ((mod1Mask .|. shiftMask, xK_v), spawn $ "$HOME/.bin/rofi-scripts/surfraw_vivaldi_search.sh")
 
   --VARIETY KEYS WITH PYWAL
 
@@ -310,7 +315,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_k), windows W.focusUp)
 
   -- Move focus to the master window.
-  , ((modMask .|. shiftMask, xK_m), windows W.focusMaster)
+  , ((modMask .|. mod1Mask, xK_m), windows W.focusMaster)
 
   -- Swap the focused window with the next window.
   , ((modMask .|. shiftMask, xK_j), windows W.swapDown)
@@ -340,10 +345,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((controlMask .|. modMask, xK_Right), sendMessage (IncMasterN (-1)))
 
   -- Swap the focused window with the master window
-  , ((modMask .|. shiftMask , xK_space), windows W.swapMaster)
-
-  -- Move focus to the master window
-  , ((modMask .|. controlMask , xK_space), windows W.focusMaster)
+  , ((modMask .|. shiftMask , xK_m), windows W.swapMaster)
   ]
 
   -- mod-[1..9], Switch to workspace N

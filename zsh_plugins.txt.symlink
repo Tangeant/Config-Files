@@ -1,0 +1,20 @@
+djui/alias-tips
+# comments are supported like this
+caarlos0/zsh-mkc
+zsh-users/zsh-completions
+
+# empty lines are skipped
+
+# annotations are also allowed:
+robbyrussell/oh-my-zsh path:plugins/command-not-found
+robbyrussell/oh-my-zsh path:plugins/copyfile
+robbyrussell/oh-my-zsh path:plugins/dircycle
+#robbyrussell/oh-my-zsh path:plugins/git
+robbyrussell/oh-my-zsh path:plugins/iwhois
+robbyrussell/oh-my-zsh path:plugins/sudo
+robbyrussell/oh-my-zsh path:plugins/systemd
+
+denysdovhan/spaceship-prompt
+
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search

@@ -6,9 +6,9 @@
 super + F1
 	vivaldi-stable
 
-# Geany
+# Nvim
 super + F2
-	geany
+    nvim
 
 #Inkscape
 super + F3
@@ -22,9 +22,9 @@ super + F4
 super + F5
     meld
 
-#Vlc
+#SMPlayer
 super + F6
-    vlc --video-on-top
+    SMPlayer
 
 #Virtualbox
 super + F7
@@ -32,7 +32,7 @@ super + F7
 
 #Thunar
 super + F8
-    thunar
+    Thunar
 
 #Thunderbird
 super + F9
@@ -54,24 +54,24 @@ super + F12
 # SUPER + ... KEYS      #
 #########################
 
-#Kate
+#Geany
 super + e
-    kate
+    Geany
 
 #Toggle fullscreen of window
 super + f
 	bspc node --state \~fullscreen
 
 #Htop
-super + h
+super + alt + h
     urxvt 'htop task manager' -e htop
 
 #music player
 super + m
-    pragha
+    praghaq
 
 # Toggle pseudo tiling of window
-super + p
+super + alt + p
 	bspc node --state \~pseudo_tiled
 
 #Qutebrowser
@@ -81,6 +81,10 @@ super + q
 #Ranger
 super + r
     termite -e ranger
+
+#Pacli
+super +  p
+    $TERMINAL -e pacli
 
 #Urxvt
 super + t
@@ -98,9 +102,9 @@ super + v
 super + y
     polybar-msg cmd toggle
 
-#Oblogout
+#Kill
 super + x
-    oblogout
+    bspc node -c
 
 #Xkill
 super + c
@@ -144,17 +148,13 @@ super+shift+p
 #Rofi Finder
 super+shift+F12
 	~/.bin/rofi-scripts/rofi-finder.sh
-    
-#Pacli
-super + shift + p
-	$TERMINAL -e pacli
 
 #Bmenu
 super + shift + m
 	$TERMINAL -e bmenu
 	
 #Edit bspwm config
-super + shift + e
+super + shift + F1
     $GUI_EDITOR ~/.config/bspwm/bspwmrc
 
 #Reload bspwm
@@ -183,19 +183,15 @@ ctrl + alt + a
      xfce4-appfinder
 
 #File-Manager
-ctrl + alt + b
-     thunar
+ctrl + alt + f
+     pcmanfm
 
 #Catfish
-ctrl + alt + c
+ctrl + alt + s
      catfish
 
-#Evolution
-#ctrl + alt + e
-#     evolution
-
 #Firefox
-ctrl + alt + f
+ctrl + alt + b
      firefox
 
 #Surf
@@ -215,7 +211,7 @@ ctrl + alt + m
      xfce4-settings-manager
 
 #Compton Toggle
-ctrl + alt + o
+ctrl + alt + c
      ~/.config/bspwm/scripts/compton-toggle.sh
 
 #Spotify
@@ -255,6 +251,9 @@ ctrl + alt + Return
 ctrl + alt + p
      pamac-manager
 
+#Oblogout
+ctrl + alt + Delete
+    oblogout
 
 #########################
 # ALT + ... KEYS        #
@@ -303,7 +302,11 @@ alt + F3
 
 #Search with Surfraw
 alt + shift + s
-	$HOME/.bin/surfraw-search.sh
+	~/.bin/surfraw_search.sh
+
+#Search with Surfraw open in Vivaldi
+alt + shift + v
+    ~/.bin/surfraw_vivaldi_search.sh
 
 #########################
 #VARIETY KEYS WITH PYWAL#
