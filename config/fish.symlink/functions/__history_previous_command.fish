@@ -1,1 +1,0 @@
-/home/chris/.config/fisherman/bang-bang/functions/__history_previous_command.fish

@@ -145,8 +145,8 @@ URxvt.colorUL:      #87afd7
 ! Colors -----------------------------------------------------------
 
 !URxvt Molokai
-! URxvt*background  : Molokai_black
-! URxvt*foreground  : Molokai_white
+!URxvt*background  : Molokai_black
+!URxvt*foreground  : Molokai_white
 !URxvt.foreground: #99CC99
 !URxvt.background: #000000
 !URxvt*cursorColor : #99CC99
@@ -172,8 +172,11 @@ URxvt.colorUL:      #87afd7
 !
 ! vim: set ft=xdefaults:
 
-URxvt.background: #232323
+!URxvt.background: #232323
 URxvt.foreground: #A0A0A0
+
+URxvt.depth: 32
+URxvt.background: [95]#000000
 
 URxvt.colorBD:    #CFCFCF
 URxvt.colorUL:    #A0A0A0

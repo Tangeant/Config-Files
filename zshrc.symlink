@@ -93,7 +93,13 @@ HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
 
-alias _='sudo'
+#For termite opening new tab
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
+
+alias _='sudo '
 alias grep='grep --color=tty -d skip'
 alias cp='cp -i'                        # Confirm before overwriting something
 alias mv='mv -i'
@@ -172,12 +178,19 @@ ex() {
   fi
 }
 
-#youtube-dl audio with search
+#youtube-dl audio with search with 50 songs
 #To find and stream audio from the terminal with yta <search terms>
 function yta() {
-    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
+    mpv --ytdl-format=bestaudio ytdl://ytsearch50:"$*"
 }
 
+#youtube-dl video with search
+#To find and stream video from the terminal with ytv <search terms>
+function ytv() {
+    mpv --ytdl-format=bestvideo ytdl://ytsearch:"$*"
+}
+
+#A better copy keeps permissions, groups, and owners
 cpv() {
     rsync -pogbr -hhh --backup-dir=/tmp/rsync -e /dev/null --progress "$@"
 }

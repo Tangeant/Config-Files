@@ -164,7 +164,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_q), spawn $ "qutebrowser" )
   , ((modMask, xK_r), spawn $ "termite -e ranger" )
   , ((modMask, xK_s), scratchPad)
-  , ((modMask, xK_t), spawn $ "urxvt" )
+  , ((modMask, xK_t), spawn $ "$(tabbed -cd >/tmp/tabbed.xid); urxvt -embed $(</tmp/tabbed.xid);" )
   , ((modMask, xK_v), spawn $ "vivaldi-stable" )
   , ((modMask, xK_w), spawn $ "pavucontrol" )
   , ((modMask, xK_x), kill)
@@ -224,19 +224,20 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- ALT + ... KEYS
 
-  , ((mod1Mask, xK_f), spawn $ "variety -f" )
-  , ((mod1Mask, xK_n), spawn $ "variety -n" )
-  , ((mod1Mask, xK_p), spawn $ "variety -p" )
-  , ((mod1Mask, xK_r), spawn $ "xmonad --restart" )
-  , ((mod1Mask, xK_t), spawn $ "variety -t" )
-  , ((mod1Mask, xK_Up), spawn $ "variety --pause" )
-  , ((mod1Mask, xK_Down), spawn $ "variety --resume" )
-  , ((mod1Mask, xK_Left), spawn $ "variety -p" )
-  , ((mod1Mask, xK_Right), spawn $ "variety -n" )
-  , ((mod1Mask, xK_F2), spawn $ "gmrun" )
-  , ((mod1Mask, xK_F3), spawn $ "xfce4-appfinder" )
-  , ((mod1Mask .|. shiftMask, xK_s), spawn $ "$HOME/.bin/rofi-scripts/surfraw_search.sh")
-  , ((mod1Mask .|. shiftMask, xK_v), spawn $ "$HOME/.bin/rofi-scripts/surfraw_vivaldi_search.sh")
+  , ((mod1Mask, xK_f) , spawn $ "variety -f" )
+  , ((mod1Mask, xK_n) , spawn $ "variety -n" )
+  , ((mod1Mask, xK_p) , spawn $ "variety -p" )
+  , ((mod1Mask, xK_r) , spawn $ "xmonad --restart" )
+  , ((mod1Mask, xK_t) , spawn $ "variety -t" )
+  , ((mod1Mask, xK_Up) , spawn $ "variety --pause" )
+  , ((mod1Mask, xK_Down) , spawn $ "variety --resume" )
+  , ((mod1Mask, xK_Left) , spawn $ "variety -p" )
+  , ((mod1Mask, xK_Right) , spawn $ "variety -n" )
+  , ((mod1Mask, xK_F2) , spawn $ "gmrun" )
+  , ((mod1Mask, xK_F3) , spawn $ "xfce4-appfinder" )
+  , ((mod1Mask .|. shiftMask , xK_s), spawn $ "$HOME/.bin/rofi-scripts/surfraw_search.sh")
+  , ((mod1Mask .|. shiftMask , xK_v), spawn $ "$HOME/.bin/rofi-scripts/surfraw_vivaldi_search.sh")
+  , ((mod1Mask .|. shiftMask , xK_c), spawn $ "$HOME/.bin/rofi-scripts/rofi-cht.sh")
 
   --VARIETY KEYS WITH PYWAL
 
@@ -300,7 +301,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((mod1Mask, xK_Tab), toggleWS' ["NSP"])
 
   --  Reset the layouts on the current workspace to default.
-  , ((controlMask .|. shiftMask, xK_space), setLayout $ XMonad.layoutHook conf)
+  , ((controlMask .|. mod1Mask, xK_space), setLayout $ XMonad.layoutHook conf)
 
   -- Move focus to the next window.
   , ((controlMask .|. mod1Mask , xK_Left ), windows W.focusDown)
@@ -336,7 +337,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. shiftMask , xK_l), sendMessage Expand)
 
   -- Push window back into tiling.
-  , ((controlMask .|. shiftMask , xK_t), withFocused $ windows . W.sink)
+  , ((modMask .|. shiftMask , xK_t), withFocused $ windows . W.sink)
 
   -- Increment the number of windows in the master area.
   , ((controlMask .|. modMask, xK_Left), sendMessage (IncMasterN 1))

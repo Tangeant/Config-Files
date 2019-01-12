@@ -29,3 +29,6 @@ rename TTYTheme.sh
 open_with 
 search skel
 search poly
+rename .vim
+rename .gtkrc-2.0
+search git

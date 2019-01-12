@@ -4,7 +4,7 @@
 
 # Vivaldi
 super + F1
-	vivaldi-stable
+    vivaldi-stable
 
 # Nvim
 super + F2

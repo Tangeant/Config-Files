@@ -14,6 +14,8 @@ robbyrussell/oh-my-zsh path:plugins/iwhois
 robbyrussell/oh-my-zsh path:plugins/sudo
 robbyrussell/oh-my-zsh path:plugins/systemd
 
+rupa/z
+
 denysdovhan/spaceship-prompt
 
 zsh-users/zsh-syntax-highlighting
