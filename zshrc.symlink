@@ -187,7 +187,7 @@ function yta() {
 #youtube-dl video with search
 #To find and stream video from the terminal with ytv <search terms>
 function ytv() {
-    mpv --ytdl-format=bestvideo ytdl://ytsearch:"$*"
+    mpv --ytdl-format=bestvideo+bestaudio/best ytdl://ytsearch:"$*"
 }
 
 #A better copy keeps permissions, groups, and owners
