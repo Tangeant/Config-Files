@@ -20,11 +20,9 @@ search sx
 rename rofi-run
 rename rofi-window
 search spec
-delete
 rename autostart.backup
 vim
 edit ./TTYTheme
-
 rename TTYTheme.sh
 open_with 
 search skel
@@ -32,3 +30,12 @@ search poly
 rename .vim
 rename .gtkrc-2.0
 search git
+rename gmail.tld!
+rename posteo.tld!
+search mutt
+rename gmaildomain.tld
+rename posteodomain.tld
+mkdir posteo
+mkdir gmail
+delete
+

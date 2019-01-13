@@ -59,8 +59,8 @@ myModMask = mod4Mask
 encodeCChar = map fromIntegral . B.unpack
 myFocusFollowsMouse = True
 myBorderWidth = 2
+--myTerminal = "st -f 'Inconsolata:pixelsize=12:antialias=true:autohint=true:spacing=[0|90|100|110]'"
 myTerminal = "urxvt"
--- myTerminal = "termite"
 myWorkspaces    = ["\61612","\61899","\61947","\61635","\61502","\61501","\61705","\61564","\62150","\61872"]
 --myWorkspaces    = ["1","2","3","4","5","6","7","8","9","10"]
 myBaseConfig = desktopConfig
@@ -158,13 +158,13 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_c), spawn $ "xkill" )
   ,((modMask, xK_e), spawn $ "geany" )
   , ((modMask, xK_f), sendMessage $ Toggle NBFULL)
-  , ((modMask, xK_h), spawn $ "urxvt 'htop task manager' -e htop" )
+  , ((modMask, xK_h), spawn $ "st -f 'Inconsolata:pixelsize=12:antialias=true:autohint=true:spacing=[0|90|100|110]' -n 'htop task manager' -e htop" )
   , ((modMask, xK_m), spawn $ "pragha" )
   , ((modMask, xK_p), spawn $ "termite -e pacli" )
   , ((modMask, xK_q), spawn $ "qutebrowser" )
   , ((modMask, xK_r), spawn $ "termite -e ranger" )
   , ((modMask, xK_s), scratchPad)
-  , ((modMask, xK_t), spawn $ "$(tabbed -cd >/tmp/tabbed.xid); urxvt -embed $(</tmp/tabbed.xid);" )
+  , ((modMask, xK_t), spawn $ "tabbed -c urxvt -embed" )
   , ((modMask, xK_v), spawn $ "vivaldi-stable" )
   , ((modMask, xK_w), spawn $ "pavucontrol" )
   , ((modMask, xK_x), kill)
@@ -193,8 +193,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. shiftMask , xK_p ), spawn $ "rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons")
   , ((modMask .|. shiftMask , xK_x ), io (exitWith ExitSuccess))
   , ((modMask .|. shiftMask , xK_Escape ), spawn $ "xmonad --recompile && xmonad --restart")
-  , ((modMask .|. shiftMask , xK_Return ), spawn $ "tabbed -r 2 st -w '' -e tmux")
+  , ((modMask .|. shiftMask , xK_Return ), spawn $ "tabbed -c -r 2 st -w '' -f 'Inconsolata:pixelsize=12:antialias=true:autohint=true:spacing=[0|90|100|110]' -e tmux")
   , ((modMask .|. shiftMask , xK_F1), spawn $ "geany ~/.xmonad/xmonad.hs")
+  , ((modMask .|. shiftMask , xK_F9), spawn $ "st -f 'Inconsolata:pixelsize=14:antialias=true:autohint=true:spacing=[0|90|100|110]' -e mutt")
   , ((modMask .|. shiftMask , xK_F12), spawn $ "$HOME/.bin/rofi-scripts/rofi-finder.sh")
 
   -- CONTROL + ALT KEYS

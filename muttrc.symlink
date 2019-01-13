@@ -1,23 +1,156 @@
-# Automatically log in to this mailbox at startup
-set spoolfile="imaps://posteo.de/INBOX"
-# Define the = shortcut, and the entry point for the folder browser (c?)
-set folder="imaps://mail.posteo.de/"
-set record="=Sent"
-set postponed="=Drafts"
-# activate TLS if available on the server
- set ssl_starttls=yes
- # always use SSL when connecting to a server
- set ssl_force_tls=yes
- # Don't wait to enter mailbox manually 
- unset imap_passive        
- # Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
- set imap_check_subscribed
- # Reduce polling frequency to a sane level
- set mail_check=60
- # And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
- set timeout=10
- # keep a cache of headers for faster loading (1.5.9+?)
- set header_cache=~/.hcache
- # Display download progress every 5K
- set net_inc=5
+macro index <F5> '<sync-mailbox><enter-command>source ~/.mutt/posteo/Account<enter><change-folder>!<enter>'
+macro index <F6> '<sync-mailbox><enter-command>source ~/.mutt/gmail/Account<enter><change-folder>!<enter>'
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
+## Posteo Account
+source "~/.mutt/posteo/Account"
+# Here we use the $folder variable that has just been set in the sourced file.
+# We must set it right now otherwise the 'folder' variable will change in the next sourced file.
+folder-hook $folder 'source ~/.mutt/posteo/Account'
+
+## Gmail Account
+source "~/.mutt/gmail/Account"
+folder-hook cterrio@gmail.com/ 'source ~/.mutt/gmail/Account'
+
+# Choose which account should be loaded on startup, uncomment only one of these:
+source "~/.mutt/posteo/Account"
+
+##General Settings
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc #Sorting emails by the given criteria (from left to right)
+ignore *
+unignore from: date subject to cc
+unignore x-mailing-list: posted-to:
+unignore x-mailer: #Nice looks
+set markers=no # removes the "+" sign from the beginning of wrapped lines
+set pager_index_lines= 5
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+
+# activate TLS if available on the server
+set ssl_starttls=yes
+# always use SSL when connecting to a server
+# set ssl_force_tls=yes
+# Don't wait to enter mailbox manually
+unset imap_passive
+# Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
+set imap_check_subscribed
+# Reduce polling frequency to a sane level
+set mail_check=60
+# And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
+set timeout=10
+# keep a cache of headers for faster loading (1.5.9+?)
+set header_cache=~/.hcache
+# Display download progress every 5K
+set net_inc=5
+#Set default editor
+set editor="vim"
+
+#==============================================================================
+#===Keybindings================================================================
+#==============================================================================
+
+# b toggles sidebar visibility
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'
+
+# =============================================================================
+# === Color ===================================================================
+# =============================================================================
+# Header
+color header yellow default "From: "
+color header brightblue default "Subject: "
+color header cyan default "Date: "
+color header red default "To: "
+# Quoted
+color quoted green default
+color quoted1 cyan default
+color quoted2 brightgreen default
+color quoted3 brightcyan default
+# Misc
+color hdrdefault cyan default
+color attachment black default
+color error red default     #error messages
+color message white default #message informational messages
+color indicator brightwhite green #indicator for the "current message"
+color status brightwhite default  #status lines in the folder index
+color tree red default      #the "tree" display of threads within the folder index
+color search white blue     #search matches found with search within the internal pager
+color markers red default   #The markers indicate a wrapped line
+# Index
+color index blue default '~O' #Old messages
+color index cyan default '~P' #From myself
+color index default default '~R' #Readed messages
+color index green default '~N'   #New messages
+color index brightmagenta default '~F' #Flagged Messages are important!
+color index white default '~Q'         #Replied
+color index brightwhite brightred '~D' #Deleted Mails
+
+# =============================================================================
+# === Color ===================================================================
+# =============================================================================
+#color attachment brightmagenta black
+#color error brightwhite red  #errors yell at you in red
+#color hdrdefault red black   #headers
+#color indicator brightwhite magenta #currently selected message
+#color markers brightcyan black  #the + for wrapped pager lines
+#color message brightcyan black  #informational messages, not mail
+#color normal white black  #plain text
+#color quoted green black  #quoted text
+#color search brightgreen black #hilite search patterns in the pager
+#color signature red black      #signature (after "-- ") is red
+#color status brightcyan black  #status bar is brightcyan *on black*
+#color tilde blue black  #~'s after message body
+#color tree red black    #thread tree in index menu is magenta
+#color signature brightred black
+#color underline yellow black
+#color header cyan black ^(From|Subject): #Important headers
+#color body magenta black "(ftp|http)://[^ ]+" #picks up URLs
+#color body magenta black [-a-z_0-9.]+@[-a-z_0-9.]+
+
+##  Coloring quoted text - coloring the first 7 levels:
+#color quoted    cyan black
+#color quoted1   yellow black
+#color quoted2   red black
+#color quoted3   green black
+#color quoted4   cyan black
+#color quoted5   yellow black
+#color quoted6   red black
+#color quoted7   green black
+
+##  Colorize smileys:  :-)  ;-)  :-/  :-(
+#color body  yellow black "[;:]-[)/(|]"
+#color body  yellow black "[;:][)/(|]"
+#color body  green black "[[:alpha:]]\+://[^ ]*"
+
+#color index brightmagenta black ~N #New
+#color index yellow black ~O        #Old
+#color index brightred black ~F     #Important
+#color index red black ~T           #Tag
+#color index blue black ~D          #Delete
+
+# =============================================================================
+# === Sidebar =================================================================
+# =============================================================================
+set sidebar_width=15
+set sidebar_visible=yes
+#set sidebar_delim='|'
+#set sidebar_sort=yes
+#set sidebar_sort=no
+
+# which mailboxes to list in the sidebar. useless?
+#mailboxes =inbox =ml
+
+# color of folders with new mail
+color sidebar_new green default
+
+# ctrl-n, ctrl-p to select next, prev folder
+# ctrl-o to open selected folder
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
