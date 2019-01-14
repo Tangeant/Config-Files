@@ -176,7 +176,7 @@ URxvt.colorUL:      #87afd7
 URxvt.foreground: #A0A0A0
 
 URxvt.depth: 32
-URxvt.background: [95]#000000
+URxvt.background: [90]#282A36
 
 URxvt.colorBD:    #CFCFCF
 URxvt.colorUL:    #A0A0A0

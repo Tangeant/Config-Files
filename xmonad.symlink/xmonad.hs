@@ -187,7 +187,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   -- SUPER + SHIFT KEYS
 
-  , ((modMask .|. shiftMask , xK_d ), spawn $ "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")
+  , ((modMask .|. shiftMask , xK_d ), spawn $ "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=16'")
   , ((modMask .|. shiftMask , xK_q ), kill)
   , ((modMask .|. shiftMask , xK_r ), spawn $ "termite -e 'sudo ranger'")
   , ((modMask .|. shiftMask , xK_p ), spawn $ "rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons")
@@ -195,7 +195,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. shiftMask , xK_Escape ), spawn $ "xmonad --recompile && xmonad --restart")
   , ((modMask .|. shiftMask , xK_Return ), spawn $ "tabbed -c -r 2 st -w '' -f 'Inconsolata:pixelsize=12:antialias=true:autohint=true:spacing=[0|90|100|110]' -e tmux")
   , ((modMask .|. shiftMask , xK_F1), spawn $ "geany ~/.xmonad/xmonad.hs")
-  , ((modMask .|. shiftMask , xK_F9), spawn $ "st -f 'Inconsolata:pixelsize=14:antialias=true:autohint=true:spacing=[0|90|100|110]' -e mutt")
+  , ((modMask .|. shiftMask , xK_F9), spawn $ "st -f 'Inconsolata:pixelsize=16:antialias=true:autohint=true:spacing=[0|90|100|110]' -e mutt")
   , ((modMask .|. shiftMask , xK_F12), spawn $ "$HOME/.bin/rofi-scripts/rofi-finder.sh")
 
   -- CONTROL + ALT KEYS
@@ -208,7 +208,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --   , ((controlMask .|. mod1Mask , xK_g ), spawn $ "chromium -no-default-browser-check")
   , ((controlMask .|. mod1Mask , xK_g ), scratchpadSpawnActionCustom $ "tabbed -cn scratchpad surf -e") 
   , ((controlMask .|. mod1Mask , xK_i ), spawn $ "nitrogen")
-  , ((controlMask .|. mod1Mask , xK_l ), spawn $ "i3lock")
+  , ((controlMask .|. mod1Mask , xK_l ), spawn $ "i3lock -i $HOME/i3lock.png -ft")
   
   , ((controlMask .|. mod1Mask , xK_m ), spawn $ "xfce4-settings-manager")
   

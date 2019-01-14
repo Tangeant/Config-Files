@@ -19,43 +19,43 @@
     <primaryMonitor>Mouse</primaryMonitor>
   </placement>
   <theme>
-    <name>Adapta-Openbox-Maia</name>
+    <name>Adapta-Openbox-Nokto-Maia</name>
     <titleLayout>NLIMC</titleLayout>
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>Roboto</name>
-      <size>11</size>
+      <size>12</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveWindow">
       <name>Roboto</name>
-      <size>11</size>
+      <size>12</size>
       <weight>Normal</weight>
       <slant>Italic</slant>
     </font>
     <font place="MenuHeader">
       <name>Roboto</name>
-      <size>11</size>
+      <size>12</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="MenuItem">
       <name>Roboto</name>
-      <size>10</size>
+      <size>12</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>Roboto</name>
-      <size>10</size>
+      <size>12</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>Roboto</name>
-      <size>10</size>
+      <size>12</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
@@ -87,12 +87,12 @@
     <right>0</right>
   </margins>
   <dock>
-    <position>Floating</position>
+    <position>Top</position>
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
     <noStrut>no</noStrut>
     <stacking>Above</stacking>
-    <direction>Vertical</direction>
+    <direction>Horizontal</direction>
     <autoHide>no</autoHide>
     <hideDelay>300</hideDelay>
     <showDelay>300</showDelay>
@@ -480,7 +480,7 @@
         <command>exo-open --launch TerminalEmulator</command>
       </action>
     </keybind>
-  <!-- bound to synapse
+    <!-- bound to synapse
       <keybind key="C-space">
         <action name="Execute">
           <command>rofr.sh -r</command>
@@ -731,7 +731,7 @@
         </action>
       </mousebind>
       <mousebind action="DoubleClick" button="Left">
-        <action name="ToggleShade"/>
+        <action name="ToggleMaximizeFull"/>
       </mousebind>
       <mousebind action="Click" button="Up">
         <action name="if">
