@@ -10,16 +10,16 @@ focus_default		= last
 spawn_position		= next
 # workspace_clamp	= 1
 # warp_focus		= 1
- warp_pointer		= 1
+warp_pointer		= 1
 
 # Window Decoration
-border_width		= 2
-color_focus		= rgb:13/45/69
-color_focus_maximized	= rgb:13/45/69
-color_unfocus		= rgb:39/39/39
-color_unfocus_maximized	= rgb:39/39/39
-region_padding		= 20
-tile_gap		= 4
+border_width			= 2
+color_focus				= rgb:5e/81/ac
+color_focus_maximized	= rgb:5e/81/ac
+color_unfocus			= rgb:4c/56/6a
+color_unfocus_maximized	= rgb:4c/56/6a
+region_padding			= 20
+tile_gap				= 4
 
 # Region containment
 # Distance window must be dragged/resized beyond the region edge before it is
@@ -32,11 +32,11 @@ disable_border		= 1
 # Bar Settings
 bar_enabled		= 1
 bar_border_width	= 1
-bar_border[1]		= rgb:13/45/69
-bar_color[1]		= rgb:39/39/39
+bar_border[1]		= rgb:00/00/00
+bar_color[1]		= rgb:2F/34/3F
 bar_font_color[1]	= rgb:ff/ff/ff
-bar_font		= -*-myriad-pro-*-*-*-*-14-*-*-*-*-*-*-*
-bar_action		= ~/.baraction.sh
+bar_font		= -*-noto-sans-mono-*-*-*-*-14-*-*-*-*-*-*-*
+#bar_action		= ~/.baraction.sh
 bar_justify		= left
 bar_format		= +<[+I] +S +F +M +< +D +< %a %d %R %b %y +< +P +W +U +< +< +A
 # bar_at_bottom		= 1
@@ -47,7 +47,7 @@ iconic_enabled	= 1
 maximize_hide_bar	= 1
 window_class_enabled	= 1
 # window_instance_enabled	= 0
-# window_name_enabled	= 0
+window_name_enabled	= 1
 verbose_layout		= 1
 # urgent_enabled		= 1
 
@@ -56,15 +56,15 @@ dialog_ratio		= 0.6
 
 # Split a non-RandR dual head setup into one region per monitor
 # (non-standard driver-based multihead is not seen by spectrwm)
-region		= screen[1]:1920x1080+0+0
-region		= screen[1]:1920x1080+1920+0
+#region		= screen[1]:1920x1080+0+0
+#region		= screen[1]:1920x1080+1920+0
 
 # Launch applications in a workspace of choice
 #autorun		= ws[1]:roxterm -e tmux
 autorun		= ws[1]:~/.fehbg
 #autorun		= ws[2]:vivaldi-stable
-autorun		= ws[1]:xmobar
-autorun		= ws[1]:update-checker 7200
+#autorun		= ws[1]:xmobar
+#autorun		= ws[1]:update-checker 7200
 autorun		= ws[1]:pamac-tray
 autorun		= ws[1]:compton -b
 autorun		= ws[1]:xfce4-power-manager
@@ -74,8 +74,8 @@ autorun		= ws[1]:volumeicon
 autorun		= ws[1]:fbxkb
 #autorun   = ws[5]:smuxi-server
 #autorun		= ws[5]:smuxi-frontend-gnome
-autorun   = ws[1]:trayer --edge top --align right --SetDockType false --SetPartialStrut true --expand true --width 6 --transparent true --alpha 255 --tint #393939 --height 16
-#autorun 	= ws[0]:urxvtd
+#autorun   = ws[1]:trayer --edge top --align right --SetDockType false --SetPartialStrut true --expand true --width 6 --transparent true --alpha 255 --tint #393939 --height 16
+autorun 	= ws[0]:urxvtd
 #autorun		= ws[1]:stalonetray
 
 # autorun		= ws[2]:xombrero http://www.openbsd.org
@@ -88,12 +88,16 @@ layout			= ws[3]:0:0:0:0:fullscreen
 # layout		= ws[5]:0:0:0:0:horizontal_flip
 
 # Set workspace name at start
-name 	= ws[1]:Console
-name	= ws[2]:WWW
-name	= ws[3]:Video
-name	= ws[4]:Music
-name 	= ws[5]:IRC
-name  = ws[6]:Coding
+name 	= ws[1]:\61612
+name	= ws[2]:\61899
+name	= ws[3]:\61947
+name	= ws[4]:\61635
+name 	= ws[5]:\61502
+name  	= ws[6]:\61501
+name	= ws[7]:\61705
+name	= ws[8]:\61564
+name	= ws[9]:\62150
+name	= ws[10]:\61872
 
 # Mod key, (Windows key is Mod4) (Apple key on OSX is Mod2)
 modkey = Mod4
@@ -104,15 +108,16 @@ keyboard_mapping = ~/.spectrwm_us.conf
 # PROGRAMS
 
 # Validated default programs:
-# program[lock]		= xlock
- program[term]		= roxterm --separate -e tmux
-# program[menu]		= dmenu_recent -fn $bar_font -nb $bar_color -nf $bar_font_color -sb $bar_border -sf $bar_color
+ program[lock]		= i3lock -i $HOME/i3lock.png -ft
+ program[term]		= termite
+ program[menu]		= dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=16'
 #program[menu]		= dmouse
 
 # To disable validation of the above, free the respective binding(s):
 # bind[]		= MOD+Shift+Delete	# disable lock
 # bind[]		= MOD+Shift+Return	# disable term
-# bind[]		= MOD+p			# disable menu
+bind[]			= MOD+p			# disable menu
+bind[menu]		= MOD+Shift+d
 
 # Optional default programs that will only be validated if you override:
 #program[screenshot_all]	= screenshot.sh full	# optional
@@ -120,63 +125,116 @@ keyboard_mapping = ~/.spectrwm_us.conf
 # program[initscr]	= initscreen.sh			# optional
 
 # EXAMPLE: Define 'firefox' action and bind to key.
-# program[firefox]	= firefox http://spectrwm.org/
-# bind[firefox]		= MOD+Shift+b
-program[ranger] = roxterm --separate -e ranger
-bind[ranger]	= MOD+e
-program[vivaldi] = vivaldi-snapshot
-bind[vivaldi]	= MOD+Shift+b
-program[bmenu] = roxterm --separate -e bmenu
-bind[bmenu]	= MOD+Shift+m
-program[pacli] = roxterm --separate -e pacli
-bind[pacli]	= MOD+Shift+p
-program[Thunar] = nemo
-bind[Thunar] = MOD+Shift+e
-program[atom] = atom
-bind[atom] = MOD+Shift+a
-program[surgr] = roxterm --separate -e sudo ranger
-bind[surgr] = MOD+Control+e
-program[htop] = roxterm --separate -e htop
-bind[htop] = Control+Shift+t
-program[togglecomp] = sh toggle-comp.sh
-bind[togglecomp] = MOD+Control+c
-program[rofi] = sh rofi-run.sh
-bind[rofi] = MOD+p
-program[finder] = ranger 
-bind[finder] = MOD+r
-program[cheat] = cht.sh
-bind[cheat] = MOD+Shift+c
-program[mmenu] = MouseLaunch ; mygtkmenu -- .config/GTKmenu/LaunchMenu
-bind[mmenu] = MOD+Shift+Button1
-program[urxvt] = urxvtc
-bind[urxvt] = MOD+z
+program[firefox]		= firefox
+bind[firefox]			= Control+MOD1+b
+program[ranger] 		= termite -e ranger
+bind[ranger]			= MOD+r
+program[vivaldi] 		= vivaldi-snapshot
+bind[vivaldi]			= Control+MOD1+v
+program[bmenu] 			= termite -e bmenu
+bind[bmenu]				= MOD+b
+program[pacli] 			= termite -e pacli
+bind[pacli]				= MOD+p
+program[Thunar] 		= Thunar
+bind[Thunar] 			= Control+MOD1+t
+program[geany] 			= geany
+bind[geany] 			= MOD+e
+program[surgr] 			= termite -e sudo ranger
+bind[surgr] 			= MOD+Shift+r
+program[htop] 			= st -f 'Inconsolata:pixelsize=14:antialias=true:autohint=true:spacing=[0|90|100|110]' -n 'htop task manager' -e htop
+bind[htop] 				= MOD+h
+program[togglecomp] 	= sh toggle-comp.sh
+bind[togglecomp] 		= MOD1+Control+c
+program[rofi] 			= rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons
+bind[rofi] 				= MOD+Shift+p
+program[cheat] 			= $HOME/.bin/rofi-scripts/rofi-cht.sh
+bind[cheat] 			= MOD1+Shift+c
+#program[mmenu] 		= MouseLaunch ; mygtkmenu -- .config/GTKmenu/LaunchMenu
+#bind[mmenu] 			= MOD+Shift+Button1
+program[urxvt] 			= tabbed urxvtc
+bind[urxvt] 			= MOD+t
+program[sterminal]		= tabbed -c -r 2 st -w '' -f 'Inconsolata:pixelsize=12:antialias=true:autohint=true:spacing=[0|90|100|110]' -e tmux
+bind[sterminal]			= MOD+Shift+Return
+program[email]			= st -f 'Inconsolata:pixelsize=16:antialias=true:autohint=true:spacing=[0|90|100|110]' -e mutt
+bind[email]				= MOD+F9
+program[music]			= mpv
+bind[music]				= MOD+m
+program[sr-search]		= $HOME/.bin/rofi-scripts/surfraw_search.sh
+bind[sr-searc]			= MOD1+Shift+s
+program[sr-vivaldi]		= $HOME/.bin/rofi-scripts/surfraw_vivaldi_search.sh
+bind[sr-vivaldi]		= MOD1+Shift+v
+program[xfceappfinder]	= xfce4-appfinder
+bind[xfceappfinder]		= MOD1+F3
+program[meld]			= meld
+bind[meld]				= MOD+F5
+program[qutebrowser]	= qutebrowser
+bind[qutebrowser]		= MOD+q
+program[SMPlayer]		= SMPlayer
+bind[SMPlayer]			= MOD+F6
+program[pcmanfm]		= pcmanfm
+bind[pcmanfm]			= MOD+F8
+program[thunderbird]	= thunderbird
+bind[thunderbird]		= MOD1+Control+w
+program[pavucontrol]	= pavucontrol
+bind[pavucontrol]		= MOD+w
+program[surf]			= tabbed -c surf -e
+bind[surf]				= Control+MOD1+g
+program[kate]			= kate
+bind[kate]				= Control+MOD1+e
+program[spectrconf]		= geany $HOME/.spectrwm.conf
+bind[spectrconf]		= MOD+Shift+F1
+program[pamac]			= pamac-manager
+bind[pamac]				= Control+MOD1+p
+program[rofitheme]		= rofi-theme-selector
+bind[rofitheme]			= Control+MOD1+r
+program[catfish]		= catfish
+bind[catfish]			= Control+MOD1+s
+
+
+# Variety and Pywal bindings
+program[varfav]			= variety -f
+bind[varfav]			= MOD1+f
+program[varnxt]			= variety -n
+bind[varnxt]			= MOD1+n
+program[varprev]		= variety -p
+bind[varprev]			= MOD1+p
+program[varpyfav]		= variety -f && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+bind[varpyfav]			= MOD1+Shift+f
+program[varpynxt]		= variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+bind[varpynxt]			= MOD1+Shift+n
+program[varpyprev]		= variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+bind[varpyprev]			= MOD1+Shift+p
 
 # QUIRKS
-# Default quirks, remove with: quirk[class:name] = NONE
-# quirk[MPlayer:xv]			= FLOAT + FULLSCREEN + FOCUSPREV
- quirk[OpenOffice.org 2.4:VCLSalFrame]	= FLOAT
- quirk[OpenOffice.org 3.0:VCLSalFrame]	= FLOAT
- quirk[OpenOffice.org 3.1:VCLSalFrame]	= FLOAT
-# quirk[Firefox-bin:firefox-bin]		= TRANSSZ
-# quirk[Firefox:Dialog]			= FLOAT
-# quirk[Gimp:gimp]			= FLOAT + ANYWHERE
-# quirk[XTerm:xterm]			= XTERM_FONTADJ
-# quirk[xine:Xine Window]			= FLOAT + ANYWHERE
-# quirk[Xitk:Xitk Combo]			= FLOAT + ANYWHERE
-# quirk[xine:xine Panel]			= FLOAT + ANYWHERE
-# quirk[Xitk:Xine Window]			= FLOAT + ANYWHERE
-# quirk[xine:xine Video Fullscreen Window] = FULLSCREEN + FLOAT
-# quirk[pcb:pcb]				= FLOAT
-quirk[Vlc:vlc] = FLOAT + FULLSCREEN + FOCUSPREV
-quirk[mpc:xv] = FLOAT + FULLSCREEN + FOCUSPREV
-quirk[Chromium:chromium]        = FULLSCREEN
-#quirk[Chrome:chrome]        	= FULLSCREEN
-quirk[Chrome:chrome]			= TRANSSZ
-quirk[crx_mpognobbkildjkofajifpdfhcoklimli:vivaldi-stable] = FULLSCREEN + TRANSSZ
-quirk[Gimp:gimp]				= FLOAT + ANYWHERE
-quirk[stalonetray:stalonetray]	= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
-quirk[conky:conky]	= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
-quirk[trayer]		= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
-quirk[Roxterm:roxterm] = IGNOREPID
-quirk[xmobar:xmobar] = FLOAT + ANYWHERE + NOFOCUSCYCLE + MINIMALBORDER + NOFOCUSONMAP
-quirk[oblogout] = FLOAT + ANYWHERE + TRANSSZ
+# Default quirks, remove with: quirk[class:name] 	= NONE
+# quirk[MPlayer:xv]									= FLOAT + FULLSCREEN + FOCUSPREV
+ quirk[OpenOffice.org 2.4:VCLSalFrame]				= FLOAT
+ quirk[OpenOffice.org 3.0:VCLSalFrame]				= FLOAT
+ quirk[OpenOffice.org 3.1:VCLSalFrame]				= FLOAT
+# quirk[Firefox-bin:firefox-bin]					= TRANSSZ
+# quirk[Firefox:Dialog]								= FLOAT
+# quirk[Gimp:gimp]									= FLOAT + ANYWHERE
+# quirk[XTerm:xterm]								= XTERM_FONTADJ
+# quirk[xine:Xine Window]							= FLOAT + ANYWHERE
+# quirk[Xitk:Xitk Combo]							= FLOAT + ANYWHERE
+# quirk[xine:xine Panel]							= FLOAT + ANYWHERE
+# quirk[Xitk:Xine Window]							= FLOAT + ANYWHERE
+# quirk[xine:xine Video Fullscreen Window] 			= FULLSCREEN + FLOAT
+# quirk[pcb:pcb]									= FLOAT
+quirk[Vlc:vlc] 										= FLOAT + FULLSCREEN + FOCUSPREV
+quirk[mpc:xv] 										= FLOAT + FULLSCREEN + FOCUSPREV
+quirk[Chromium:chromium]        					= FULLSCREEN
+#quirk[Chrome:chrome]        						= FULLSCREEN
+quirk[Chrome:chrome]								= TRANSSZ
+quirk[Vivaldi-stable:vivaldi-stable] 				= FULLSCREEN + TRANSSZ
+quirk[Gimp:gimp]									= FLOAT + ANYWHERE
+quirk[stalonetray:stalonetray]						= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
+quirk[conky:conky]									= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
+quirk[trayer]										= FLOAT + ANYWHERE + MINIMALBORDER + NOFOCUSCYCLE + NOFOCUSONMAP
+quirk[Roxterm:roxterm] 								= IGNOREPID
+quirk[xmobar:xmobar] 								= FLOAT + ANYWHERE + NOFOCUSCYCLE + MINIMALBORDER + NOFOCUSONMAP
+quirk[tint2:tint2]									= FLOAT + ANYWHERE + NOFOCUSCYCLE + MINIMALBORDER + NOFOCUSONMAP
+quirk[oblogout] 									= FLOAT + ANYWHERE + TRANSSZ
+quirk[Xfce4-appfinder]								= FLOAT + ANYWHERE + TRANSSZ
+quirk[rofi:rofi]									= FLOAT + ANYWHERE
+quirk[surf]											= FLOAT + ANYWHERE + TRANSSZ

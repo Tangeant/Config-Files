@@ -158,7 +158,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_c), spawn $ "xkill" )
   ,((modMask, xK_e), spawn $ "geany" )
   , ((modMask, xK_f), sendMessage $ Toggle NBFULL)
-  , ((modMask, xK_h), spawn $ "st -f 'Inconsolata:pixelsize=12:antialias=true:autohint=true:spacing=[0|90|100|110]' -n 'htop task manager' -e htop" )
+  , ((modMask, xK_h), spawn $ "st -f 'Inconsolata:pixelsize=14:antialias=true:autohint=true:spacing=[0|90|100|110]' -n 'htop task manager' -e htop" )
   , ((modMask, xK_m), spawn $ "pragha" )
   , ((modMask, xK_p), spawn $ "termite -e pacli" )
   , ((modMask, xK_q), spawn $ "qutebrowser" )
@@ -180,7 +180,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask, xK_F6), spawn $ "SMPlayer" )
   , ((modMask, xK_F7), spawn $ "virtualbox" )
   , ((modMask, xK_F8), spawn $ "thunar" )
-  , ((modMask, xK_F9), spawn $ "thunderbird" )
+  , ((modMask, xK_F9), spawn $ "st -f 'Inconsolata:pixelsize=16:antialias=true:autohint=true:spacing=[0|90|100|110]' -e mutt" )
   , ((modMask, xK_F10), spawn $ "mpv" )
   , ((modMask, xK_F11), spawn $ "rofi -show run -fullscreen" )
   , ((modMask, xK_F12), spawn $ "rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons" )
@@ -195,7 +195,6 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. shiftMask , xK_Escape ), spawn $ "xmonad --recompile && xmonad --restart")
   , ((modMask .|. shiftMask , xK_Return ), spawn $ "tabbed -c -r 2 st -w '' -f 'Inconsolata:pixelsize=12:antialias=true:autohint=true:spacing=[0|90|100|110]' -e tmux")
   , ((modMask .|. shiftMask , xK_F1), spawn $ "geany ~/.xmonad/xmonad.hs")
-  , ((modMask .|. shiftMask , xK_F9), spawn $ "st -f 'Inconsolata:pixelsize=16:antialias=true:autohint=true:spacing=[0|90|100|110]' -e mutt")
   , ((modMask .|. shiftMask , xK_F12), spawn $ "$HOME/.bin/rofi-scripts/rofi-finder.sh")
 
   -- CONTROL + ALT KEYS

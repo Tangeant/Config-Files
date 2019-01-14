@@ -2,6 +2,7 @@ macro index <F5> '<sync-mailbox><enter-command>source ~/.mutt/posteo/Account<ent
 macro index <F6> '<sync-mailbox><enter-command>source ~/.mutt/gmail/Account<enter><change-folder>!<enter>'
 macro index <F7> '<sync-mailbox><enter-command>source ~/.mutt/hotmail/Account<enter><change-folder>!<enter>'
 macro index <F8> '<sync-mailbox><enter-command>source ~/.mutt/icloud/Account<enter><change-folder>!<enter>'
+macro index <F9> '<sync-mailbox><enter-command>source ~/.mutt/walden/Account<enter><change-folder>!<enter>'
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
 ## Posteo Account
