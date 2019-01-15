@@ -1,14 +1,21 @@
 
-xmonad.hs:117:30: warning: [-Wdeprecations]
+xmonad.hs:54:5: warning: [-Wtabs]
+    Tab character found here, and in four further locations.
+    Please use spaces instead.
+   |
+54 | fore            = "#D8DEE9"
+   |     ^^^^
+
+xmonad.hs:120:30: warning: [-Wdeprecations]
     In the use of ‘defaultPP’ (imported from XMonad.Hooks.DynamicLog):
     Deprecated: "Use def (from Data.Default, and re-exported by XMonad.Hooks.DynamicLog) instead."
     |
-117 | myLogHook = dynamicLogWithPP defaultPP { ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
+120 | myLogHook = dynamicLogWithPP defaultPP { ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
     |                              ^^^^^^^^^
 
-xmonad.hs:117:97: warning: [-Wdeprecations]
+xmonad.hs:120:97: warning: [-Wdeprecations]
     In the use of ‘defaultPP’ (imported from XMonad.Hooks.DynamicLog):
     Deprecated: "Use def (from Data.Default, and re-exported by XMonad.Hooks.DynamicLog) instead."
     |
-117 | myLogHook = dynamicLogWithPP defaultPP { ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
+120 | myLogHook = dynamicLogWithPP defaultPP { ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
     |                                                                                                 ^^^^^^^^^

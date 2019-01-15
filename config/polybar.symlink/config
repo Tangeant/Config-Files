@@ -29,8 +29,8 @@ compositing-underline = over
 compositing-border = over
 
 ; Define fallback values used by all module formats
-format-foreground = #FF0000
-format-background = #00FF00
+format-foreground = #2E3440
+format-background = #D8DEE9
 format-underline =
 format-overline =
 format-spacing =
@@ -40,13 +40,13 @@ format-offset =
 
 [colors]
 ; Nord theme ============
-background = #2F343F
-foreground = #f3f4f5
-occupied = #ffffff
-alert = #d08770
-volume-min = #a3be8c
-volume-med = #ebcb8b
-volume-max = #bf616a
+background = #2E3440
+foreground = #D8DEE9
+occupied = #4C566A
+alert = #5E81AC
+volume-min = #4C566A
+volume-med = #81A1C1
+volume-max = #A3BE8C
 ; =======================
 
 ; Gotham theme ==========
@@ -366,7 +366,7 @@ scroll-down = bspwm-deskprev
 [bar/mainbar-xmonad]
 monitor = ${env:MONITOR:}
 ;monitor = DP-2
-monitor-fallback = DP-2 
+monitor-fallback = DP-2
 monitor-strict = false
 override-redirect = false
 width = 100%
@@ -382,16 +382,16 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 2
-line-color = #f00
+line-color = #E5E9F0
 
 ;border-size = 2
 ;border-left-size = 25
 ;border-right-size = 25
 ;border-top-size = 0
 ;border-bottom-size = 25
-border-color = #00000000
+border-color = #2E3440
 
-padding-left = 0
+padding-left = 1
 padding-right = 1
 
 module-margin-left = 3
@@ -408,8 +408,8 @@ font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = ewmh
-modules-center = xwindow kernel 
-modules-right =  weather pavolume uptime memory2 cpu2 date
+modules-center = xwindow kernel
+modules-right =  weather mpd pavolume networkspeeddown uptime memory2 cpu2 date
 
 tray-detached = false
 tray-offset-x = 0
@@ -810,8 +810,8 @@ interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = #cd1f3f
-format-underline = #cd1f3f
+format-prefix-foreground = #BF616A
+format-underline = #BF616A
 
 label-font = 3
 
@@ -844,8 +844,8 @@ date-alt = " %d-%m-%Y"
 time = %H:%M
 time-alt = %H:%M
 format-prefix = " "
-format-prefix-foreground = #c1941a
-format-underline = #c1941a
+format-prefix-foreground = #EBCB8B
+format-underline = #EBCB8B
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 label = %date% %time%
@@ -873,11 +873,11 @@ label-monitor = %name%
 label-active = %name%
 label-active-foreground = ${colors.foreground}
 label-active-background = ${colors.background}
-label-active-underline= #6790eb
+label-active-underline= #5E81AC
 label-active-padding = 4
 
 label-occupied = %name%
-label-occupied-background = ${colors.background}
+label-occupied-background = ${colors.occupied}
 label-occupied-underline = ${colors.occupied}
 label-occupied-padding = 2
 
@@ -960,8 +960,8 @@ interval = 1024
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = #0084FF
-format-underline = #0084FF
+format-prefix-foreground = #5E81AC
+format-underline = #5E81AC
 
 ################################################################################
 
@@ -1039,8 +1039,8 @@ label = %percentage_used%%
 
 format = Mem <label>
 format-prefix = "  "
-format-prefix-foreground = #3384d0
-format-underline = #3384d0
+format-prefix-foreground = #81A1C1
+format-underline = #81A1C1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -1063,8 +1063,8 @@ label = %gb_used%/%gb_free%
 
 format = Mem <label>
 format-prefix = "  "
-format-prefix-foreground = #3384d0
-format-underline = #3384d0
+format-prefix-foreground = #81A1C1
+format-underline = #81A1C1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -1118,14 +1118,14 @@ type = internal/network
 ;interface = wlp3s0
 ;interface = enp14s0
 ;interface = enp0s31f6
-interface = enp4s0
+interface = enp3s0
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = ""
-format-connected-prefix-foreground = #3EC13F
+format-connected-prefix-foreground = #B48EAD
 format-connected-foreground = ${colors.foreground}
 format-connected-background = ${colors.background}
-;format-connected-underline = #62FF00
+format-connected-underline = #B48EAD
 
 ################################################################################
 
@@ -1152,7 +1152,7 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-underline = #3EC13F
+format-underline = #E5E9F0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -1274,8 +1274,8 @@ label = Uptime : %output%
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = " "
-format-prefix-foreground = #C15D3E
-format-underline = #C15D3E
+format-prefix-foreground = #D08770
+format-underline = #D08770
 
 ################################################################################
 
@@ -1318,8 +1318,8 @@ type = custom/script
 interval = 10
 format = <label>
 format-prefix = " "
-format-prefix-foreground = #3EC13F
-format-underline = #3EC13F
+format-prefix-foreground = #88C0D0
+format-underline = #88C0D0
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 exec = python -u ~/.config/polybar/scripts/weather.py

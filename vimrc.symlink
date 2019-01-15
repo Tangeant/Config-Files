@@ -22,12 +22,19 @@ Plug 'Shougo/denite.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'arcticicestudio/nord-vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 "Airline theme
-let g:airline_theme='base16_spacemacs'
+let g:airline_theme='base16_nord'
+
+"Color scheme Nord
+colorscheme nord
+let g:nord_italic = 1
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
 
 "Open NERDTree automatically when vim starts with no files
 autocmd StdinReadPre * let s:std_in=1

@@ -50,9 +50,12 @@ myStartupHook = do
 -- colours
 normBord = "#4c566a"
 focdBord = "#5e81ac"
-fore     = "#DEE3E0"
-back     = "#282c34"
-winType  = "#c678dd"
+--fore     = "#DEE3E0" Arco default
+fore		= "#D8DEE9"
+--back     = "#282c34" Arco default
+back		="#2E3440"
+--winType  = "#c678dd" Arco default
+winType 	="#B48EAD"
 
 -- define options
 myModMask = mod4Mask
@@ -100,14 +103,14 @@ myManageHook = composeAll . concat $
     my8Shifts = ["Thunar"]
     my9Shifts = ["Thunderbird"]
     -- my10Shifts = ["discord"]
-    
+
 -- Scratchpad definition
 manageScratchPad :: ManageHook
 
 manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
 
     where
-        
+
         h = 0.75             -- terminal height, 76%
         w = 0.6             -- terminal width, 60%
         t = (1 - h) / 2     -- distance from top edge, 20%
@@ -117,7 +120,7 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
 myLogHook = dynamicLogWithPP defaultPP { ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort defaultPP
     , ppHidden  =   noScratchPad
     , ppHiddenNoWindows = noScratchPad
-    } 
+    }
     >> updatePointer (0.5,0.5) (0,0)
        where
         -- define the noScratchPad function if workspace is NSP then print nothing, else print it as-is
@@ -205,12 +208,12 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((controlMask .|. mod1Mask , xK_e ), spawn $ "kate")
   , ((controlMask .|. mod1Mask , xK_f ), spawn $ "thunar")
   --   , ((controlMask .|. mod1Mask , xK_g ), spawn $ "chromium -no-default-browser-check")
-  , ((controlMask .|. mod1Mask , xK_g ), scratchpadSpawnActionCustom $ "tabbed -cn scratchpad surf -e") 
+  , ((controlMask .|. mod1Mask , xK_g ), scratchpadSpawnActionCustom $ "tabbed -cn scratchpad surf -e")
   , ((controlMask .|. mod1Mask , xK_i ), spawn $ "nitrogen")
   , ((controlMask .|. mod1Mask , xK_l ), spawn $ "i3lock -i $HOME/i3lock.png -ft")
-  
+
   , ((controlMask .|. mod1Mask , xK_m ), spawn $ "xfce4-settings-manager")
-  
+
   , ((controlMask .|. mod1Mask , xK_p ), spawn $ "pamac-manager")
   , ((controlMask .|. mod1Mask , xK_r ), spawn $ "rofi-theme-selector")
   --, ((controlMask .|. mod1Mask , xK_s ), spawn $ "spotify")

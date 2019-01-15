@@ -108,12 +108,13 @@ Search History=toggle,update,antigen-parse
 [MainWindow]
 Height 1080=1021
 Height 1440=1381
-State=AAAA/wAAAAD9AAAAAAAABOgAAAVRAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAACRcAAASwAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
 Width 1920=936
 Width 2560=1256
 Window-Maximized 1080x1920=true
-Window-Maximized 1440x2560=false
+Window-Maximized 1440x2560=true
+Window-Maximized 982x1745=true
 
 [Notification Messages]
 HideMenuBarWarning=false
@@ -126,7 +127,7 @@ kate_mdi_toolview_kateproject=none
 kate_mdi_toolview_kateprojectinfo=none
 
 [UiSettings]
-ColorScheme=Adapta Nokto
+ColorScheme=KvArcDark
 
 [filetree]
 editShade=211,190,222

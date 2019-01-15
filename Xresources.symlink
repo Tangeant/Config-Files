@@ -173,46 +173,46 @@ URxvt.colorUL:      #87afd7
 ! vim: set ft=xdefaults:
 
 !URxvt.background: #232323
-URxvt.foreground: #A0A0A0
+!URxvt.foreground: #A0A0A0
 
 URxvt.depth: 32
-URxvt.background: [90]#282A36
+!URxvt.background: [90]#282A36
 
-URxvt.colorBD:    #CFCFCF
-URxvt.colorUL:    #A0A0A0
-URxvt.colorIT:    #686868
+!URxvt.colorBD:    #CFCFCF
+!URxvt.colorUL:    #A0A0A0
+!URxvt.colorIT:    #686868
 
 !BLK
-URxvt.color0:     #303030
-URxvt.color8:     #686868
+!URxvt.color0:     #303030
+!URxvt.color8:     #686868
 
 !RED
-URxvt.color9:     #FFA7DA
-URxvt.color1:     #D370A3
+!URxvt.color9:     #FFA7DA
+!URxvt.color1:     #D370A3
 
 !GRN
-URxvt.color10:    #A3D572
-URxvt.color2:     #6D9E3F
+!URxvt.color10:    #A3D572
+!URxvt.color2:     #6D9E3F
 
 !BLU
-URxvt.color12:    #98CBFE
-URxvt.color4:     #6095C5
+!URxvt.color12:    #98CBFE
+!URxvt.color4:     #6095C5
 
 !YEL
-URxvt.color11:    #EFBD8B
-URxvt.color3:     #B58858
+!URxvt.color11:    #EFBD8B
+!URxvt.color3:     #B58858
 
 !CYN
-URxvt.color14:    #75DAA9
-URxvt.color6:     #3BA275
+!URxvt.color14:    #75DAA9
+!URxvt.color6:     #3BA275
 
 !MAG
-URxvt.color13:    #E5B0FF
-URxvt.color5:     #AC7BDE
+!URxvt.color13:    #E5B0FF
+!URxvt.color5:     #AC7BDE
 
 !WHT
-URxvt.color7:     #CFCFCF
-URxvt.color15:    #FFFFFF
+!URxvt.color7:     #CFCFCF
+!URxvt.color15:    #FFFFFF
 
 !URxvt Solarized theme, light
 !URxvt*background             : Solarized_light_base03
@@ -264,11 +264,61 @@ URxvt.color15:    #FFFFFF
 !URxvt*color14                : Solarized_dark_base1
 !URxvt*color15                : Solarized_dark_base3
 
+! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+! Project:    Nord XResources
+! Version:    0.1.0
+! Repository: https://github.com/arcticicestudio/nord-xresources
+! License:    MIT
+
+#define nord0 [90]#2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
+
+URxvt*.foreground:   nord5
+URxvt*.background:   nord0
+URxvt*.cursorColor:  nord5
+URxvt*fading: 35
+URxvt*fadeColor: nord3
+
+URxvt*.color0: nord0
+URxvt*.color1: nord8
+URxvt*.color2: nord11
+URxvt*.color3: nord10
+URxvt*.color4: nord13
+URxvt*.color5: nord14
+URxvt*.color6: nord12
+URxvt*.color7: nord5
+URxvt*.color8: nord3
+URxvt*.color9: nord8
+URxvt*.color10: nord11
+URxvt*.color11: nord10
+URxvt*.color12: nord13
+URxvt*.color13: nord14
+URxvt*.color14: nord12
+URxvt*.color15: nord7
+
+! Rofi Colours
+
 rofi.opacity: 85
 rofi.width: 500
 rofi.lines: 15
 rofi.columns: 1
-rofi.font: Myriad Pro 10
+rofi.font: Noto Sans Semibold 12
 rofi.bw: 2
 rofi.padding: 2
 rofi.yoffset: 0

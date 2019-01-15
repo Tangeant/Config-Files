@@ -3,7 +3,6 @@ macro index <F6> '<sync-mailbox><enter-command>source ~/.mutt/gmail/Account<ente
 macro index <F7> '<sync-mailbox><enter-command>source ~/.mutt/hotmail/Account<enter><change-folder>!<enter>'
 macro index <F8> '<sync-mailbox><enter-command>source ~/.mutt/icloud/Account<enter><change-folder>!<enter>'
 macro index <F9> '<sync-mailbox><enter-command>source ~/.mutt/walden/Account<enter><change-folder>!<enter>'
-macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
 ## Posteo Account
 source "~/.mutt/posteo/Account"
@@ -99,33 +98,33 @@ bind editor <Tab> complete-query
 # === Color ===================================================================
 # =============================================================================
 # Header
-color header yellow default "From: "
-color header brightblue default "Subject: "
-color header cyan default "Date: "
-color header red default "To: "
+#color header yellow default "From: "
+#color header brightblue default "Subject: "
+#color header cyan default "Date: "
+#color header red default "To: "
 # Quoted
-color quoted green default
-color quoted1 cyan default
-color quoted2 brightgreen default
-color quoted3 brightcyan default
+#color quoted green default
+#color quoted1 cyan default
+#color quoted2 brightgreen default
+#color quoted3 brightcyan default
 # Misc
-color hdrdefault cyan default
-color attachment black default
-color error red default     #error messages
-color message white default #message informational messages
-color indicator brightwhite green #indicator for the "current message"
-color status brightwhite default  #status lines in the folder index
-color tree red default      #the "tree" display of threads within the folder index
-color search white blue     #search matches found with search within the internal pager
-color markers red default   #The markers indicate a wrapped line
+#color hdrdefault cyan default
+#color attachment black default
+#color error red default     #error messages
+#color message white default #message informational messages
+#color indicator brightwhite green #indicator for the "current message"
+#color status brightwhite default  #status lines in the folder index
+#color tree red default      #the "tree" display of threads within the folder index
+#color search white blue     #search matches found with search within the internal pager
+#color markers red default   #The markers indicate a wrapped line
 # Index
-color index blue default '~O' #Old messages
-color index cyan default '~P' #From myself
-color index default default '~R' #Readed messages
-color index green default '~N'   #New messages
-color index brightmagenta default '~F' #Flagged Messages are important!
-color index white default '~Q'         #Replied
-color index brightwhite brightred '~D' #Deleted Mails
+#color index blue default '~O' #Old messages
+#color index cyan default '~P' #From myself
+#color index default default '~R' #Readed messages
+#color index green default '~N'   #New messages
+#color index brightmagenta default '~F' #Flagged Messages are important!
+#color index white default '~Q'         #Replied
+#color index brightwhite brightred '~D' #Deleted Mails
 
 # =============================================================================
 # === Color ===================================================================
@@ -170,6 +169,7 @@ color index brightwhite brightred '~D' #Deleted Mails
 #color index red black ~T           #Tag
 #color index blue black ~D          #Delete
 
+source ~/.mutt/nord.muttrc
 # =============================================================================
 # === Sidebar =================================================================
 # =============================================================================
@@ -183,7 +183,7 @@ set sidebar_visible=yes
 #mailboxes =inbox =ml
 
 # color of folders with new mail
-color sidebar_new green default
+#color sidebar_new green default
 
 # ctrl-n, ctrl-p to select next, prev folder
 # ctrl-o to open selected folder
