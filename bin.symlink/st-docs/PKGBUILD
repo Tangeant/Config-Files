@@ -1,0 +1,57 @@
+# Contributor: Chris Terrio <cterrio at gmail dot com>
+
+pkgname=st
+pkgver=0.8.1
+pkgrel=1
+patch_first=alpha
+patch_first_ver='20180616-0.8.1'
+patch_second=scrollback
+patch_second_ver=0.8
+patch_third=scrollback-mouse
+patch_third_ver=$patch_second_ver
+patch_fourth=open_copied_url
+patch_fourth1=openclipboard
+patch_fourth_ver='20190105-153c5c7'
+pkgdesc='A simple virtual terminal emulator for X with alpa, scrollback, and openclipbaord patches.'
+arch=('i686' 'x86_64')
+license=('MIT')
+depends=('libxft' 'libxext' 'xorg-fonts-misc')
+makedepends=('ncurses')
+provides=('st')
+conflicts=('st')
+url="http://st.suckless.org"
+source=(http://dl.suckless.org/st/$pkgname-$pkgver.tar.gz
+        config.h
+        https://st.suckless.org/patches/$patch_first/$pkgname-$patch_first-$patch_first_ver.diff
+		https://st.suckless.org/patches/$patch_second/$pkgname-$patch_second-$patch_second_ver.diff
+		https://st.suckless.org/patches/$patch_second/$pkgname-$patch_third-$patch_third_ver.diff
+		st.patch)
+md5sums=('92135aecdba29300bb2e274a55f5b71e'
+         'af6e5468961fdf21dffb3d3baa81ff88'
+         '6ba48661559ba8864a7a008cdb59eff7'
+         'bbe056eaed5914f55ccea001ca7f05e9'
+         '72227737f6cd831afd014a3613bd559d'
+         '8d795fecd453ec0284817ce24e847a38')
+
+prepare() {
+  cp $srcdir/config.h config.h
+  cd $srcdir/$pkgname-$pkgver
+  patch -p1 -i ../$pkgname-$patch_first-$patch_first_ver.diff
+  patch -p1 -i ../$pkgname-$patch_second-$patch_second_ver.diff
+  patch -p1 -i ../$pkgname-$patch_third-$patch_third_ver.diff
+  patch -p1 -i ../st.patch
+  # skip terminfo which conflicts with nsurses
+  sed -i '/tic /d' Makefile
+}
+
+build() {
+  cd $srcdir/$pkgname-$pkgver
+  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11
+}
+
+package() {
+  cd $srcdir/$pkgname-$pkgver
+  make PREFIX=/usr DESTDIR="$pkgdir" TERMINFO="$pkgdir/usr/share/terminfo" install
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 README "$pkgdir/usr/share/doc/$pkgname/README"
+}

@@ -3,6 +3,8 @@ macro index <F6> '<sync-mailbox><enter-command>source ~/.mutt/gmail/Account<ente
 macro index <F7> '<sync-mailbox><enter-command>source ~/.mutt/hotmail/Account<enter><change-folder>!<enter>'
 macro index <F8> '<sync-mailbox><enter-command>source ~/.mutt/icloud/Account<enter><change-folder>!<enter>'
 macro index <F9> '<sync-mailbox><enter-command>source ~/.mutt/walden/Account<enter><change-folder>!<enter>'
+macro index <Esc>C "<change-vfolder>?" "Change to vfolder overview"
+macro index \\\\ "<vfolder-from-query>" "Search mailbox"
 
 ## Posteo Account
 source "~/.mutt/posteo/Account"
@@ -24,7 +26,7 @@ folder-hook $folder 'source ~/.mutt/icloud/Account'
 set imap_pipeline_depth=0
 
 # Choose which account should be loaded on startup, uncomment only one of these:
-source "~/.mutt/gmail/Account"
+source "~/.mutt/posteo/Account"
 
 ##General Settings
 ignore "Authentication-Results:"
@@ -40,6 +42,8 @@ set pager_index_lines= 5
 set sort = 'threads'
 set sort_aux = 'last-date-received'
 set sendmail="/usr/bin/msmtp"
+set ssl_verify_host = no
+set ssl_verify_dates = no
 
 set fast_reply=yes
 set include=yes
@@ -68,7 +72,38 @@ set header_cache=~/.hcache
 # Display download progress every 5K
 set net_inc=5
 #Set default editor
-set editor="vim"
+set editor="nvim"
+
+#set notmuch default path
+set nm_default_uri = "notmuch:///home/christ/.mail/"
+
+# This variable allows you to customize the file browser display for virtual
+# folders to your personal taste.
+# %C   current folder number
+# %f   folder name (description)
+# %m   number of messages in the mailbox *
+# %n   number of unread messages in the mailbox *
+# %N   N if mailbox has new mail, blank otherwise
+# %>X  right justify the rest of the string and pad with character ``X''
+# %|X  pad to the end of the line with character ``X''
+# %*X  soft-fill with character ``X'' as pad
+set vfolder_format = "%6n(%6N) %f"
+
+# This variable specifies notmuch query type, supported types: 'threads' and
+# 'messages'.
+set nm_query_type = threads
+
+# When set, mutt will use the first virtual mailbox (see virtual-mailboxes)
+# as a spoolfile.
+set virtual_spoolfile = yes
+set folder=~/.mail/
+
+# virtual-mailboxes description notmuch-URI { description notmuch-URI ...}
+ virtual-mailboxes \
+        "INBOX"     "notmuch://?query=tag:INBOX and NOT tag:archive"\
+        "Unread"    "notmuch://?query=tag:unread"\
+        "Starred"   "notmuch://?query=tag:*"\
+        "Sent"      "notmuch://?query=tag:sent"        # sets up queries for virtual folders
 
 #==============================================================================
 #===Keybindings================================================================
@@ -81,6 +116,7 @@ macro pager b '<enter-command>toggle sidebar_visible<enter>'
 # Pager Key Bindings ---------------------------------
 bind pager k  previous-line
 bind pager j  next-line
+bind pager g noop
 bind pager gg top
 bind pager G  bottom
 
@@ -175,15 +211,12 @@ source ~/.mutt/nord.muttrc
 # =============================================================================
 set sidebar_width=15
 set sidebar_visible=yes
-#set sidebar_delim='|'
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 #set sidebar_sort=yes
 #set sidebar_sort=no
 
-# which mailboxes to list in the sidebar. useless?
-#mailboxes =inbox =ml
-
 # color of folders with new mail
-#color sidebar_new green default
+color sidebar_new 'color173' default
 
 # ctrl-n, ctrl-p to select next, prev folder
 # ctrl-o to open selected folder

@@ -4,11 +4,18 @@ bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft=
 ## Start counting windows from 1
 set -g base-index 1
 
+# automatically renumber tmux windows
+set -g renumber-windows on
+
+# Rather than constraining window size to the maximum size of any client
+# connected to the *session*, constrain window size to the maximum size of any
+# client connected to *that window*. Much more reasonable.
+setw -g aggressive-resize on
 
 setw -g mode-keys vi
 
 # Vim style copy/paste
-bind-key -t vi-copy y copy-pipe "xsel -i -p -b"
+bind-key vi-copy y copy-pipe "xsel -i -p -b"
 bind-key p run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
 bind -n C-S-v run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
 

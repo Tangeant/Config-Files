@@ -1,0 +1,136 @@
+diff -ura st.old/config.h st.new/config.h
+--- st.old/config.h	2019-01-16 16:05:36.019458000 -0600
++++ st.new/config.h	2019-01-16 16:00:10.834671269 -0600
+@@ -5,7 +5,7 @@
+  *
+  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
+  */
+-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
++static char *font = "Inconsolata:pixelsize=16:antialias=true:autohint=true";
+ static int borderpx = 2;
+ 
+ /*
+@@ -83,47 +83,53 @@
+ unsigned int tabspaces = 8;
+ 
+ /* bg opacity */
+-unsigned int alpha = 0xcc;
++/*For using opaque bg unsigned int alpha = 0xcc; */
++unsigned int alpha = 0.1;
+ 
+ /* Terminal colors (16 first used in escape sequence) */
+ static const char *colorname[] = {
+-	/* 8 normal colors */
+-	"black",
+-	"red3",
+-	"green3",
+-	"yellow3",
+-	"blue2",
+-	"magenta3",
+-	"cyan3",
+-	"gray90",
+-
+-	/* 8 bright colors */
+-	"gray50",
+-	"red",
+-	"green",
+-	"yellow",
+-	"#5c5cff",
+-	"magenta",
+-	"cyan",
+-	"white",
+-
+-	[255] = 0,
+-
+-	/* more colors can be added after 255 to use with DefaultXX */
+-	"#cccccc",
+-	"#555555",
+-	"black",
+-};
+ 
++  /* 8 normal colors */
++  [0] = "#2e3440", /* black   */
++  [1] = "#88c0d0", /* red     */
++  [2] = "#bf616a", /* green   */
++  [3] = "#5e81ac", /* yellow  */
++  [4] = "#ebcb8b", /* blue    */
++  [5] = "#a3be8c", /* magenta */
++  [6] = "#d08770", /* cyan    */
++  [7] = "#e5e9f0", /* white   */
++
++  /* 8 bright colors */
++  [8]  = "#4c566a", /* black   */
++  [9]  = "#88c0d0", /* red     */
++  [10] = "#bf616a", /* green   */
++  [11] = "#5e81ac", /* yellow  */
++  [12] = "#ebcb8b", /* blue    */
++  [13] = "#a3be8c", /* magenta */
++  [14] = "#d08770", /* cyan    */
++  [15] = "#8fbcbb", /* white   */
++
++  /* special colors */
++  [256] = "#2e3440", /* background */
++  [257] = "#e5e9f0", /* foreground */
++};
+ 
+ /*
+  * Default colors (colorname index)
+- * foreground, background, cursor, reverse cursor
++ * foreground, background, cursor
++ */
++unsigned int defaultfg = 257;
++unsigned int defaultbg = 256;
++static unsigned int defaultcs = 257;
++static unsigned int defaultrcs = 256;
++
++/*
++ * Colors used, when the specific fg == defaultfg. So in reverse mode this
++ * will reverse too. Another logic would only make the simple feature too
++ * complex.
+  */
+-unsigned int defaultfg = 7;
+-unsigned int defaultbg = 257;
+-static unsigned int defaultcs = 256;
+-static unsigned int defaultrcs = 257;
++static unsigned int defaultitalic = 7;
++static unsigned int defaultunderline = 7;
+ 
+ /*
+  * Default shape of cursor
+@@ -160,8 +166,8 @@
+  */
+ static MouseShortcut mshortcuts[] = {
+ 	/* button               mask            string */
+-	{ Button4,              XK_NO_MOD,      "\031" },
+-	{ Button5,              XK_NO_MOD,      "\005" },
++	{ Button4,              XK_ANY_MOD,     "\031" },
++	{ Button5,              XK_ANY_MOD,     "\005" },
+ };
+ 
+ MouseKey mkeys[] = {
+@@ -188,8 +194,6 @@
+ 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
+ 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+ 	{ TERMMOD,              XK_I,           iso14755,       {.i =  0} },
+-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+ };
+ 
+ /*
+Only in b: st
+Only in b: st.h.rej
+Only in b: st.o
+diff -ura st.old/x.c st.new/x.c
+--- st.old/x.c	2019-01-16 16:05:36.019458096 -0600
++++ st.new/x.c	2019-01-16 15:58:51.336826082 -0600
+@@ -50,7 +50,7 @@
+ 
+ /* alpha */
+ #define OPAQUE 0Xff
+-#define USE_ARGB (alpha != OPAQUE && opt_embed == NULL)
++#define USE_ARGB (alpha != OPAQUE)
+ 
+ /* function definitions used in config.h */
+ static void clipcopy(const Arg *);
+Only in b: x.o
+Only in package.new: st-openclipboard-20190105-153c5c7.diff

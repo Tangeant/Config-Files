@@ -272,47 +272,50 @@ URxvt.depth: 32
 ! Repository: https://github.com/arcticicestudio/nord-xresources
 ! License:    MIT
 
-#define nord0 [90]#2E3440
-#define nord1 #3B4252
-#define nord2 #434C5E
-#define nord3 #4C566A
-#define nord4 #D8DEE9
-#define nord5 #E5E9F0
-#define nord6 #ECEFF4
-#define nord7 #8FBCBB
-#define nord8 #88C0D0
-#define nord9 #81A1C1
-#define nord10 #5E81AC
-#define nord11 #BF616A
-#define nord12 #D08770
-#define nord13 #EBCB8B
-#define nord14 #A3BE8C
-#define nord15 #B48EAD
 
-URxvt*.foreground:   nord5
-URxvt*.background:   nord0
-URxvt*.cursorColor:  nord5
 URxvt*fading: 35
-URxvt*fadeColor: nord3
+URxvt*fadeColor: #4c566a
 
-URxvt*.color0: nord0
-URxvt*.color1: nord8
-URxvt*.color2: nord11
-URxvt*.color3: nord10
-URxvt*.color4: nord13
-URxvt*.color5: nord14
-URxvt*.color6: nord12
-URxvt*.color7: nord5
-URxvt*.color8: nord3
-URxvt*.color9: nord8
-URxvt*.color10: nord11
-URxvt*.color11: nord10
-URxvt*.color12: nord13
-URxvt*.color13: nord14
-URxvt*.color14: nord12
-URxvt*.color15: nord7
+! special
+URxvt*.foreground:   #d8dee9
+URxvt*.background:   [95]#2e3440
+URxvt*.cursorColor:  #d8dee9
 
+! black
+URxvt*.color0:       #3b4252
+URxvt*.color8:       #4c566a
+
+! red
+URxvt*.color1:       #bf616a
+URxvt*.color9:       #D08770
+
+! green
+URxvt*.color2:       #a3be8c
+URxvt*.color10:      #a3be8c
+
+! yellow
+URxvt*.color3:       #ebcb8b
+URxvt*.color11:      #ebcb8b
+
+! blue
+URxvt*.color4:       #81a1c1
+URxvt*.color12:      #88c0d0
+
+! magenta
+URxvt*.color5:       #b48ead
+URxvt*.color13:      #b48ead
+
+! cyan
+URxvt*.color6:       #88c0d0
+URxvt*.color14:      #8fbcbb
+
+! white
+URxvt*.color7:       #e5e9f0
+URxvt*.color15:      #eceff4
+
+!_______________________________________________________________
 ! Rofi Colours
+!_______________________________________________________________
 
 rofi.opacity: 85
 rofi.width: 500
@@ -352,7 +355,23 @@ rofi.levenshtein-sort: true
 rofi.switchers: window,run,drun
 Xcursor.theme: breeze
 
+!___________________________________________________________
 !dzen2 Settings
-!dzen2.font:       -*-terminus-medium-*-*-*-*-*-*-*-*-*-*-*-*
+!-----------------------------------------------------------------------------------
+!dzen2.font:       -*-Hack-14-*-*-*-*-*-*-*-*-*-*-*
 !dzen2.foreground: #22EE11
 !dzen2.background: black
+
+!------------------------------------------------------------------------------------
+!2bwm settings
+!------------------------------------------------------------------------------------
+twobwm.border_width: 2
+twobwm.outer_border: 2
+twobwm.focus_color: #81a1c1
+twobwm.unfocus_color: #2e3440
+twobwm.fixed_color: #e5e9f0
+twobwm.unkill_color: #bf616a
+twobwm.outer_border_color: #3b4252
+twobwm.fixed_unkill_color: #D08770
+twobwm.inverted_colors: false
+twobwm.enable_compton: true
