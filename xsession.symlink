@@ -1,0 +1,26 @@
+#!/bin/bash
+
+##Init script for 2bwm
+desktop=$(echo $DESKTOP_SESSION | cut -c 22-)
+
+#Some ways to set your wallpaper besides variety or nitrogen
+variety &
+#xfdesktop &
+feh --bg-scale ~/.bin/2bwm-scripts/wall.png &
+#start the conky to learn the shortcuts for 2 bwm
+if $desktop = 2bwm; then
+	sleep 2 conky -c $HOME/.bin/2bwm-scripts/system-overview &
+fi
+
+sh $HOME/.config/polybar/launch.sh &
+
+#starting utility applications at boot time
+nm-applet &
+pamac-tray &
+xfce4-power-manager &
+numlockx on &
+blueberry-tray &
+compton --config $HOME/.bin/2bwm-scripts/compton.conf &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+calcurse -d &
