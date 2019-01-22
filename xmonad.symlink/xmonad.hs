@@ -229,14 +229,14 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- ALT + ... KEYS
 
   , ((mod1Mask, xK_semicolon) , spawn $ "variety -f" )
-  , ((mod1Mask, xK_n) , spawn $ "variety -n" )
-  , ((mod1Mask, xK_p) , spawn $ "variety -p" )
+  , ((mod1Mask, xK_n) , spawn $ "variety -n && $HOME/.bin/nitrogen-variety" )
+  , ((mod1Mask, xK_p) , spawn $ "variety -p && $HOME/.bin/nitrogen-variety" )
   , ((mod1Mask, xK_r) , spawn $ "xmonad --restart" )
   , ((mod1Mask, xK_t) , spawn $ "variety -t" )
   , ((mod1Mask, xK_Up) , spawn $ "variety --pause" )
   , ((mod1Mask, xK_Down) , spawn $ "variety --resume" )
-  , ((mod1Mask, xK_Left) , spawn $ "variety -p" )
-  , ((mod1Mask, xK_Right) , spawn $ "variety -n" )
+  , ((mod1Mask, xK_Left) , spawn $ "variety -p && $HOME/.bin/nitrogen-variety" )
+  , ((mod1Mask, xK_Right) , spawn $ "variety -n && $HOME/.bin/nitrogen-variety" )
   , ((mod1Mask, xK_F2) , spawn $ "gmrun" )
   , ((mod1Mask, xK_F3) , spawn $ "xfce4-appfinder" )
   , ((mod1Mask .|. shiftMask , xK_s), spawn $ "$HOME/.bin/rofi-scripts/surfraw_search.sh")
@@ -245,10 +245,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   --VARIETY KEYS WITH PYWAL
 
-  , ((mod1Mask .|. shiftMask , xK_f ), spawn $ "variety -f && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
-  , ((mod1Mask .|. shiftMask , xK_n ), spawn $ "variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
-  , ((mod1Mask .|. shiftMask , xK_p ), spawn $ "variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
-  , ((mod1Mask .|. shiftMask , xK_t ), spawn $ "variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
+  , ((mod1Mask .|. shiftMask , xK_f ), spawn $ "variety -f && $HOME/.bin/nitrogen-variety && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
+  , ((mod1Mask .|. shiftMask , xK_n ), spawn $ "variety -n && $HOME/.bin/nitrogen-variety && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
+  , ((mod1Mask .|. shiftMask , xK_p ), spawn $ "variety -p && $HOME/.bin/nitrogen-variety && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
+  , ((mod1Mask .|. shiftMask , xK_t ), spawn $ "variety -t && $HOME/.bin/nitrogen-variety && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
   , ((mod1Mask .|. shiftMask , xK_u ), spawn $ "wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
 
   --CONTROL + SHIFT KEYS
@@ -257,7 +257,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
   --SCREENSHOTS
 
-  , ((0, xK_Print), spawn $ "scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'")
+  , ((0, xK_Print), spawn $ "scrot 'Manjaro-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'")
   , ((controlMask, xK_Print), spawn $ "xfce4-screenshooter" )
   , ((controlMask .|. shiftMask , xK_Print ), spawn $ "gnome-screenshot -i")
 

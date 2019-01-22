@@ -365,11 +365,11 @@ Xcursor.theme: breeze
 !------------------------------------------------------------------------------------
 !2bwm settings
 !------------------------------------------------------------------------------------
-twobwm.border_width: 2
+twobwm.border_width: 5
 twobwm.outer_border: 2
-twobwm.focus_color: #81a1c1
+twobwm.focus_color: #4c566a
 twobwm.unfocus_color: #2e3440
-twobwm.fixed_color: #e5e9f0
+twobwm.fixed_color: #81a1c1
 twobwm.unkill_color: #bf616a
 twobwm.outer_border_color: #3b4252
 twobwm.fixed_unkill_color: #D08770

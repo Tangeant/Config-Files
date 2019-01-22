@@ -54,43 +54,44 @@ urgent_on_bell = true
 # Base16 Nord
 # Author: arcticicestudio
 
-foreground      = #E5E9F0
-foreground_bold = #E5E9F0
-cursor          = #E5E9F0
-background      = rgba(46, 52, 64, 0.9)
-highlight 		= #4c566a
+foreground = #d8dee9
+foreground_bold = #d8dee9
+cursor = #d8dee9
+cursor_foreground = #2e3440
+background      = rgba(46, 52, 64, 0.95)
+highlight = #4c566a
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #2E3440
-color8  = #4C566A
-color7  = #E5E9F0
-color15 = #8FBCBB
+color0  = #3b4252
+color8  = #4c566a
+color7  = #e5e9f0
+color15 = #eceff4
 
 # Red
-color1  = #88C0D0
-color9  = #88C0D0
+color1  = #bf616a
+color9  = #D08770
 
 # Green
-color2  = #BF616A
-color10 = #BF616A
+color2  = #a3be8c
+color10 = #A3BE8C
 
 # Yellow
-color3  = #5E81AC
-color11 = #5E81AC
+color3  = #ebcb8b
+color11 = #ebcb8b
 
 # Blue
-color4  = #EBCB8B
-color12 = #EBCB8B
+color4  = #81a1c1
+color12 = #81a1c1
 
 # Purple
-color5  = #A3BE8C
-color13 = #A3BE8C
+color5  = #b48ead
+color13 = #b48ead
 
 # Teal
-color6  = #D08770
-color14 = #D08770
+color6  = #88c0d0
+color14 = #8fbcbb
 
 # Extra colors
 color16 = #81A1C1

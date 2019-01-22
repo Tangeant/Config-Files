@@ -25,11 +25,12 @@ xsetroot -cursor_name left_ptr &
 
 #Some ways to set your wallpaper besides variety or nitrogen
 run variety &
+#start xfdesktop to ensure variety will draw wallpapers
 run xfdesktop &
 feh --bg-scale ~/.xmonad/wall.jpg &
-#start the conky to learn the shortcuts
+#start the conky to learn the shortcuts once xfdesktop has started
 (sleep 6; conky -c $HOME/.xmonad/scripts/system-overview) &
-
+#start polybar
 (sleep 6; run $HOME/.config/polybar/launch.sh) &
 
 #starting utility applications at boot time

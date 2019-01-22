@@ -47,8 +47,8 @@ conky.config = {
 	default_gauge_width =40,					-- default is 40
 	default_graph_height = 40,					-- default is 25
 	default_graph_width = 153,					-- default is 0 - full width
-	default_shade_color = '#000000',			-- default shading colour
-	default_outline_color = '#000000',			-- default outline colour
+	default_shade_color = '#2E3440',			-- default shading colour
+	default_outline_color = '#D8DEE9',			-- default outline colour
 	draw_borders = false,						-- draw borders around text
 	draw_graph_borders = true,					-- draw borders around graphs
 	draw_shades = false,						-- draw shades
@@ -77,7 +77,7 @@ conky.config = {
 	own_window_argb_value = 150,				    -- real transparency - composite manager required 0-255
 	own_window_argb_visual = true,				-- use ARGB - composite manager required
 	own_window_class = 'Conky',					-- manually set the WM_CLASS name for use with xprop
-	own_window_colour = '#000000',				-- set colour if own_window_transparent no
+	own_window_colour = '#2E3440',				-- set colour if own_window_transparent no
 	own_window_hints = 'undecorated,below,above,sticky,skip_taskbar,skip_pager',  -- if own_window true - just hints - own_window_type sets it
 	own_window_transparent = false,				-- if own_window_argb_visual is true sets background opacity 0%
 	own_window_title = 'system_conky',			-- set the name manually  - default conky "hostname"
@@ -86,18 +86,18 @@ conky.config = {
 
 	--Colours
 
-	default_color = '#ff0000',  				-- default color and border color
-	color1 = '#FFFFFF',
-	color2 = '#929292',
-	color3 = '#cccccc',
-	color4 = '#BDBDBD',
-	color5 = '#CCCCCC',
+	default_color = '#e5e9f0',  				-- default color and border color
+	color1 = '#e5e9f0',
+	color2 = '#81a1c1',
+	color3 = '#D8DEE9',
+	color4 = '#4C566A',
+	color5 = '#ebcb8b',
 	color6 = '#aa0000',
 
 	--Signal Colours
-	color7 = '#1F7411',  						--green
-	color8 = '#FFA726',  						--orange
-	color9 = '#F1544B',  						--firebrick
+	color7 = '#bf616a',  						--green
+	color8 = '#a3be8c',  						--orange
+	color9 = '#88c0d0',  						--firebrick
 
 
 	--Lua

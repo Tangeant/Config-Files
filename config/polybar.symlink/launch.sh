@@ -16,22 +16,16 @@ desktop=$(echo $DESKTOP_SESSION | cut -c 22-)
 
 case $desktop in
     i3)
-    if type "xrandr" > /dev/null; then
-      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+      for m in $(polybar -m|tail -2|sed -e 's/:.*$//g'); do
         MONITOR=$m polybar --reload mainbar-i3 -c ~/.config/polybar/config &
+        echo "Bars launched..."
       done
-    else
-    polybar --reload mainbar-i3 -c ~/.config/polybar/config &
-    fi
     ;;
     openbox)
-    if type "xrandr" > /dev/null; then
-      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+      for m in $(polybar -m|tail -2|sed -e 's/:.*$//g'); do
         MONITOR=$m polybar --reload mainbar-openbox -c ~/.config/polybar/config &
+        echo "Bars launched..."
       done
-    else
-    polybar --reload mainbar-openbox -c ~/.config/polybar/config &
-    fi
 #    if type "xrandr" > /dev/null; then
 #      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
 #        MONITOR=$m polybar --reload mainbar-openbox-extra -c ~/.config/polybar/config &
@@ -42,23 +36,24 @@ case $desktop in
 
     ;;
     bspwm)
-    if type "xrandr" > /dev/null; then
-      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+      for m in $(polybar -m|tail -2|sed -e 's/:.*$//g'); do
         MONITOR=$m polybar --reload mainbar-bspwm -c ~/.config/polybar/config &
+        echo "Bars launched..."
       done
-    else
-    polybar --reload mainbar-bspwm -c ~/.config/polybar/config &
-    fi
     ;;
 
     xmonad)
-    if type "xrandr" > /dev/null; then
-      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+      for m in $(polybar -m|tail -2|sed -e 's/:.*$//g'); do
         MONITOR=$m polybar --reload mainbar-xmonad -c ~/.config/polybar/config &
+        echo "Bars launched..."
       done
-    else
-    polybar --reload mainbar-xmonad -c ~/.config/polybar/config &
-    fi
+    ;;
+
+    2bwm)
+      for m in $(polybar -m|tail -2|sed -e 's/:.*$//g'); do
+        MONITOR=$m polybar --reload mainbar-2bwm -c ~/.config/polybar/config &
+        echo "Bars launched..."
+      done
     ;;
 esac
 

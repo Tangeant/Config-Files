@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale '/home/christ/.xmonad/wall.jpg' 
+feh --bg-scale '/home/christ/.bin/2bwm-scripts/wall.png' 

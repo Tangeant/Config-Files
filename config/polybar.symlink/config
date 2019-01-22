@@ -16,6 +16,7 @@
 margin-top = 0
 margin-bottom = 0
 
+
 [settings]
 ;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
 throttle-output = 5
@@ -68,6 +69,127 @@ volume-max = #A3BE8C
 ;primary = #ffb52a
 ;secondary = #e60053
 ;alert = #bd2c40
+
+################################################################################
+################################################################################
+############                    MAINBAR-2BWM				                     ############
+################################################################################
+################################################################################
+
+[bar/mainbar-2bwm]
+;monitor = ${env:MONITOR:DP-2}
+monitor = DP-2
+monitor-fallback = DP-2
+width = 60%
+height = 30
+offset-x = 20%
+offset-y = 10
+radius = 8
+fixed-center = true
+bottom = false
+separator = 
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+;border-size = 2
+;border-left-size = 25
+;border-right-size = 25
+;border-top-size = 0
+;border-bottom-size = 25
+;border-color = #00000000
+
+padding-left = 4
+padding-right = 1
+
+module-margin-left = 3
+module-margin-right = 3
+
+; Enable support for inter-process messaging
+; See the Messaging wiki page for more details.
+enable-ipc = true
+
+;https://github.com/jaagr/polybar/wiki/Fonts
+font-0 = "Noto Sans:size=10;0"
+font-1 = "FontAwesome:size=10;0"
+font-2 = "Noto Sans:size=10;0"
+font-3 = "Noto Sans Mono:size=10;0"
+
+modules-left = uptime weather xwindow
+modules-center =  release kernel
+modules-right = memory2 cpu2 pub-ip networkspeeddown  pavolume date
+
+;tray-detached = false
+;tray-offset-x = 0
+;tray-offset-y = 0
+;tray-position = right
+;tray-padding = 2
+;tray-maxsize = 20
+;tray-scale = 1.0
+;tray-background = ${colors.background}
+
+################################################################################
+################################################################################
+############                    2NDBAR-2BWM				                     ############
+################################################################################
+################################################################################
+
+[bar/2ndbar-2bwm]
+;monitor = ${env:MONITOR:DP-2}
+monitor = HDMI-0
+width = 60%
+height = 30
+offset-x = 20%
+offset-y = 10
+radius = 8.0
+fixed-center = true
+bottom = false
+separator = 
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+;border-size = 2
+;border-left-size = 25
+;border-right-size = 25
+;border-top-size = 0
+;border-bottom-size = 25
+;border-color = #00000000
+
+padding-left = 4
+padding-right = 1
+
+module-margin-left = 3
+module-margin-right = 3
+
+; Enable support for inter-process messaging
+; See the Messaging wiki page for more details.
+enable-ipc = true
+
+;https://github.com/jaagr/polybar/wiki/Fonts
+font-0 = "Noto Sans:size=10;0"
+font-1 = "FontAwesome:size=10;0"
+font-2 = "Noto Sans:size=10;0"
+font-3 = "Noto Sans Mono:size=10;0"
+
+modules-left = spotify1
+modules-center = mpd
+modules-right = filesystem clock
+
+tray-detached = false
+tray-offset-x = 0
+tray-offset-y = 0
+tray-position = right
+tray-padding = 2
+tray-maxsize = 20
+tray-scale = 1.0
+tray-background = ${colors.background}
 
 ################################################################################
 ################################################################################
@@ -620,6 +742,18 @@ format-background = ${colors.background}
 ################################################################################
 ################################################################################
 
+[module/2bws]
+type = custom/script
+exec = ~/.bin/2bwm-scripts/2bws.sh
+interval = 0.1
+
+format = <label>
+
+label = " %output% "
+label-background = ${colors.xwindow}
+label-foreground = ${colors.foreground}
+label-padding = 1
+
 [module/arch-aur-updates]
 type = custom/script
 exec = ~/.config/polybar/scripts/check-all-updates.sh
@@ -850,6 +984,22 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 label = %date% %time%
 
+[module/clock]
+;https://github.com/jaagr/polybar/wiki/Module:-date
+type = internal/date
+; Seconds to sleep between updates
+interval = 1
+; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+time = %H:%M
+time-alt = %H:%M
+format-prefix = "  "
+format-prefix-foreground = #EBCB8B
+format-underline = #EBCB8B
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+label = %time%
+
 #################################################################
 
 [module/ewmh]
@@ -860,13 +1010,18 @@ enable-click = true
 enable-scroll = true
 reverse-scroll = true
 
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3; 
+icon-3 = 4; 
+icon-4 = 5;
+icon-5 = 6;
+icon-6 = 7;
+icon-7 = 8;
+icon-8 = 9;
+icon-9 = 10;
+icon-default = " "
 
-icon-0 = 1;
-icon-1 = 2;
-icon-2 = 3;
-icon-3 = 4;
-icon-4 = 5;
-#icon-5 = 6;
 format = <label-state>
 label-monitor = %name%
 
@@ -903,7 +1058,7 @@ type = internal/fs
 
 ; Mountpoints to display
 mount-0 = /
-;mount-1 = /home
+mount-1 = /home
 ;mount-2 = /var
 
 ; Seconds to sleep between updates
@@ -926,7 +1081,7 @@ spacing = 4
 format-mounted = <label-mounted>
 format-mounted-foreground = ${colors.foreground}
 format-mounted-background = ${colors.background}
-format-mounted-underline = #fe0000
+format-mounted-underline = #BF616A
 
 
 ; Available tokens:
@@ -1075,8 +1230,8 @@ format-background = ${colors.background}
 ;https://github.com/jaagr/polybar/wiki/Module:-mpd
 type = internal/mpd
 ;format-online =  "<label-song>   <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
-format-online =  "<label-song>  <bar-progress>"
-;format-online =  "<label-song>  <bar-progress> <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
+;format-online =  "<label-song>  <bar-progress>"
+format-online =  "<icon-prev>  <icon-stop>  <toggle>  <icon-next>   <bar-progress>   <label-song>"
 icon-prev = 
 icon-stop = 
 icon-play = 
@@ -1088,7 +1243,7 @@ bar-progress-width = 10
 bar-progress-indicator = 
 bar-progress-fill = 
 bar-progress-empty = 
-bar-progress-fill-foreground = #ff0
+bar-progress-fill-foreground = a3be8c
 bar-progress-fill-background = ${colors.background}
 bar-progress-indicator-foreground = ${colors.foreground}
 format-online-foreground = ${colors.foreground}
@@ -1167,10 +1322,10 @@ exec = ~/.config/polybar/scripts/pub-ip.sh
 interval = 100
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-underline = #FFBB00
+format-underline = #b48ead
 label = %output%
 format-prefix = "  "
-format-prefix-foreground = #FFBB00
+format-prefix-foreground = #b48ead
 
 ################################################################################
 
@@ -1190,7 +1345,7 @@ format-underline = #62FF00
 [module/sep]
 ; alternative separator
 type = custom/text
-content = 
+content = 
 content-foreground = ${colors.foreground}
 content-background =  ${colors.background}
 format-foreground = ${colors.foreground}
@@ -1208,9 +1363,9 @@ interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-padding = 2
-format-underline = #0f0
+format-underline = #a3be8c
 format-prefix = "  "
-format-prefix-foreground = #0f0
+format-prefix-foreground = #a3be8c
 label = %output:0:150%
 
 ################################################################################
@@ -1432,12 +1587,12 @@ blacklist-0 = num lock
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 format-prefix-background = ${colors.background}
-format-prefix-underline = #3ecfb2
+format-prefix-underline = #4c566a
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
 label-layout = %layout%
-label-layout-underline = #3ecfb2
+label-layout-underline = #4c566a
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.background}
@@ -1453,7 +1608,7 @@ type = internal/xwindow
 ;   %title%
 ; Default: %title%
 label = %title%
-label-maxlen = 50
+label-maxlen = 45
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}

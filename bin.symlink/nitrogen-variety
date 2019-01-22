@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+nitrogen --set-zoom-fill --head=0 $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) && nitrogen --set-zoom-fill --head=1 $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)

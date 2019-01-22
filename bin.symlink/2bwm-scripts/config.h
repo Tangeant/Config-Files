@@ -13,7 +13,7 @@ static const float    resize_keep_aspect_ratio= 1.03;
 ///---Offsets---///
 /*0)offsetx          1)offsety
  *2)maxwidth         3)maxheight */
-static const uint8_t offsets[] = {0,0,0,0};
+static const uint8_t offsets[] = {5,45,10,50};
 ///---Colors---///
 /*0)focuscol         1)unfocuscol
  *2)fixedcol         3)unkilcol
@@ -38,10 +38,9 @@ static const uint8_t borders[] = {3,5,5,4};
  * attribute of the window. You can test this using `xprop WM_NAME`
  */
 #define LOOK_INTO "WM_NAME"
-static const char *ignore_names[] = {"bar", "xclock"};
+static const char *ignore_names[] = {"bar", "xclock", "Openbox Logout"};
 ///--Menus and Programs---///
 static const char *menucmd[]   	= { "rofi", "-modi","run,window,drun", "-show", "run", "-show-icons", NULL};
-static const char *dmenu[] 		= {"dmenu_run","-i", "-nb", " '#2e3440'", " -nf", " '#5E81AC' ", " -sb", " '#4C566A' ", "-sf", " '#E5E9F0' ", "-fn", " 'NotoMonoRegular:bold:pixelsize=16'", NULL};
 static const char *terminal[]		= {"termite", NULL};
 ///--Custom foo---///
 static void halfandcentered(const Arg *arg)
@@ -162,7 +161,7 @@ static key keys[] = {
     {  MOD |SHIFT ,       XK_v,          sendtonextworkspace,{}},
     {  MOD |SHIFT ,       XK_c,          sendtoprevworkspace,{}},
     // Iconify the window
-    //{  MOD ,              XK_i,          hide,              {}},
+    {  MOD ,              XK_i,          hide,              {}},
     // Make the window unkillable
     {  MOD ,              XK_a,          unkillable,        {}},
     // Make the window appear always on top
@@ -180,12 +179,11 @@ static key keys[] = {
     {  MOD |SHIFT,        XK_Right,      cursor_move,       {.i=TWOBWM_CURSOR_RIGHT}},
     {  MOD |SHIFT,        XK_Left,       cursor_move,       {.i=TWOBWM_CURSOR_LEFT}},
     // Start programs
-    {  MOD  | SHIFT,              XK_p,          start,             {.com = menucmd}},
-    {  MOD  | SHIFT,              XK_d,          start,             {.com = dmenu}},
-    {  MOD ,							XK_Return, start,				{.com = terminal}},
+    {  MOD  | SHIFT,          XK_p,          start,             {.com = menucmd}},
+    {  MOD,							XK_Return, start,			{.com = terminal}},
     // Exit or restart 2bwm
     {  MOD |SHIFT,      XK_x,          twobwm_exit,       {.i=0}},
-    {  MOD |SHIFT,      XK_Escape,          twobwm_restart,    {.i=0}},
+    {  ALT,      XK_r,          				  twobwm_restart,    {.i=0}},
     {  MOD ,              XK_space,      halfandcentered,   {.i=0}},
     // Change current workspace
        DESKTOPCHANGE(     XK_1,                             0)
@@ -204,8 +202,8 @@ static Button buttons[] = {
     {  MOD        ,XCB_BUTTON_INDEX_1,     mousemotion,   {.i=TWOBWM_MOVE}, false},
     {  MOD        ,XCB_BUTTON_INDEX_3,     mousemotion,   {.i=TWOBWM_RESIZE}, false},
     {  0          ,XCB_BUTTON_INDEX_3,     start,         {.com = menucmd}, true},
-    {  MOD|SHIFT,  XCB_BUTTON_INDEX_1,     changeworkspace, {.i=0}, false},
-    {  MOD|SHIFT,  XCB_BUTTON_INDEX_3,     changeworkspace, {.i=1}, false},
+    {  MOD|SHIFT,  XCB_BUTTON_INDEX_1,     nextworkspace, {}, false},
+    {  MOD|SHIFT,  XCB_BUTTON_INDEX_3,     prevworkspace, {}, false},
     {  MOD|ALT,    XCB_BUTTON_INDEX_1,     changescreen,    {.i=1}, false},
     {  MOD|ALT,    XCB_BUTTON_INDEX_3,     changescreen,    {.i=0}, false}
 };

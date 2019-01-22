@@ -3,7 +3,7 @@
 # credits
 # https://linuxconfig.org/polybar-a-better-wm-panel-for-your-linux-system
 
-IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+IP=$(dig TXT -4 +short o-o.myaddr.l.google.com @ns1.google.com | awk -F'"' '{ print $2}')
 
 if pgrep -x openvpn > /dev/null; then
     echo VPN: $IP
