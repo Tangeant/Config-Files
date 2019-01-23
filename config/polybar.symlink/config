@@ -80,12 +80,12 @@ volume-max = #A3BE8C
 ;monitor = ${env:MONITOR:DP-2}
 monitor = DP-2
 monitor-fallback = DP-2
-width = 60%
+width = 80%
 height = 30
-offset-x = 20%
+offset-x = 10%
 offset-y = 10
-radius = 8
-fixed-center = true
+radius = 6.0
+fixed-center = false
 bottom = false
 separator = 
 
@@ -102,8 +102,8 @@ line-color = #f00
 ;border-bottom-size = 25
 ;border-color = #00000000
 
-padding-left = 4
-padding-right = 1
+padding-left = 10
+padding-right = 10
 
 module-margin-left = 3
 module-margin-right = 3
@@ -118,8 +118,8 @@ font-1 = "FontAwesome:size=10;0"
 font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 
-modules-left = uptime weather xwindow
-modules-center =  release kernel
+modules-left = weather uptime
+modules-center =   2bws xwindow
 modules-right = memory2 cpu2 pub-ip networkspeeddown  pavolume date
 
 ;tray-detached = false
@@ -140,12 +140,12 @@ modules-right = memory2 cpu2 pub-ip networkspeeddown  pavolume date
 [bar/2ndbar-2bwm]
 ;monitor = ${env:MONITOR:DP-2}
 monitor = HDMI-0
-width = 60%
+width = 80%
 height = 30
-offset-x = 20%
+offset-x = 10%
 offset-y = 10
-radius = 8.0
-fixed-center = true
+radius = 6.0
+fixed-center = false
 bottom = false
 separator = 
 
@@ -162,11 +162,11 @@ line-color = #f00
 ;border-bottom-size = 25
 ;border-color = #00000000
 
-padding-left = 4
-padding-right = 1
+padding-left = 20
+padding-right = 5
 
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 2
+module-margin-right = 2
 
 ; Enable support for inter-process messaging
 ; See the Messaging wiki page for more details.
@@ -178,9 +178,9 @@ font-1 = "FontAwesome:size=10;0"
 font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 
-modules-left = spotify1
-modules-center = mpd
-modules-right = filesystem clock
+modules-left = spotify1 mpd
+modules-center = kernel 2bws
+modules-right =  filesystem clock
 
 tray-detached = false
 tray-offset-x = 0
@@ -745,14 +745,15 @@ format-background = ${colors.background}
 [module/2bws]
 type = custom/script
 exec = ~/.bin/2bwm-scripts/2bws.sh
-interval = 0.1
+interval = 0.005
 
 format = <label>
 
-label = " %output% "
-label-background = ${colors.xwindow}
-label-foreground = ${colors.foreground}
-label-padding = 1
+label = %output%
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 1
+format-underline = #81a1c1
 
 [module/arch-aur-updates]
 type = custom/script
@@ -1094,7 +1095,7 @@ format-mounted-underline = #BF616A
 ;   %free%
 ;   %used%
 ; Default: %mountpoint% %percentage_free%%
-label-mounted = %mountpoint% : %used% used of %total%
+label-mounted =  %mountpoint% : %used% used of %total%
 
 ; Available tokens:
 ;   %mountpoint%
@@ -1230,14 +1231,14 @@ format-background = ${colors.background}
 ;https://github.com/jaagr/polybar/wiki/Module:-mpd
 type = internal/mpd
 ;format-online =  "<label-song>   <icon-prev>  <icon-stop>  <toggle>  <icon-next>"
-;format-online =  "<label-song>  <bar-progress>"
-format-online =  "<icon-prev>  <icon-stop>  <toggle>  <icon-next>   <bar-progress>   <label-song>"
+format-online =  "<label-song>  <bar-progress>"
+;format-online =  "<icon-prev>  <icon-stop>  <toggle>  <icon-next>   <bar-progress>   <label-song>"
 icon-prev = 
 icon-stop = 
 icon-play = 
 icon-pause = 
 icon-next = 
-label-song-maxlen = 40
+label-song-maxlen = 30
 label-song-ellipsis = true
 bar-progress-width = 10
 bar-progress-indicator = 
@@ -1337,8 +1338,8 @@ interval = 6000
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = #62FF00
-format-underline = #62FF00
+format-prefix-foreground = #a3be8c
+format-underline = #a3be8c
 
 ################################################################################
 
@@ -1608,7 +1609,7 @@ type = internal/xwindow
 ;   %title%
 ; Default: %title%
 label = %title%
-label-maxlen = 45
+label-maxlen = 30
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}

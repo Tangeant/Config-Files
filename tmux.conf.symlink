@@ -15,7 +15,7 @@ setw -g aggressive-resize on
 setw -g mode-keys vi
 
 # Vim style copy/paste
-bind-key -t vi-copy y copy-pipe "xsel -i -p -b"
+#bind-key -t vi-copy y copy-pipe "xsel -i -p -b"
 bind-key p run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
 bind -n C-S-v run "xsel -o | tmux load-buffer - ; tmux paste-buffer"
 

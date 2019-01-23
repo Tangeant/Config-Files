@@ -30,7 +30,7 @@ super + F6
 super + F7
     virtualbox
 
-#Thunar
+#PCmanFM
 super + F8
     pcmanfm
 
@@ -68,7 +68,7 @@ super + q
 
 #Pacli
 super +  p
-    $TERMINAL -e pacli
+    termite -e pacli
 
 #Urxvt
 super + t
@@ -108,7 +108,7 @@ super + shift + r
 
 #Bmenu
 super + shift + Escape
-	$TERMINAL -e bmenu
+	termite -e bmenu
 
 #reload sxhkd:
 super + shift + s
@@ -124,7 +124,7 @@ control + alt + r
 
 #File-Manager
 ctrl + alt + f
-     pcmanfm
+     Thunar
 
 #Catfish
 ctrl + alt + s
@@ -283,7 +283,7 @@ ctrl + shift + Escape
 
 #Scrot
 Print
-    scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+    scrot 'Manjaro-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 
 #screeenshooter
 ctrl + Print
