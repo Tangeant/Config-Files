@@ -1,4 +1,7 @@
 #!/usr/bin/bash
 
+export MICRO_TRUECOLOR=1
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 calcurse --daemon &
 sxkhd -c ~/.config/sxkhd/common-keys &

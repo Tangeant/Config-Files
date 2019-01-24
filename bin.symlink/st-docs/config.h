@@ -86,39 +86,38 @@ unsigned int tabspaces = 8;
  unsigned int alpha = 0xcc;
 
 /* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
-
+/*static const char *colorname[] = { */
+#include "/home/christ/.cache/wal/colors-wal-st.h"
   /* 8 normal colors */
-  [0] = "#2e3440", /* black   */
-  [1] = "#88c0d0", /* red     */
-  [2] = "#bf616a", /* green   */
-  [3] = "#5e81ac", /* yellow  */
-  [4] = "#ebcb8b", /* blue    */
-  [5] = "#a3be8c", /* magenta */
-  [6] = "#d08770", /* cyan    */
-  [7] = "#e5e9f0", /* white   */
+  /*[0] = "#2e3440", /* black   */
+  /*[1] = "#88c0d0", /* red     */
+  /*[2] = "#bf616a", /* green   */
+  /*[3] = "#5e81ac", /* yellow  */
+  /*[4] = "#ebcb8b", /* blue    */
+  /*[5] = "#a3be8c", /* magenta */
+  /*[6] = "#d08770", /* cyan    */
+  /*[7] = "#e5e9f0", /* white   */
 
   /* 8 bright colors */
-  [8]  = "#4c566a", /* black   */
-  [9]  = "#88c0d0", /* red     */
-  [10] = "#bf616a", /* green   */
-  [11] = "#5e81ac", /* yellow  */
-  [12] = "#ebcb8b", /* blue    */
-  [13] = "#a3be8c", /* magenta */
-  [14] = "#d08770", /* cyan    */
-  [15] = "#8fbcbb", /* white   */
+  /*[8]  = "#4c566a", /* black   */
+  /*[9]  = "#88c0d0", /* red     */
+  /*[10] = "#bf616a", /* green   */
+  /*[11] = "#5e81ac", /* yellow  */
+  /*[12] = "#ebcb8b", /* blue    */
+  /*[13] = "#a3be8c", /* magenta */
+  /*[14] = "#d08770", /* cyan    */
+  /*[15] = "#8fbcbb", /* white   */
 
   /* special colors */
-  [256] = "#2e3440", /* background */
-  [257] = "#e5e9f0", /* foreground */
-};
+  /*[256] = "#2e3440", /* background */
+  /*[257] = "#e5e9f0", /* foreground */
+/*};
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor
  */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
+/*unsigned int defaultbg = 256;
 static unsigned int defaultcs = 257;
 static unsigned int defaultrcs = 256;
 

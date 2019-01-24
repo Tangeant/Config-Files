@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # display workspace status
 # requires wmctrl
+source "$HOME/.cache/wal/colors.sh"
 
 # get the current workspace
 ws=$( xprop -root _NET_CURRENT_DESKTOP | sed -e 's/_NET_CURRENT_DESKTOP(CARDINAL) = //' )
@@ -12,9 +13,9 @@ OCCUPIED=∙
 UNOCCUPIED=⋅
 
 # colors
-fg="#d8dee9"
-fg1="#81a1c1"
-fg2="#EBCB8B"
+fg=$color4
+fg1=$color5
+fg2=$color15
 
 #  print workspaces to stdout
 draw() {

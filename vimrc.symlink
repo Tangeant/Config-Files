@@ -23,16 +23,17 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'dylanaraps/wal.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 "Color scheme Nord
-let g:nord_italic = 1
-let g:nord_underline = 1
-let g:nord_italic_comments = 1
-let g:nord_comment_brightness = 12
-colorscheme nord
+"let g:nord_italic = 1
+"let g:nord_underline = 1
+"let g:nord_italic_comments = 1
+"let g:nord_comment_brightness = 12
+colorscheme wal
 
 "Open NERDTree automatically when vim starts with no files
 autocmd StdinReadPre * let s:std_in=1

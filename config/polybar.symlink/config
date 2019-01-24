@@ -40,14 +40,21 @@ format-margin =
 format-offset =
 
 [colors]
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+
 ; Nord theme ============
-background = #2E3440
-foreground = #D8DEE9
-occupied = #4C566A
-alert = #5E81AC
-volume-min = #4C566A
-volume-med = #81A1C1
-volume-max = #A3BE8C
+;background = #2E3440
+;foreground = #D8DEE9
+;occupied = #4C566A
+;alert = #5E81AC
+;volume-min = #4C566A
+;volume-med = #81A1C1
+;volume-max = #A3BE8C
 ; =======================
 
 ; Gotham theme ==========
@@ -746,14 +753,13 @@ format-background = ${colors.background}
 type = custom/script
 exec = ~/.bin/2bwm-scripts/2bws.sh
 interval = 0.005
-
 format = <label>
 
 label = %output%
 format-background = ${colors.background}
 format-foreground = ${colors.foreground}
 format-padding = 1
-format-underline = #81a1c1
+format-underline = ${xrdb:color5:#222}
 
 [module/arch-aur-updates]
 type = custom/script
@@ -945,8 +951,8 @@ interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = #BF616A
-format-underline = #BF616A
+format-prefix-foreground = ${xrdb:color2:#222}
+format-underline = ${xrdb:color2:#222}
 
 label-font = 3
 
@@ -979,8 +985,8 @@ date-alt = " %d-%m-%Y"
 time = %H:%M
 time-alt = %H:%M
 format-prefix = " "
-format-prefix-foreground = #EBCB8B
-format-underline = #EBCB8B
+format-prefix-foreground = ${xrdb:color11:#222}
+format-underline = ${xrdb:color11:#222}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 label = %date% %time%
@@ -995,8 +1001,8 @@ interval = 1
 time = %H:%M
 time-alt = %H:%M
 format-prefix = "  "
-format-prefix-foreground = #EBCB8B
-format-underline = #EBCB8B
+format-prefix-foreground = ${xrdb:color11:#222}
+format-underline = ${xrdb:color11:#222}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 label = %time%
@@ -1082,7 +1088,7 @@ spacing = 4
 format-mounted = <label-mounted>
 format-mounted-foreground = ${colors.foreground}
 format-mounted-background = ${colors.background}
-format-mounted-underline = #BF616A
+format-mounted-underline = ${xrdb:color9:#222}
 
 
 ; Available tokens:
@@ -1116,8 +1122,8 @@ interval = 1024
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = #5E81AC
-format-underline = #5E81AC
+format-prefix-foreground = ${xrdb:color12:#222}
+format-underline = ${xrdb:color12:#222}
 
 ################################################################################
 
@@ -1195,8 +1201,8 @@ label = %percentage_used%%
 
 format = Mem <label>
 format-prefix = "  "
-format-prefix-foreground = #81A1C1
-format-underline = #81A1C1
+format-prefix-foreground = ${xrdb:color12:#222}
+format-underline = ${xrdb:color12:#222}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -1244,7 +1250,7 @@ bar-progress-width = 10
 bar-progress-indicator = 
 bar-progress-fill = 
 bar-progress-empty = 
-bar-progress-fill-foreground = a3be8c
+bar-progress-fill-foreground = ${xrdb:color10:#222}
 bar-progress-fill-background = ${colors.background}
 bar-progress-indicator-foreground = ${colors.foreground}
 format-online-foreground = ${colors.foreground}
@@ -1261,7 +1267,7 @@ interface = enp4s0
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = ""
-format-connected-prefix-foreground = #FE522C
+format-connected-prefix-foreground = ${xrdb:color5:#222}
 format-connected-foreground = ${colors.foreground}
 format-connected-background = ${colors.background}
 ;format-connected-underline = #62FF00
@@ -1278,10 +1284,10 @@ interface = enp3s0
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = ""
-format-connected-prefix-foreground = #B48EAD
+format-connected-prefix-foreground = ${xrdb:color5:#222}
 format-connected-foreground = ${colors.foreground}
 format-connected-background = ${colors.background}
-format-connected-underline = #B48EAD
+format-connected-underline = ${xrdb:color5:#222}
 
 ################################################################################
 
@@ -1308,7 +1314,7 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-underline = #E5E9F0
+format-underline = ${xrdb:color15:#222}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
@@ -1323,10 +1329,10 @@ exec = ~/.config/polybar/scripts/pub-ip.sh
 interval = 100
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-underline = #b48ead
+format-underline = ${xrdb:color5:#222}
 label = %output%
 format-prefix = "  "
-format-prefix-foreground = #b48ead
+format-prefix-foreground = ${xrdb:color5:#222}
 
 ################################################################################
 
@@ -1338,8 +1344,8 @@ interval = 6000
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = #a3be8c
-format-underline = #a3be8c
+format-prefix-foreground = ${xrdb:color2:#222}
+format-underline = ${xrdb:color2:#222}
 
 ################################################################################
 
@@ -1364,9 +1370,9 @@ interval = 1
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-padding = 2
-format-underline = #a3be8c
+format-underline = ${xrdb:color10:#222}
 format-prefix = "  "
-format-prefix-foreground = #a3be8c
+format-prefix-foreground = ${xrdb:color10:#222}
 label = %output:0:150%
 
 ################################################################################
@@ -1430,8 +1436,8 @@ label = Uptime : %output%
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = " "
-format-prefix-foreground = #D08770
-format-underline = #D08770
+format-prefix-foreground = ${xrdb:color9:#222}
+format-underline = ${xrdb:color9:#222}
 
 ################################################################################
 
@@ -1474,8 +1480,8 @@ type = custom/script
 interval = 10
 format = <label>
 format-prefix = " "
-format-prefix-foreground = #88C0D0
-format-underline = #88C0D0
+format-prefix-foreground = ${xrdb:color6:#222}
+format-underline = ${xrdb:color6:#222}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 exec = python -u ~/.config/polybar/scripts/weather.py

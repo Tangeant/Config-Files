@@ -6,9 +6,9 @@
 super + F1
     vivaldi-stable
 
-# Nvim
+# Atom
 super + F2
-    nvim
+    atom
 
 #Inkscape
 super + F3
@@ -86,29 +86,33 @@ super + v
 super + shift + Delete
     polybar-msg cmd toggle
 
-#Xkill
-super + q
-    xkill
-
 #########################
 # SUPER + SHIFT KEYS    #
 #########################
 
 #Terminal emulator
 super + shift + Return
-	tabbed -c -r 2 st -w '' -e tmux
+	 st -e tmux
 
 #DMENU
 super + shift + d
-	dmenu_run -i -nb '#2e3440' -nf '#5E81AC' -sb '#4C566A' -sf '#E5E9F0' -fn 'NotoMonoRegular:bold:pixelsize=16'
+	 dmenu-wal
 
 #Root Ranger
 super + shift + r
-    termite -e "sudo ranger"
+  termite -e "sudo ranger"
 
 #Bmenu
 super + shift + Escape
 	termite -e bmenu
+
+#irssi
+super + shift + i
+  termite -e tmux -c irssi
+
+#Xkill
+super + shift + q
+  xkill
 
 #reload sxhkd:
 super + shift + s

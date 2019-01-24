@@ -1,0 +1,41 @@
+!_______________________________________________________________
+! Rofi Colours
+!_______________________________________________________________
+
+rofi.opacity: 85
+rofi.width: 500
+rofi.lines: 15
+rofi.columns: 1
+rofi.font: Noto Sans Semibold 12
+rofi.bw: 2
+rofi.padding: 2
+rofi.yoffset: 0
+rofi.xoffset: -2
+rofi.fixed-num-lines: true
+rofi.hmode: false
+rofi.terminal: terminal
+rofi.ssh-set-title: true
+rofi.key: F12
+rofi.rkey: mod1+F2
+rofi.skey: mod1+F3
+rofi.location: 0
+
+!rofi.fg:   #99CC99
+!rofi.bg:   #000000
+!rofi.hlfg: #000000
+!rofi.hlbg: #99CC99
+!rofi.bc:   #99CC99
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: #393939, #393939, #268bd2
+rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+
+rofi.disable-history: false
+rofi.levenshtein-sort: true
+rofi.switchers: window,run,drun
+Xcursor.theme: breeze

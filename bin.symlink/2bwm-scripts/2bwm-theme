@@ -1,0 +1,7 @@
+#/usr/bin/bash
+
+#Define our theme file
+TWOBWM_THEME_DIR="$HOME/.Xresources.d/2bwm"
+
+
+ $TWOBWM_THEME_DIR

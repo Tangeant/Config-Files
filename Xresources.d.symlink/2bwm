@@ -1,0 +1,21 @@
+#define myborder_width 5
+#define myouter_border 3
+#define myfocus_color
+#define myunfocus_color
+#define myfixed_color
+#define myunkill_color
+#define myouter_border_color
+#define myfixed_kill_color
+#define myinverted_colors false
+#define mycompton true
+
+twobwm.border_width: myborder_width
+twobwm.outer_border: myouter_border
+twobwm.focus_color:  myfocus_color
+twobwm.unfocus_color: myunfocus_color
+twobwm.fixed_color: myfixed_color
+twobwm.unkill_color: myunkill_color
+twobwm.outer_border_color: myouter_border_color
+twobwm.fixed_unkill_color: myfixed_kill_color
+twobwm.inverted_colors: myinverted_colors false
+twobwm.enable_compton: mycompton

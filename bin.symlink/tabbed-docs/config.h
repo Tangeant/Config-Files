@@ -2,12 +2,12 @@
 
 /* appearance */
 static const char font[]        = "Noto Sans Mono Semibold:size=12";
-static const char* normbgcolor  = "#2e3440";
-static const char* normfgcolor  = "#5e81ac";
+/*static const char* normfgcolor  = "#5e81ac";
 static const char* selbgcolor   = "#4c566a";
 static const char* selfgcolor   = "#5e81ac";
 static const char* urgbgcolor   = "#88c0d0";
-static const char* urgfgcolor   = "#8fbcbb";
+static const char* urgfgcolor   = "#8fbcbb";*/
+#include "/home/christ/.cache/wal/colors-wal-tabbed.h"
 static const char before[]      = "<";
 static const char after[]       = ">";
 static const char titletrim[]   = "...";

@@ -1,1 +1,2 @@
-rofi.theme: /home/christ/.config/rofi/themes/Arc-Dark-Paper.rasi
+# Dark theme.
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
