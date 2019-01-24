@@ -5,3 +5,4 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 calcurse --daemon &
 sxkhd -c ~/.config/sxkhd/common-keys &
+wal -R -o wal-set &

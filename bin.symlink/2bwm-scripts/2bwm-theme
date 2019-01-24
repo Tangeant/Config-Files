@@ -1,7 +1,14 @@
 #/usr/bin/bash
 
-#Define our theme file
-TWOBWM_THEME_DIR="$HOME/.Xresources.d/2bwm"
+#Source the Wal color variables
+source ~/.cache/wal/colors.sh
 
-
- $TWOBWM_THEME_DIR
+#Replace the color variables in theme file with the color variables from Wal color file
+sed -i"" --follow-symlinks \
+        -e "s/color0 #.*/color0 ${color0}/" \
+        -e "s/color1 #.*/color1 ${color1}/" \
+        -e "s/color3 #.*/color3 ${color3}/" \
+        -e "s/color4 #.*/color4 ${color4}/" \
+        -e "s/color5 #.*/color5 ${color5}/" \
+        -e "s/color8 #.*/color8 ${color8}/" \
+        "${HOME}/.Xresources.d/2bwm"

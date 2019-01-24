@@ -1,11 +1,20 @@
+!!Define the color variables
+#define color0 #100403
+#define color1 #785346
+#define color3 #972A1A
+#define color4 #984D32
+#define color5 #C9593C
+#define color8 #958479
+
+!!Define the 2bwm config variables
 #define myborder_width 5
 #define myouter_border 3
-#define myfocus_color
-#define myunfocus_color
-#define myfixed_color
-#define myunkill_color
-#define myouter_border_color
-#define myfixed_kill_color
+#define myfocus_color color4
+#define myunfocus_color color0
+#define myfixed_color color3
+#define myunkill_color color1
+#define myouter_border_color color8
+#define myfixed_kill_color color5
 #define myinverted_colors false
 #define mycompton true
 

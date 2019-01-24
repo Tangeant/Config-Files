@@ -270,7 +270,7 @@ alt + shift + f
 
 #Wallpaper update
 alt + shift + u
-    wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+    wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -o $HOME/.bin/2bwm-scripts/2bwm-theme &
 
 #########################
 # CONTROL + SHIFT KEYS  #

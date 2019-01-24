@@ -5,7 +5,6 @@
 # Executed by startx (run your window manager from here)
 
 xsetroot -cursor_name left_ptr &
-xrdb -load ~/.Xresources
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -14,6 +13,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
+xrdb -I$HOME ~/.Xresources
 [[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
 
 if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
@@ -24,6 +24,9 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 if [ -x /usr/bin/xdg-user-dirs-update ]; then
    /usr/bin/xdg-user-dirs-update
 fi
+
+export MICRO_TRUECOLOR=1
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 #Some ways to set your wallpaper besides variety or nitrogen
 variety &
@@ -40,6 +43,9 @@ mpd &
 calcurse --daemon &
 urxvtd &
 
+# -R restores the last colorscheme that was in use and -o runs the script to set 2bwm theme
+wal -R -o wal-set &
+
 sxhkd -c ~/.config/sxhkd/common-keys &
 
 # Window Managers
@@ -49,7 +55,7 @@ case $session in
     2bwm ) polybar -r mainbar-2bwm -c $HOME/.config/polybar/config &
     polybar -r 2ndbar-2bwm -c $HOME/.config/polybar/config &
     feh --bg-scale ~/.bin/2bwm-scripts/wall.png &
-	conky -c $HOME/.bin/2bwm-scripts/system-overview &
+	#conky -c $HOME/.bin/2bwm-scripts/system-overview &
 	compton -b --blur-method kawase --blur-strength 6 --config $HOME/.bin/2bwm-scripts/compton.conf &
     2bwm && exec tabbed -c -r 2 st -w ' ' -e tmux\
     ;;
