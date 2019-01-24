@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/usr/share/backgrounds/manjaro-wallpapers-18.0/school-project.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1d221f",
+        "foreground": "#a6bbc0",
+        "cursor": "#a6bbc0"
+    },
+    "colors": {
+        "color0": "#1d221f",
+        "color1": "#F9DA56",
+        "color2": "#1C748D",
+        "color3": "#26778B",
+        "color4": "#637D84",
+        "color5": "#2B849A",
+        "color6": "#2C89A0",
+        "color7": "#a6bbc0",
+        "color8": "#748286",
+        "color9": "#F9DA56",
+        "color10": "#1C748D",
+        "color11": "#26778B",
+        "color12": "#637D84",
+        "color13": "#2B849A",
+        "color14": "#2C89A0",
+        "color15": "#a6bbc0"
+    }
+}

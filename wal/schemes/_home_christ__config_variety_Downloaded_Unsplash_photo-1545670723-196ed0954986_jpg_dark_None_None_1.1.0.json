@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/christ/.config/variety/Downloaded/Unsplash/photo-1545670723-196ed0954986.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#080812",
+        "foreground": "#d8d9d3",
+        "cursor": "#d8d9d3"
+    },
+    "colors": {
+        "color0": "#080812",
+        "color1": "#696569",
+        "color2": "#897672",
+        "color3": "#717A84",
+        "color4": "#6F8F99",
+        "color5": "#918E8F",
+        "color6": "#A8A7A6",
+        "color7": "#d8d9d3",
+        "color8": "#979793",
+        "color9": "#696569",
+        "color10": "#897672",
+        "color11": "#717A84",
+        "color12": "#6F8F99",
+        "color13": "#918E8F",
+        "color14": "#A8A7A6",
+        "color15": "#d8d9d3"
+    }
+}

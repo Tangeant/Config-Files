@@ -1,0 +1,21 @@
+set $wallpaper /usr/share/backgrounds/wallpapers-2018/mountains-1412683.jpg
+
+set $background #1c1922
+set $foreground #f6e9e1
+
+set $color0 #1c1922
+set $color1 #3E4583
+set $color2 #5E669C
+set $color3 #7D83B6
+set $color4 #8E8BB8
+set $color5 #B8A7C9
+set $color6 #FED1CE
+set $color7 #f6e9e1
+set $color8 #aca39d
+set $color9 #3E4583
+set $color10 #5E669C
+set $color11 #7D83B6
+set $color12 #8E8BB8
+set $color13 #B8A7C9
+set $color14 #FED1CE
+set $color15 #f6e9e1

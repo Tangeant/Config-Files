@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/usr/share/backgrounds/manjaro-budgie/islandiya-vestrahorn-6864.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0a0608",
+        "foreground": "#c7cfdb",
+        "cursor": "#c7cfdb"
+    },
+    "colors": {
+        "color0": "#0a0608",
+        "color1": "#396185",
+        "color2": "#567296",
+        "color3": "#877A8B",
+        "color4": "#6D849C",
+        "color5": "#718CAD",
+        "color6": "#97A1B2",
+        "color7": "#c7cfdb",
+        "color8": "#8b9099",
+        "color9": "#396185",
+        "color10": "#567296",
+        "color11": "#877A8B",
+        "color12": "#6D849C",
+        "color13": "#718CAD",
+        "color14": "#97A1B2",
+        "color15": "#c7cfdb"
+    }
+}

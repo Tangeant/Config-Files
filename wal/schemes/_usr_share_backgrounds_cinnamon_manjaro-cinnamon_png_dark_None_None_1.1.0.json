@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/usr/share/backgrounds/cinnamon/manjaro-cinnamon.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0b0f10",
+        "foreground": "#a4b3ba",
+        "cursor": "#a4b3ba"
+    },
+    "colors": {
+        "color0": "#0b0f10",
+        "color1": "#374952",
+        "color2": "#156C5C",
+        "color3": "#645850",
+        "color4": "#4F6876",
+        "color5": "#8B6249",
+        "color6": "#3B827F",
+        "color7": "#a4b3ba",
+        "color8": "#727d82",
+        "color9": "#374952",
+        "color10": "#156C5C",
+        "color11": "#645850",
+        "color12": "#4F6876",
+        "color13": "#8B6249",
+        "color14": "#3B827F",
+        "color15": "#a4b3ba"
+    }
+}

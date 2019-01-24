@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/usr/share/backgrounds/arcolinux/wooden-floor-pyramid.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#240f0c",
+        "foreground": "#e2c7ab",
+        "cursor": "#e2c7ab"
+    },
+    "colors": {
+        "color0": "#240f0c",
+        "color1": "#956A4A",
+        "color2": "#AE7947",
+        "color3": "#C28639",
+        "color4": "#B78751",
+        "color5": "#B58F65",
+        "color6": "#CB9051",
+        "color7": "#e2c7ab",
+        "color8": "#9e8b77",
+        "color9": "#956A4A",
+        "color10": "#AE7947",
+        "color11": "#C28639",
+        "color12": "#B78751",
+        "color13": "#B58F65",
+        "color14": "#CB9051",
+        "color15": "#e2c7ab"
+    }
+}

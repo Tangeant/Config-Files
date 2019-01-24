@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/christ/.config/variety/Favorites/abqo06qslc521.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0a1e34",
+        "foreground": "#cedee9",
+        "cursor": "#cedee9"
+    },
+    "colors": {
+        "color0": "#0a1e34",
+        "color1": "#135D9D",
+        "color2": "#58559B",
+        "color3": "#94618B",
+        "color4": "#0CA4DC",
+        "color5": "#4E9DC1",
+        "color6": "#9FAAB7",
+        "color7": "#cedee9",
+        "color8": "#909ba3",
+        "color9": "#135D9D",
+        "color10": "#58559B",
+        "color11": "#94618B",
+        "color12": "#0CA4DC",
+        "color13": "#4E9DC1",
+        "color14": "#9FAAB7",
+        "color15": "#cedee9"
+    }
+}

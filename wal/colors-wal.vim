@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/usr/share/backgrounds/wallpapers-2018/mountains-1412683.jpg"
+let background = "#1c1922"
+let foreground = "#f6e9e1"
+let cursor     = "#f6e9e1"
+
+" Colors
+let color0  = "#1c1922"
+let color1  = "#3E4583"
+let color2  = "#5E669C"
+let color3  = "#7D83B6"
+let color4  = "#8E8BB8"
+let color5  = "#B8A7C9"
+let color6  = "#FED1CE"
+let color7  = "#f6e9e1"
+let color8  = "#aca39d"
+let color9  = "#3E4583"
+let color10 = "#5E669C"
+let color11 = "#7D83B6"
+let color12 = "#8E8BB8"
+let color13 = "#B8A7C9"
+let color14 = "#FED1CE"
+let color15 = "#f6e9e1"
