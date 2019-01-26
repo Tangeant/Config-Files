@@ -125,9 +125,9 @@ font-1 = "FontAwesome:size=10;0"
 font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 
-modules-left = weather uptime
+modules-left = weather uptime spotify1
 modules-center =   2bws xwindow
-modules-right = memory2 cpu2 pub-ip networkspeeddown  pavolume date
+modules-right = mpd memory2 cpu2 pub-ip networkspeeddown  pavolume date
 
 ;tray-detached = false
 ;tray-offset-x = 0
@@ -147,10 +147,10 @@ modules-right = memory2 cpu2 pub-ip networkspeeddown  pavolume date
 [bar/2ndbar-2bwm]
 ;monitor = ${env:MONITOR:DP-2}
 monitor = HDMI-0
-width = 80%
+width = 60%
 height = 30
-offset-x = 10%
-offset-y = 10
+offset-x = 20%
+offset-y = 20
 radius = 6.0
 fixed-center = false
 bottom = false
@@ -169,7 +169,7 @@ line-color = #f00
 ;border-bottom-size = 25
 ;border-color = #00000000
 
-padding-left = 20
+padding-left = 15
 padding-right = 5
 
 module-margin-left = 2
@@ -185,9 +185,9 @@ font-1 = "FontAwesome:size=10;0"
 font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 
-modules-left = spotify1 mpd
-modules-center = kernel 2bws
-modules-right =  filesystem clock
+modules-left = release kernel
+modules-center = 2bws
+modules-right =  filesystem xkeyboard clock
 
 tray-detached = false
 tray-offset-x = 0

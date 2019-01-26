@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/christ/Pictures/Wallpapers/b5k8knd29bc21.jpg",
+    "alpha": "85",
+    "special": {
+        "background": "#050504",
+        "foreground": "#a4a3a2",
+        "cursor": "#a4a3a2"
+    },
+    "colors": {
+        "color0": "#050504",
+        "color1": "#483c36",
+        "color2": "#53535c",
+        "color3": "#545c5d",
+        "color4": "#6d5c53",
+        "color5": "#82869a",
+        "color6": "#8c9ccc",
+        "color7": "#a4a3a2",
+        "color8": "#494746",
+        "color9": "#483c36",
+        "color10": "#53535c",
+        "color11": "#545c5d",
+        "color12": "#6d5c53",
+        "color13": "#82869a",
+        "color14": "#8c9ccc",
+        "color15": "#a4a3a2"
+    }
+}

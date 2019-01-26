@@ -36,7 +36,7 @@ super + F8
 
 #Thunderbird
 super + F9
-    st -e neomutt
+    st -e "zsh -ic neomutt"
 
 #Spotify
 super + F10
@@ -60,7 +60,7 @@ super + e
 
 #Htop
 super + alt + h
-    urxvtc 'htop task manager' -e htop
+    urxvtc 'htop task manager' -e "zsh -ic htop"
 
 #Qutebrowser
 super + q
@@ -68,7 +68,7 @@ super + q
 
 #Pacli
 super +  p
-    termite -e pacli
+    termite -e "zsh -ic pacli"
 
 #Urxvt
 super + t
@@ -92,7 +92,7 @@ super + shift + Delete
 
 #Terminal emulator
 super + shift + Return
-	 st -e tmux
+	 st -e "zsh -ic tmux"
 
 #DMENU
 super + shift + d
@@ -102,13 +102,9 @@ super + shift + d
 super + shift + r
   termite -e "sudo ranger"
 
-#Bmenu
-super + shift + Escape
-	termite -e bmenu
-
 #irssi
 super + shift + i
-  termite -e tmux -c irssi
+  termite -e "zsh -ic tmux -c irssi"
 
 #Xkill
 super + shift + q
@@ -124,7 +120,7 @@ super + shift + s
 
 #Ranger
 control + alt + r
-    termite -e ranger
+    termite -e "zsh -ic ranger"
 
 #File-Manager
 ctrl + alt + f
@@ -140,7 +136,7 @@ ctrl + alt + b
 
 #Surf
 ctrl + alt + g
-     tabbed -c surf -e
+     ~/.bin/surf-open.sh https://duckduckgo.com
 
 #Nitrogen
 ctrl + alt + i
@@ -164,7 +160,7 @@ ctrl + alt + s
 
 #Termite
 ctrl + alt + t
-     termite -e tmux
+     termite -e "zsh -ic tmux"
 
 #Rofi theme selector
 ctrl + alt + r
@@ -182,13 +178,17 @@ ctrl + alt + v
 ctrl + alt + e
      kate
 
-#Urxvt
+#Kitty
 ctrl + alt + Return
-     urxvtc
+     kitty
 
 #pamac-manager
 ctrl + alt + p
      pamac-manager
+
+#Bmenu
+control + alt + Escape
+	termite -e "zsh -ic bmenu"
 
 #Oblogout
 ctrl + alt + Delete
@@ -251,26 +251,29 @@ alt + shift + v
 #VARIETY KEYS WITH PYWAL#
 #########################
 
-
 #Wallpaper trash
 alt + shift + t
-    variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+    variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -g &
 
 #Wallpaper next
 alt + shift + n
-    variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+    variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -g &
 
 #Wallpaper previous
 alt + shift + p
-    variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+    variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -g &
 
 #Wallpaper favorite
 alt + shift + f
-    variety -f && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+    variety -f && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -g &
 
 #Wallpaper update
 alt + shift + u
-    wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -o $HOME/.bin/2bwm-scripts/2bwm-theme &
+    wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -o $($HOME/.bin/2bwm-scripts/2bwm-theme) -g &
+
+#Wal Reload
+alt + w
+	wal -R
 
 #########################
 # CONTROL + SHIFT KEYS  #

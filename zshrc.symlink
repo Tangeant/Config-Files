@@ -7,8 +7,16 @@ source "$HOME/.cache/wal/colors.sh"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source <(antibody init)
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
 
 antibody bundle < ~/.zsh_plugins.txt
+
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
 
 TERM=xterm
 case $TERM in

@@ -3,6 +3,7 @@
 # ~/.xinitrc
 #
 # Executed by startx (run your window manager from here)
+source "$HOME/.cache/wal/colors.sh"
 
 xsetroot -cursor_name left_ptr &
 
@@ -26,7 +27,6 @@ if [ -x /usr/bin/xdg-user-dirs-update ]; then
 fi
 
 export MICRO_TRUECOLOR=1
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 #Some ways to set your wallpaper besides variety or nitrogen
 variety &

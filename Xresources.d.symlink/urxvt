@@ -104,7 +104,7 @@ URxvt.keysym.Control-Shift-C: perl:clipboard:copy
 URxvt.keysym.Control-Shift-V: perl:clipboard:paste
 
 ! Fade when inactive
-URxvt*fading: 20
+!URxvt*fading: 20
 
 ! Xterm settings
 XTerm*termName: xterm-256color

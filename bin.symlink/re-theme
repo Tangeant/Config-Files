@@ -1,0 +1,40 @@
+#/usr/bin/bash
+
+#Source the Wal color variables
+source ${HOME}/.cache/wal/colors.sh
+
+#Replace the color variables in 2bwm theme file with the color variables from Wal color file
+	sed -i"" --follow-symlinks \
+			-e "s/color0 #.*/color0 ${color0}/" \
+			-e "s/color1 #.*/color1 ${color1}/" \
+			-e "s/color3 #.*/color3 ${color3}/" \
+			-e "s/color4 #.*/color4 ${color4}/" \
+			-e "s/color5 #.*/color5 ${color5}/" \
+			-e "s/color8 #.*/color8 ${color8}/" \
+			"${HOME}/.Xresources.d/2bwm"
+
+#Convert the background value to rgb for termite so it can have alpha
+hexinput=`echo ${background} | tr '[:lower:]' '[:upper:]'`  # uppercase-ing
+a=`echo $hexinput | cut -c2-3`
+b=`echo $hexinput | cut -c4-5`
+c=`echo $hexinput | cut -c6-7`
+
+r=`echo "ibase=16; $a" | bc`
+g=`echo "ibase=16; $b" | bc`
+b=`echo "ibase=16; $c" | bc`
+
+termite_background="$r,$g,$b, "
+
+#Replace the background in termite config
+
+sed -i"" --follow-symlinks \
+		-e "s/cursor=#.*/cursor=${cursor}/" \
+		-e "s/cursor_foreground=#.*/cursor_foreground=${color0}/" \
+		-e "s/foreground=#.*/foreground=${foreground}/" \
+		-e "s/foreground_bold=#.*/foreground_bold=${foreground}/" \
+		-e "s/background=rgba(.*/background=rgba(${termite_background}0.85)/" \
+		-e "s/highlight=#.*/highlight=${color8}/" \
+		"${HOME}/.config/termite/config"
+
+#Reload Xresources
+xrdb -load $HOME/.Xresources
