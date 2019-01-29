@@ -15,8 +15,8 @@ kitty + complete setup zsh | source /dev/stdin
 antibody bundle < ~/.zsh_plugins.txt
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
+export RTV_BROWSER=w3m
+export RTV_URLVIEWER=urlview
 
 TERM=xterm
 case $TERM in

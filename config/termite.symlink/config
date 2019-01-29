@@ -45,9 +45,9 @@ urgent_on_bell = true
 
 [colors]
 
-foreground=#b3b5b8
-foreground_bold=#b3b5b8
-cursor=#b3b5b8
-cursor_foreground=#b3b5b8
-background=rgba(13,13,11, 0.85)
-highlight=#7d7e80
+foreground=#e0afdb
+foreground_bold=#e0afdb
+cursor=#e0afdb
+cursor_foreground=#e0afdb
+background=rgba(16,12,25, 0.85)
+highlight=#9c7a99

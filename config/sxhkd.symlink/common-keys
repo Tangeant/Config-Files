@@ -36,7 +36,7 @@ super + F8
 
 #Thunderbird
 super + F9
-    st -e "zsh -ic neomutt"
+    st -e zsh -ic neomutt
 
 #Spotify
 super + F10
@@ -60,7 +60,7 @@ super + e
 
 #Htop
 super + alt + h
-    urxvtc 'htop task manager' -e "zsh -ic htop"
+    termite -e "zsh -ic htop"
 
 #Qutebrowser
 super + q
@@ -92,7 +92,7 @@ super + shift + Delete
 
 #Terminal emulator
 super + shift + Return
-	 st -e "zsh -ic tmux"
+	 st -e zsh -ic tmux
 
 #DMENU
 super + shift + d
@@ -136,7 +136,7 @@ ctrl + alt + b
 
 #Surf
 ctrl + alt + g
-     ~/.bin/surf-open.sh https://duckduckgo.com
+     tabbed -cdn tabbed-surf -r 2 surf -e '' "www.duckduckgo.com"
 
 #Nitrogen
 ctrl + alt + i
@@ -269,7 +269,7 @@ alt + shift + f
 
 #Wallpaper update
 alt + shift + u
-    wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -o $($HOME/.bin/2bwm-scripts/2bwm-theme) -g &
+    wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -g &
 
 #Wal Reload
 alt + w
@@ -290,7 +290,7 @@ ctrl + shift + Escape
 
 #Scrot
 Print
-    scrot 'Manjaro-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+    scrot 'Manjaro-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES/Screenshots)'
 
 #screeenshooter
 ctrl + Print

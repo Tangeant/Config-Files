@@ -1,7 +1,7 @@
 macro index <F5> '<sync-mailbox><enter-command>source ~/.mutt/posteo/Account<enter><change-folder>!<enter>'
 macro index <F6> '<sync-mailbox><enter-command>source ~/.mutt/gmail/Account<enter><change-folder>!<enter>'
-macro index <F7> '<sync-mailbox><enter-command>source ~/.mutt/hotmail/Account<enter><change-folder>!<enter>'
-macro index <F8> '<sync-mailbox><enter-command>source ~/.mutt/icloud/Account<enter><change-folder>!<enter>'
+#macro index <F7> '<sync-mailbox><enter-command>source ~/.mutt/hotmail/Account<enter><change-folder>!<enter>'
+#macro index <F8> '<sync-mailbox><enter-command>source ~/.mutt/icloud/Account<enter><change-folder>!<enter>'
 macro index <F9> '<sync-mailbox><enter-command>source ~/.mutt/walden/Account<enter><change-folder>!<enter>'
 macro index <Esc>C "<change-vfolder>?" "Change to vfolder overview"
 macro index \\\\ "<vfolder-from-query>" "Search mailbox"
@@ -17,13 +17,13 @@ source "~/.mutt/gmail/Account"
 folder-hook cterrio@gmail.com/ 'source ~/.mutt/gmail/Account'
 
 ## Hotmail Account
-source "~/.mutt/hotmail/Account"
-folder-hook $folder 'source ~/.mutt/hotmail/Account'
+#source "~/.mutt/hotmail/Account"
+#folder-hook $folder 'source ~/.mutt/hotmail/Account'
 
 ## iCloud Account
-source "~/.mutt/icloud/Account"
-folder-hook $folder 'source ~/.mutt/icloud/Account'
-set imap_pipeline_depth=0
+#source "~/.mutt/icloud/Account"
+#folder-hook $folder 'source ~/.mutt/icloud/Account'
+#set imap_pipeline_depth=0
 
 # Choose which account should be loaded on startup, uncomment only one of these:
 source "~/.mutt/posteo/Account"
@@ -205,7 +205,7 @@ bind editor <Tab> complete-query
 #color index red black ~T           #Tag
 #color index blue black ~D          #Delete
 
-source ~/.mutt/nord.muttrc
+#source ~/.mutt/nord.muttrc
 # =============================================================================
 # === Sidebar =================================================================
 # =============================================================================
@@ -216,7 +216,7 @@ set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 #set sidebar_sort=no
 
 # color of folders with new mail
-color sidebar_new 'color173' default
+color sidebar_new 'color1' default
 
 # ctrl-n, ctrl-p to select next, prev folder
 # ctrl-o to open selected folder

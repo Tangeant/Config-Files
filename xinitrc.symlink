@@ -39,6 +39,8 @@ blueberry-tray &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 mpd &
+onedrive --monitor --confdir="~/.config/onedrivePersonal" &
+onedrive --monitor --confdir="~/.config/onedriveUniversity" &
 
 calcurse --daemon &
 urxvtd &
@@ -57,7 +59,7 @@ case $session in
     feh --bg-scale ~/.bin/2bwm-scripts/wall.png &
 	#conky -c $HOME/.bin/2bwm-scripts/system-overview &
 	compton -b --blur-method kawase --blur-strength 6 --config $HOME/.bin/2bwm-scripts/compton.conf &
-    2bwm && exec tabbed -c -r 2 st -w ' ' -e tmux\
+    2bwm && exec tabbed -c -r 2 st -w ' ' -e 'zsh -ic tmux'\
     ;;
     bsp|bspwm ) exec bspwm
     ;;
