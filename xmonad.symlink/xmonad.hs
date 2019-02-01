@@ -157,41 +157,35 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   ----------------------------------------------------------------------
   -- SUPER + FUNCTION KEYS
 
-  [((modMask, xK_b), spawn $ "termite -e bmenu" )
-  , ((modMask, xK_c), spawn $ "xkill" )
-  ,((modMask, xK_e), spawn $ "geany" )
+  [ ((modMask, xK_e), spawn $ "geany" )
   , ((modMask, xK_f), sendMessage $ Toggle NBFULL)
-  , ((modMask, xK_h), spawn $ "st -n 'htop task manager' -e htop" )
-  , ((modMask, xK_m), spawn $ "pragha" )
-  , ((modMask, xK_p), spawn $ "termite -e pacli" )
+  , ((modMask, xK_p), spawn $ "termite -e 'zsh -ic pacli'" )
   , ((modMask, xK_q), spawn $ "qutebrowser" )
-  , ((modMask, xK_r), spawn $ "termite -e ranger" )
   , ((modMask, xK_s), scratchPad)
-  , ((modMask, xK_t), spawn $ "tabbed -c urxvt -embed" )
+  , ((modMask, xK_t), spawn $ "urxvtc" )
   , ((modMask, xK_v), spawn $ "vivaldi-stable" )
   , ((modMask, xK_w), spawn $ "pavucontrol" )
   , ((modMask, xK_x), kill)
-  , ((modMask, xK_y), spawn $ "polybar-msg cmd toggle" )
 --  , ((modMask, xK_Escape), spawn $ "xkill" )
 --  , ((modMask, xK_Return), spawn $ "urxvt" )
   , ((modMask, xK_Return), spawn $ "termite" )
   , ((modMask, xK_F1), spawn $ "vivaldi-stable" )
-  , ((modMask, xK_F2), spawn $ "nvim" )
+  , ((modMask, xK_F2), spawn $ "atom" )
   , ((modMask, xK_F3), spawn $ "inkscape" )
   , ((modMask, xK_F4), spawn $ "gimp" )
   , ((modMask, xK_F5), spawn $ "meld" )
   , ((modMask, xK_F6), spawn $ "smplayer" )
   , ((modMask, xK_F7), spawn $ "virtualbox" )
-  , ((modMask, xK_F8), spawn $ "thunar" )
-  , ((modMask, xK_F9), spawn $ "st -e neomutt" )
+  , ((modMask, xK_F8), spawn $ "pcmanfm" )
+  , ((modMask, xK_F9), spawn $ "st -e zsh -ic neomutt" )
   , ((modMask, xK_F10), spawn $ "mpv" )
   , ((modMask, xK_F11), spawn $ "rofi -show run -fullscreen" )
   , ((modMask, xK_F12), spawn $ "rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons" )
 
   -- SUPER + SHIFT KEYS
 
-  , ((modMask .|. shiftMask , xK_d ), spawn $ "dmenu_run -i -nb '#2e3440' -nf '#5E81AC' -sb '#4C566A' -sf '#E5E9F0' -fn 'NotoMonoRegular:bold:pixelsize=16'")
-  , ((modMask .|. shiftMask , xK_q ), kill)
+  , ((modMask .|. shiftMask , xK_d ), spawn $ "$HOME/.bin/dmenu-wal")
+  , ((modMask .|. shiftMask , xK_q ), xkill)
   , ((modMask .|. shiftMask , xK_r ), spawn $ "termite -e 'sudo ranger'")
   , ((modMask .|. shiftMask , xK_p ), spawn $ "rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons")
   , ((modMask .|. shiftMask , xK_x ), io (exitWith ExitSuccess))
@@ -199,14 +193,17 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((modMask .|. shiftMask , xK_Return ), spawn $ "tabbed -c -r 2 st -w '' -e tmux")
   , ((modMask .|. shiftMask , xK_F1), spawn $ "geany ~/.xmonad/xmonad.hs")
   , ((modMask .|. shiftMask , xK_F12), spawn $ "$HOME/.bin/rofi-scripts/rofi-finder.sh")
+  , ((modMask .|. shiftMask , xK_Delete), spawn $ "polybar-msg cmd toggle" )
 
   -- CONTROL + ALT KEYS
 
+  , ((controlMask .|. mod1Mask , xK_Escape), spawn $ "termite -e 'zsh -ic bmenu'" )
   , ((controlMask .|. mod1Mask , xK_a ), spawn $ "xfce4-appfinder")
   , ((controlMask .|. mod1Mask , xK_b ), spawn $ "firefox")
   , ((controlMask .|. mod1Mask , xK_c ), spawn $ "$HOME/.xmonad/scripts/compton-toggle.sh")
   , ((controlMask .|. mod1Mask , xK_e ), spawn $ "kate")
   , ((controlMask .|. mod1Mask , xK_f ), spawn $ "thunar")
+  , ((controlMask .|. mod1Mask , xK_r), spawn $ "termite -e 'zsh -ic ranger'" )
   --   , ((controlMask .|. mod1Mask , xK_g ), spawn $ "chromium -no-default-browser-check")
   , ((controlMask .|. mod1Mask , xK_g ), scratchpadSpawnActionCustom $ "tabbed -cn scratchpad surf -e")
   , ((controlMask .|. mod1Mask , xK_i ), spawn $ "nitrogen")
@@ -216,18 +213,19 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((controlMask .|. mod1Mask , xK_m ), spawn $ "xfce4-settings-manager")
 
   , ((controlMask .|. mod1Mask , xK_p ), spawn $ "pamac-manager")
-  , ((controlMask .|. mod1Mask , xK_r ), spawn $ "rofi-theme-selector")
   --, ((controlMask .|. mod1Mask , xK_s ), spawn $ "spotify")
   , ((controlMask .|. mod1Mask , xK_s ), spawn $ "catfish")
-  , ((controlMask .|. mod1Mask , xK_t ), spawn $ "termite -e tmux")
+  , ((controlMask .|. mod1Mask , xK_t ), spawn $ "termite -e 'zsh -ic tmux'")
   , ((controlMask .|. mod1Mask , xK_u ), spawn $ "pavucontrol")
   , ((controlMask .|. mod1Mask , xK_v ), spawn $ "vivaldi-stable")
   , ((controlMask .|. mod1Mask , xK_w ), spawn $ "thunderbird")
-  , ((controlMask .|. mod1Mask , xK_Return ), spawn $ "termite")
+  , ((controlMask .|. mod1Mask , xK_Return ), spawn $ "kitty")
   , ((controlMask .|. mod1Mask , xK_Delete), spawn $ "oblogout")
 
   -- ALT + ... KEYS
 
+  , ((modMask .|. mod1Mask , xK_h), spawn $ "termite -e 'zsh -ic htop'" )
+  , ((modMask .|. mod1Mask , xK_r ), spawn $ "rofi-theme-selector")
   , ((mod1Mask, xK_semicolon) , spawn $ "variety -f" )
   , ((mod1Mask, xK_n) , spawn $ "variety -n && $HOME/.bin/nitrogen-variety" )
   , ((mod1Mask, xK_p) , spawn $ "variety -p && $HOME/.bin/nitrogen-variety" )
@@ -250,6 +248,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   , ((mod1Mask .|. shiftMask , xK_p ), spawn $ "variety -p && $HOME/.bin/nitrogen-variety && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
   , ((mod1Mask .|. shiftMask , xK_t ), spawn $ "variety -t && $HOME/.bin/nitrogen-variety && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
   , ((mod1Mask .|. shiftMask , xK_u ), spawn $ "wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&")
+  , ((mod1Mask , xK_r), spawn $ "wal -R")
 
   --CONTROL + SHIFT KEYS
 

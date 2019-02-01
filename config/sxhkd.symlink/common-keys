@@ -34,7 +34,7 @@ super + F7
 super + F8
     pcmanfm
 
-#Thunderbird
+#Neomutt
 super + F9
     st -e zsh -ic neomutt
 
@@ -86,6 +86,10 @@ super + v
 super + shift + Delete
     polybar-msg cmd toggle
 
+#Rofi theme selector
+  super + alt + r
+    rofi-theme-selector
+
 #########################
 # SUPER + SHIFT KEYS    #
 #########################
@@ -100,7 +104,7 @@ super + shift + d
 
 #Root Ranger
 super + shift + r
-  termite -e "sudo ranger"
+   termite -e "sudo ranger"
 
 #irssi
 super + shift + i
@@ -136,7 +140,7 @@ ctrl + alt + b
 
 #Surf
 ctrl + alt + g
-     tabbed -cdn tabbed-surf -r 2 surf -e '' "www.duckduckgo.com"
+     tabbed -cdn tabbed-surf -r 2 surf -e '' "$HOME/Projects/startpage/index.html"
 
 #Nitrogen
 ctrl + alt + i
@@ -162,10 +166,6 @@ ctrl + alt + s
 ctrl + alt + t
      termite -e "zsh -ic tmux"
 
-#Rofi theme selector
-ctrl + alt + r
-   rofi-theme-selector
-
 #Pulse Audio Control
 ctrl + alt + u
      pavucontrol
@@ -173,6 +173,10 @@ ctrl + alt + u
 #Vivaldi
 ctrl + alt + v
      vivaldi-stable
+
+#Thunderbird
+ctrl + alt + w
+     thunderbird
 
 #Kate
 ctrl + alt + e
@@ -246,6 +250,10 @@ alt + shift + s
 #Search with Surfraw open in Vivaldi
 alt + shift + v
     $HOME/.bin/rofi-scripts/surfraw_vivaldi_search.sh
+
+#Cht.sh
+alt + shift + c
+    $HOME/.bin/rofi-scripts/-rofi-cht.sh
 
 #########################
 #VARIETY KEYS WITH PYWAL#

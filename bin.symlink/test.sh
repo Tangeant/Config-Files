@@ -1,2 +1,3 @@
 #!/usr/bin/bash
-termite -e tmux
+source $HOME/.cashe/wal/colors.sh
+termite -e "zsh -ic ranger"

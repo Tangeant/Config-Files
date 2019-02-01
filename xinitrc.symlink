@@ -39,8 +39,8 @@ blueberry-tray &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 mpd &
-onedrive --monitor --confdir="~/.config/onedrivePersonal" &
-onedrive --monitor --confdir="~/.config/onedriveUniversity" &
+onedrive --monitor --confdir "~/.config/onedrivePersonal" &
+onedrive --monitor --confdir "~/.config/onedriveUniversity" &
 
 calcurse --daemon &
 urxvtd &
