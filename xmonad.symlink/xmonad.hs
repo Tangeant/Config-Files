@@ -48,21 +48,21 @@ myStartupHook = do
     setWMName "LG3D"
 
 -- colours
-normBord = "#4c566a"
-focdBord = "#5e81ac"
+normBord = "#100c19"
+focdBord = "#A1549B"
 --fore     = "#DEE3E0" Arco default
-fore		= "#D8DEE9"
+fore		= "#e0afdb"
 --back     = "#282c34" Arco default
-back		="#2E3440"
+back		="#100c19"
 --winType  = "#c678dd" Arco default
-winType 	="#B48EAD"
+winType 	="#9c7a99"
 
 -- define options
 myModMask = mod4Mask
 encodeCChar = map fromIntegral . B.unpack
 myFocusFollowsMouse = True
 myBorderWidth = 2
---myTerminal = "st
+--myTerminal = "st"
 myTerminal = "urxvt"
 myWorkspaces    = ["\61612","\61899","\61947","\61635","\61502","\61501","\61705","\61564","\62150","\61872"]
 --myWorkspaces    = ["1","2","3","4","5","6","7","8","9","10"]
@@ -71,7 +71,7 @@ scratchPad = scratchpadSpawnActionTerminal myTerminal
 
 -- window manipulations
 myManageHook = composeAll . concat $
-    [ [isDialog --> doFloat]
+    [ [isDialog --> doCenterFloat]
     , [className =? c --> doCenterFloat | c <- myCFloats]
     , [title =? t --> doFloat | t <- myTFloats]
     , [resource =? r --> doFloat | r <- myRFloats]
@@ -89,18 +89,18 @@ myManageHook = composeAll . concat $
   ]
     where
     doShiftAndGo = doF . liftM2 (.) W.greedyView W.shift
-    myCFloats = ["Arandr", "Galculator", "Oblogout", "feh", "Steam Guard", "Friends List"]
+    myCFloats = ["Arandr", "Galculator", "Oblogout", "feh", "mpv", "Steam Guard", "Friends List"]
     myTFloats = ["Downloads", "Save As..."]
     myRFloats = []
     myIgnores = ["desktop_window"]
     my1Shifts = ["Chromium", "Vivaldi-stable", "Firefox", "Qutebrowser"]
     --my2Shifts = ["termite", "urxvt"]
     my3Shifts = ["Inkscape"]
-    my4Shifts = ["kate", "geany"]
+    my4Shifts = ["kate", "geany", "atom"]
     my5Shifts = ["Gimp", "feh"]
     my6Shifts = ["vlc", "mpv", "smplayer"]
     my7Shifts = ["Virtualbox"]
-    my8Shifts = ["Thunar"]
+    my8Shifts = ["Thunar", "PCmanFM"]
     my9Shifts = ["Thunderbird"]
     -- my10Shifts = ["discord"]
 
@@ -185,7 +185,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- SUPER + SHIFT KEYS
 
   , ((modMask .|. shiftMask , xK_d ), spawn $ "$HOME/.bin/dmenu-wal")
-  , ((modMask .|. shiftMask , xK_q ), xkill)
+  , ((modMask .|. shiftMask , xK_q ), kill)
   , ((modMask .|. shiftMask , xK_r ), spawn $ "termite -e 'sudo ranger'")
   , ((modMask .|. shiftMask , xK_p ), spawn $ "rofi -m -1 -threads 0 -modi run,window,drun -show run -show-icons")
   , ((modMask .|. shiftMask , xK_x ), io (exitWith ExitSuccess))

@@ -1,11 +1,19 @@
 #!/bin/bash
+source "$HOME/.cache/wal/colors.sh"
 
-#function run {
-#  if ! pgrep $1 ;
-#  then
-#    $@&
-#  fi
-#}
+xrdb -I$HOME ~/.Xresources
+[[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
+
+if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+fi
+
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+if [ -x /usr/bin/xdg-user-dirs-update ]; then
+   /usr/bin/xdg-user-dirs-update
+fi
+
+export MICRO_TRUECOLOR=1
 
 #Find out your monitor name with xrandr or arandr (save and you get this line)
 #xrandr --output VGA-1 --primary --mode 1360x768 --pos 0x0 --rotate normal
@@ -19,32 +27,22 @@ $HOME/.config/polybar/launch.sh &
 #setxkbmap -layout be
 
 #Some ways to set your wallpaper besides variety or nitrogen
-feh --bg-scale ~/.config/bspwm/wall.png &
-#feh --randomize --bg-fill ~/Képek/*
-#feh --randomize --bg-fill ~/Dropbox/Apps/Desktoppr/*
+#feh --bg-scale ~/.config/bspwm/wall.png &
+wal -R -o wal-set &
 
 xsetroot -cursor_name left_ptr &
-sxhkd &
+sxhkd -c $HOME/config/sxhkd/common-keys&
+sxhkd -c $HOME/config/sxhkd/sxhkdrc
 
-conky -c $HOME/.config/bspwm/system-overview &
-run variety &
-run nm-applet &
-run pamac-tray &
-run xfce4-power-manager &
+skippy-xd --start-daemon &
+variety &
+nm-applet &
+pamac-tray &
+xfce4-power-manager &
 numlockx on &
 blueberry-tray &
 compton --config $HOME/.config/bspwm/compton.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
-run xfsettingsd &
+xfsettingsd &
 thunar --daemon &
-#nitrogen --restore &
-#run caffeine &
-#run vivaldi-stable &
-#run firefox &
-#run thunar &
-#run dropbox &
-#run insync start &
-#run discord &
-#run spotify &
-#run atom &

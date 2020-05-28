@@ -15,7 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'bling/vim-bufferline'
-Plug 'scrooloose/nerdtree'
+Plug 'dylanaraps/fff.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/denite.nvim'
@@ -35,12 +35,14 @@ call plug#end()
 "let g:nord_comment_brightness = 12
 colorscheme wal
 
-"Open NERDTree automatically when vim starts with no files
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Open fff on press of 'f'
+nnoremap f :F<CR>
 
-"Close vim if NERDTree is the only thing left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"fff Vertical split (NERDtree style).
+let g:fff#split = "30vnew"
+
+"Open fff split on the left side (NERDtree style).
+let g:fff#split_direction = "nosplitbelow nosplitright"
 
 "Persistent undo stored in one directory
 if has("persistent_undo")

@@ -1,0 +1,86 @@
+2020-05-28	rc.xml KEYBINDS
+-------------------------------
+
+ 0	W-1           				GoToDesktop
+ 1	W-2           				GoToDesktop
+ 2	W-3           				GoToDesktop
+ 3	W-4           				GoToDesktop
+ 4	W-5           				GoToDesktop
+ 5	W-6           				GoToDesktop
+ 6	W-7           				GoToDesktop
+ 7	W-8           				GoToDesktop
+ 8	W-9           				GoToDesktop
+ 9	W-0           				GoToDesktop
+10	S-W-1         				SendToDesktop
+11	S-W-2         				SendToDesktop
+12	S-W-3         				SendToDesktop
+13	S-W-4         				SendToDesktop
+14	S-W-5         				SendToDesktop
+15	S-W-6         				SendToDesktop
+16	S-W-7         				SendToDesktop
+17	S-W-8         				SendToDesktop
+18	S-W-9         				SendToDesktop
+19	S-W-0         				SendToDesktop
+20	A-Tab         				NextWindow
+21	W-Tab         				NextWindow
+22	W-v           				DesktopNext
+23	W-c           				DesktopPrevious
+24	W-Left        				UnmaximizeFull
+25	W-Right       				UnmaximizeFull
+26	C-W-f         				MaximizeFull
+27	W-S-F         				UnmaximizeFull
+28	W-S-k         				Unmaximize
+29	W-S-j         				Unmaximize
+30	W-k           				Unmaximize
+31	W-h           				Unmaximize
+32	W-j           				Unmaximize
+33	W-l           				Unmaximize
+34	W-y           				Unmaximize
+35	W-g           				Unmaximize
+36	W-u           				Unmaximize
+37	W-Right       				MoveRelative
+38	W-Left        				MoveRelative
+39	W-Up          				MoveRelative
+40	W-Down        				MoveRelative
+41	W-S-Right     				ResizeRelative
+42	W-S-Left      				ResizeRelative
+43	W-S-Down      				ResizeRelative
+44	W-S-Up        				ResizeRelative
+45	S-W-Left      				SendToDesktopLeft
+46	S-W-Right     				SendToDesktopRight
+47	S-W-Up        				SendToDesktopUp
+48	S-W-Down      				SendToDesktopDown
+49	A-Escape      				Lower
+50	W-S-x         				Exit
+51	C-S-BackSpace  			Restart
+52	C-S-Return     			Reconfigure
+53	W-Return      				termite
+54	W-q           				xkill
+55	A-F1          				jgmenu_run
+56	A-F2          				rofr.sh -r
+57	A-F4          				Close
+58	A-F5          				Iconify
+59	A-F6          				ToggleMaximize
+60	A-F8          				ToggleDecorations
+61	W-d           				ToggleShowDesktop
+62	W-b           				ToggleDecorations
+63	A-r           				Resize
+64	A-m           				Move
+65	W-x           				Close
+66	W-space       				root-menu
+67	A-space       				client-menu
+68	W-KP_1        				UnmaximizeFull
+69	W-KP_2        				UnmaximizeFull
+70	W-KP_3        				UnmaximizeFull
+71	W-KP_4        				UnmaximizeFull
+72	W-KP_5        				MaximizeFull
+73	W-KP_6        				UnmaximizeFull
+74	W-KP_7        				UnmaximizeFull
+75	W-KP_8        				UnmaximizeFull
+76	W-KP_9        				UnmaximizeFull
+77	W-Right       				UnmaximizeFull
+78	W-Left        				UnmaximizeFull
+79	W-Up          				MaximizeFull
+80	W-Down        				UnmaximizeFull
+81	W-A-Left      				UnmaximizeFull
+82	W-A-Right     				UnmaximizeFull

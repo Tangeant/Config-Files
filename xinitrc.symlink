@@ -22,6 +22,9 @@ if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
 fi
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+# Use QT5CT Settings for QT Themes
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 if [ -x /usr/bin/xdg-user-dirs-update ]; then
    /usr/bin/xdg-user-dirs-update
 fi
@@ -39,8 +42,8 @@ blueberry-tray &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 mpd &
-onedrive --monitor --confdir "~/.config/onedrivePersonal" &
-onedrive --monitor --confdir "~/.config/onedriveUniversity" &
+onedrive --monitor --confdir="~/.config/onedrivePersonal" &
+onedrive --monitor --confdir="~/.config/onedriveUniversity" &
 
 calcurse --daemon &
 urxvtd &
@@ -57,8 +60,8 @@ case $session in
     2bwm ) polybar -r mainbar-2bwm -c $HOME/.config/polybar/config &
     polybar -r 2ndbar-2bwm -c $HOME/.config/polybar/config &
     feh --bg-scale ~/.bin/2bwm-scripts/wall.png &
-	#conky -c $HOME/.bin/2bwm-scripts/system-overview &
-	compton -b --blur-method kawase --blur-strength 6 --config $HOME/.bin/2bwm-scripts/compton.conf &
+	  #conky -c $HOME/.bin/2bwm-scripts/system-overview &
+	  compton -b --blur-method kawase --blur-strength 6 --config $HOME/.bin/2bwm-scripts/compton.conf &
     2bwm && exec tabbed -c -r 2 st -w ' ' -e 'zsh -ic tmux'\
     ;;
     bsp|bspwm ) exec bspwm

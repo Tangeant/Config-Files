@@ -25,13 +25,11 @@ xsetroot -cursor_name left_ptr &
 
 #Some ways to set your wallpaper besides variety or nitrogen
 run variety &
-#start xfdesktop to ensure variety will draw wallpapers
-run xfdesktop &
 feh --bg-scale ~/.xmonad/wall.jpg &
 #start the conky to learn the shortcuts once xfdesktop has started
-(sleep 6; conky -c $HOME/.xmonad/scripts/system-overview) &
+#conky -c $HOME/.xmonad/scripts/system-overview &
 #start polybar
-(sleep 6; run $HOME/.config/polybar/launch.sh) &
+run $HOME/.config/polybar/launch.sh &
 
 #starting utility applications at boot time
 run nm-applet &
@@ -39,7 +37,7 @@ run pamac-tray &
 run xfce4-power-manager &
 numlockx on &
 blueberry-tray &
-compton --config $HOME/.xmonad/scripts/compton.conf &
+compton -b --blur-method kawase --blur-strength 6 --config $HOME/.xmonad/scripts/compton.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 run calcurse -d &
@@ -50,7 +48,7 @@ run calcurse -d &
 #run caffeine &
 #run vivaldi-stable &
 #run firefox &
-#run thunar &
+run thunar --daemon&
 #run dropbox &
 #run insync start &
 #run spotify &

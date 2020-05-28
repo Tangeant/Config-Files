@@ -3,31 +3,37 @@
 ### uncomment next line
 # ~/.screenlayout/dual-head.sh
 
-### compositor
-sleep 1; manjaro-compositor --start &
+#cursor active at boot
+xsetroot -cursor_name left_ptr &
 
-### restore wallpaper
-sleep 1; nitrogen --restore &
-sleep 1; manjaro-tint2-session &
+# UI Appearance - Open Last Theme (wallpaper, panel, notify-daemon)
+current="$(cat ~/.config/openbox/visual-mode/current)"
+bash ~/.config/openbox/visual-mode/$current/ui
 
-### Openbox autostart
-sleep 1; ob-autostart -d &
+# Tray
+bash ~/.config/openbox/tray
 
-### launch conky
-manjaro-conky-session &
+# Compositor
+picom -b
 
-### volumeicon
-sleep 1; volumeicon &
-
-### PolicyKit authentication
+# Policy Kit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Apps & Others (ex:mpd)
+mpd
+
+#Some ways to set your wallpaper besides variety or nitrogen
+#variety &
+#wal -R &
+
+##Skipp-xd daemon
+skippy-xd --start-daemon &
+
+### sxhkd common keybindings
+sxhkd -c ~/.config/sxhkd/common-keys &
 
 ### Side shortcuts for file managers
 xdg-user-dirs-gtk-update &
-
-### enable numlock
-### uncomment next line
-# sleep 0.5; numlockx &
 
 ### launch thunar in daemon mode
 sleep 1; thunar --daemon &
@@ -35,8 +41,11 @@ sleep 1; thunar --daemon &
 ### Required for xfce settings to work
 xfsettingsd &
 
-### launch variety
-sleep 1; variety &
-
-
-
+#starting utility applications at boot time
+nm-applet &
+pamac-tray &
+xfce4-power-manager &
+numlockx on &
+blueberry-tray &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &

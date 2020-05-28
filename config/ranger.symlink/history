@@ -1,6 +1,3 @@
-shell 
-nano
-shellqq
 show hidden
 show_hidden
 show_hidden = true
@@ -37,5 +34,17 @@ rename gmaildomain.tld
 rename posteodomain.tld
 mkdir posteo
 mkdir gmail
-delete
 
+search system
+search cron
+delete
+search back
+search onedrive
+open_with
+rename config
+search one
+search pict
+search w3m
+new
+search lock
+qq

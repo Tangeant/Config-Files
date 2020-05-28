@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/christ/Pictures/Wallpapers/yellow sky and dragon.png",
+    "alpha": "85",
+    "special": {
+        "background": "#1c1d22",
+        "foreground": "#c6c6c7",
+        "cursor": "#c6c6c7"
+    },
+    "colors": {
+        "color0": "#1c1d22",
+        "color1": "#50587b",
+        "color2": "#fc4037",
+        "color3": "#767c97",
+        "color4": "#8d94af",
+        "color5": "#febb38",
+        "color6": "#f4c87d",
+        "color7": "#c6c6c7",
+        "color8": "#545559",
+        "color9": "#50587b",
+        "color10": "#fc4037",
+        "color11": "#767c97",
+        "color12": "#8d94af",
+        "color13": "#febb38",
+        "color14": "#f4c87d",
+        "color15": "#c6c6c7"
+    }
+}

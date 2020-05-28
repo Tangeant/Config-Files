@@ -277,39 +277,39 @@ URxvt*fading: 35
 URxvt*fadeColor: #4c566a
 
 ! special
-URxvt*.foreground:   #d8dee9
-URxvt*.background:   [95]#2e3440
-URxvt*.cursorColor:  #d8dee9
+URxvt*.foreground:   #eeeeee
+URxvt*.background:   [95]#303030
+URxvt*.cursorColor:  #eeeeee
 
 ! black
-URxvt*.color0:       #3b4252
-URxvt*.color8:       #4c566a
+URxvt*.color0:       #303030
+URxvt*.color8:       #18352d
 
 ! red
-URxvt*.color1:       #bf616a
-URxvt*.color9:       #D08770
+URxvt*.color1:       #e8549d
+URxvt*.color9:       #d8645a
 
 ! green
-URxvt*.color2:       #a3be8c
-URxvt*.color10:      #a3be8c
+URxvt*.color2:       #518ea0
+URxvt*.color10:      #0095a2
 
 ! yellow
-URxvt*.color3:       #ebcb8b
-URxvt*.color11:      #ebcb8b
+URxvt*.color3:       #a67d31
+URxvt*.color11:      #bc742d
 
 ! blue
-URxvt*.color4:       #81a1c1
-URxvt*.color12:      #88c0d0
+URxvt*.color4:       #3d82ff
+URxvt*.color12:      #8b71ff
 
 ! magenta
-URxvt*.color5:       #b48ead
-URxvt*.color13:      #b48ead
+URxvt*.color5:       #c366cf
+URxvt*.color13:      #d557e7
 
 ! cyan
-URxvt*.color6:       #88c0d0
-URxvt*.color14:      #8fbcbb
+URxvt*.color6:       #6285e0
+URxvt*.color14:      #338dd6
 
 ! white
-URxvt*.color7:       #e5e9f0
-URxvt*.color15:      #eceff4
+URxvt*.color7:       #ffe9c9
+URxvt*.color15:      #eeeeee
 

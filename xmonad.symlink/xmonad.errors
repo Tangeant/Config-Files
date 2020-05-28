@@ -3,7 +3,7 @@ xmonad.hs:54:5: warning: [-Wtabs]
     Tab character found here, and in four further locations.
     Please use spaces instead.
    |
-54 | fore            = "#D8DEE9"
+54 | fore            = "#e0afdb"
    |     ^^^^
 
 xmonad.hs:120:30: warning: [-Wdeprecations]

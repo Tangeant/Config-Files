@@ -6,8 +6,6 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 calcurse --daemon &
-sxkhd -c ~/.config/sxkhd/common-keys &
-wal -R -o wal-set &
 onedrive --monitor --confdir "~/.config/onedrivePersonal" &
 onedrive --monitor --confdir "~/.config/onedriveUniversity" &
 mpd &

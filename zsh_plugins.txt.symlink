@@ -11,8 +11,10 @@ robbyrussell/oh-my-zsh path:plugins/copyfile
 robbyrussell/oh-my-zsh path:plugins/dircycle
 #robbyrussell/oh-my-zsh path:plugins/git
 robbyrussell/oh-my-zsh path:plugins/iwhois
-robbyrussell/oh-my-zsh path:plugins/sudo
 robbyrussell/oh-my-zsh path:plugins/systemd
+
+hcgraf/zsh-sudo
+laurenkt/zsh-vimto
 
 rupa/z
 

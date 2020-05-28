@@ -1,6 +1,6 @@
 [ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
 
-source $HOME/.bin/nord-terminal.sh  #load nord theme for TTYs
+source $HOME/.cache/wal/colors-tty.sh  #load color theme for TTYs
 source $HOME/.bin/aliases  #load aliases
 source /usr/share/z/z.sh #load z
 source "$HOME/.cache/wal/colors.sh"
@@ -17,6 +17,7 @@ antibody bundle < ~/.zsh_plugins.txt
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
 export RTV_BROWSER=w3m
 export RTV_URLVIEWER=urlview
+export KEYTIMEOUT=1
 
 TERM=xterm
 case $TERM in
@@ -79,7 +80,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensiti
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
 zstyle ':completion:*' rehash true
 
-bindkey -e
+bindkey -v
 bindkey '^[[7~' beginning-of-line                   # Home key
 bindkey '^[[8~' end-of-line                         # End key
 bindkey '^[[2~' overwrite-mode                      # Insert key
@@ -159,7 +160,8 @@ SPACESHIP_PROMPT_ORDER=(
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
+
 
 ## workaround for handling TERM variable in multiple tmux sessions properly from http://sourceforge.net/p/tmux/mailman/message/32751663/ by Nicholas Marriott
 if [[ -n ${TMUX} && -n ${commands[tmux]} ]];then

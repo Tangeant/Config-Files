@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/christ/Pictures/Wallpapers/mad-max-fury-road-movie-2015-wallpaper-for-1920x1080-63-765.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f0a09",
+        "foreground": "#8fded4",
+        "cursor": "#8fded4"
+    },
+    "colors": {
+        "color0": "#0f0a09",
+        "color1": "#A85A29",
+        "color2": "#2F8476",
+        "color3": "#B69C4A",
+        "color4": "#DEB450",
+        "color5": "#F3D366",
+        "color6": "#14A19F",
+        "color7": "#8fded4",
+        "color8": "#649b94",
+        "color9": "#A85A29",
+        "color10": "#2F8476",
+        "color11": "#B69C4A",
+        "color12": "#DEB450",
+        "color13": "#F3D366",
+        "color14": "#14A19F",
+        "color15": "#8fded4"
+    }
+}

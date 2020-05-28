@@ -19,61 +19,86 @@
     <primaryMonitor>Mouse</primaryMonitor>
   </placement>
   <theme>
-    <name>Adapta-Openbox-Nokto-Maia</name>
-    <titleLayout>NLIMC</titleLayout>
+    <name>Blabla</name>
+    <titleLayout>SLIMC</titleLayout>
+    <!-- available characters are NDSLIMC, each can occur at most once. N: window icon L: window label (AKA title). I: iconify M: maximize C: close S: shade (roll up/down) D: omnipresent (on all desktops). -->
     <keepBorder>yes</keepBorder>
-    <animateIconify>yes</animateIconify>
+    <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
-      <name>Roboto</name>
-      <size>12</size>
+      <name>Iosevka</name>
+      <size>14</size>
+      <!-- font size in points -->
       <weight>Normal</weight>
+      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
+      <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>Roboto</name>
-      <size>12</size>
+      <name>Iosevka</name>
+      <size>14</size>
+      <!-- font size in points -->
       <weight>Normal</weight>
-      <slant>Italic</slant>
+      <!-- 'bold' or 'normal' -->
+      <slant>Normal</slant>
+      <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>Roboto</name>
+      <name>Iosevka</name>
       <size>12</size>
+      <!-- font size in points -->
       <weight>Normal</weight>
+      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
+      <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>Roboto</name>
+      <name>Iosevka</name>
       <size>12</size>
+      <!-- font size in points -->
       <weight>Normal</weight>
+      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
+      <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>Roboto</name>
-      <size>12</size>
+      <name>Iosevka</name>
+      <size>11</size>
+      <!-- font size in points -->
       <weight>Normal</weight>
+      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
+      <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>Roboto</name>
-      <size>12</size>
+      <name>Iosevka</name>
+      <size>10</size>
+      <!-- font size in points -->
       <weight>Normal</weight>
+      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
+      <!-- 'italic' or 'normal' -->
     </font>
   </theme>
   <desktops>
-    <number>4</number>
+    <number>10</number>
     <firstdesk>0</firstdesk>
     <names>
       <name>1</name>
       <name>2</name>
       <name>3</name>
       <name>4</name>
+      <name>5</name>
+      <name>6</name>
+      <name>7</name>
+      <name>8</name>
+      <name>9</name>
+      <name>10</name>
     </names>
     <popupTime>800</popupTime>
   </desktops>
   <resize>
     <drawContents>yes</drawContents>
-    <popupShow>Never</popupShow>
+    <popupShow>nonpixel</popupShow>
     <popupPosition>Center</popupPosition>
     <popupFixedPosition>
       <x>10</x>
@@ -93,7 +118,7 @@
     <noStrut>no</noStrut>
     <stacking>Above</stacking>
     <direction>Horizontal</direction>
-    <autoHide>no</autoHide>
+    <autoHide>yes</autoHide>
     <hideDelay>300</hideDelay>
     <showDelay>300</showDelay>
     <moveButton>Middle</moveButton>
@@ -150,52 +175,52 @@
         <to>10</to>
       </action>
     </keybind>
-    <keybind key="C-W-1">
+    <keybind key="S-W-1">
       <action name="SendToDesktop">
         <desktop>1</desktop>
       </action>
     </keybind>
-    <keybind key="C-W-2">
+    <keybind key="S-W-2">
       <action name="SendToDesktop">
         <desktop>2</desktop>
       </action>
     </keybind>
-    <keybind key="C-W-3">
+    <keybind key="S-W-3">
       <action name="SendToDesktop">
         <desktop>3</desktop>
       </action>
     </keybind>
-    <keybind key="C-W-4">
+    <keybind key="S-W-4">
       <action name="SendToDesktop">
         <desktop>4</desktop>
       </action>
     </keybind>
-    <keybind key="C-W-5">
+    <keybind key="S-W-5">
       <action name="SendToDesktop">
         <desktop>5</desktop>
       </action>
     </keybind>
-    <keybind key="C-W-6">
+    <keybind key="S-W-6">
       <action name="SendToDesktop">
         <desktop>6</desktop>
       </action>
     </keybind>
-    <keybind key="C-W-7">
+    <keybind key="S-W-7">
       <action name="SendToDesktop">
         <desktop>7</desktop>
       </action>
     </keybind>
-    <keybind key="C-W-8">
+    <keybind key="S-W-8">
       <action name="SendToDesktop">
         <desktop>8</desktop>
       </action>
     </keybind>
-    <keybind key="C-W-9">
+    <keybind key="S-W-9">
       <action name="SendToDesktop">
         <desktop>9</desktop>
       </action>
     </keybind>
-    <keybind key="C-W-0">
+    <keybind key="S-W-0">
       <action name="SendToDesktop">
         <desktop>10</desktop>
       </action>
@@ -222,10 +247,10 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="C-A-Right">
+    <keybind key="W-v">
       <action name="DesktopNext"/>
     </keybind>
-    <keybind key="C-A-Left">
+    <keybind key="W-c">
       <action name="DesktopPrevious"/>
     </keybind>
     <keybind key="W-Left">
@@ -296,7 +321,7 @@
         <y>-15</y>
       </action>
     </keybind>
-    <keybind key="W-z">
+    <keybind key="W-y">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>15</x>
@@ -305,7 +330,7 @@
         <height>97%</height>
       </action>
     </keybind>
-    <keybind key="W-x">
+    <keybind key="W-g">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>34%</x>
@@ -314,7 +339,7 @@
         <height>97%</height>
       </action>
     </keybind>
-    <keybind key="W-c">
+    <keybind key="W-u">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>-17</x>
@@ -380,124 +405,7 @@
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
-    <keybind key="XF86AudioRaiseVolume">
-      <action name="Execute">
-        <command>pamixer -i 2</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioLowerVolume">
-      <action name="Execute">
-        <command>pamixer -d 2</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioMute">
-      <action name="Execute">
-        <command>pamixer -t</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioStop">
-      <action name="Execute">
-        <command>playerctl stop</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioPlay">
-      <action name="Execute">
-        <command>playerctl play-pause</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioPrev">
-      <action name="Execute">
-        <command>playerctl previous</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioNext">
-      <action name="Execute">
-        <command>playerctl next</command>
-      </action>
-    </keybind>
-    <keybind key="XF86MonBrightnessUp">
-      <action name="Execute">
-        <command>xbacklight +10</command>
-      </action>
-    </keybind>
-    <keybind key="XF86MonBrightnessDown">
-      <action name="Execute">
-        <command>xbacklight -10</command>
-      </action>
-    </keybind>
-    <keybind key="Print">
-      <action name="Execute">
-        <command>scrot 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'</command>
-      </action>
-    </keybind>
-    <keybind key="A-Print">
-      <action name="Execute">
-        <command>scrot -d 5 'screenshot_%Y%m%d-%H%M%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'</command>
-      </action>
-    </keybind>
-    <keybind key="W-f">
-      <action name="Execute">
-        <command>exo-open --launch FileManager</command>
-      </action>
-    </keybind>
-    <keybind key="W-t">
-      <action name="Execute">
-        <command>exo-open --launch TerminalEmulator</command>
-      </action>
-    </keybind>
-    <keybind key="W-w">
-      <action name="Execute">
-        <command>exo-open --launch WebBrowser</command>
-      </action>
-    </keybind>
-    <keybind key="W-e">
-      <action name="Execute">
-        <command>subl3</command>
-      </action>
-    </keybind>
-    <keybind key="C-A-m">
-      <action name="Execute">
-        <command>xfce4-settings-manager</command>
-      </action>
-    </keybind>
-    <keybind key="W-m">
-      <action name="Execute">
-        <command>deadbeef</command>
-      </action>
-    </keybind>
-    <keybind key="W-v">
-      <action name="Execute">
-        <command>pavucontrol</command>
-      </action>
-    </keybind>
-    <keybind key="W-s">
-      <action name="Execute">
-        <command>skippy-xd</command>
-      </action>
-    </keybind>
-    <keybind key="W-Return">
-      <action name="Execute">
-        <command>exo-open --launch TerminalEmulator</command>
-      </action>
-    </keybind>
-    <!-- bound to synapse
-      <keybind key="C-space">
-        <action name="Execute">
-          <command>rofr.sh -r</command>
-        </action>
-      </keybind>
-  -->
-    <keybind key="C-A-l">
-      <action name="Execute">
-        <command>lockscreen -- scrot</command>
-      </action>
-    </keybind>
-    <keybind key="C-A-Delete">
-      <action name="Execute">
-        <command>rofr.sh -l</command>
-      </action>
-    </keybind>
-    <keybind key="W-S-Escape">
+    <keybind key="W-S-x">
       <action name="Exit"/>
     </keybind>
     <keybind key="C-S-BackSpace">
@@ -506,7 +414,12 @@
     <keybind key="C-S-Return">
       <action name="Reconfigure"/>
     </keybind>
-    <keybind key="W-Escape">
+    <keybind key="W-Return">
+      <action name="Execute">
+        <command>termite</command>
+      </action>
+    </keybind>
+    <keybind key="W-q">
       <action name="Execute">
         <command>xkill</command>
       </action>
@@ -545,7 +458,7 @@
     <keybind key="A-m">
       <action name="Move"/>
     </keybind>
-    <keybind key="S-W-q">
+    <keybind key="W-x">
       <action name="Close"/>
     </keybind>
     <keybind key="W-space">

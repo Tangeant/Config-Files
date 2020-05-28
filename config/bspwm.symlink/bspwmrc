@@ -1,5 +1,5 @@
-#! /bin/sh
-
+$color3#! /bin/sh
+source "$HOME/.cache/wal/colors.sh"
 #LAUNCHERS
 #$HOME/.config/bspwm/autostart.sh
 #bspc config external_rules_command ~/.config/bspwm/external_rules_command
@@ -7,20 +7,20 @@
 bspc config border_width        2
 bspc config window_gap         16
 
-bspc config normal_border_color "#2b3032"
-bspc config focused_border_color "#2b3032"
-bspc config active_border_color "#2b3032"
-bspc config presel_border_color "#DFDFDF"
-bspc config focused_locked_border_color "#2b3032"
-bspc config active_locked_border_color "#2b3032"
-bspc config normal_locked_border_color "#2b3032"
-bspc config focused_sticky_border_color "#2b3032"
-bspc config active_sticky_border_color "#2b3032"
-bspc config normal_sticky_border_color "#2b3032"
-bspc config focused_private_border_color "#2b3032"
-bspc config active_private_border_color "#2b3032"
-bspc config normal_private_border_color "#2b3032"
-bspc config urgent_border_color "#2b3032"
+bspc config normal_border_color "$color0"
+bspc config focused_border_color "$color4"
+bspc config active_border_color "$color8"
+bspc config presel_border_color "$color5"
+bspc config focused_locked_border_color "$color1"
+bspc config active_locked_border_color "$color1"
+bspc config normal_locked_border_color "$color1"
+bspc config focused_sticky_border_color "$color1"
+bspc config active_sticky_border_color "$color3"
+bspc config normal_sticky_border_color "$color3"
+bspc config focused_private_border_color "$color3"
+bspc config active_private_border_color "$color3"
+bspc config normal_private_border_color "$color3"
+bspc config urgent_border_color "$color5"
 
 bspc config split_ratio         0.62
 bspc config borderless_monocle  true
@@ -36,7 +36,7 @@ bspc monitor DP-2 -d 1 2 3 4 5
 bspc monitor HDMI-0 -d 6 7 8 9 0
 
 #Floating applications
-bspc rule -a Arandr state=floating
+bspc rule -a arandr state=floating
 bspc rule -a feh state=floating
 #bspc rule -a mpv state=floating sticky=on
 #bspc rule -a Font-manager state=floating
@@ -91,6 +91,6 @@ bspc config right_padding 3
 
 ###External rules
 ##Pseudo automatic mode: always splits focused window when opening new window
-bspc config external_rules_command /usr/bin/pseudo_automatic_mode
+#bspc config external_rules_command /usr/bin/pseudo_automatic_mode
 ##Adjust new window: splits biggest windows to keep windows about the same size
 #bspc config external_rules_command /usr/bin/adjust-new-window

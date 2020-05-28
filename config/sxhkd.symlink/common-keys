@@ -54,6 +54,10 @@ super + F12
 # SUPER + ... KEYS      #
 #########################
 
+# Termite
+super + Return
+	termite
+
 #Geany
 super + e
     geany
@@ -71,8 +75,12 @@ super +  p
     termite -e "zsh -ic pacli"
 
 #Urxvt
+#super + t
+#   urxvtc
+
+#Kitty
 super + t
-    urxvtc
+    kitty
 
 #Pavucontrol
 super + w
@@ -90,6 +98,10 @@ super + shift + Delete
   super + alt + r
     rofi-theme-selector
 
+#skippy
+  super + z
+    skippy-xd
+
 #########################
 # SUPER + SHIFT KEYS    #
 #########################
@@ -101,6 +113,10 @@ super + shift + Return
 #DMENU
 super + shift + d
 	 dmenu-wal
+
+#rofi launch
+super + shift  + p
+	rofi-run.sh
 
 #Root Ranger
 super + shift + r
@@ -253,7 +269,7 @@ alt + shift + v
 
 #Cht.sh
 alt + shift + c
-    $HOME/.bin/rofi-scripts/-rofi-cht.sh
+    $HOME/.bin/rofi-scripts/rofi-cht.sh
 
 #########################
 #VARIETY KEYS WITH PYWAL#
