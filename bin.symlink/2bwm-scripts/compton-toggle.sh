@@ -1,7 +1,7 @@
 #!/bin/bash
-if pgrep -x "compton" > /dev/null
+if pgrep -x "picom" > /dev/null
 then
-	killall compton
+	killall picom
 else
-	compton -b --config ~/.xmonad/scripts/compton.conf
+	picom -b --config ~/.xmonad/scripts/compton.conf
 fi

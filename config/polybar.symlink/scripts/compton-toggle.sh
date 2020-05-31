@@ -5,9 +5,9 @@
 #The command for starting compton
 #always keep the -b argument!
 
-if pgrep -x "compton" > /dev/null
+if pgrep -x "picom" > /dev/null
 then
-	killall compton
+	killall picom
 else
-	compton -b --config ~/.config/i3/compton.conf
+	picom -b --config ~/.config/bspwm/picom.conf
 fi

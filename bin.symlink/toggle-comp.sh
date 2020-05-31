@@ -1,8 +1,7 @@
-#!bin/bash
-ps cax | grep compton
-
-if [ $? -eq 0 ]; then
-	 pkill compton
-  else
-	 compton -b
-    fi
+#!/bin/bash
+if pgrep -x "picom" > /dev/null
+then
+	killall picom
+else
+	picom -b
+fi

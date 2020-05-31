@@ -2,14 +2,15 @@
 desktop=$(echo $DESKTOP_SESSION | cut -c 22-)
 
 #Some ways to set your wallpaper besides variety or nitrogen
-variety &
+#variety &
+#wal -R
 #xfdesktop &
 
 if $desktop = 2bwm; then
 #start the conky to learn the shortcuts for 2 bwm
-	feh --bg-scale ~/.bin/2bwm-scripts/wall.png &
+	nitrogen --set-zoom-fill --save ~/.wallpaper/gradient.jpg &
 	conky -c $HOME/.bin/2bwm-scripts/system-overview &
-	compton --config $HOME/.bin/2bwm-scripts/compton.conf &
+	picom -b
 	#starting utility applications at boot time
 	nm-applet &
 	pamac-tray &
@@ -17,14 +18,19 @@ if $desktop = 2bwm; then
 	numlockx on &
 	blueberry-tray &
 	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-	/usr/lib/xfce4/notifyd/xfce4-notifyd &
-
+	#/usr/lib/xfce4/notifyd/xfce4-notifyd &
+     # Notification Daemon
+     dunst -config ~/.config/dunst/dunstrc &
+	 mpd
 	fi
 
 #run polybar, but for xmonad run from autostart
-if $desktop != xmonad; then
-	$HOME/.config/polybar/launch.sh &
-	$HOME/.bin/test.sh &
-	fi
+#if $desktop != xmonad; then
+	#$HOME/.config/polybar/launch.sh &
+	#$HOME/.bin/test.sh &
+	#fi
+
+# Panel
+tint2 -c ~/.config/tint2/eyecandy.tint2rc &
 
 calcurse -d &

@@ -63,7 +63,7 @@ super + e
     geany
 
 #Htop
-super + alt + h
+super + alt + t
     termite -e "zsh -ic htop"
 
 #Qutebrowser
@@ -79,16 +79,16 @@ super +  p
 #   urxvtc
 
 #Kitty
-super + t
-    kitty
+#super + t
+#    kitty
 
 #Pavucontrol
-super + w
+super + d
     pavucontrol
 
 #Browser
-super + v
-    vivaldi-stable
+#super + v
+#    vivaldi-stable
 
 #Hide polybar
 super + shift + Delete
@@ -101,6 +101,14 @@ super + shift + Delete
 #skippy
   super + z
     skippy-xd
+
+#rofi scripts
+super + {w,m}
+	sh ~/.bin/rofi-scripts/{windows,mpd}
+
+#reload sxhkd:
+super + Escape
+	pkill -USR1 -x sxhkd
 
 #########################
 # SUPER + SHIFT KEYS    #
@@ -124,15 +132,11 @@ super + shift + r
 
 #irssi
 super + shift + i
-  termite -e "zsh -ic tmux -c irssi"
+  termite -e "zsh -ic irssi"
 
 #Xkill
-super + shift + q
+super + shift + caps_lock
   xkill
-
-#reload sxhkd:
-super + shift + s
-	pkill -USR1 -x sxhkd
 
 #########################
 # CONTROL + ALT KEYS    #
@@ -156,7 +160,7 @@ ctrl + alt + b
 
 #Surf
 ctrl + alt + g
-     tabbed -cdn tabbed-surf -r 2 surf -e '' "$HOME/Projects/startpage/index.html"
+     tabbed -cdn tabbed-surf -r 2 surf -e '' "$HOME/.mozilla/firefox/t5nskw8w.default/startpage/index.html"
 
 #Nitrogen
 ctrl + alt + i
@@ -164,7 +168,7 @@ ctrl + alt + i
 
 #Screen-Locker
 ctrl + alt + l
-     $HOME/.bin/lockscreen.sh
+     $HOME/.bin/screenlocker.sh
 
 #Xfce4-settings-manager
 ctrl + alt + m
@@ -172,7 +176,7 @@ ctrl + alt + m
 
 #Compton Toggle
 ctrl + alt + c
-     ~/.config/bspwm/scripts/compton-toggle.sh
+     ~/.bin/toggle-comp.sh
 
 #Spotify
 ctrl + alt + s
@@ -251,6 +255,10 @@ alt + Up
 alt + Down
     variety --resume
 
+ #Show hidden windows
+ alt + i
+     hidden -c|xargs dmenu-wal
+
 #Gmrun
 alt + F2
     gmrun
@@ -270,6 +278,10 @@ alt + shift + v
 #Cht.sh
 alt + shift + c
     $HOME/.bin/rofi-scripts/rofi-cht.sh
+
+#Mouse rectangle resize
+alt + !button3
+    wmctrl -r :ACTIVE: -e "$(slop -f 0,%x,%y,%w,%h)"
 
 #########################
 #VARIETY KEYS WITH PYWAL#
@@ -329,17 +341,9 @@ ctrl + shift + Print
 #     MULTIMEDIA KEYS   #
 #########################
 
-#Raises volume
-XF86AudioRaiseVolume
-    amixer set Master 10%+
-
-#Lowers volume
-XF86AudioLowerVolume
-    amixer set Master 10%-
-
-#Mute
-XF86AudioMute
-    amixer -D pulse set Master 1+ toggle
+# Volume control
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	volume{-up,-down}
 
 #Playerctl works for Pragha, Spotify and others
 #DELETE the line for mpc if you want to use playerctl

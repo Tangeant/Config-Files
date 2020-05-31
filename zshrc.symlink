@@ -1,6 +1,7 @@
 [ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh
 
-source $HOME/.cache/wal/colors-tty.sh  #load color theme for TTYs
+#source $HOME/.cache/wal/colors-tty.sh  #load color theme for TTYs
+source $HOME/.bin/nord-terminal.sh #load Nord color theme for TTYs
 source $HOME/.bin/aliases  #load aliases
 source /usr/share/z/z.sh #load z
 source "$HOME/.cache/wal/colors.sh"

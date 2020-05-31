@@ -6,7 +6,7 @@
   </resistance>
   <focus>
     <focusNew>yes</focusNew>
-    <followMouse>no</followMouse>
+    <followMouse>yes</followMouse>
     <focusLast>yes</focusLast>
     <underMouse>no</underMouse>
     <focusDelay>200</focusDelay>
@@ -80,22 +80,25 @@
     </font>
   </theme>
   <desktops>
-    <number>7</number>
-    <firstdesk>1</firstdesk>
+    <number>10</number>
+    <firstdesk>0</firstdesk>
     <names>
-      <name>Home</name>
-      <name>Web</name>
-      <name>Files</name>
-      <name>Pictures</name>
-      <name>Documents</name>
-      <name>Develop</name>
-      <name>Terminal</name>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
+      <name>5</name>
+      <name>6</name>
+      <name>7</name>
+      <name>8</name>
+      <name>9</name>
+      <name>10</name>
     </names>
     <popupTime>800</popupTime>
   </desktops>
   <resize>
     <drawContents>yes</drawContents>
-    <popupShow>Never</popupShow>
+    <popupShow>nonpixel</popupShow>
     <popupPosition>Center</popupPosition>
     <popupFixedPosition>
       <x>10</x>
@@ -109,13 +112,13 @@
     <right>0</right>
   </margins>
   <dock>
-    <position>Floating</position>
+    <position>Top</position>
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
     <noStrut>no</noStrut>
     <stacking>Above</stacking>
-    <direction>Vertical</direction>
-    <autoHide>no</autoHide>
+    <direction>Horizontal</direction>
+    <autoHide>yes</autoHide>
     <hideDelay>300</hideDelay>
     <showDelay>300</showDelay>
     <moveButton>Middle</moveButton>
@@ -250,65 +253,6 @@
     <keybind key="W-c">
       <action name="DesktopPrevious"/>
     </keybind>
-    <!-- Keybindings for moving windows -->
- <keybind key="W-Right">
-      <action name="MoveRelative">
-        <x>20</x>
-      </action>
-    </keybind>
-    <keybind key="W-Left">
-      <action name="MoveRelative">
-        <x>-20</x>
-      </action>
-    </keybind>
-    <keybind key="W-Up">
-      <action name="MoveRelative">
-        <y>-20</y>
-      </action>
-    </keybind>
-    <keybind key="W-Down">
-      <action name="MoveRelative">
-        <y>20</y>
-      </action>
-    </keybind>
-    <keybind key="W-S-Right">
-      <action name="ResizeRelative">
-        <right>20</right>
-      </action>
-    </keybind>
-    <keybind key="W-S-Left">
-      <action name="ResizeRelative">
-        <right>-20</right>
-      </action>
-    </keybind>
-    <keybind key="W-S-Down">
-      <action name="ResizeRelative">
-        <bottom>20</bottom>
-      </action>
-    </keybind>
-    <keybind key="W-S-Up">
-      <action name="ResizeRelative">
-        <bottom>-20</bottom>
-      </action>
-    </keybind>
-    <keybind key="C-W-Left">
-      <action name="SendToDesktopLeft"/>
-    </keybind>
-    <keybind key="C-W-Right">
-      <action name="SendToDesktopRight"/>
-    </keybind>
-    <keybind key="C-W-Up">
-      <action name="SendToDesktopUp"/>
-    </keybind>
-    <keybind key="C-W-Down">
-      <action name="SendToDesktopDown"/>
-    </keybind>
-    <keybind key="A-Escape">
-      <action name="Lower"/>
-      <action name="FocusToBottom"/>
-      <action name="Unfocus"/>
-    </keybind>
-    <!-- Keybindings for tiling -->
     <keybind key="W-Left">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
@@ -404,22 +348,73 @@
         <height>97%</height>
       </action>
     </keybind>
+    <keybind key="W-Right">
+      <action name="MoveRelative">
+        <x>20</x>
+      </action>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="MoveRelative">
+        <x>-20</x>
+      </action>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="MoveRelative">
+        <y>-20</y>
+      </action>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="MoveRelative">
+        <y>20</y>
+      </action>
+    </keybind>
+    <keybind key="W-S-Right">
+      <action name="ResizeRelative">
+        <right>20</right>
+      </action>
+    </keybind>
+    <keybind key="W-S-Left">
+      <action name="ResizeRelative">
+        <right>-20</right>
+      </action>
+    </keybind>
+    <keybind key="W-S-Down">
+      <action name="ResizeRelative">
+        <bottom>20</bottom>
+      </action>
+    </keybind>
+    <keybind key="W-S-Up">
+      <action name="ResizeRelative">
+        <bottom>-20</bottom>
+      </action>
+    </keybind>
+    <keybind key="C-W-Left">
+      <action name="SendToDesktopLeft"/>
+    </keybind>
+    <keybind key="C-W-Right">
+      <action name="SendToDesktopRight"/>
+    </keybind>
+    <keybind key="C-W-Up">
+      <action name="SendToDesktopUp"/>
+    </keybind>
+    <keybind key="C-W-Down">
+      <action name="SendToDesktopDown"/>
+    </keybind>
     <keybind key="A-Escape">
       <action name="Lower"/>
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
-        <keybind key="C-Space">
-      <action name="Execute">
-        <command>sgtk-menu</command>
-      </action>
+    <keybind key="W-S-x">
+      <action name="Exit"/>
     </keybind>
-    <keybind key="C-Escape">
-      <action name="Execute">
-        <command>lockscreen -- scrot</command>
-      </action>
+    <keybind key="C-S-BackSpace">
+      <action name="Restart"/>
     </keybind>
-    <keybind key="W-Escape">
+    <keybind key="C-S-Return">
+      <action name="Reconfigure"/>
+    </keybind>
+    <keybind key="W-q">
       <action name="Execute">
         <command>xkill</command>
       </action>
@@ -435,13 +430,14 @@
     <keybind key="A-F5">
       <action name="Iconify"/>
     </keybind>
-     <keybind key="W-i">
+        </keybind>
+    <keybind key="W-i">
       <action name="Iconify"/>
     </keybind>
     <keybind key="A-F6">
       <action name="ToggleMaximize"/>
     </keybind>
-    <keybind key="W-f">
+     <keybind key="W-f">
       <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="A-F8">
@@ -603,7 +599,7 @@
         <action name="Focus"/>
         <action name="Raise"/>
       </mousebind>
-      <mousebind action="Drag" button="W-Left">
+      <mousebind action="Drag" button="A-Left">
         <action name="Move"/>
       </mousebind>
       <mousebind action="Press" button="A-Right">
@@ -611,7 +607,7 @@
         <action name="Raise"/>
         <action name="Unshade"/>
       </mousebind>
-      <mousebind action="Drag" button="W-Right">
+      <mousebind action="Drag" button="A-Right">
         <action name="Resize"/>
       </mousebind>
     </context>
@@ -620,7 +616,7 @@
         <action name="Focus"/>
         <action name="Raise"/>
       </mousebind>
-      <mousebind action="Drag" button="W-Left">
+      <mousebind action="Drag" button="A-Left">
         <action name="Move"/>
       </mousebind>
       <mousebind action="Press" button="Left">
@@ -749,7 +745,7 @@
         <action name="Focus"/>
         <action name="Raise"/>
       </mousebind>
-      <mousebind action="Drag" button="W-Left">
+      <mousebind action="Drag" button="A-Left">
         <action name="Move"/>
       </mousebind>
       <mousebind action="Press" button="Left">

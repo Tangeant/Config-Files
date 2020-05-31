@@ -13,7 +13,7 @@ static const float    resize_keep_aspect_ratio= 1.03;
 ///---Offsets---///
 /*0)offsetx          1)offsety
  *2)maxwidth         3)maxheight */
-static const uint8_t offsets[] = {5,45,10,50};
+static const uint8_t offsets[] = {10,10,20,60};
 ///---Colors---///
 /*0)focuscol         1)unfocuscol
  *2)fixedcol         3)unkilcol
@@ -179,8 +179,8 @@ static key keys[] = {
     {  MOD |SHIFT,        XK_Right,      cursor_move,       {.i=TWOBWM_CURSOR_RIGHT}},
     {  MOD |SHIFT,        XK_Left,       cursor_move,       {.i=TWOBWM_CURSOR_LEFT}},
     // Start programs
-    {  MOD  | SHIFT,          XK_p,          start,             {.com = menucmd}},
-    {  MOD,							XK_Return, start,			{.com = terminal}},
+    //{  MOD  | SHIFT,          XK_p,          start,             {.com = menucmd}},
+    //{  MOD,							XK_Return, start,			{.com = terminal}},
     // Exit or restart 2bwm
     {  MOD |SHIFT,      XK_x,          twobwm_exit,       {.i=0}},
     {  ALT,      XK_r,          				  twobwm_restart,    {.i=0}},
@@ -201,7 +201,7 @@ static key keys[] = {
 static Button buttons[] = {
     {  MOD        ,XCB_BUTTON_INDEX_1,     mousemotion,   {.i=TWOBWM_MOVE}, false},
     {  MOD        ,XCB_BUTTON_INDEX_3,     mousemotion,   {.i=TWOBWM_RESIZE}, false},
-    {  0          ,XCB_BUTTON_INDEX_3,     start,         {.com = menucmd}, true},
+    {  CONTROL          ,XCB_BUTTON_INDEX_3,     start,         {.com = menucmd}, true},
     {  MOD|SHIFT,  XCB_BUTTON_INDEX_1,     nextworkspace, {}, false},
     {  MOD|SHIFT,  XCB_BUTTON_INDEX_3,     prevworkspace, {}, false},
     {  MOD|ALT,    XCB_BUTTON_INDEX_1,     changescreen,    {.i=1}, false},

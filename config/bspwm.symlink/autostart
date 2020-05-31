@@ -1,4 +1,6 @@
 #!/bin/bash
+
+###load and export variables
 source "$HOME/.cache/wal/colors.sh"
 
 xrdb -I$HOME ~/.Xresources
@@ -19,21 +21,26 @@ export MICRO_TRUECOLOR=1
 #xrandr --output VGA-1 --primary --mode 1360x768 --pos 0x0 --rotate normal
 #xrandr --output DP2 --primary --mode 1920x1080 --rate 60.00 --output LVDS1 --off &
 #xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
-#xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+#xrandr --output HDMI0 --mode 1920x1080 --pos 0x0 --rotate normal --output
+#xrandr --output DP2 --mode 2560x1440 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 
-$HOME/.config/polybar/launch.sh &
+###load bar and wallpaper
+##$HOME/.config/polybar/launch.sh &
+##Kill any currently running tint2
+killall tint2
+## UI Appearance - Open Last Theme (wallpaper, panel, notify-daemon)
+current="$(cat ~/.config/openbox/visual-mode/current)"
+bash ~/.config/openbox/visual-mode/$current/ui
 
 #change your keyboard if you need it
 #setxkbmap -layout be
 
 #Some ways to set your wallpaper besides variety or nitrogen
 #feh --bg-scale ~/.config/bspwm/wall.png &
-wal -R -o wal-set &
+# -R restores the last colorscheme that was in use and -o runs the script to set 2bwm theme
+#wal -R -o wal-set &
 
-xsetroot -cursor_name left_ptr &
-sxhkd -c $HOME/config/sxhkd/common-keys&
-sxhkd -c $HOME/config/sxhkd/sxhkdrc
-
+###Start daemons and programs
 skippy-xd --start-daemon &
 variety &
 nm-applet &
@@ -41,8 +48,13 @@ pamac-tray &
 xfce4-power-manager &
 numlockx on &
 blueberry-tray &
-compton --config $HOME/.config/bspwm/compton.conf &
+clipit &
+volumeicon &
+picom -b
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
+#/usr/lib/xfce4/notifyd/xfce4-notifyd &
 xfsettingsd &
-thunar --daemon &
+sleep 1; thunar --daemon &
+
+###load arandr config at startsup
+#sleep 3; ~/.screenlayout/default.sh

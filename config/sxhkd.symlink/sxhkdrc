@@ -1,58 +1,64 @@
 ﻿# bspwm hotkeys
 #
-# Cleanly quit bspwm
-super + shift + q
-	bspc quit 1 && pkill lemonpanel && pkill lemonbar
+# Cleanly quit/reload bspwm
+super + shift + {x,q}
+	bspc {quit,wm -r}
+
+# Make sxhkd reload its configuration
+super + Escape
+	pkill -USR1 -x sxhkd
 
 #
 # Window manipulation
 # ______________
 
-# Close window
-super + x
-	bspc  node -c
+# close and kill
+super + {x,q}
+	bspc node -{c,k}
 
-# Kill window
-super + shift + q
-	bspc  node -k
+#
+# state/flags
+#
 
-# Toggle tiling mode of window
-super + shift + f
-	bspc node -t {pseudo_tiled,tiled}
-super + t
-	{bspc node -t floating && window-placer $(bspc query -T -d | grep -o '"state":"floating"' | wc -l),bspc node -t tiled}
+# set the window state
+super + {t,shift + t,f, shift + f}
+	bspc node -t {tiled,pseudo_tiled,fullscreen,floating}
+
+# set the node flags (private means keep size and position of window)
+super + ctrl + {m,o, i}
+	bspc node -g {marked,private, hidden}
+
+#Unhide nodes
+super + alt + i
+   bspc node {,$(bspc query -N -n .hidden | tail -n1)} -g hidden=off -f --follow
+
+# alternate between the tiled and monocle layout
+super + space
+	bspc desktop -l next
+
+# send the newest marked node to the newest preselected node
+super + shift + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest node
+super + g
+	bspc node -s biggest
+
 # Force all windows of the desktop to tile
 super + ctrl + t
 	bspcp tile
+
 # Force all windows of the desktop to float and arrange them
 super + ctrl + shift + t
 	bspcp float
-
-# Toggle fullscreen
-super + shift + f
-	bspc node -t {fullscreen,tiled}
-
-# Try to keep size and position of the selected window
-super + o
-	bspc node -g private
 
 # Make window sticky
 super + s
 	bspc node -g sticky
 
 # Lock a window from closing
-super + Escape
+super + a
 	bspc node -g locked
-
-### Map or unmap windows (functional equivalent of "minimize")
-super + i
-    whid dmenu
-
-super + shift + i
-    whid hide
-
-super + ctrl + i
-    whid last
 
 #
 # Window moving and splitting
@@ -66,96 +72,83 @@ ctrl + space
 	auto-presel
 
 # Presel window for splitting in certain direction
-alt + ctrl + {a,s,w,d}
-	bspc node -p \~{west,south,north,east} -i
-
-alt + ctrl + {h,j,k,l}
+super + ctrl + {h,j,k,l}
 	bspc node -p \~{west,south,north,east}
 
 alt + ctrl + {Left,Down,Up,Right}
 	bspc node -p \~{west,south,north,east}
 
 # Presel the desktop for splitting in certain direction
-# alt + shift + {a,s,w,d}
-	# bspc node @/ -p \~{west,south,north,east}
-#
-# alt + shift + {h,j,k,l}
+alt + shift + {h,j,k,l}
 	# bspc node @/ -p \~{west,south,north,east}
 
-# alt + shift + {Left,Down,Up,Right}
+alt + shift + {Left,Down,Up,Right}
 	# bspc node @/ -p \~{west,south,north,east}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
 # Set splitting ratio of windows
 alt + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
-# go (Shift=move) to desktop (and focus the monitor that the desktop is located on. Bspwm style)
-super + {_,shift + }{1-9,0}
-    bspc {desktop -f,node -d} ^{1-9,10}
-
-## Alternative: i3 style behavior (focus nth, desktop of the focused monitor)
-#super + {1-9,0}
-#	focusdesktopofthismonitor {1-9}
-#super + shift + {1-9,0}
-#	movetodesktopofthismonitor {1-9,10}
-
-## Another alternative: xmonad style desktops. You have 10 desktops shared between all monitors,
-## and focusing a desktop focuses it on the currently focused monitor
-#super + {1-9,0}
-#	summondesktop.sh {1-9,10}
-#super + shift + {1-9,0}
-#	bspc node -d ^{1-9,10}
+# focus the node for the given path jump
+super + {y,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
 
 # Select previous / next desktop
 super + {c,v}
 	bspc desktop -f {prev.occupied,next.occupied}
 
 # cycle windows
-alt + {_,shift + }Tab
+super + {_,shift + }Tab
     bspc node -f {next,prev}
 
-#Focus windows by direction, works with multihead
-super +  {a,s,w,d}
-    focusmover {west,south,north,east}
+#Focus and move windows by direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
 
-super +  {h,j,k,l}
-    focusmover {west,south,north,east}
+# focus the next/previous node in the current desktop
+super + {_,shift + }n
+	bspc node -f {next,prev}.local
 
-super +  {Left,Down,Up,Right}
-    focusmover {west,south,north,east}
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
 
-# Move tiled windows. Moving a tiled window to
-# preselected one moves into preselection instead.
-# Moving out of the screen should move the window to next monitor if possible
-#super + shift + {a,s,w,d}
-#	windowgrabber {west,south,north,east}
+# focus the last node/desktop
+alt + {grave,Tab}
+	bspc {node,desktop} -f last
 
-#super + shift + {h,j,k,l}
-#	windowgrabber {west,south,north,east}
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
 
-# Different style of movement: transplant into window in chosen direction
-#super + shift + {Left,Down,Up,Right}
-#	euclid_mover {west,south,north,east}
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
-#resize windows
-#super + ctrl + {a,s,w,d}
-#	bspwm_resize.sh {west,south,north,east}
+#focus and send specific desktop on a given monitor
+alt + m ; {1-2} ; {1-9,0}
+  bspc desktop -f ^{1-2}:^{1-9,10}
 
-#super + ctrl + {h,j,k,l}
-#	bspwm_resize.sh {west,south,north,east}
-
-#super + ctrl + {Left,Down,Up,Right}
-#	bspwm_resize.sh {west,south,north,east}
+#Send to given desktop on given monitor
+alt + m ; shift + {1-2} ; {1-9,0}
+  bspc node -d ^{1-2}:^{1-9,10}
 
 #
 # Layout manipulation/desktop level controls
 # ______________
 
-# Toggle monocle mode
-super + f
-	bspc desktop -l next
-
 # Balance tree
-super + b
+super + shift + b
 	bspc node @/ -B
 
 # Balance brother node. If you do this on biggest window of the desktop, it usually means balancing all windows with except the biggest.
@@ -171,20 +164,53 @@ super + ctrl + b
 #	euclid_balancer
 
 # Mirror and flip leaves of tree
-super + {comma,period}
+super + {equal,minus}
 	bspc node @/ -F {horizontal,vertical}
 
 # Rotate leaves of tree
 super + shift + {comma,period}
 	bspc node @/ -R {90,270}
 
-# Change window gap
+# Circulate nodes in tree
+super + {slash,shift + slash}
+    bspc node -C {forward,backward}
 
-super + g
+#Swap desktop between monitors
+ctrl + alt + {comma,period}
+    bspc desktop --swap next.active {next,last} --follow
+
+#Move desktop to next monitor
+super + ctrl+ {comma,period}
+    bspc desktop -m {next,last} --follow
+
+#Send node to next monitor
+super + alt + {comma,period}
+    bspc node -m {next,prev} --follow
+
+#Change window gap
+
+super + shift + g
 	bspc config -d focused window_gap {$gap,$(($gap+$gap)),$(($gap+$gap+$gap))}
 
 super + button{4,5}
 	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
 #
 # mouse bindings
 # __________________
@@ -226,16 +252,9 @@ mod5 + @button1
 #mod1 + @button1
 #    mygtkmenui -- .config/GTKmenu/BspwmWindowMenui
 
-# In case bspwmrc fails to execute/you wish have plugged in a new monitor
-super + shift + r
-	bspwmrc
 #edit this file
 alt + ctrl + space
 	$GUI_EDITOR ~/.config/sxhkd/sxhkdrc
-# Toggle compositing
-super + ctrl + space
-	{pkill compton ,\
-	compton -b }
 
 # Remove receptacles
 super + BackSpace

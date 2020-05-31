@@ -1,0 +1,132 @@
+/**
+ * Allows to change the settings of every menu simply by editing this file
+ */
+@import "shared/colorschemes/fullscreen-dark.rasi"
+@import "shared/resolutions/1366x768.rasi"
+
+//----------------------
+// Configuration
+//----------------------
+
+#configuration {
+	modi: 			"drun,run";
+	width: 			750;
+	lines: 			12;
+	show-match: 		false;
+	separator-style: 	"solid";
+	hide-scrollbar: 	true;
+	}
+
+//----------------------
+// Theme Settings
+//----------------------
+
+#window {
+    background-color: @background;
+    border:           0;
+    padding:          0;
+}
+#mainbox {
+    border:  4;
+    padding: 20;
+}
+#message {
+    border:       4px 4px 4px ;
+    border-color: @accent;
+    padding:      20 ;
+}
+#textbox {
+    text-color: @foreground;
+}
+#listview {
+    fixed-height: 0;
+    border:       2px 0px 0px ;
+    border-color: @accent;
+    spacing:      5px ;
+    scrollbar:    false;
+    padding:	  5 0 0;
+
+}
+#element {
+    border:  0;
+    padding: 5px ;
+}
+#element.normal.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+#element.normal.urgent {
+    background-color: @background;
+    text-color:       @foreground;
+}
+#element.normal.active {
+    background-color: @background-light;
+    text-color:       @foreground;
+}
+#element.selected.normal {
+    background-color: @background-focus;
+    text-color:       @accent2;
+}
+#element.selected.urgent {
+    background-color: @background-focus;
+    text-color:       @accent2;
+}
+#element.selected.active {
+    background-color: @background-focus;
+    text-color:       @foreground-list;
+}
+#element.alternate.normal {
+    background-color: @background;
+    text-color:       @oreground;
+}
+#element.alternate.urgent {
+    background-color: @background-focus;
+    text-color:       @foreground;
+}
+#element.alternate.active {
+    background-color: @background;
+    text-color:       @foreground;
+}
+#scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-color: @accent2;
+    handle-width: 8px ;
+    padding:      0;
+}
+#sidebar {
+    border:       2px 0px 0px ;
+    border-color: @foreground;
+}
+#button {
+    spacing:    0;
+    text-color: @foreground;
+}
+#button.selected {
+    background-color: @background-focus;
+    text-color:       @foreground-list;
+}
+#inputbar {
+    spacing:    0;
+    text-color: @foreground;
+    padding:    1px ;
+}
+#case-indicator {
+    spacing:    0;
+    text-color: @foreground;
+}
+#entry {
+    spacing:    0;
+    text-color: @foreground;
+}
+#prompt {
+    spacing:    0;
+    text-color: @foreground;
+}
+#inputbar {
+    spacing:    5;
+    text-color: @foreground;
+    padding:    5px ;
+    border:	0 0 2;
+    border-color: @accent;
+}

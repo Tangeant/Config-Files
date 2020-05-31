@@ -1,6 +1,6 @@
 # Maintainer: Chris Terrio <cterrio at gmail dot com>
-pkgname='2bwm-git'
-pkgver=0.2.r22.g3cce9ff
+pkgname='2bwm'
+pkgver=0.3
 pkgrel=1
 pkgdesc="A fast floating window manager"
 arch=('i686' 'x86_64')
@@ -10,7 +10,7 @@ provides=('2bwm')
 conflicts=('2bwm' 'mcwm' 'mcwm-git') # due to /usr/bin/hidden program
 depends=('xcb-util-wm' 'xcb-util-keysyms' 'xcb-util-xrm')
 makedepends=('git' 'xcb-util')
-source=("$pkgname::git+https://github.com/venam/2bwm.git" '2bwm.desktop')
+source=("$pkgname::git+https://github.com/bbidulock/2bwm.git#tag=v${pkgver}" '2bwm.desktop')
 md5sums=('SKIP'
          '4342d9210effbe4bfb58722f4275aa5c')
 
