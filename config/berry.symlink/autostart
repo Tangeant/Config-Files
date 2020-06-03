@@ -1,0 +1,67 @@
+#!/bin/bash
+xrdb -I$HOME ~/.Xresources
+[[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
+
+if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+fi
+
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+if [ -x /usr/bin/xdg-user-dirs-update ]; then
+   /usr/bin/xdg-user-dirs-update
+fi
+
+export MICRO_TRUECOLOR=1
+
+###load bar and wallpaper
+#$HOME/.config/polybar/launch.sh &
+##Kill any currently running tint2
+killall tint2
+## UI Appearance - Open Last Theme (wallpaper, panel, notify-daemon)
+current="$(cat ~/.config/openbox/visual-mode/current)"
+bash ~/.config/openbox/visual-mode/$current/ui
+
+#Some ways to set your wallpaper besides variety or nitrogen
+#feh --bg-scale ~/.config/bspwm/wall.png &
+# -R restores the last colorscheme that was in use and -o runs the script to set 2bwm theme
+#wal -R -o wal-set &
+
+###Start sxhkd
+sxhkd -c $HOME/.config/sxhkd/common-keys &
+sxhkd -c $HOME/.config/sxhkd/sxhkdrc-berry &
+
+# Set decoration geometry
+berryc border_width       2
+berryc inner_border_width 2
+berryc title_height       15
+berryc edge_gap 10 55 10 10
+
+# Set decoration colors
+berryc focus_color      FA74B2
+berryc unfocus_color       373E4D
+berryc inner_focus_color   edfefe
+berryc inner_unfocus_color A0C0F6
+berryc text_focus_color   9EC2F6
+berryc text_unfocus_color  c7d7f2
+
+# Other options
+berryc smart_place "true"
+berryc draw_text   "false"
+berryc edge_lock   "true"
+berryc set_font    "Iosevka-12"
+
+###Start daemons and programs
+skippy-xd --start-daemon &
+variety &
+nm-applet &
+pamac-tray &
+xfce4-power-manager &
+numlockx on &
+blueberry-tray &
+clipit &
+volumeicon &
+picom -b
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#/usr/lib/xfce4/notifyd/xfce4-notifyd &
+xfsettingsd &
+sleep 1; thunar --daemon &

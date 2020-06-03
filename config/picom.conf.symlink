@@ -94,7 +94,7 @@ inactive-dim       = 0.1;
 
 # Rounded Corner Radius
 # ---
-corner-radius = 15;
+corner-radius = 10;
 rounded-corners-exclude = [
   #"! name~=''",
   #"window_type = 'normal'",

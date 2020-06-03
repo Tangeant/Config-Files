@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+    D={1-9,0};
+    M=$(bspc query –M –D $D);
+       if [[ $(bspc query –D –M $M | wc -l) -gt 1 ]]; then
+        if [[ $(bspc query –D –d focused) != $D ]]; then
+          bspc desktop $D –m focused;
+          bspc desktop $D –f;
+        fi;
+      elif [[ $(bspc query –monitors –monitor focused) != $M ]]; then
+        bspc desktop DVI-2:focused –s HDMI-0:focused;
+      fi

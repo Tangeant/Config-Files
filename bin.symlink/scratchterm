@@ -1,0 +1,8 @@
+#! /usr/bin/bash
+
+if pgrep -x "termite --class dropdown" > /dev/null
+then
+    scratchpad dropdown
+else
+     termite --class dropdown -e "zsh -i"
+fi

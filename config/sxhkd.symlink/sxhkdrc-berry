@@ -1,0 +1,42 @@
+#
+# berry hotkeys
+#
+
+super + {h, j, k, l}
+    berryc window_move {-50 0, 0 50, 0 -50, 50 0}
+
+super + shift +  {h, j, k, l}
+    berryc window_resize {-50 0, 0 50, 0 -50, 50 0}
+
+super + {1-9}
+    berryc switch_workspace {0-9}
+
+super + shift + {1-9}
+    berryc send_to_workspace {0-9}
+
+super + shift + f
+    berryc window_monocle
+
+super + f
+    berryc fullscreen
+
+super +  u
+    berryc snap_right
+
+super + y
+    berryc snap_left
+
+super + b
+    berryc toggle_decorations
+
+super + Tab
+    berryc cycle_focus
+
+super + x
+    berryc window_close
+
+super + g
+    berryc window_center
+
+~button1
+    berryc pointer_focus
