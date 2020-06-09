@@ -6,19 +6,17 @@ zsh-users/zsh-completions
 # empty lines are skipped
 
 # annotations are also allowed:
-robbyrussell/oh-my-zsh path:plugins/command-not-found
-robbyrussell/oh-my-zsh path:plugins/copyfile
-robbyrussell/oh-my-zsh path:plugins/dircycle
-#robbyrussell/oh-my-zsh path:plugins/git
-robbyrussell/oh-my-zsh path:plugins/iwhois
-robbyrussell/oh-my-zsh path:plugins/systemd
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+ohmyzsh/ohmyzsh path:plugins/copyfile
+ohmyzsh/ohmyzsh path:plugins/dircycle
+#ohmyzsh/oh-my-zsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/systemd
 
 hcgraf/zsh-sudo
 laurenkt/zsh-vimto
 
-rupa/z
+ohmyzsh/ohmyzsh path:plugins/z
 
 denysdovhan/spaceship-prompt
 
-zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-history-substring-search
+ohmyzsh/ohmyzsh path:plugins/history-substring-search
