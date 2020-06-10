@@ -11,12 +11,12 @@ ohmyzsh/ohmyzsh path:plugins/copyfile
 ohmyzsh/ohmyzsh path:plugins/dircycle
 #ohmyzsh/oh-my-zsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/systemd
+ohmyzsh/ohmyzsh path:plugins/history-substring-search
+ohmyzsh/ohmyzsh path:plugins/z
 
 hcgraf/zsh-sudo
 laurenkt/zsh-vimto
 
-ohmyzsh/ohmyzsh path:plugins/z
-
 denysdovhan/spaceship-prompt
 
-ohmyzsh/ohmyzsh path:plugins/history-substring-search
+zsh-users/zsh-syntax-highlighting
