@@ -1,0 +1,3 @@
+SURFRAW_graphical_browser=$HOME/bin/surf-open.sh
+SURFRAW_text_browser=/bin/links
+SURFRAW_graphical=yes
