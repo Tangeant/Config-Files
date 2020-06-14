@@ -1,0 +1,58 @@
+#Set our umask
+umask 022
+
+PATH="$PATH:/usr/local/sbin:/usr/bin/core_perl:/usr/local/bin:/usr/bin:$HOME/.config/bspwm/panel:$HOME/bin"
+export PATH
+
+###BSPWM ENV VARS
+export PANEL_FIFO="/tmp/panel-fifo"
+PANEL_HEIGHT=24
+PANEL_FONT='-myriad-pro*-normal-*-14-*-*-*-*-*-*-*'
+PANEL_WM_NAME=bspwm_panel
+export XDG_CONFIG_HOME="$HOME/.config"
+export BSPWM_SOCKET="/tmp/bspwm-socket"
+export XDG_CONFIG_DIRS=/usr/etc/xdg:/etc/xdg
+export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_FAMILY PANEL_WM_NAME
+
+# Load profiles from /etc/profile.d
+if test -d /etc/profile.d/; then
+	for profile in /etc/profile.d/*.sh; do
+		test -r "$profile" && . "$profile"
+	done
+	unset profile
+fi
+
+# Termcap is outdated, old, and crusty, kill it.
+unset TERMCAP
+
+# Man is much better than us at figuring this out
+unset MANPATH
+
+#Export our default terminal emulator depending on what programs installed
+if xbps-query kitty &> /dev/null; then
+    export TERMINAL=Kitty
+  else
+    export TERMINAL=st
+  fi
+fi
+
+###Export other default programs
+if xbps-query thunar &> /dev/null; then
+    export FILEMANAGER=Thunar
+  else
+    export FILEMANAGER=PCmanFM
+fi
+
+if [ -n "$DISPLAY" ]; then
+    export BROWSER=Firefox
+  else
+    export BROWSER=w3m
+fi
+
+export EDITOR="$( \
+    if [[ -n $DISPLAY ]]; then
+        echo 'geany'
+      else echo 'nvim'
+    fi)"
+
+export GUI_EDITOR=/usr/bin/geany

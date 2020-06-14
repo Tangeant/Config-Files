@@ -1,0 +1,237 @@
+#
+# SXHKD module with WM-agnostic keys
+#
+# ~/.config/sxhkd/common-keys
+#
+
+# Index with key chord chain mnemonics
+# ====================================
+#
+# Key chord chains are used for less common or ancillary commands, or
+# for when assigning direct keybindings would become unwieldy.  The idea
+# is to scope bindings so as to avoid conflicts.
+#
+# Environment: super + e ; ...
+# Executables which typically run in the console: super + t ; ...
+# Graphical applications: super + gp; ...
+# Assign (node flags): super + a ; ...
+# Split (split ratios): super + s ; ...
+
+#####Environmental Controls
+# Control the system, OS, etc
+###The following commands are:
+# d == pavucontrol
+# c == toggle picom
+# e == skippy
+# p == polybar toggle
+# r == rofi theme selector
+# s == reload sxhkd
+# w == window slection
+# x == reload Xresources
+#
+super + e ; {d,c,e,p,r,s,w,x}
+	{pavucontrol, \
+	$HOME/bin/toggle-comp.sh, \
+	skippy-xd-toggle, \
+	polybar-msg cmd toggle, \
+	rofi-theme-selector, \
+	pkill -USR1 sxhkd && notify-send -i "keyboard" "Reloaded key bindings", \
+	$HOME/bin/rofi-scripts/windows, \
+	xrdb -I "$HOME" - merge "$HOME"/.Xresources \
+	}
+
+#################################
+# LAUNCH PROGRAMS WITH FUNCTION KEYS #
+#################################
+
+###The following commands are:
+#
+#F1 == Vivaldi
+# F2 == Atom
+#F3 == Inkscape
+#F4 == Gimp
+#F5 == Meld
+#F6 == SMPlayer
+#F7 == Virtualbox
+#F8 == PCmanFM
+#F9 == Neomutt
+#F10 == Spotify
+#F11 == Rofi Fullscreen
+# F12 == Rofi
+#
+
+super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
+    {vivaldi-stable, \
+    atom, \
+    inkscape, \
+   gimp, \
+   meld, \
+   smplayer, \
+   virtualbox, \
+   pcmanfm, \
+   termite -e "zsh -ic neomutt", \
+   Spotify, \
+   rofi -show run -fullscreen, \
+   rofil-run.sh\
+   }
+
+###Terminal Emulators
+# Termite
+super + {_, shift + } Return
+	{termite, termite -e tmux}
+
+ctrl + alt + Return ; {1,2}
+    {kitty, st -e zsh -ic tmux}
+
+#########################
+# GUI Programs     #
+#########################
+#Launch all graphical programs. Where these are alternatives to common CLI tools they
+# are mapped to the same number as their counterparts, but prepended
+# with a 'p'' (mnemonic for programs).
+super + p ; {1,2,3,4,5,6,7,8,9,0,-,=}
+    {vivaldi-stable, \
+    qutebrowser, \
+    firefox, \
+    tabbed -cdn tabbed-surf -r 2 surf -e '' "$HOME/.mozilla/firefox/t5nskw8w.default/startpage/index.html", \
+    thunderbird, \
+    geany, \
+    kate, \
+    pamac-manager, \
+    Thunar, \
+    nitrogen, \
+    catfish, \
+    xfce4-settings-manager \
+    }
+
+#########################
+# CLI Programs   #
+#########################
+# Launch all cli programs
+super + t ; {1,2,3,4,5,6,7,8,9,0}
+    { termite -e "zsh -ic htop", \
+	termite -e "zsh -ic pacli", \
+	termite -e "zsh -ic bmenu", \
+	termite -e "zsh -ic ranger", \
+	termite -e "zsh -ic nnn", \
+	termite -e "zsh -ic irssi", \
+	termite -e "zsh -ic neomutt", \
+	termite -e "zsh -ic newsboat", \
+	termite -e "zsh -ic ncmpcpp" \
+	}
+
+#Launch root cli programs
+super + shift + t ; {1,2,3,4,5,6}
+    {termite -e "sudo ranger" \
+	}
+
+###App launchers
+# DMENU in wal scheme, Rofi
+super + shift + {d,p}
+	 {dmenu-wal,rofi-run.sh}
+
+#Gmrun, xfce app finder
+alt + {F2,F3}
+    {gmrun,xfce4-appfinder}
+
+##Rofi scripts
+# Surfraw search, Surfraw Search open in Vivaldi, Cht.sh
+# mpd script
+super + shift + r ; {1,2,3}
+    {$HOME/bin/rofi-scripts/surfraw_search.sh, \
+	$HOME/bin/rofi-scripts/surfraw_vivaldi_search.sh, \
+    $HOME/bin/rofi-scripts/rofi-cht.sh \
+    }
+
+super + m
+    $HOME/bin/rofi-scripts/mpd
+
+#########################
+# Screen and Session Control  #
+#########################
+
+#Screen-Locker
+#Oblogout
+ctrl + alt + {l,Delete}
+     {$HOME/bin/screenlocker.sh,oblogout}
+
+#########################
+# WALLPAPER Controls       #
+#########################
+
+#Wallpaper trash, #Wallpaper next, Wallpaper previous, Wallpaper favorite, Wallpaper previous, Wallpaper next, Wallpaper pause, Wallpaper resume
+super + w : {t,n,p,f,Left,Right,Up,Down}
+    {variety -t, \
+	variety -n && nitrogen-variety,\
+	variety -p && nitrogen-variety, \
+	variety -p && nitrogen-variety, \
+	variety -n && nitrogen-variety, \
+	variety --pause, \
+	variety --resume \
+    }
+
+#########################
+#VARIETY KEYS WITH PYWAL#
+# TO DO Clean up with chords
+#########################
+
+#Wallpaper trash, Wallpaper next, Wallpaper previous, Wallpaper favorite, Wallpaper update, Wal Reload
+super + w ; alt + {t,n,p,f,u,r}
+    {variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -g &, \
+	variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -g &, \
+	variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -g &, \
+	variety -f && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -g &, \
+	wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt) -g &, \
+	wal -R \
+    }
+
+#########################
+#     SCREENSHOTS       #
+#########################
+
+#Scrot, screenshooter, Gnome-Screenshot
+{_,ctrl +,ctrl + shift +} Print
+    {scrot 'Manjaro-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES/Screenshots)', \
+	xfce4-screenshooter, \
+	gnome-screenshot -i \
+    }
+
+#########################
+#     MULTIMEDIA KEYS   #
+#########################
+
+# Volume control
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+	{volume-up, \
+	volume -down, \
+	amixer set Master toggle && notify-send -i "mpd" "Mute/Unmute" \
+	}
+
+XF86Audio{Play,Next,Prev,Stop}
+    {playerctl play-pause && notify-send -i "mpd" "/", \
+	playerctl next && notify-send -i "mpd" "", \
+	playerctl previous && notify-send -i "mpd" "", \
+	playerctl stop && notify-send -i "mpd""" \
+	}
+
+ctrl + XF86Audio{Play,Next,Prev,Stop}
+    {mpc toggle && notify-send -i "mpd" "/", \
+	mpc next && notify-send -i "mpd" "", \
+	mpc prev && notify-send -i "mpd" "", \
+	mpc stop && notify-send -i "mpd""" \
+	}
+
+#Brightness up
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+#Brightness down
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
+#################
+#Mouse Resize
+#################
+#Mouse rectangle resize
+alt + button3
+    wmctrl -r :ACTIVE: -e "$(slop -f 0,%x,%y,%w,%h)"
