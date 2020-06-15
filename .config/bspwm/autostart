@@ -1,8 +1,6 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 ###load and export variables
-source "$HOME/.cache/wal/colors.sh"
-
 xrdb -I$HOME ~/.Xresources
 [[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
 
@@ -29,8 +27,8 @@ export MICRO_TRUECOLOR=1
 ##Kill any currently running tint2
 killall tint2
 ## UI Appearance - Open Last Theme (wallpaper, panel, notify-daemon)
-current="$(cat ~/.config/openbox/visual-mode/current)"
-bash ~/.config/openbox/visual-mode/$current/ui
+current="$(cat $XDG_CONFIG_HOME/openbox/visual-mode/current)"
+bash $XDG_CONFIG_HOME/openbox/visual-mode/$current/ui
 
 #change your keyboard if you need it
 #setxkbmap -layout be

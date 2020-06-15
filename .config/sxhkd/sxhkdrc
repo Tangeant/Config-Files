@@ -198,7 +198,7 @@ super + grave
 
 #edit this file
 alt + ctrl + space
-	$GUI_EDITOR ~/.config/sxhkd/sxhkdrc
+	$EDITOR ~/.config/sxhkd/sxhkdrc
 
 # Remove receptacles
 super + BackSpace

@@ -1,0 +1,145 @@
+#! /bin/sh
+
+source "$HOME/.cache/wal/colors.sh"
+export gap=16
+
+# Truncate a couple of common commands that are used herein.
+_bc() {
+	bspc config "$@"
+}
+
+_check() {
+	command -v "$1" > /dev/null
+}
+
+xsetroot -cursor_name left_ptr &
+
+###load keybindings
+sxhkd && sxhkd -c $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
+sxhkd -c $XDG_CONFIG_HOME/sxhkd/common-keys &
+
+#load autostart
+bash $XDG_CONFIG_HOME/bspwm/autostart
+
+###set gaps and colours
+_bc border_width        2
+_bc window_gap         "$gap"
+_bc normal_border_color "$color0"
+_bc focused_border_color "$color4"
+_bc active_border_color "$color8"
+_bc presel_border_color "$color5"
+_bc focused_locked_border_color "$color1"
+_bc active_locked_border_color "$color1"
+_bc normal_locked_border_color "$color1"
+_bc focused_sticky_border_color "$color1"
+_bc active_sticky_border_color "$color3"
+_bc normal_sticky_border_color "$color3"
+_bc focused_private_border_color "$color3"
+_bc active_private_border_color "$color3"
+_bc normal_private_border_color "$color3"
+_bc urgent_border_color "$color5"
+
+###set desktop padding
+_bc top_padding 10
+_bc bottom_padding 45
+_bc right_padding 10
+_bc left_padding 10
+
+_bc split_ratio         0.60
+_bc single_monocle false
+_bc borderless_monocle  true
+_bc gapless_monocle     false
+_bc paddingless_monocle true
+_bc focus_by_distance   true
+_bc remove_disabled_monitors true
+_bc remove_unplugged_monitors true
+
+_bc pointer_follows_focus true
+_bc focus_follows_pointer true
+
+_bc automatic_scheme longest_side
+_bc initial_polarity second_child
+
+# window rules
+_check bspwm_external_rules && _bc external_rules_command "$(command -v bspwm_external_rules)"
+
+###set workspaces per monitor
+if [[ bspc query -M HDMI-0 == /dev/null ]]; then
+      bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+	 else
+      bspc monitor DP-2 -d 1 2 3 4 5
+      bspc monitor HDMI-0 -d 1 2 3 4 5
+fi
+
+###Set desktop layouts
+bspc desktop ^7 --layout monocle
+bspc desktop ^8 --layout monocle
+
+# remove all rules first
+bspc rule -r *:*
+
+###Floating applications
+bspc rule -a arandr state=floating
+bspc rule -a feh state=floating
+bspc rule -a mpv state=floating desktop=^8 follow=on
+#bspc rule -a Font-manager state=floating
+bspc rule -a Galculator state=floating
+#bspc rule -a Gpick state=floating sticky=on
+bspc rule -a Nitrogen state=floating
+bspc rule -a Oblogout state=floating center=true
+bspc rule -a Pavucontrol state=floating sticky=on center=true
+#bspc rule -a Peek state=floating
+bspc rule -a rofi state=floating sticky=on
+#bspc rule -a Skype state=floating
+#bspc rule -a Stacer state=floating
+bspc rule -a Xfce4-appfinder state=floating sticky=on
+bspc rule -a gcolor2 state=floating center=true
+bspc rule -a lxappearance state=floating center=true
+bspc rule -a gmrun state=floating center=true
+bspc rule -a lxterminal state=floating center=true sticky=true
+#bspc rule -a urxvt state=floating center=true
+bspc rule -a viewnior state=floating center=true
+bspc rule -a file-roller state=floating center=true
+bspc rule -a floaterm state=floating center=true
+bspc rule -a yad state=floating
+bspc rule -a variety state=floating
+###Pseudo-tiled applications
+bspc rule -a Termite state=pseudo_tiled rectangle=900x620+0+0
+bspc rule -a Geany state=pseudo_tiled
+bspc rule -a Thunar state=pseudo_tiled desktop=^9 follow=on
+bspc rule -a spotify state=pseudo_tiled desktop=^8=on
+bspc rule -a nautilus state=pseudo_tiled
+bspc rule -a skype state=pseudo_tiled
+bspc rule -a file-roller state=pseudo_tiled
+bspc rule -a transmission-gtk state=pseudo_tiled
+bspc rule -a wpa_gui state=pseudo_tiled
+bspc rule -a telegram state=pseudo_tiled
+bspc rule -a smplayer state=pseudo_tiled desktop=^8 follow=on
+bspc rule -a vlc state=pseudo_tiled desktop=^8 follow=on
+###Other Rules
+bspc rule -a google-chrome-stable private=on
+bspc rule -a chromium private=on
+bspc rule -a vivaldi-stable private=on desktop=^7 follow=on
+bspc rule -a firefox private=on desktop=^7 follow=on
+bspc rule -a screenkey --unmanage
+bspc rule -a conky sticky=on manage=off lower=on
+bspc rule -a astime sticky=on
+bspc rule -a Docky layer=above border=off manage=on
+bspc rule -a Plank layer=above border=off manage=on
+bspc rule -a wbar layer=above
+bspc rule -a dockbarx layer=above
+bspc rule -a gnome-pie border=off manage=off
+bspc rule -a 9menu border=off manage=off
+bspc rule -a tint2 border=off manage=off layer=below
+bspc rule -a trayer border=off manage=off layer=above
+bspc rule -a xmobar border=off manage=off layer=above
+bspc rule -a dzen2 border=off manage=off layer=above
+
+###Scratchpad
+bspc rule -a dropdown sticky=on state=floating center=on hidden=on rectangle=800x500+0+0
+if pgrep -x "kitty --class dropdown zsh -i" > /dev/null
+then
+	pkill -x "kitty --class dropdown zsh -i" && termite --class dropdown -e "zsh -i" &
+else
+	kitty --class dropdown "zsh -i" &
+fi
