@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/sh
 
 ###load and export variables
 xrdb -I$HOME ~/.Xresources

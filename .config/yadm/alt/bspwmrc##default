@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 source "$HOME/.cache/wal/colors.sh"
 export gap=16
@@ -64,7 +64,7 @@ _bc initial_polarity second_child
 _check bspwm_external_rules && _bc external_rules_command "$(command -v bspwm_external_rules)"
 
 ###set workspaces per monitor
-if [[ bspc query -M HDMI-0 == /dev/null ]]; then
+if [ bspc query -M HDMI-0 == /dev/null ]; then
       bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 	 else
       bspc monitor DP-2 -d 1 2 3 4 5
