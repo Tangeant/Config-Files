@@ -110,7 +110,7 @@ super + p ; {1,2,3,4,5,6,7,8,9,0,-,=}
 # Launch all cli programs
 super + t ; {1,2,3,4,5,6,7,8,9,0}
     { termite -e "zsh -ic htop", \
-	termite -e "zsh -ic pacli", \
+	termite -e "zsh -ic pacui", \
 	termite -e "zsh -ic bmenu", \
 	termite -e "zsh -ic ranger", \
 	termite -e "zsh -ic nnn", \
