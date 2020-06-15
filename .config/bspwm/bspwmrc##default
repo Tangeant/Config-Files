@@ -64,16 +64,13 @@ _bc initial_polarity second_child
 _check bspwm_external_rules && _bc external_rules_command "$(command -v bspwm_external_rules)"
 
 ###set workspaces per monitor
-if [ bspc query -M HDMI-0 == /dev/null ]; then
-      bspc monitor -d 1 2 3 4 5 6 7 8 9 0
-	 else
-      bspc monitor DP-2 -d 1 2 3 4 5
-      bspc monitor HDMI-0 -d 1 2 3 4 5
-fi
+bspc wm -O DP-2 HDMI-0
+bspc monitor DP-2 -d 1 2 3 4 5
+bspc monitor HDMI-0 -d 6 7 8 9 0
 
 ###Set desktop layouts
-bspc desktop ^7 --layout monocle
-bspc desktop ^8 --layout monocle
+bspc desktop ^1 --layout monocle
+bspc desktop ^3 --layout monocle
 
 # remove all rules first
 bspc rule -r *:*
@@ -81,7 +78,7 @@ bspc rule -r *:*
 ###Floating applications
 bspc rule -a arandr state=floating
 bspc rule -a feh state=floating
-bspc rule -a mpv state=floating desktop=^8 follow=on
+bspc rule -a mpv state=floating desktop=^3 follow=on
 #bspc rule -a Font-manager state=floating
 bspc rule -a Galculator state=floating
 #bspc rule -a Gpick state=floating sticky=on
@@ -104,23 +101,22 @@ bspc rule -a floaterm state=floating center=true
 bspc rule -a yad state=floating
 bspc rule -a variety state=floating
 ###Pseudo-tiled applications
-bspc rule -a Termite state=pseudo_tiled rectangle=900x620+0+0
-bspc rule -a Geany state=pseudo_tiled
-bspc rule -a Thunar state=pseudo_tiled desktop=^9 follow=on
-bspc rule -a spotify state=pseudo_tiled desktop=^8=on
+bspc rule -a Geany state=pseudo_tiled desktop=^6 follow=on
+bspc rule -a Thunar state=pseudo_tiled desktop=^4 follow=on
+bspc rule -a spotify state=pseudo_tiled desktop=^3=on
 bspc rule -a nautilus state=pseudo_tiled
 bspc rule -a skype state=pseudo_tiled
 bspc rule -a file-roller state=pseudo_tiled
 bspc rule -a transmission-gtk state=pseudo_tiled
 bspc rule -a wpa_gui state=pseudo_tiled
 bspc rule -a telegram state=pseudo_tiled
-bspc rule -a smplayer state=pseudo_tiled desktop=^8 follow=on
-bspc rule -a vlc state=pseudo_tiled desktop=^8 follow=on
+bspc rule -a smplayer state=pseudo_tiled desktop=^3follow=on
+bspc rule -a vlc state=pseudo_tiled desktop=^3 follow=on
 ###Other Rules
 bspc rule -a google-chrome-stable private=on
 bspc rule -a chromium private=on
-bspc rule -a vivaldi-stable private=on desktop=^7 follow=on
-bspc rule -a firefox private=on desktop=^7 follow=on
+bspc rule -a vivaldi-stable private=on desktop=^1 follow=on
+bspc rule -a firefox private=on desktop=^1 follow=on
 bspc rule -a screenkey --unmanage
 bspc rule -a conky sticky=on manage=off lower=on
 bspc rule -a astime sticky=on
