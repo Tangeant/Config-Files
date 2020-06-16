@@ -101,6 +101,7 @@ bspc rule -a floaterm state=floating center=true
 bspc rule -a yad state=floating
 bspc rule -a variety state=floating
 ###Pseudo-tiled applications
+bspc rule -a Termite state=pseudo_tiled rectangle=800x600+0+0
 bspc rule -a Geany state=pseudo_tiled desktop=^6 follow=on
 bspc rule -a Thunar state=pseudo_tiled desktop=^4 follow=on
 bspc rule -a spotify state=pseudo_tiled desktop=^3=on

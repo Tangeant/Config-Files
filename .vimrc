@@ -29,11 +29,13 @@ Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 "Color scheme Nord
-"let g:nord_italic = 1
-"let g:nord_underline = 1
-"let g:nord_italic_comments = 1
-"let g:nord_comment_brightness = 12
-colorscheme wal
+let g:nord_italic = 1
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
+colorscheme nord
+
+" Use wal colourcheme
+"colorscheme wal
 
 " Open fff on press of 'f'
 nnoremap f :F<CR>
@@ -52,6 +54,32 @@ endif
 
 " Use Ag with ack.vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Define denite mappings
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
+
+" Undotree toggle keybind
+nnoremap <F5> :UndotreeToggle<cr>
+
+" Persistent undo
+if has("persistent_undo")
+    set undodir=$HOME."/.undodir"
+    set undofile
+endif
 
 " Map the leader key to SPACE
 let mapleader="\<SPACE>"

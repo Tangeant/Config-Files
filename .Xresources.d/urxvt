@@ -113,10 +113,10 @@ XTerm*locale: true
 XTerm*metaSendsEscape: true
 XTerm*saveLines: 4096
 XTerm*VT100.geometry: 80x22
-XTerm*foreground: #F2F2F2
-XTerm*background: #2B2B2C
-XTerm*color10:    #8cbc65
-XTerm*color12:    #0071ff
+!XTerm*foreground: #F2F2F2
+!XTerm*background: #2B2B2C
+!XTerm*color10:    #8cbc65
+!XTerm*color12:    #0071ff
 XTerm*faceName: Monospace
 XTerm*faceSize: 11
 XTerm*scrollBar: true
@@ -170,46 +170,35 @@ URxvt.colorUL:      #87afd7
 !
 ! invisibone by baskerville
 !
-! vim: set ft=xdefaults:
-
+ vim: set ft=xdefaults:
 !URxvt.background: #232323
 !URxvt.foreground: #A0A0A0
-
-URxvt.depth: 32
+!URxvt.depth: 32
 !URxvt.background: [90]#282A36
-
 !URxvt.colorBD:    #CFCFCF
 !URxvt.colorUL:    #A0A0A0
 !URxvt.colorIT:    #686868
-
 !BLK
 !URxvt.color0:     #303030
 !URxvt.color8:     #686868
-
 !RED
 !URxvt.color9:     #FFA7DA
 !URxvt.color1:     #D370A3
-
 !GRN
 !URxvt.color10:    #A3D572
 !URxvt.color2:     #6D9E3F
-
 !BLU
 !URxvt.color12:    #98CBFE
 !URxvt.color4:     #6095C5
-
 !YEL
 !URxvt.color11:    #EFBD8B
 !URxvt.color3:     #B58858
-
 !CYN
 !URxvt.color14:    #75DAA9
 !URxvt.color6:     #3BA275
-
 !MAG
 !URxvt.color13:    #E5B0FF
 !URxvt.color5:     #AC7BDE
-
 !WHT
 !URxvt.color7:     #CFCFCF
 !URxvt.color15:    #FFFFFF
@@ -272,44 +261,42 @@ URxvt.depth: 32
 ! Repository: https://github.com/arcticicestudio/nord-xresources
 ! License:    MIT
 
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
 
-URxvt*fading: 35
-URxvt*fadeColor: #4c566a
+*.foreground:   nord4
+*.background:   nord0
+*.cursorColor:  nord4
+*fading: 35
+*fadeColor: nord3
 
-! special
-URxvt*.foreground:   #eeeeee
-URxvt*.background:   [95]#303030
-URxvt*.cursorColor:  #eeeeee
-
-! black
-URxvt*.color0:       #303030
-URxvt*.color8:       #18352d
-
-! red
-URxvt*.color1:       #e8549d
-URxvt*.color9:       #d8645a
-
-! green
-URxvt*.color2:       #518ea0
-URxvt*.color10:      #0095a2
-
-! yellow
-URxvt*.color3:       #a67d31
-URxvt*.color11:      #bc742d
-
-! blue
-URxvt*.color4:       #3d82ff
-URxvt*.color12:      #8b71ff
-
-! magenta
-URxvt*.color5:       #c366cf
-URxvt*.color13:      #d557e7
-
-! cyan
-URxvt*.color6:       #6285e0
-URxvt*.color14:      #338dd6
-
-! white
-URxvt*.color7:       #ffe9c9
-URxvt*.color15:      #eeeeee
-
+*.color0: nord1
+*.color1: nord11
+*.color2: nord14
+*.color3: nord13
+*.color4: nord9
+*.color5: nord15
+*.color6: nord8
+*.color7: nord5
+*.color8: nord3
+*.color9: nord11
+*.color10: nord14
+*.color11: nord13
+*.color12: nord9
+*.color13: nord15
+*.color14: nord7
+*.color15: nord6

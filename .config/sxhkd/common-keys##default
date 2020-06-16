@@ -78,8 +78,8 @@ super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
 super + {_, shift + } Return
 	{termite, termite -e tmux}
 
-ctrl + alt + Return ; {1,2}
-    {kitty, st -e zsh -ic tmux}
+ctrl + alt + Return ; {1,2,3}
+    {kitty, st -e zsh -ic tmux,urxvtc}
 
 #########################
 # GUI Programs     #
@@ -108,19 +108,20 @@ super + p ; {1,2,3,4,5,6,7,8,9,0,minus,equals}
 # Launch all cli programs
 super + t ; {1,2,3,4,5,6,7,8,9,0}
     { termite -e "zsh -ic htop", \
-	termite -e "zsh -ic pacui", \
 	termite -e "zsh -ic bmenu", \
-	termite -e "zsh -ic ranger", \
-	termite -e "zsh -ic nnn", \
 	termite -e "zsh -ic irssi", \
 	termite -e "zsh -ic neomutt", \
 	termite -e "zsh -ic newsboat", \
-	termite -e "zsh -ic ncmpcpp" \
+	termite -e "zsh -ic ncmpcpp", \
+	termite -e "zsh -ic pacui", \
+	termite -e "zsh -ic ranger", \
+	termite -e "zsh -ic nnn", \
 	}
 
 #Launch root cli programs
 super + shift + t ; {1,2,3,4,5,6}
-    {termite -e "sudo ranger" \
+    {termite -e "sudo ranger", \
+    termine -e "sudo nnn", \
 	}
 
 ###App launchers

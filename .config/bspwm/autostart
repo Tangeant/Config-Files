@@ -47,12 +47,13 @@ nm-applet &
 pamac-tray &
 numlockx on &
 blueberry-tray &
+urxvtd &
 clipit &
 volumeicon &
 picom -b
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #/usr/lib/xfce4/notifyd/xfce4-notifyd &
-#xfsettingsd &
+xfsettingsd &
 sleep 1; thunar --daemon &
 
 ###load arandr config at startsup
