@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Eyecandy Theme UI
 
 # Background Handler
-nitrogen --set-zoom-fill --save ~/.wallpaper/gradient.jpg
+feh --bg-fill ~/.wallpaper/purple-sky.jpg &
 
 # Panel
 tint2 -c ~/.config/tint2/eyecandy.tint2rc &

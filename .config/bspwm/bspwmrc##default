@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source "$HOME/.cache/wal/colors.sh"
+source ~/.cache/wal/colors.sh
 export gap=16
 
 # Truncate a couple of common commands that are used herein.
@@ -15,11 +15,11 @@ _check() {
 xsetroot -cursor_name left_ptr &
 
 ###load keybindings
-sxhkd && sxhkd -c $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
-sxhkd -c $XDG_CONFIG_HOME/sxhkd/common-keys &
+sxhkd -c ~/.config/sxhkd/sxhkdrc &
+sxhkd -c ~/.config/sxhkd/common-keys &
 
 #load autostart
-bash $XDG_CONFIG_HOME/bspwm/autostart
+dash ~/.config/bspwm/autostart
 
 ###set gaps and colours
 _bc border_width        2

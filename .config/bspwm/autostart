@@ -1,8 +1,7 @@
 #!/bin/sh
 
 ###load and export variables
-xrdb -I$HOME ~/.Xresources
-[[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
+[ -f ~/.Xdefaults ] && xrdb -merge ~/.Xdefaults
 
 if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
     eval "$(dbus-launch --sh-syntax --exit-with-session)"
@@ -27,8 +26,8 @@ export MICRO_TRUECOLOR=1
 ##Kill any currently running tint2
 killall tint2
 ## UI Appearance - Open Last Theme (wallpaper, panel, notify-daemon)
-current="$(cat $XDG_CONFIG_HOME/openbox/visual-mode/current)"
-bash $XDG_CONFIG_HOME/openbox/visual-mode/$current/ui
+current="$(cat ~/.config/openbox/visual-mode/current)"
+dash ~/.config/openbox/visual-mode/$current/ui
 
 #change your keyboard if you need it
 #setxkbmap -layout be
@@ -38,12 +37,14 @@ bash $XDG_CONFIG_HOME/openbox/visual-mode/$current/ui
 # -R restores the last colorscheme that was in use and -o runs the script to set 2bwm theme
 #wal -R -o wal-set &
 
+###Kill daemons and programs
+killall clipit &
+killall volumeicon &
 ###Start daemons and programs
 skippy-xd --start-daemon &
 variety &
 nm-applet &
 pamac-tray &
-xfce4-power-manager &
 numlockx on &
 blueberry-tray &
 clipit &
@@ -51,7 +52,7 @@ volumeicon &
 picom -b
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #/usr/lib/xfce4/notifyd/xfce4-notifyd &
-xfsettingsd &
+#xfsettingsd &
 sleep 1; thunar --daemon &
 
 ###load arandr config at startsup

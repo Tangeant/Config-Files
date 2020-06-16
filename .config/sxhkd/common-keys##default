@@ -26,17 +26,15 @@
 # p == polybar toggle
 # r == rofi theme selector
 # s == reload sxhkd
-# w == window slection
 # x == reload Xresources
 #
 super + e ; {d,c,e,p,r,s,w,x}
 	{pavucontrol, \
-	$HOME/bin/toggle-comp.sh, \
+	"$HOME/bin/toggle-comp.sh", \
 	skippy-xd-toggle, \
 	polybar-msg cmd toggle, \
 	rofi-theme-selector, \
 	pkill -USR1 sxhkd && notify-send -i "keyboard" "Reloaded key bindings", \
-	$HOME/bin/rofi-scripts/windows, \
 	xrdb -I "$HOME" - merge "$HOME"/.Xresources \
 	}
 
@@ -89,7 +87,7 @@ ctrl + alt + Return ; {1,2}
 #Launch all graphical programs. Where these are alternatives to common CLI tools they
 # are mapped to the same number as their counterparts, but prepended
 # with a 'p'' (mnemonic for programs).
-super + p ; {1,2,3,4,5,6,7,8,9,0,-,=}
+super + p ; {1,2,3,4,5,6,7,8,9,0,minus,equals}
     {vivaldi-stable, \
     qutebrowser, \
     firefox, \
@@ -126,9 +124,15 @@ super + shift + t ; {1,2,3,4,5,6}
 	}
 
 ###App launchers
-# DMENU in wal scheme, Rofi
+# DMENU in wal scheme, Rofi, windows
 super + shift + {d,p}
 	 {dmenu-wal,rofi-run.sh}
+
+{_,super +, shift +} Menu
+    {rofi-run.sh, \
+    dmenu-wal, \
+   $HOME/bin/rofi-scripts/windows, \
+   }
 
 #Gmrun, xfce app finder
 alt + {F2,F3}
