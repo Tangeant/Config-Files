@@ -17,6 +17,10 @@
 # Assign (node flags): super + a ; ...
 # Split (split ratios): super + s ; ...
 
+####Key help for common keys
+alt + F1
+    show_help_common.sh
+
 #####Environmental Controls
 # Control the system, OS, etc
 ###The following commands are:
@@ -62,16 +66,16 @@ super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
     {vivaldi-stable, \
     atom, \
     inkscape, \
-   gimp, \
-   meld, \
-   smplayer, \
-   virtualbox, \
-   pcmanfm, \
-   termite -e "zsh -ic neomutt", \
-   Spotify, \
-   rofi -show run -fullscreen, \
-   rofil-run.sh\
-   }
+    gimp, \
+    meld, \
+    smplayer, \
+    virtualbox, \
+    pcmanfm, \
+    termite -e "zsh -ic neomutt", \
+    Spotify, \
+    rofi -show run -fullscreen, \
+    rofi-run.sh\
+    }
 
 ###Terminal Emulators
 # Termite
@@ -144,7 +148,7 @@ alt + {F2,F3}
 # mpd script
 super + shift + r ; {1,2,3}
     {$HOME/bin/rofi-scripts/surfraw_search.sh, \
-	$HOME/bin/rofi-scripts/surfraw_browser_search.sh, \
+	  $HOME/bin/surfraw_browser_search.sh, \
     $HOME/bin/rofi-scripts/rofi-cht.sh \
     }
 

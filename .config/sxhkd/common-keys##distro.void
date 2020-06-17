@@ -17,6 +17,10 @@
 # Assign (node flags): super + a ; ...
 # Split (split ratios): super + s ; ...
 
+####Key help for common keys
+alt + F1
+    show_help_common.sh
+
 #####Environmental Controls
 # Control the system, OS, etc
 ###The following commands are:
@@ -26,7 +30,6 @@
 # p == polybar toggle
 # r == rofi theme selector
 # s == reload sxhkd
-# w == window slection
 # x == reload Xresources
 #
 super + e ; {d,c,e,p,r,s,w,x}
@@ -36,7 +39,6 @@ super + e ; {d,c,e,p,r,s,w,x}
 	polybar-msg cmd toggle, \
 	rofi-theme-selector, \
 	pkill -USR1 sxhkd && notify-send -i "keyboard" "Reloaded key bindings", \
-	$HOME/bin/rofi-scripts/windows, \
 	xrdb -I "$HOME" - merge "$HOME"/.Xresources \
 	}
 
@@ -64,16 +66,16 @@ super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
     {firefox, \
     atom, \
     inkscape, \
-   gimp, \
-   meld, \
-   smplayer, \
-   virtualbox, \
-   pcmanfm, \
-   kitty "zsh -ic neomutt", \
-   Spotify, \
-   rofi -show run -fullscreen, \
-   rofil-run.sh\
-   }
+    gimp, \
+    meld, \
+    smplayer, \
+    virtualbox, \
+    pcmanfm, \
+    kitty "zsh -ic neomutt", \
+    Spotify, \
+    rofi -show run -fullscreen, \
+    rofi-run.sh\
+    }
 
 ###Terminal Emulators
 # kitty
@@ -130,6 +132,12 @@ super + shift + t ; {1,2,3,4,5,6}
 super + shift + {d,p}
 	 {dmenu-wal,rofi-run.sh}
 
+{_,super +, shift +} Menu
+     {rofi-run.sh, \
+     dmenu-wal, \
+     $HOME/bin/rofi-scripts/windows, \
+     }
+
 #Gmrun, xfce app finder
 alt + {F2,F3}
     {gmrun,xfce4-appfinder}
@@ -138,8 +146,8 @@ alt + {F2,F3}
 # Surfraw search, Surfraw Search open in Browser, Cht.sh
 # mpd script
 super + shift + r ; {1,2,3}
-    {$HOME/bin/surfraw_search.sh, \
-	$HOME/bin/surfraw_browser_search.sh, \
+    {$HOME/bin/rofi-scripts/surfraw_search.sh, \
+	  $HOME/bin/surfraw_browser_search.sh, \
     $HOME/bin/rofi-scripts/rofi-cht.sh \
     }
 
@@ -153,7 +161,7 @@ super + m
 #Screen-Locker
 #Oblogout
 ctrl + alt + {l,Delete}
-     {$HOME/bin/screenlocker.sh,oblogout}
+     {screenlocker.sh,oblogout}
 
 #########################
 # WALLPAPER Controls       #

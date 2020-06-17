@@ -12,6 +12,10 @@ super + shift + {x,q}
 super + {x,q}
 	bspc node -{c,k}
 
+####Key help for common keys
+alt + F1
+    show_help.sh
+
 #
 # state/flags
 #
