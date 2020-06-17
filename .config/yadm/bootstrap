@@ -1,0 +1,30 @@
+#!/bin/bash
+####Author: Chris Terrio 
+###Email: cterrio@posteo.net
+###Now you know who to blame
+
+###Declare functions
+func_chmod () {
+  chmod -R 777 $1
+}
+
+###Make all scripts and wm files executable
+list=(
+"$HOME/bin"
+"$HOME/.config/bspwm"
+"$HOME/.config/sxhkd"
+"$HOME/.config/berry"
+"$HOME/.config/openbox"
+"$HOME/.config/rofi"
+"$HOME/.xmonad/scripts"
+"$HOME/.xinitrc"
+"$HOME/.xsession"
+)
+
+for name in "${list[@]}" ; do
+  if [$name &> /dev/null]
+    func_chmod $name
+  fi
+done
+
+echo "Scripts and WM files ready"
