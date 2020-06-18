@@ -11,7 +11,7 @@
 
 if [ "$TERM" = "linux" ]; then
   /bin/echo -e "
-  \e]P03b4252
+  \e]P02e3440
   \e]P1bf616a
   \e]P2a3be8c
   \e]P3ebcb8b
