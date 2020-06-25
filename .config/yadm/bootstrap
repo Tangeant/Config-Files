@@ -34,7 +34,13 @@ cd "$HOME"
 git clone https://github.com/owl4ce/dotfiles owl4ce && cd owl4ce
 
 for folder in "${dotfiles[@]}"; do
+  echo $folder
   rsync -a "$folder" "$HOME/$folder"
+  if [[ -e "$HOME/folder"]]; then
+    echo Folder is installed
+  else
+    echo Failed to install
+  fi
 done
 
 dotfiles=(
