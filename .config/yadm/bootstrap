@@ -5,7 +5,7 @@
 
 ###Declare functions
 func_chmod () {
-  chmod -R 777 $1
+  chmod -R 777 "$1"
 }
 
 ###Make all scripts and wm files executable
@@ -22,8 +22,9 @@ list=(
 )
 
 for name in "${list[@]}" ; do
-  if [$name &> /dev/null]; then
-    func_chmod $name
+  if [ -e "$name" ]
+  then
+    func_chmod "$name"
   fi
 done
 
@@ -31,17 +32,16 @@ echo "Scripts and WM files ready"
 
 ###Install necessary files from owl4ce repos for themes, etc
 cd "$HOME"
-git clone https://github.com/owl4ce/dotfiles owl4ce && cd owl4ce
+if [ -d "$HOME/owl4ce" ]
+then
+    echo "owl4ce folder already exists"
+else
+git clone https://github.com/owl4ce/dotfiles owl4ce
+fi
 
-for folder in "${dotfiles[@]}"; do
-  echo $folder
-  rsync -a "$folder" "$HOME/$folder"
-  if [[ -e "$HOME/folder"]]; then
-    echo Folder is installed
-  else
-    echo Failed to install
-  fi
-done
+func_copy_owl () {
+    mkdir -p "$HOME/$1" && cp -r "$1" "$HOME/"
+}
 
 dotfiles=(
 .ncmpcpp
@@ -54,4 +54,17 @@ dotfiles=(
 .config/geany/colorschemes
 .themes
 )
-sudo fc-cache -r
+
+for folder in "${dotfiles[@]}"; do
+  echo "$folder is being copied"
+  cd "$HOME/owl4ce"
+  func_copy_owl "$folder"
+  if [ -e "$HOME/$folder" ]
+  then
+      echo "$folder is installed"
+  else
+      echo "Failed to install"
+  fi
+done
+
+sudo fc-cache -fr
