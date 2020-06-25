@@ -5,8 +5,16 @@
 
 ###Declare functions
 func_chmod () {
-  chmod -R 777 "$1"
+  chmod -Rc 777 "$1"
 }
+
+func_copy_owl () {
+    mkdir -p "$HOME/$1" && cp -r "$1" "$HOME/"
+}
+
+###Define variables
+gitdots = "$HOME/owl4ce"
+icons_folder = "$HOME/.local/share/icons"
 
 ###Make all scripts and wm files executable
 list=(
@@ -30,18 +38,14 @@ done
 
 echo "Scripts and WM files ready"
 
-###Install necessary files from owl4ce repos for themes, etc
+###Install necessary files from owl4ce dotfiles repo for themes, etc
 cd "$HOME"
-if [ -d "$HOME/owl4ce" ]
-then
+if [ -d "$gitdots" ]
+  then
     echo "owl4ce folder already exists"
-else
-git clone https://github.com/owl4ce/dotfiles owl4ce
+  else
+    git clone https://github.com/owl4ce/dotfiles owl4ce
 fi
-
-func_copy_owl () {
-    mkdir -p "$HOME/$1" && cp -r "$1" "$HOME/"
-}
 
 dotfiles=(
 .ncmpcpp
@@ -56,15 +60,32 @@ dotfiles=(
 )
 
 for folder in "${dotfiles[@]}"; do
+  cd "$gitdots"
   echo "$folder is being copied"
-  cd "$HOME/owl4ce"
   func_copy_owl "$folder"
   if [ -e "$HOME/$folder" ]
-  then
+    then
       echo "$folder is installed"
-  else
+    else
       echo "Failed to install"
   fi
 done
+
+####Install custom icons
+##Make icons folders and extract icons
+cd "$gitdots/.icons"
+if [ -f "$HOME/.local/share/"]
+  then
+    sudo tar xJpf Papirus-Custom.tar.xz
+    sudo tar xJpf Papirus-Dark-Custom.tar.xz
+    mv "$owl4ce/.icons/Papirus-Custom" "$icons_folder"
+    mv "$owl4ce/.icons/Papirus-Dark-Custom" "$icons_folder"
+  else
+    mkdir "$HOME/.local/share"
+    sudo tar xJpf Papirus-Custom.tar.xz
+    sudo tar xJpf Papirus-Dark-Custom.tar.xz
+    mv "$HOME/.icons/Papirus-Custom" "$HOME/.local/share/icons/"
+    mv "$HOME/.icons/Papirus-Dark-Custom" "$HOME/.local/share/icons/"
+fi
 
 sudo fc-cache -fr
