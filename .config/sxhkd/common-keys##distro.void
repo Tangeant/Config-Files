@@ -48,7 +48,7 @@ super + e ; {d,c,e,p,r,s,w,x}
 
 ###The following commands are:
 #
-#F1 == Firefox
+#F1 == Vivaldi
 #F2 == Atom
 #F3 == Inkscape
 #F4 == Gimp
@@ -63,7 +63,7 @@ super + e ; {d,c,e,p,r,s,w,x}
 #
 
 super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
-    {firefox, \
+    {vivaldi-stable, \
     atom, \
     inkscape, \
     gimp, \
@@ -71,7 +71,7 @@ super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
     smplayer, \
     virtualbox, \
     pcmanfm, \
-    kitty "zsh -ic neomutt", \
+    alacritty -e "zsh -ic neomutt", \
     Spotify, \
     rofi -show run -fullscreen, \
     rofi-run.sh\
@@ -82,8 +82,8 @@ super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
 super + {_, shift + } Return
 	{kitty, kitty tmux}
 
-ctrl + alt + Return ; {1,2}
-    {alacritty, st -e zsh -ic tmux}
+ctrl + alt + Return ; {1,2,3}
+    {alacritty, urxvtc, st -e zsh -ic tmux}
 
 #########################
 # GUI Programs     #
@@ -92,14 +92,14 @@ ctrl + alt + Return ; {1,2}
 # are mapped to the same number as their counterparts, but prepended
 # with a 'p'' (mnemonic for programs).
 super + p ; {1,2,3,4,5,6,7,8,9,0,-,=}
-    {firefox, \
+    {vivaldi-stable, \
+    firefox, \
     qutebrowser, \
-    , \
     tabbed -cdn tabbed-surf -r 2 surf -e '' "$HOME/.mozilla/firefox/t5nskw8w.default/startpage/index.html", \
     thunderbird, \
     geany, \
     , \
-    pamac-manager, \
+    , \
     Thunar, \
     nitrogen, \
     catfish, \
@@ -111,20 +111,21 @@ super + p ; {1,2,3,4,5,6,7,8,9,0,-,=}
 #########################
 # Launch all cli programs
 super + t ; {1,2,3,4,5,6,7,8,9,0}
-    { kitty "zsh -ic htop", \
-	kitty "zsh -ic pacli", \
-	kitty "zsh -ic bmenu", \
-	kitty "zsh -ic ranger", \
-	kitty "zsh -ic nnn", \
-	kitty "zsh -ic irssi", \
-	kitty "zsh -ic neomutt", \
-	kitty "zsh -ic newsboat", \
-	kitty "zsh -ic ncmpcpp" \
+  {alacritty -e "zsh -ic htop", \
+	, \
+	, \
+	alacritty -e "zsh -ic irssi", \
+	alacritty -e "zsh -ic neomutt", \
+	alacritty -e "zsh -ic newsboat", \
+	alacritty -e "zsh -ic ncmpcpp" \
+  alacritty -e "zsh -ic ranger", \
+	alacritty -e "zsh -ic nnn", \
 	}
 
 #Launch root cli programs
 super + shift + t ; {1,2,3,4,5,6}
-    {kitty "sudo ranger" \
+    {alacritty -e "sudo ranger" \
+    alacritty -e "sudo nnn"
 	}
 
 ###App launchers

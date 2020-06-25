@@ -7,7 +7,7 @@ static const char* selbgcolor   = "#4c566a";
 static const char* selfgcolor   = "#5e81ac";
 static const char* urgbgcolor   = "#88c0d0";
 static const char* urgfgcolor   = "#8fbcbb";*/
-#include "/home/christ/.cache/wal/colors-wal-tabbed.h"
+#include "~/.cache/wal/colors-wal-tabbed.h"
 static const char before[]      = "<";
 static const char after[]       = ">";
 static const char titletrim[]   = "...";
