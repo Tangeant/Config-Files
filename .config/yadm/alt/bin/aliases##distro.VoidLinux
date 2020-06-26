@@ -32,7 +32,7 @@ if ((UID != 0 )); then
     alias root='sudo -i'
     alias reboot='sudo init 6'
     alias shutdown='sudo init 0'
-    alias update=sudo 'xbps-install -Suv '
+    alias update=sudo 'xbps-install -Su'
 fi
 
 ## ls
