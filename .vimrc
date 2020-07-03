@@ -37,6 +37,9 @@ colorscheme nord
 " Use wal colourcheme
 "colorscheme wal
 
+"Remap escape to jk
+inoremap jk <ESC>
+
 " Open fff on press of 'f'
 nnoremap f :F<CR>
 

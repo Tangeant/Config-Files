@@ -1,0 +1,13 @@
+#!/bin/sh
+[[ -f ~/.zshenv ]] && source ~/.zshenv
+[[ -f ~/.zprofile ]] && source ~/.zprofile
+
+setxkbmap -option "caps:swapescape" &
+
+calcurse --daemon &
+mpd &
+urxvtd &
+sxhkd -c ~/.config/sxhkd/common-keys &
+skippy-xd --start-daemon &
+variety &
+sleep 1; thunar --daemon &

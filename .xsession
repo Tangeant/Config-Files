@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 source "$HOME/.cache/wal/colors.sh"
+setxkbmap -option "caps:swapescape" &
 
 export MICRO_TRUECOLOR=1
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'

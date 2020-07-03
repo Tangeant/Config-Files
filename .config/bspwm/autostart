@@ -27,7 +27,7 @@ export MICRO_TRUECOLOR=1
 killall tint2
 ## UI Appearance - Open Last Theme (wallpaper, panel, notify-daemon)
 current="$(cat ~/.config/openbox/visual-mode/current)"
-dash ~/.config/openbox/visual-mode/$current/ui
+bash ~/.config/openbox/visual-mode/$current/ui
 
 #change your keyboard if you need it
 #setxkbmap -layout be
