@@ -21,7 +21,7 @@ case $chosen in
         ~/bin/rofi-scripts/promptmenu.sh --yes-command "reboot" --query "Are you sure want to Reboot?"
         ;;
     $lock)
-        betterlockscreen -- scrot
+        betterlockscreen -l blur
         ;;
     $suspend)
         mpc -q pause

@@ -1,1 +1,1 @@
-rofi -m -1 -location 2 -threads 0 -modi "window,run,Drun" -show run
+rofi -m -4 -location 0 -threads 0 -modi "window,run,drun" -show run
