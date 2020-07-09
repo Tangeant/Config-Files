@@ -10,4 +10,4 @@ configuration {
   display-window:     "Running Apps";
   columns: 3;
 }
-@import "/home/christ/.config/rofi/themes/sweetly.rasi"
+@import "/home/chris-void/.config/rofi/themes/sweetly.rasi"
