@@ -134,8 +134,8 @@ super + shift + {d,p}
 	 {dmenu-wal,rofi-run.sh}
 
 {_,super +, shift +} Menu
-     {rofi-run.sh, \
-     dmenu-wal, \
+     {$HOME/bin/rofi-scripts/rofi-run.sh, \
+     $HOME/bin/dmenu-wal, \
      $HOME/bin/rofi-scripts/windows, \
      }
 
