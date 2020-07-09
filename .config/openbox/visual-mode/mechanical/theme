@@ -9,7 +9,7 @@ sed -i 's_Sweetly_Fleon_' ~/{.gtkrc-2.0,.config/gtk-3.0/settings.ini}
 sed -i 's_Papirus-Custom_Papirus-Dark-Custom_' ~/{.gtkrc-2.0,.config/gtk-3.0/settings.ini,.config/qt5ct/qt5ct.conf}
 
 # Openbox
-sed -i 's_Blabla_Joy_' ~/.config/openbox/rc.xml
+sed -i 's_Lovely_Joy_' ~/.config/openbox/rc.xml
 
 # Rofi
 sed -i 's_fullscreen_fullscreen-dark_' ~/.config/rofi/themes/shared/settings.rasi

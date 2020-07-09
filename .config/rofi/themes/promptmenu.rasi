@@ -7,12 +7,11 @@
 }
 #window {
   height: @confirm-window-height;
-  width: @confirm-window-width;
+  width: 20%;
   children: [ inputbar, horibox ];
   border: @confirm-window-border;
   padding: 2%;
   border-color: @accent;
-  border-radius: 8px;
 }
 #inputbar {
   children: [ prompt ];
