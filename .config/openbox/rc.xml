@@ -251,7 +251,7 @@
       <action name="DesktopPrevious"/>
     </keybind>
     <!-- Keybindings for moving windows -->
- <keybind key="W-Right">
+    <keybind key="W-Right">
       <action name="MoveRelative">
         <x>20</x>
       </action>
@@ -409,7 +409,7 @@
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
-        <keybind key="C-Space">
+    <keybind key="C-Space">
       <action name="Execute">
         <command>sgtk-menu</command>
       </action>
@@ -435,7 +435,7 @@
     <keybind key="A-F5">
       <action name="Iconify"/>
     </keybind>
-     <keybind key="W-i">
+    <keybind key="W-i">
       <action name="Iconify"/>
     </keybind>
     <keybind key="A-F6">
@@ -861,11 +861,11 @@
       </position>
       <fullscreen>yes</fullscreen>
     </application>
-    <application class="Firefox">
-		<decor>no</decor>
-	</application>
-	<application class="Vivaldi-stable">
-		<decor>no</decor>
-	</application>
+    <application class="firefox">
+      <decor>no</decor>
+    </application>
+    <application class="vivaldi-stable">
+      <decor>no</decor>
+    </application>
   </applications>
 </openbox_config>
