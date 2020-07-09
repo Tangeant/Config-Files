@@ -19,7 +19,7 @@ sxhkd -c ~/.config/sxhkd/sxhkdrc &
 sxhkd -c ~/.config/sxhkd/common-keys &
 
 #load autostart
-dash ~/.config/bspwm/autostart
+bash ~/.config/bspwm/autostart
 
 ###set gaps and colours
 _bc border_width        2

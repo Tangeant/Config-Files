@@ -21,7 +21,7 @@ case $chosen in
         ~/bin/rofi-scripts/promptmenu.sh --yes-command "reboot" --query "Are you sure want to Reboot?"
         ;;
     $lock)
-        lockscreen -- scrot
+        betterlockscreen -- scrot
         ;;
     $suspend)
         mpc -q pause
@@ -29,6 +29,6 @@ case $chosen in
         systemctl suspend
         ;;
     $logout)
-        ~/bin/rofi-scripts/promptmenu.sh --yes-command "openbox --exit | i3-msg exit | pkill -u $USER" --query "Logout?"
+        ~/bin/rofi-scripts/promptmenu.sh --yes-command "openbox --exit | pkill -u $USER" --query "Logout?"
         ;;
 esac

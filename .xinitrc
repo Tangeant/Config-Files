@@ -17,8 +17,6 @@ fi
 
 export MICRO_TRUECOLOR=1
 
-bash ~/.config/bspwm/autostart
-
 onedrive --monitor --confdir="~/.config/onedrivePersonal" &
 
 calcurse --daemon &

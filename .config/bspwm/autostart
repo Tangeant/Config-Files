@@ -42,7 +42,7 @@ killall clipit &
 killall volumeicon &
 ###Start daemons and programs
 skippy-xd --start-daemon &
-variety &
+#variety &
 nm-applet &
 pamac-tray &
 numlockx on &

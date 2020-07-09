@@ -6,7 +6,7 @@
   </resistance>
   <focus>
     <focusNew>yes</focusNew>
-    <followMouse>no</followMouse>
+    <followMouse>yes</followMouse>
     <focusLast>yes</focusLast>
     <underMouse>no</underMouse>
     <focusDelay>200</focusDelay>
@@ -850,15 +850,22 @@
     <middle>no</middle>
     <submenuShowDelay>100</submenuShowDelay>
     <submenuHideDelay>200</submenuHideDelay>
-    <applicationIcons>no</applicationIcons>
+    <applicationIcons>yes</applicationIcons>
     <manageDesktops>yes</manageDesktops>
   </menu>
   <applications>
     <application name="oblogout">
       <position force="no">
         <monitor>1</monitor>
+        <decor>no</decor>
       </position>
       <fullscreen>yes</fullscreen>
     </application>
+    <application class="Firefox*">
+		<decor>no</decor>
+	</application>
+	<application class="Vivaldi*">
+		<decor>no</decor>
+	</application>
   </applications>
 </openbox_config>

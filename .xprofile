@@ -9,5 +9,5 @@ mpd &
 urxvtd &
 sxhkd -c ~/.config/sxhkd/common-keys &
 skippy-xd --start-daemon &
-variety &
+#variety &
 sleep 1; thunar --daemon &
