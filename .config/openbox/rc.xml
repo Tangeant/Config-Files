@@ -19,7 +19,7 @@
     <primaryMonitor>Mouse</primaryMonitor>
   </placement>
   <theme>
-    <name>Blabla</name>
+    <name>Joy</name>
     <titleLayout>SLIMC</titleLayout>
     <!-- available characters are NDSLIMC, each can occur at most once. N: window icon L: window label (AKA title). I: iconify M: maximize C: close S: shade (roll up/down) D: omnipresent (on all desktops). -->
     <keepBorder>yes</keepBorder>
@@ -416,7 +416,7 @@
     </keybind>
     <keybind key="C-Escape">
       <action name="Execute">
-        <command>lockscreen -- scrot</command>
+        <command>betterlockscreen -l</command>
       </action>
     </keybind>
     <keybind key="W-Escape">
@@ -861,10 +861,10 @@
       </position>
       <fullscreen>yes</fullscreen>
     </application>
-    <application class="Firefox*">
+    <application class="Firefox">
 		<decor>no</decor>
 	</application>
-	<application class="Vivaldi*">
+	<application class="Vivaldi-stable">
 		<decor>no</decor>
 	</application>
   </applications>

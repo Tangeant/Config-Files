@@ -46,7 +46,6 @@ xfsettingsd &
 
 #starting utility applications at boot time
 nm-applet &
-pamac-tray &
 xfce4-power-manager &
 numlockx on &
 blueberry-tray &
