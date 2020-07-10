@@ -98,9 +98,9 @@ super + p ; {1,2,3,4,5,6,7,8,9,0,minus,equals}
     thunderbird, \
     geany, \
     kate, \
-    pamac-manager, \
+    packages, \
     Thunar, \
-    nitrogen, \
+    Telegram, \
     catfish, \
     xfce4-settings-manager \
     }

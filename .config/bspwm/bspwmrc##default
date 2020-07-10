@@ -41,7 +41,7 @@ _bc urgent_border_color "$color5"
 
 ###set desktop padding
 _bc top_padding 10
-_bc bottom_padding 45
+_bc bottom_padding 40
 _bc right_padding 10
 _bc left_padding 10
 
@@ -102,6 +102,8 @@ bspc rule -a yad state=floating
 bspc rule -a variety state=floating
 ###Pseudo-tiled applications
 bspc rule -a Termite state=pseudo_tiled rectangle=800x600+0+0
+bspc rule -a Alacritty state=pseudo_tiled rectangle=800x600+0+0
+bspc rule -a Kitty state=pseudo_tiled rectangle=800x600+0+0
 bspc rule -a Geany state=pseudo_tiled desktop=^6 follow=on
 bspc rule -a Thunar state=pseudo_tiled desktop=^4 follow=on
 bspc rule -a spotify state=pseudo_tiled desktop=^3=on
