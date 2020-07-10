@@ -29,6 +29,9 @@ killall tint2
 current="$(cat ~/.config/openbox/visual-mode/current)"
 bash ~/.config/openbox/visual-mode/$current/ui
 
+##Start conky
+sh $HOME/.config/conky/start-conky.sh
+
 #change your keyboard if you need it
 #setxkbmap -layout be
 
@@ -44,7 +47,6 @@ killall volumeicon &
 skippy-xd --start-daemon &
 #variety &
 nm-applet &
-pamac-tray &
 numlockx on &
 blueberry-tray &
 urxvtd &

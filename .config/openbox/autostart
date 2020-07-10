@@ -32,6 +32,9 @@ skippy-xd --start-daemon &
 ### sxhkd common keybindings
 sxhkd -c ~/.config/sxhkd/common-keys &
 
+###Start Conky
+bash $HOME/.config/conky/start-conky.sh
+
 ### Side shortcuts for file managers
 xdg-user-dirs-gtk-update &
 
