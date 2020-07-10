@@ -69,7 +69,7 @@ bspc monitor DP-2 -d 1 2 3 4 5
 bspc monitor HDMI-0 -d 6 7 8 9 0
 
 ###Set desktop layouts
-bspc desktop ^1 --layout monocle
+bspc desktop ^2 --layout monocle
 bspc desktop ^3 --layout monocle
 
 # remove all rules first
@@ -112,14 +112,14 @@ bspc rule -a skype state=pseudo_tiled
 bspc rule -a file-roller state=pseudo_tiled
 bspc rule -a transmission-gtk state=pseudo_tiled
 bspc rule -a wpa_gui state=pseudo_tiled
-bspc rule -a telegram-desktop state=pseudo_tiled rectangle=1200x1080+0+0
+bspc rule -a telegram-desktop state=pseudo_tiled rectangle=1200x1080+0+0 desktop=^5 follow=on
 bspc rule -a smplayer state=pseudo_tiled desktop=^3follow=on
 bspc rule -a vlc state=pseudo_tiled desktop=^3 follow=on
 ###Other Rules
 bspc rule -a google-chrome-stable private=on
 bspc rule -a chromium private=on
-bspc rule -a vivaldi-stable private=on desktop=^1 follow=on
-bspc rule -a firefox private=on desktop=^1 follow=on
+bspc rule -a vivaldi-stable private=on desktop=^2 follow=on
+bspc rule -a firefox private=on desktop=^2 follow=on
 bspc rule -a screenkey --unmanage
 bspc rule -a conky sticky=on manage=off lower=on
 bspc rule -a astime sticky=on
