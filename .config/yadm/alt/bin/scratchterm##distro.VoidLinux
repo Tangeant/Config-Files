@@ -1,8 +1,8 @@
 #! /usr/bin/bash
 
-if pgrep -x "kitty --class dropdown" > /dev/null
+if pgrep -x "alacritty --class dropdown" > /dev/null
 then
     scratchpad dropdown
 else
-     kitty --class dropdown "zsh -i"
+     alacritty --class dropdown -e "zsh -i"
 fi
