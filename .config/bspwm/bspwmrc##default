@@ -112,7 +112,7 @@ bspc rule -a skype state=pseudo_tiled
 bspc rule -a file-roller state=pseudo_tiled
 bspc rule -a transmission-gtk state=pseudo_tiled
 bspc rule -a wpa_gui state=pseudo_tiled
-bspc rule -a telegram state=pseudo_tiled
+bspc rule -a telegram-desktop state=pseudo_tiled rectangle=1200x1080+0+0
 bspc rule -a smplayer state=pseudo_tiled desktop=^3follow=on
 bspc rule -a vlc state=pseudo_tiled desktop=^3 follow=on
 ###Other Rules
