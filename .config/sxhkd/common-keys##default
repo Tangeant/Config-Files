@@ -100,7 +100,7 @@ super + p ; {1,2,3,4,5,6,7,8,9,0,minus,equals}
     kate, \
     packages, \
     Thunar, \
-    Telegram, \
+    telegram-desktop, \
     catfish, \
     xfce4-settings-manager \
     }
@@ -119,6 +119,7 @@ super + t ; {1,2,3,4,5,6,7,8,9,0}
 	termite -e "zsh -ic pacui", \
 	termite -e "zsh -ic ranger", \
 	termite -e "zsh -ic nnn", \
+	termite -e "zsh -ic telegram-cli", \
 	}
 
 #Launch root cli programs
