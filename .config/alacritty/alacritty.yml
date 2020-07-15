@@ -112,7 +112,7 @@ font:
   glyph_offset:
     x: 0
     y: 0
-    
+
 # Colors (Nord)
 colors:
    # Default colors
@@ -141,6 +141,35 @@ colors:
      magenta: '#B48EAD'
      cyan:    '#8FBCBB'
      white:   '#ECEFF4'
+
+# Colors (Fleon)
+colors:
+  # Default colors
+  primary:
+    background: '0x373e4d'
+    foreground: '0xedfefe'
+
+  # Normal colors
+  normal:
+    black:   '0x373e4d'
+    red:     '0xfa5aa4'
+    green:   '0x2be491'
+    yellow:  '0xfa946e'
+    blue:    '0x63c5ea'
+    magenta: '0xcf8ef4'
+    cyan:    '0x89ccf7'
+    white:   '0xedfefe'
+
+  # Bright colors
+  bright:
+    black:   '0x4c566a'
+    red:     '0xfa74b2'
+    green:   '0x44eb9f'
+    yellow:  '0xfaa687'
+    blue:    '0x7acbea'
+    magenta: '0xd8a6f4'
+    cyan:    '0xa1d5f7'
+    white:   '0xedfefe'
      
      # Visual Bell
 #

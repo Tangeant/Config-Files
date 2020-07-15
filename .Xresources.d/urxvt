@@ -6,6 +6,72 @@ URxvt.perl-ext-common: default,clipboard,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.match.button: 1
 
+! Scrollbar
+URxvt.saveLines: 10000
+URxvt.scrollBar: false
+URxvt.scrollBar_right: true
+URxvt.scrollColor: #59595B
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: plain
+URxvt.scrollTtyOutput: False
+URxvt.scrollWithBuffer: False
+URxvt.thickness: 14
+URxvt*cursorBlink:      true
+
+! Fonts
+! URxvt.font: xft:Monospace:size=12
+URxvt*font:        xft:Hack:size=12
+URxvt*letterSpace: -1
+URxvt*boldFont:    xft:Hack:bold:size=12
+!URxvt*font: xft:envypn:size=8,-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
+!URxvt*boldFont: xft:envypn:size=8,-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
+
+! Classic copy/paste by Shift-Ctrl-c|v
+URxvt.iso14755: False
+URxvt.keysym.Control-Shift-C: perl:clipboard:copy
+URxvt.keysym.Control-Shift-V: perl:clipboard:paste
+
+! Fade when inactive
+!URxvt*fading: 20
+
+! Xterm settings
+XTerm*termName: xterm-256color
+XTerm*selectToClipboard: true
+XTerm*locale: true
+XTerm*metaSendsEscape: true
+XTerm*saveLines: 4096
+XTerm*VT100.geometry: 80x22
+!XTerm*foreground: #F2F2F2
+!XTerm*background: #2B2B2C
+!XTerm*color10:    #8cbc65
+!XTerm*color12:    #0071ff
+XTerm*faceName: Monospace
+XTerm*faceSize: 11
+XTerm*scrollBar: true
+XTerm*rightScrollBar: true
+
+! UXTerm settings
+UXTerm*termName: xterm-256color
+UXTerm*locale: true
+UXTerm*metaSendsEscape: true
+UXTerm*saveLines: 4096
+UXTerm*VT100.geometry: 80x22
+UXTerm*foreground: #F2F2F2
+UXTerm*background: #2B2B2C
+UXTerm*color10:    #8cbc65
+UXTerm*color12:    #0071ff
+UXTerm*faceName: Monospace
+UXTerm*faceSize: 11
+UXTerm*scrollBar: true
+UXTerm*rightScrollBar: true
+
+!Colourful man pages
+URxvt.colorIT:      #87af5f
+URxvt.colorBD:      #d7d7d7
+URxvt.colorUL:      #87afd7
+
+! Colors -----------------------------------------------------------
+
 ! define some colourschemes
 
 ! Solarized color scheme for the X Window System
@@ -77,72 +143,6 @@ URxvt.match.button: 1
 #define Lucius_light_purple #af00af
 #define Lucius_light_cyan   #00afd7
 #define Lucius_white        #eeeeee
-
-! Scrollbar
-URxvt.saveLines: 10000
-URxvt.scrollBar: false
-URxvt.scrollBar_right: true
-URxvt.scrollColor: #59595B
-URxvt.scrollBar_floating: false
-URxvt.scrollstyle: plain
-URxvt.scrollTtyOutput: False
-URxvt.scrollWithBuffer: False
-URxvt.thickness: 14
-URxvt*cursorBlink:      true
-
-! Fonts
-! URxvt.font: xft:Monospace:size=12
-URxvt*font:        xft:Hack:size=12
-URxvt*letterSpace: -1
-URxvt*boldFont:    xft:Hack:bold:size=12
-!URxvt*font: xft:envypn:size=8,-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
-!URxvt*boldFont: xft:envypn:size=8,-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
-
-! Classic copy/paste by Shift-Ctrl-c|v
-URxvt.iso14755: False
-URxvt.keysym.Control-Shift-C: perl:clipboard:copy
-URxvt.keysym.Control-Shift-V: perl:clipboard:paste
-
-! Fade when inactive
-!URxvt*fading: 20
-
-! Xterm settings
-XTerm*termName: xterm-256color
-XTerm*selectToClipboard: true
-XTerm*locale: true
-XTerm*metaSendsEscape: true
-XTerm*saveLines: 4096
-XTerm*VT100.geometry: 80x22
-!XTerm*foreground: #F2F2F2
-!XTerm*background: #2B2B2C
-!XTerm*color10:    #8cbc65
-!XTerm*color12:    #0071ff
-XTerm*faceName: Monospace
-XTerm*faceSize: 11
-XTerm*scrollBar: true
-XTerm*rightScrollBar: true
-
-! UXTerm settings
-UXTerm*termName: xterm-256color
-UXTerm*locale: true
-UXTerm*metaSendsEscape: true
-UXTerm*saveLines: 4096
-UXTerm*VT100.geometry: 80x22
-UXTerm*foreground: #F2F2F2
-UXTerm*background: #2B2B2C
-UXTerm*color10:    #8cbc65
-UXTerm*color12:    #0071ff
-UXTerm*faceName: Monospace
-UXTerm*faceSize: 11
-UXTerm*scrollBar: true
-UXTerm*rightScrollBar: true
-
-!Colourful man pages
-URxvt.colorIT:      #87af5f
-URxvt.colorBD:      #d7d7d7
-URxvt.colorUL:      #87afd7
-
-! Colors -----------------------------------------------------------
 
 !URxvt Molokai
 !URxvt*background  : Molokai_black
@@ -278,25 +278,68 @@ URxvt.colorUL:      #87afd7
 #define nord14 #A3BE8C
 #define nord15 #B48EAD
 
-*.foreground:   nord4
-*.background:   nord0
-*.cursorColor:  nord4
-*fading: 35
-*fadeColor: nord3
+!*.foreground:   nord4
+!*.background:   nord0
+!*.cursorColor:  nord4
+!*fading: 35
+!*fadeColor: nord3
 
-*.color0: nord1
-*.color1: nord11
-*.color2: nord14
-*.color3: nord13
-*.color4: nord9
-*.color5: nord15
-*.color6: nord8
-*.color7: nord5
-*.color8: nord3
-*.color9: nord11
-*.color10: nord14
-*.color11: nord13
-*.color12: nord9
-*.color13: nord15
-*.color14: nord7
-*.color15: nord6
+!*.color0: nord1
+!*.color1: nord11
+!*.color2: nord14
+!*.color3: nord13
+!*.color4: nord9
+!*.color5: nord15
+!*.color6: nord8
+!*.color7: nord5
+!*.color8: nord3
+!*.color9: nord11
+!*.color10: nord14
+!*.color11: nord13
+!*.color12: nord9
+!*.color13: nord15
+!*.color14: nord7
+!*.color15: nord6
+
+! Fleon by owl4ce
+#define pallete0                  #373E4D
+#define pallete1                  #3B4252
+#define pallete2                  #434C5E
+#define pallete3                  #4C566A
+#define pallete4                  #FA5AA4
+#define pallete5                  #FA74B2
+#define pallete6                  #2BE491
+#define pallete7                  #44EB9F
+#define pallete8                  #FA946E
+#define pallete9                  #FAA687
+#define pallete10                 #63C5EA
+#define pallete11                 #7ACBEA
+#define pallete12                 #CF8EF4
+#define pallete13                 #D8A6F4
+#define pallete14                 #89CCF7
+#define pallete15                 #A1D5F7
+#define pallete16                 #EDFEFE
+
+*.foreground:                     pallete16
+*.background:                     pallete0
+*.cursorColor:                    pallete16
+!*fading:                          35
+!*fadeColor:                       pallete2
+
+*.color0:                         pallete0
+*.color1:                         pallete4
+*.color2:                         pallete6
+*.color3:                         pallete8
+*.color4:                         pallete10
+*.color5:                         pallete12
+*.color6:                         pallete14
+*.color7:                         pallete16
+
+*.color8:                         pallete3
+*.color9:                         pallete5
+*.color10:                        pallete7
+*.color11:                        pallete9
+*.color12:                        pallete11
+*.color13:                        pallete13
+*.color14:                        pallete15
+*.color15:                        pallete16

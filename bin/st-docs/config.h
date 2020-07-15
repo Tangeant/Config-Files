@@ -87,7 +87,7 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 /*static const char *colorname[] = { */
-#include "~/.cache/wal/colors-wal-st.h"
+/* #include "~/.cache/wal/colors-wal-st.h" */
   /* 8 normal colors */
   /*[0] = "#2e3440", /* black   */
   /*[1] = "#88c0d0", /* red     */
@@ -112,6 +112,50 @@ unsigned int tabspaces = 8;
   /*[256] = "#2e3440", /* background */
   /*[257] = "#e5e9f0", /* foreground */
 /*};
+
+/* Terminal colors - Fleon (16 first used in escape sequence) */
+static const char *colorname[] = {
+
+  /* 8 normal colors */
+  [0] = "#373e4d", /* black   */
+  [1] = "#fa5aa4", /* red     */
+  [2] = "#2be491", /* green   */
+  [3] = "#fa946e", /* yellow  */
+  [4] = "#63c5ea", /* blue    */
+  [5] = "#cf8ef4", /* magenta */
+  [6] = "#89ccf7", /* cyan    */
+  [7] = "#edfefe", /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#4c566a", /* black   */
+  [9]  = "#fa74b2", /* red     */
+  [10] = "#44eb9f", /* green   */
+  [11] = "#faa687", /* yellow  */
+  [12] = "#7acbea", /* blue    */
+  [13] = "#d8a6f4", /* magenta */
+  [14] = "#a1d5f7", /* cyan    */
+  [15] = "#edfefe", /* white   */
+
+  /* special colors */
+  [256] = "#373e4d", /* background */
+  [257] = "#edfefe", /* foreground */
+};
+
+/*
+ * Default colors (colorname index)
+ * foreground, background, cursor
+ */
+static unsigned int defaultfg = 257;
+static unsigned int defaultbg = 256;
+static unsigned int defaultcs = 257;
+
+/*
+ * Colors used, when the specific fg == defaultfg. So in reverse mode this
+ * will reverse too. Another logic would only make the simple feature too
+ * complex.
+ */
+static unsigned int defaultitalic = 7;
+static unsigned int defaultunderline = 7;
 
 /*
  * Default colors (colorname index)

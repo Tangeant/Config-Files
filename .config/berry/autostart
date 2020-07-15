@@ -30,6 +30,9 @@ bash ~/.config/openbox/visual-mode/$current/ui
 sxhkd -c $HOME/.config/sxhkd/common-keys &
 sxhkd -c $HOME/.config/sxhkd/sxhkdrc-berry &
 
+##Start conky
+sh $HOME/.config/conky/start-conky.sh
+
 # Set decoration geometry
 berryc border_width       2
 berryc inner_border_width 2
@@ -37,12 +40,12 @@ berryc title_height       15
 berryc edge_gap 10 55 10 10
 
 # Set decoration colors
-berryc focus_color      FA74B2
+berryc focus_color      FA5AA4
 berryc unfocus_color       373E4D
-berryc inner_focus_color   edfefe
-berryc inner_unfocus_color A0C0F6
-berryc text_focus_color   9EC2F6
-berryc text_unfocus_color  c7d7f2
+berryc inner_focus_color   63c5ea
+berryc inner_unfocus_color 4c566a
+berryc text_focus_color   edfefe
+berryc text_unfocus_color  89ccf7
 
 # Other options
 berryc smart_place "true"
@@ -52,14 +55,14 @@ berryc set_font    "Iosevka-12"
 
 ###Start daemons and programs
 skippy-xd --start-daemon &
-variety &
+#variety &
 nm-applet &
-pamac-tray &
 xfce4-power-manager &
 numlockx on &
 blueberry-tray &
 clipit &
 volumeicon &
+urxvtd &
 picom -b
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #/usr/lib/xfce4/notifyd/xfce4-notifyd &

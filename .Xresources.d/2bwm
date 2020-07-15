@@ -1,10 +1,10 @@
 !!Define the color variables
-#define color0 #2E3440
+#define color0 #373E4D
 #define color1 #3B4252
 #define color3 #4C566A
-#define color4 #D8DEE9
-#define color5 #E5E9F0
-#define color8 #88C0D0
+#define color4 #FA5AA4
+#define color5 #FA74B2
+#define color8 #FA946E
 
 !!Define the 2bwm config variables
 #define myborder_width 5
