@@ -20,7 +20,7 @@ file.close()
 
 # TEMPERATURES
 # SET YOUR TEMPERATURE ZONE TO YOUR WITH THIS COMMAND
-# 
+#
 # for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 file = open('/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input','r')
 tmp = file.readline()

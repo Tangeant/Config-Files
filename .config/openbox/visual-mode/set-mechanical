@@ -8,14 +8,14 @@ if [[ $current != *"mechanical"* ]]; then
 
     # Kill Current
     bash -c '~/.config/openbox/visual-mode/kill-ui'
-    
+
     # Set UI & Theme
     bash -c '~/.config/openbox/visual-mode/mechanical/theme'
     bash -c '~/.config/openbox/visual-mode/mechanical/ui'
-    
+
     # Tray
     bash -c '~/.config/openbox/tray'
-    
+
     # Write Current
     echo "mechanical" > ~/.config/openbox/visual-mode/current
 
@@ -26,5 +26,5 @@ else
 
     # Notify Fail
     notify-send -u low -i lookswitcher "Visual Mode" "You're Already in Mechanical Theme"
-    
+
 fi

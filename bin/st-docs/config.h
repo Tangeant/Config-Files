@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* See LICENSE file for copyright and license details. */
 
 /*
@@ -996,4 +995,3 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
->>>>>>> parent of e1fa8e8... Changed colour theme to fleon for all terminals and wms
