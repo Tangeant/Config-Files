@@ -77,12 +77,12 @@ bspc rule -r *:*
 
 ###Floating applications
 bspc rule -a arandr state=floating
-bspc rule -a feh state=floating desktop=^Graphics follow=on
-bspc rule -a mpv state=floating desktop=^Media follow=on
+bspc rule -a feh state=floating desktop=Graphics follow=on
+bspc rule -a mpv state=floating desktop=Media follow=on
 #bspc rule -a Font-manager state=floating
 bspc rule -a Galculator state=floating
 #bspc rule -a Gpick state=floating sticky=on
-bspc rule -a Nitrogen state=floating desktop=^Graphics follow=on
+bspc rule -a Nitrogen state=floating desktop=Graphics follow=on
 bspc rule -a Oblogout state=floating center=true
 bspc rule -a Pavucontrol state=floating sticky=on center=true
 bspc rule -a Peek state=floating
@@ -95,8 +95,8 @@ bspc rule -a lxappearance state=floating center=true
 bspc rule -a gmrun state=floating center=true
 bspc rule -a lxterminal state=floating center=true sticky=true
 #bspc rule -a urxvt state=floating center=true
-bspc rule -a viewnior state=floating center=true desktop=^Graphics follow=on
-bspc rule -a file-roller state=floating center=true desktop=^Files follow=on
+bspc rule -a viewnior state=floating center=true desktop=Graphics follow=on
+bspc rule -a file-roller state=floating center=true desktop=Files follow=on
 bspc rule -a floaterm state=floating center=true
 bspc rule -a yad state=floating
 bspc rule -a variety state=floating
@@ -104,23 +104,23 @@ bspc rule -a variety state=floating
 bspc rule -a Termite state=pseudo_tiled rectangle=800x600+0+0
 bspc rule -a Alacritty state=pseudo_tiled rectangle=800x600+0+0
 bspc rule -a Kitty state=pseudo_tiled rectangle=800x600+0+0
-bspc rule -a Geany state=pseudo_tiled desktop=^Devel follow=on
-bspc rule -a Thunar state=pseudo_tiled desktop=^Files follow=on
-bspc rule -a spotify state=pseudo_tiled desktop=^Media=on follow=on
+bspc rule -a Geany state=pseudo_tiled desktop=Devel follow=on
+bspc rule -a Thunar state=pseudo_tiled desktop=Files follow=on
+bspc rule -a spotify state=pseudo_tiled desktop=Media=on follow=on
 bspc rule -a nautilus state=pseudo_tiled
 bspc rule -a skype state=pseudo_tiled
 bspc rule -a file-roller state=pseudo_tiled
 bspc rule -a transmission-gtk state=pseudo_tiled
 bspc rule -a wpa_gui state=pseudo_tiled
 bspc rule -a telegram-desktop state=pseudo_tiled rectangle=1200x1080+0+0 desktop=^Chat follow=on
-bspc rule -a smplayer state=pseudo_tiled desktop=^Media follow=on
-bspc rule -a vlc state=pseudo_tiled desktop=^Media follow=on
-bspc rule -a GIMP state=pseudo_tiled desktop=^Graphics follow=on
+bspc rule -a smplayer state=pseudo_tiled desktop=Media follow=on
+bspc rule -a vlc state=pseudo_tiled desktop=Media follow=on
+bspc rule -a GIMP state=pseudo_tiled desktop=Graphics follow=on
 ###Other Rules
 bspc rule -a google-chrome-stable private=on
 bspc rule -a chromium private=on
-bspc rule -a vivaldi-stable private=on desktop=^Web follow=on
-bspc rule -a firefox private=on desktop=^Web follow=on
+bspc rule -a vivaldi-stable private=on desktop=Web follow=on
+bspc rule -a firefox private=on desktop=Web follow=on
 bspc rule -a screenkey --unmanage
 bspc rule -a conky sticky=on manage=off lower=on
 bspc rule -a astime sticky=on
@@ -136,10 +136,10 @@ bspc rule -a xmobar border=off manage=off layer=above
 bspc rule -a dzen2 border=off manage=off layer=above
 
 ###Scratchpad
-bspc rule -a dropdown sticky=on state=floating center=on hidden=on rectangle=800x500+0+0
-if pgrep -x "termite --class dropdown -e zsh -i" > /dev/null
+bspc rule -a dropdown monitor=DP-2 sticky=on state=floating center=on hidden=on rectangle=800x500+0+0
+if pgrep -af dropdown > /dev/null
 then
-	pkill -x "termite --class dropdown -e zsh -i" && termite --class dropdown -e "zsh -i" &
+	pkill -f dropdown && termite --class dropdown -e "zsh -i" &
 else
 	termite --class dropdown -e "zsh -i" &
 fi

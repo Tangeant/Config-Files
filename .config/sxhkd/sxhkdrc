@@ -198,7 +198,7 @@ super c : shift + {h,j,k,l}
 #scratchpad
 #
 super + grave
-    scratchpad dropdown
+    scratchterm
 
 #edit this file
 alt + ctrl + space

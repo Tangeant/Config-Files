@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-if pgrep -x "termite --class dropdown" > /dev/null
+if pgrep -af dropdown > /dev/null
 then
     scratchpad dropdown
 else
