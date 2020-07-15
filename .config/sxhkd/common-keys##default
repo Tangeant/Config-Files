@@ -92,12 +92,12 @@ ctrl + alt + Return ; {1,2,3,4}
 # with a 'p'' (mnemonic for programs).
 super + p ; {1,2,3,4,5,6,7,8,9,0,minus,equals}
     {vivaldi-stable, \
-    qutebrowser, \
+    firefox -no-remote -p "Roll20", \
     firefox -no-remote -p "default-release", \
     tabbed -cdn tabbed-surf -r 2 surf -e '' "$HOME/.mozilla/firefox/t5nskw8w.default/startpage/index.html", \
-    thunderbird, \
+    qutebrowser, \
     geany, \
-    kate, \
+    thunderbird, \
     packages, \
     Thunar, \
     telegram-desktop, \
@@ -110,7 +110,7 @@ super + p ; {1,2,3,4,5,6,7,8,9,0,minus,equals}
 #########################
 # Launch all cli programs
 super + t ; {1,2,3,4,5,6,7,8,9,0}
-    { termite -e "zsh -ic htop", \
+    {termite -e "zsh -ic htop", \
 	termite -e "zsh -ic bmenu", \
 	termite -e "zsh -ic weechat", \
 	termite -e "zsh -ic neomutt", \
