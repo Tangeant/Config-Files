@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Allows to change the settings of every menu simply by editing this file
  */
@@ -8,3 +9,16 @@
   width: 100%;
   height: 100%;
 }
+=======
+/**
+ * Allows to change the settings of every menu simply by editing this file
+ */
+@import "colorschemes/fullscreen.rasi"
+@import "resolutions/1366x768.rasi"
+
+#window {
+  width: 100%;
+  height: 100%;
+}
+
+>>>>>>> parent of e1fa8e8... Changed colour theme to fleon for all terminals and wms

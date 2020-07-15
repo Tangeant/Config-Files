@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 !!Define the color variables
 #define color0 #373E4D
 #define color1 #3B4252
@@ -28,3 +29,35 @@ twobwm.outer_border_color: myouter_border_color
 twobwm.fixed_unkill_color: myfixed_kill_color
 twobwm.inverted_colors: myinverted_colors false
 twobwm.enable_compton: mycompton
+=======
+!!Define the color variables
+#define color0 #2E3440
+#define color1 #3B4252
+#define color3 #4C566A
+#define color4 #D8DEE9
+#define color5 #E5E9F0
+#define color8 #88C0D0
+
+!!Define the 2bwm config variables
+#define myborder_width 5
+#define myouter_border 3
+#define myfocus_color color4
+#define myunfocus_color color0
+#define myfixed_color color3
+#define myunkill_color color1
+#define myouter_border_color color8
+#define myfixed_kill_color color5
+#define myinverted_colors false
+#define mycompton true
+
+twobwm.border_width: myborder_width
+twobwm.outer_border: myouter_border
+twobwm.focus_color:  myfocus_color
+twobwm.unfocus_color: myunfocus_color
+twobwm.fixed_color: myfixed_color
+twobwm.unkill_color: myunkill_color
+twobwm.outer_border_color: myouter_border_color
+twobwm.fixed_unkill_color: myfixed_kill_color
+twobwm.inverted_colors: myinverted_colors false
+twobwm.enable_compton: mycompton
+>>>>>>> parent of e1fa8e8... Changed colour theme to fleon for all terminals and wms

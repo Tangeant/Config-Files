@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 #!/bin/sh
 
 # Import the colors
 source "$HOME/.cache/wal/colors.sh"
 
 dmenu_path | dmenu  -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -fn 'Iosevka:bold:pixelsize=16' "$@" | ${SHELL:-"/bin/sh"} &
+=======
+#!/bin/sh
+
+# Import the colors
+source "$HOME/.cache/wal/colors.sh"
+
+dmenu_path | dmenu  -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" -fn 'NotoMonoRegular:bold:pixelsize=16' "$@" | ${SHELL:-"/bin/sh"} &
+>>>>>>> parent of e1fa8e8... Changed colour theme to fleon for all terminals and wms
