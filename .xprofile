@@ -4,6 +4,8 @@
 
 setxkbmap -option "caps:swapescape" &
 
+bash ~/bin/g810-wal.sh &
+
 calcurse --daemon &
 mpd &
 urxvtd &

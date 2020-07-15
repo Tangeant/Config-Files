@@ -98,7 +98,7 @@ font:
     style: Italic
 
 # Point size
-  size: 11.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -114,64 +114,94 @@ font:
     y: 0
 
 # Colors (Nord)
-colors:
+#colors:
    # Default colors
-   primary:
-     background: '#2E3440'
-     foreground: '#D8DEE9'
+#   primary:
+#     background: '#2E3440'
+#     foreground: '#D8DEE9'
 
    # Normal colors
-   normal:
-     black:   '#3B4252'
-     red:     '#BF616A'
-     green:   '#A3BE8C'
-     yellow:  '#EBCB8B'
-     blue:    '#81A1C1'
-     magenta: '#B48EAD'
-     cyan:    '#88C0D0'
-     white:   '#E5E9F0'
+#   normal:
+#     black:   '#3B4252'
+#     red:     '#BF616A'
+#     green:   '#A3BE8C'
+#     yellow:  '#EBCB8B'
+#     blue:    '#81A1C1'
+#     magenta: '#B48EAD'
+#     cyan:    '#88C0D0'
+#     white:   '#E5E9F0'
 
    # Bright colors
-   bright:
-     black:   '#4C566A'
-     red:     '#BF616A'
-     green:   '#A3BE8C'
-     yellow:  '#EBCB8B'
-     blue:    '#81A1C1'
-     magenta: '#B48EAD'
-     cyan:    '#8FBCBB'
-     white:   '#ECEFF4'
+#   bright:
+#     black:   '#4C566A'
+#     red:     '#BF616A'
+#     green:   '#A3BE8C'
+#     yellow:  '#EBCB8B'
+#     blue:    '#81A1C1'
+#     magenta: '#B48EAD'
+#     cyan:    '#8FBCBB'
+#     white:   '#ECEFF4'
 
 # Colors (Fleon)
+#colors:
+  # Default colors
+#  primary:
+#    background: '0x373e4d'
+#    foreground: '0xedfefe'
+#
+  # Normal colors
+#  normal:
+#    black:   '0x373e4d'
+#    red:     '0xfa5aa4'
+#    green:   '0x2be491'
+#    yellow:  '0xfa946e'
+#    blue:    '0x63c5ea'
+#    magenta: '0xcf8ef4'
+#    cyan:    '0x89ccf7'
+#    white:   '0xedfefe'
+
+  # Bright colors
+#  bright:
+#    black:   '0x4c566a'
+#    red:     '0xfa74b2'
+#    green:   '0x44eb9f'
+#    yellow:  '0xfaa687'
+#    blue:    '0x7acbea'
+#    magenta: '0xd8a6f4'
+#    cyan:    '0xa1d5f7'
+#    white:   '0xedfefe'
+
+##Qualia
 colors:
   # Default colors
   primary:
-    background: '0x373e4d'
-    foreground: '0xedfefe'
+    background: '0x101010'
+    foreground: '0xc0c0c0'
 
   # Normal colors
   normal:
-    black:   '0x373e4d'
-    red:     '0xfa5aa4'
-    green:   '0x2be491'
-    yellow:  '0xfa946e'
-    blue:    '0x63c5ea'
-    magenta: '0xcf8ef4'
-    cyan:    '0x89ccf7'
-    white:   '0xedfefe'
+    black:   '0x101010'
+    red:     '0xefa6a2'
+    green:   '0x80c990'
+    yellow:  '0xa69460'
+    blue:    '0xa3b8ef'
+    magenta: '0xe6a3dc'
+    cyan:    '0x50cacd'
+    white:   '0x808080'
 
   # Bright colors
   bright:
-    black:   '0x4c566a'
-    red:     '0xfa74b2'
-    green:   '0x44eb9f'
-    yellow:  '0xfaa687'
-    blue:    '0x7acbea'
-    magenta: '0xd8a6f4'
-    cyan:    '0xa1d5f7'
-    white:   '0xedfefe'
+    black:   '0x454545'
+    red:     '0xe0af85'
+    green:   '0x5accaf'
+    yellow:  '0xc8c874'
+    blue:    '0xccaced'
+    magenta: '0xf2a1c2'
+    cyan:    '0x74c3e4'
+    white:   '0xc0c0c0'
 
-     # Visual Bell
+
+# Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
 # rung, the terminal background will be set to white and transition back to the

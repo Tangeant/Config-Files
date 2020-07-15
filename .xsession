@@ -10,3 +10,5 @@ calcurse --daemon &
 #onedrive --monitor --confdir "~/.config/onedrivePersonal" &
 mpd &
 urxvtd &
+
+bash ~/bin/g810-wal.sh &

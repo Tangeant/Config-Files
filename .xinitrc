@@ -17,12 +17,12 @@ fi
 
 export MICRO_TRUECOLOR=1
 
-onedrive --monitor --confdir="~/.config/onedrivePersonal" &
-
 calcurse --daemon &
 urxvtd &
 
 sxhkd -c ~/.config/sxhkd/common-keys &
+
+bash ~/bin/g810-wal.sh &
 
 # Window Managers
 session=${1:-2bwm}

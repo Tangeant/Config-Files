@@ -4,7 +4,12 @@
 source $HOME/bin/nord-terminal.sh #load Nord color theme for TTYs
 source $HOME/bin/aliases  #load aliases
 #source /usr/share/z/z.sh #load z
-#source "$HOME/.cache/wal/colors.sh"
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+(cat ~/.cache/wal/sequences &)
+
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source <(antibody init)

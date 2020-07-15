@@ -29,13 +29,13 @@ Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 "Color scheme Nord
-let g:nord_italic = 1
-let g:nord_underline = 1
-let g:nord_italic_comments = 1
-colorscheme nord
+"let g:nord_italic = 1
+"let g:nord_underline = 1
+"let g:nord_italic_comments = 1
+"colorscheme nord
 
 " Use wal colourcheme
-"colorscheme wal
+colorscheme wal
 
 "Remap escape to jk
 inoremap jk <ESC>
