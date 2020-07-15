@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 79b774e... added themes folder
 #!/bin/sh
 
 source ~/.cache/wal/colors.sh
@@ -324,6 +320,3 @@ then
 else
 	termite --class dropdown -e "zsh -i" &
 fi
->>>>>>> 79b774e2df426c70a34bdbefd29edd00869e8236
-=======
->>>>>>> parent of 79b774e... added themes folder

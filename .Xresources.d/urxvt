@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ! Custom part
 ! -----------
 
@@ -647,4 +646,3 @@ URxvt.colorUL:      #87afd7
 *.color13: nord15
 *.color14: nord7
 *.color15: nord6
->>>>>>> parent of e1fa8e8... Changed colour theme to fleon for all terminals and wms
