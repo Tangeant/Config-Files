@@ -65,24 +65,25 @@ _check bspwm_external_rules && _bc external_rules_command "$(command -v bspwm_ex
 
 ###set workspaces per monitor
 bspc wm -O DP-2 HDMI-0
-bspc monitor DP-2 -d Home Web Media Files Chat
-bspc monitor HDMI-0 -d Development 7 8 9 0
+bspc monitor DP-2 -d Home Web Media Files Chat Office Graphics
+bspc monitor HDMI-0 -d Development 1 2 3 4 5 6
 
 ###Set desktop layouts
 bspc desktop ^Web --layout monocle
 bspc desktop ^Media --layout monocle
+bspc desktop ^Graphics --layout monocle
 
 # remove all rules first
 bspc rule -r *:*
 
 ###Floating applications
 bspc rule -a arandr state=floating
-bspc rule -a feh state=floating
+bspc rule -a feh state=floating desktop=^Graphics follow=on
 bspc rule -a mpv state=floating desktop=^Media follow=on
 #bspc rule -a Font-manager state=floating
 bspc rule -a Galculator state=floating
 #bspc rule -a Gpick state=floating sticky=on
-bspc rule -a Nitrogen state=floating
+bspc rule -a Nitrogen state=floating desktop=^Graphics follow=on
 bspc rule -a Oblogout state=floating center=true
 bspc rule -a Pavucontrol state=floating sticky=on center=true
 bspc rule -a Peek state=floating
@@ -93,10 +94,10 @@ bspc rule -a Xfce4-appfinder state=floating sticky=on
 bspc rule -a gcolor2 state=floating center=true
 bspc rule -a lxappearance state=floating center=true
 bspc rule -a gmrun state=floating center=true
-bspc rule -a lxterminal state=floating center=true sticky=true
+#bspc rule -a lxterminal state=floating center=true sticky=true
 #bspc rule -a urxvt state=floating center=true
-bspc rule -a viewnior state=floating center=true
-bspc rule -a file-roller state=floating center=true
+bspc rule -a viewnior state=floating center=true desktop=^Graphics follow=on
+bspc rule -a file-roller state=floating center=true desktop=^Files follow=on
 bspc rule -a floaterm state=floating center=true
 bspc rule -a yad state=floating
 bspc rule -a variety state=floating
@@ -106,7 +107,7 @@ bspc rule -a Alacritty state=pseudo_tiled rectangle=800x600+0+0
 bspc rule -a Kitty state=pseudo_tiled rectangle=800x600+0+0
 bspc rule -a Geany state=pseudo_tiled desktop=^Development follow=on
 bspc rule -a Thunar state=pseudo_tiled desktop=^Files follow=on
-bspc rule -a spotify state=pseudo_tiled desktop=^Media=on
+bspc rule -a spotify state=pseudo_tiled desktop=^Media follow=on
 bspc rule -a nautilus state=pseudo_tiled
 bspc rule -a skype state=pseudo_tiled
 bspc rule -a file-roller state=pseudo_tiled
@@ -115,6 +116,7 @@ bspc rule -a wpa_gui state=pseudo_tiled
 bspc rule -a telegram-desktop state=pseudo_tiled rectangle=1200x1080+0+0 desktop=^Chat follow=on
 bspc rule -a smplayer state=pseudo_tiled desktop=^Media follow=on
 bspc rule -a vlc state=pseudo_tiled desktop=^Media follow=on
+bspc rule -a GIMP state=pseudo_tiled desktop=^Graphics follow=on
 ###Other Rules
 bspc rule -a google-chrome-stable private=on
 bspc rule -a chromium private=on
