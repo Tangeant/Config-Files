@@ -29,7 +29,7 @@ case $chosen in
         systemctl suspend
         ;;
     $logout)
-        ~/bin/rofi-scripts/promptmenu.sh --yes-command "openbox --exit | i3-msg exit" --query "Logout?"
+        ~/bin/rofi-scripts/promptmenu.sh --yes-command "openbox --exit | pkill -u $USER" --query "Logout?"
         ;;
 esac
 
