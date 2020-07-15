@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # The script base is taken from http://openbox.org/wiki/Openbox:Pipemenus
- 
+
 # This is in the public domain.  Honestly, how can you claim anything to something
 # this simple?
 #
@@ -17,7 +17,7 @@
 function calRow() {
     cal | gawk -v row=$1 '{ if (NR==row) { print $0 } }'
 }
- 
+
 # WRITING TO PIPEMENU
 cat << EOFMENU
 <openbox_pipe_menu>
