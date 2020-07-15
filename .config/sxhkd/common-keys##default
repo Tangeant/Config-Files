@@ -134,10 +134,10 @@ super + shift + {d,p}
 	 {dmenu-wal,rofi-run.sh}
 
 {_,super +, shift +} Menu
-    {$HOME/bin/rofi-scripts/rofi-run.sh, \
-    $HOME/bin/dmenu-wal, \
-   $HOME/bin/rofi-scripts/windows, \
-   }
+    {$HOME/bin/rofi-scripts/appsmenu.sh, \
+    dmenu-wal, \
+	$HOME/bin/rofi-scripts/windows, \
+	}
 
 #Gmrun, xfce app finder
 alt + {F2,F3}

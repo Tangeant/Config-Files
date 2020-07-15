@@ -15,13 +15,13 @@ options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 2)"
 case $chosen in
     $shutdown)
-        ~/bin/rofi-scripts/promptmenu.sh --yes-command "poweroff" --query "Are you sure want to Poweroff?"
+        ~/.config/rofi/scripts/promptmenu.sh --yes-command "poweroff" --query "Are you sure want to Poweroff?"
         ;;
     $reboot)
-        ~/bin/rofi-scripts/promptmenu.sh --yes-command "reboot" --query "Are you sure want to Reboot?"
+        ~/.config/rofi/scripts/promptmenu.sh --yes-command "reboot" --query "Are you sure want to Reboot?"
         ;;
     $lock)
-        betterlockscreen -l blur
+        slimlock
         ;;
     $suspend)
         mpc -q pause
@@ -29,6 +29,7 @@ case $chosen in
         systemctl suspend
         ;;
     $logout)
-        ~/bin/rofi-scripts/promptmenu.sh --yes-command "openbox --exit | pkill -u $USER" --query "Logout?"
+        ~/.config/rofi/scripts/promptmenu.sh --yes-command "openbox --exit | i3-msg exit" --query "Logout?"
         ;;
 esac
+

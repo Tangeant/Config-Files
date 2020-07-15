@@ -177,7 +177,7 @@ def get_xml():
             # Add a position menu, but fill in later
             position = etree.SubElement(node, 'menu', id='%s-position' % output,
                     type='position', label='position')
-            
+
             etree.SubElement(node, 'separator')
 
 
