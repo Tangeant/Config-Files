@@ -26,18 +26,20 @@ alt + F1
 # d == pavucontrol
 # c == toggle picom
 # e == skippy
+# k == reload sxhkd
 # p == polybar toggle
 # r == rofi theme selector
-# s == reload sxhkd
+# s == xfsettings
 # x == reload Xresources
 #
-super + e ; {d,c,e,p,r,s,w,x}
+super + e ; {d,c,e,k,p,r,s,w,x}
 	{pavucontrol, \
 	"$HOME/bin/toggle-comp.sh", \
-	skippy-xd-toggle, \
+	skippy-xd --toggle-window-picker, \
+	pkill -USR1 sxhkd && notify-send -i "keyboard" "Reloaded key bindings", \
 	polybar-msg cmd toggle, \
 	rofi-theme-selector, \
-	pkill -USR1 sxhkd && notify-send -i "keyboard" "Reloaded key bindings", \
+	xfce4-settings-manager, \
 	xrdb -I "$HOME" - merge "$HOME"/.Xresources \
 	}
 
@@ -102,7 +104,6 @@ super + p ; {1,2,3,4,5,6,7,8,9,0,minus,equals}
     Thunar, \
     telegram-desktop, \
     catfish, \
-    xfce4-settings-manager \
     }
 
 #########################

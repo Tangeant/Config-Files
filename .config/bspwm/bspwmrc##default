@@ -136,7 +136,7 @@ bspc rule -a xmobar border=off manage=off layer=above
 bspc rule -a dzen2 border=off manage=off layer=above
 
 ###Scratchpad
-bspc rule -a dropdown monitor=DP-2 sticky=on state=floating center=on hidden=on rectangle=800x500+0+0
+bspc rule -a dropdown monitor=primary sticky=on state=floating center=on hidden=on rectangle=800x500+0+0
 if pgrep -af dropdown > /dev/null
 then
 	pkill -f dropdown && termite --class dropdown -e "zsh -i" &
