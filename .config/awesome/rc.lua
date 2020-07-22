@@ -79,7 +79,7 @@ user = {
     terminal = "kitty -1",
     floating_terminal = "kitty -1",
     browser = "firefox -no-remote -p "default-release"",
-    file_manager = "kitty -1 --class files -e ranger",
+    file_manager = "Thunar",
     editor = "kitty -1 --class editor -e nvim",
     email_client = "kitty -1 --class email -e neomutt",
     music_client = "kitty -o font_size=12 --class music -e ncmpcpp",

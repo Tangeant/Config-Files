@@ -217,7 +217,7 @@ keys.globalkeys = gears.table.join(
         end,
         {description = "jump to urgent client", group = "client"}),
 
-    awful.key({ superkey,           }, "grave",
+    awful.key({ altkey,           }, "grave",
         function ()
             awful.tag.history.restore()
         end,
@@ -294,10 +294,10 @@ keys.globalkeys = gears.table.join(
         {description = "decrease the number of columns", group = "layout"}),
 
 
-    --awful.key({ superkey,           }, "space", function () awful.layout.inc( 1)                end,
-    --{description = "select next", group = "layout"}),
-    --awful.key({ superkey, shiftkey   }, "space", function () awful.layout.inc(-1)                end,
-    --{description = "select previous", group = "layout"}),
+    awful.key({ superkey,           }, "space", function () awful.layout.inc( 1)                end,
+		{description = "select next", group = "layout"}),
+    awful.key({ superkey, shiftkey   }, "space", function () awful.layout.inc(-1)                end,
+		{description = "select previous", group = "layout"}),
 
     awful.key({ superkey, shiftkey }, "i",
         function ()
@@ -536,7 +536,7 @@ keys.globalkeys = gears.table.join(
     -- Markdown input scratchpad (I for input)
     -- For quickly typing markdown comments and pasting them in
     -- the browser
-    awful.key({ superkey }, "i", apps.markdown_input,
+    awful.key({ superkey }, "n", apps.markdown_input,
         {description = "markdown scratchpad", group = "launcher"}),
     -- Editor
     awful.key({ superkey }, "e", apps.editor,
@@ -672,7 +672,7 @@ keys.clientkeys = gears.table.join(
         {description = "normal mode", group = "client"}),
 
     -- Close client
-    awful.key({ superkey, shiftkey   }, "q",      function (c) c:kill() end,
+    awful.key({ superkey }, "x",      function (c) c:kill() end,
         {description = "close", group = "client"}),
     awful.key({ altkey }, "F4",      function (c) c:kill() end,
         {description = "close", group = "client"}),
@@ -712,7 +712,7 @@ keys.clientkeys = gears.table.join(
         {description = "toggle sticky", group = "client"}),
 
     -- Minimize
-    awful.key({ superkey,           }, "n",
+    awful.key({ superkey,           }, "i",
         function (c)
             c.minimized = true
         end,

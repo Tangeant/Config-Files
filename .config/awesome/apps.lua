@@ -122,9 +122,9 @@ apps.markdown_input = function ()
         nil)
 end
 
--- Scratchpad terminal with tmux (see bin/scratchpad)
+-- Scratchpad terminal with tmux (see bin/scratchpad-awesome)
 apps.scratchpad = function()
-    helpers.scratchpad({instance = "scratchpad"}, "scratchpad", nil)
+    helpers.scratchpad({instance = "scratchpad"}, "scratchpad-awesome", nil)
 end
 
 -- Screenshots
