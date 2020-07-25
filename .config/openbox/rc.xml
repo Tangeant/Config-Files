@@ -80,16 +80,17 @@
     </font>
   </theme>
   <desktops>
-    <number>7</number>
+    <number>8</number>
     <firstdesk>1</firstdesk>
     <names>
-      <name>Home</name>
-      <name>Web</name>
-      <name>Files</name>
-      <name>Pictures</name>
-      <name>Documents</name>
-      <name>Develop</name>
-      <name>Terminal</name>
+      <name>  </name>
+      <name>  </name>
+      <name>  </name>
+      <name>  </name>
+      <name>  </name>
+      <name>  </name>
+      <name>  </name>
+      <name>  </name>
     </names>
     <popupTime>800</popupTime>
   </desktops>
