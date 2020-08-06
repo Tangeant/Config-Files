@@ -27,18 +27,20 @@ alt + F1
 # d == pavucontrol
 # c == toggle picom
 # e == skippy
+# k == reload sxhkd
 # p == polybar toggle
 # r == rofi theme selector
-# s == reload sxhkd
+# s == xfsettings
 # x == reload Xresources
 #
-super + e ; {d,c,e,p,r,s,w,x}
+super + e ; {d,c,e,k,p,r,s,w,x}
 	{pavucontrol, \
 	$HOME/bin/toggle-comp.sh, \
 	skippy-xd-toggle, \
+	pkill -USR1 sxhkd && notify-send -i "keyboard" "Reloaded key bindings", \
 	polybar-msg cmd toggle, \
 	rofi-theme-selector, \
-	pkill -USR1 sxhkd && notify-send -i "keyboard" "Reloaded key bindings", \
+	xfsettings, \
 	xrdb -I "$HOME" - merge "$HOME"/.Xresources \
 	}
 
@@ -74,7 +76,7 @@ super + {F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12}
     alacritty -e "zsh -ic neomutt", \
     Spotify, \
     rofi -show run -fullscreen, \
-    rofi-run.sh\
+    $HOME/bin/rofi-scripts/rofi-run.sh\
     }
 
 ###Terminal Emulators
@@ -91,7 +93,7 @@ ctrl + alt + Return ; {1,2,3}
 #Launch all graphical programs. Where these are alternatives to common CLI tools they
 # are mapped to the same number as their counterparts, but prepended
 # with a 'p'' (mnemonic for programs).
-super + p ; {1,2,3,4,5,6,7,8,9,0,-,=}
+super + p ; {1,2,3,4,5,6,7,8,9,0,minus,equals}
     {vivaldi-stable, \
     firefox, \
     qutebrowser, \
@@ -118,7 +120,7 @@ super + t ; {1,2,3,4,5,6,7,8,9,0}
 	alacritty -e "zsh -ic neomutt", \
 	alacritty -e "zsh -ic newsboat", \
 	alacritty -e "zsh -ic ncmpcpp" \
-  alacritty -e "zsh -ic ranger", \
+	alacritty -e "zsh -ic ranger", \
 	alacritty -e "zsh -ic nnn", \
 	}
 
@@ -131,10 +133,11 @@ super + shift + t ; {1,2,3,4,5,6}
 ###App launchers
 # DMENU in wal scheme, Rofi
 super + shift + {d,p}
-	 {dmenu-wal,rofi-run.sh}
+	 {$HOME/bin/dmenu-wal, \
+	 rofi -m -4 -location 0 -matching fuzzy -show run}
 
 {_,super +, shift +} Menu
-     {$HOME/bin/rofi-scripts/rofi-run.sh, \
+     {rofi -m -4 -location 0 -matching fuzzy -show run, \
      $HOME/bin/dmenu-wal, \
      $HOME/bin/rofi-scripts/windows, \
      }
