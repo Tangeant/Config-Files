@@ -82,9 +82,13 @@ alt + ctrl + {1-9}
 super + {y,b}
 	bspc node -f @{parent,brother}
 
-# Select previous / next desktop
+# Select previous / next occupied desktop
 super + {_,shift +}v
 	bspc desktop -f {prev.occupied,next.occupied}
+
+# Select previous / next desktop
+super + alt + {j,k}
+	bspc desktop -f {prev,next}
 
 # focus next/previous {desktop,node} on the current {monitor,desktop}
 {super,alt} + {_,shift + }Tab
@@ -153,6 +157,10 @@ super + ctrl+ {comma,period}
 #Send node to next monitor
 super + alt + {comma,period}
     bspc node -m {next,prev} --follow
+
+#Send node to next/previous desktop
+super + alt + {h,l}
+    bspc node -d {next,prev} --follow
 
 #Change window gap
 

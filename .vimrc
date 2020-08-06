@@ -24,6 +24,7 @@ Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dylanaraps/wal.vim'
+Plug 'wlemuel/vim-tldr'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

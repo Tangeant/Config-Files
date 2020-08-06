@@ -1,0 +1,6 @@
+#!/bin/sh
+
+###Shell script to update grub and replace grub.cfg automatically
+
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo mv /boot/grub/grub.cfg.new /boot/grub/grub.cfg
