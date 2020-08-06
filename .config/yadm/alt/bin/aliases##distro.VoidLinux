@@ -33,6 +33,7 @@ if ((UID != 0 )); then
     alias reboot='sudo init 6'
     alias shutdown='sudo init 0'
     alias update='sudo xbps-install -Su'
+    alias vpm='sudo vpm'
 fi
 
 ## ls
